@@ -52,7 +52,7 @@ If omitted, the default Access Control profile will be applied:
 ```
 
 
-### Creating collections
+### Exposing collections
 
 Collections are made available in the runtime if they're exported in the
 entrypoint file. After you define a collection using the

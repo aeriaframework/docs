@@ -22,7 +22,12 @@ export const [Pet, description] = defineDescription({
 })
 
 declare const pet: typeof Pet
-pet.name === 'Thor' // okay
-pet.specie === 'cat' // produces TS diagnostics; 'cat' type doesn't exist in 'dog' | 'fish' | 'bird'
-pet.name === 1 // error! type number doesn't overlap with string
+
+// okay
+pet.name === 'Thor'
+
+// produces TS diagnostics; 'cat' type doesn't exist in 'dog' | 'fish' | 'bird'
+pet.specie === 'cat'
+// error! type number doesn't overlap with string
+pet.name === 1
 ```
