@@ -64,8 +64,9 @@ function sidebarBackendReference() {
   return [
     {
       text: 'Collection',
-      link: '/backend/collection',
       items: [
+        { text: 'Collection', link: '/backend/collection' },
+        { text: 'Description', link: '/backend/description' },
         { text: 'defineCollection', link: '/backend/define-collection' },
         { text: 'defineDescription', link: '/backend/define-description' },
         { text: 'useFunctions', link: '/backend/use-functions' },

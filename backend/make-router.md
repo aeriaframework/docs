@@ -12,7 +12,7 @@ router.POST('/hello-world', (context) => {
   }
 })
 
-router.route(['GET', 'POST', 'PUT', 'DELETE'], '/ill-take-anything', (context) => {
+router.route(['GET', 'POST'], '/ill-take-anything', (context) => {
   return {
     message: 'Thanks for reaching out!',
     receivedMethod: context.request.method
