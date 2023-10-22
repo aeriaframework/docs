@@ -2,8 +2,8 @@ import { defineConfig } from 'vitepress'
 
 export default defineConfig({
   lang: 'en-US',
-  title: 'Semantic API',
-  description: 'Official documentation for Semantic API',
+  title: 'Aeria',
+  description: 'Official documentation for the Aeria Framework',
   base: '/docs/',
 
   lastUpdated: true,
@@ -20,7 +20,7 @@ export default defineConfig({
     socialLinks: [
       {
         icon: 'github',
-        link: 'https://github.com/semantic-api/semantic-api'
+        link: 'https://github.com/aeriaframework/aeria'
       }
     ]
   }
@@ -50,7 +50,7 @@ function sidebarGuide() {
       text: 'Introduction',
       collapsed: false,
       items: [
-        { text: 'What is Semantic API?', link: '/guide/what-is-semantic-api' },
+        { text: 'What is Aeria?', link: '/guide/what-is-aeria' },
         { text: 'Getting started', link: '/guide/getting-started' },
         { text: 'Setting the Backend up', link: '/guide/setting-the-backend-up' },
         { text: 'Setting the Frontend up', link: '/guide/setting-the-frontend-up' },
@@ -66,6 +66,7 @@ function sidebarBackendReference() {
       text: 'Collection',
       items: [
         { text: 'Collection', link: '/backend/collection' },
+        { text: 'CollectionProperty', link: '/backend/collection-property' },
         { text: 'Description', link: '/backend/description' },
         { text: 'defineCollection', link: '/backend/define-collection' },
         { text: 'defineDescription', link: '/backend/define-description' },
@@ -117,7 +118,6 @@ function sidebarFrontendReference() {
         { text: 'aeria-button', link: '/frontend/components/aeria-button' },
         { text: 'aeria-card', link: '/frontend/components/aeria-card' },
         { text: 'aeria-crud', link: '/frontend/components/aeria-crud' },
-        { text: 'aeria-grid', link: '/frontend/components/aeria-grid' },
         { text: 'aeria-grid', link: '/frontend/components/aeria-grid' },
         { text: 'aeria-info', link: '/frontend/components/aeria-info' },
         { text: 'aeria-main', link: '/frontend/components/aeria-main' },

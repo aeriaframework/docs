@@ -67,6 +67,59 @@ Description is an intersection of [JSON Schema](https://json-schema.org/) used t
 As in JSON Schema, this property is used to name the structure we are defining. It must have the same name as the collection.
 Collection names must consist of a camel-cased noun in the singular, like `person`, `fruit` or `car`.
 
+## filters <Badge type="tip" text="optional" /> <Badge type="tip" text="frontend" />
+
+This property is used to control a filter widget rendered inside the `aeria-crud` component. If set, a filter button will appear, otherwise no filter functionallity will be made available.
+
+The array passed to this property can contain two types of elements, either a string representing a property name, or an object containing both the property name and a default filter.
+
+```typescript
+type Description = {
+  filters?: ReadonlyArray<PropertiesWithId<TDescription>|{
+    property: PropertiesWithId<TDescription>
+    default: string
+  }>
+  // ...
+}
+```
+
+## filtersPresets <Badge type="tip" text="optional" /> <Badge type="tip" text="frontend" />
+
+<!-- This property is used to control a filter widget rendered inside the `aeria-crud` component. If set, a filter button will appear, otherwise no filter functionallity will be made available. -->
+
+<!-- The array passed to this property can contain two types of elements, either a string representing a property name, or an object containing both the property name and a default filter. -->
+
+```typescript
+type FiltersPreset<TDescription extends Description> = {
+  name?: string
+  icon?: string
+  filters: Partial<Record<PropertiesWithId<TDescription> | `$${string}`, any>>
+  table?: Array<PropertiesWithId<TDescription>>
+  badgeFunction?: string
+  default?: boolean
+}
+
+type Description = {
+  filtersPresets?: Record<string, FiltersPreset<TDescription>>
+  // ...
+}
+```
+
+## form <Badge type="tip" text="optional" /> <Badge type="tip" text="frontend" />
+
+If set, runtime generated forms will render only specified properties. Otherwise all properties are rendered.
+
+::: warning WARNING
+This property alone won't keep any of non-specified collection properties to be written. If you need to make properties read-only, use the `writable` property in an exclusive manner.
+:::
+
+```typescript
+type Description = {
+  form?: ReadonlyArray<PropertiesWithId<TDescription>>
+  // ...
+}
+```
+
 ## icon <Badge type="tip" text="optional" /> <Badge type="tip" text="frontend" />
 
 This property may be used to specify an icon from an icon library to be associated with the collection in the frontend.
@@ -78,15 +131,14 @@ type Description = {
   // ...
 }
 ```
-<!--   required?: ReadonlyArray<PropertiesWithId<TDescription>> -->
 
-## required <Badge type="tip" text="optional" />
+## immutable <Badge type="tip" text="optional" />
 
-This property is used to verify document wholeness upon creation and update. Case set to an array of strings, will consider only specified properties to validate document wholeness, otherwise will check if all properties are not null or undefined.
+This property may be used to specify properties that should be writable upon creation, but read-only upon update. If set to true, then will enable immutability to all properties, if set to an array of strings, only specified properties will receive that attribute.
 
 ```typescript
 type Description = {
-  required?: ReadonlyArray<PropertiesWithId<TDescription>>
+  immutable?: boolean|ReadonlyArray<string>
   // ...
 }
 ```
@@ -110,28 +162,6 @@ This property is used to control the access of user-owned resources. If set to t
 ```typescript
 type Description = {
   owned?: boolean | 'always'
-  // ...
-}
-```
-
-## timestamps <Badge type="tip" text="optional" />
-
-This property should only be used to disable automatic timestamps in a certain collection (`created_at` and `updated_at`). Timestamps are always enabled by default.
-
-```typescript
-type Description = {
-  timestamps?: false
-  // ...
-}
-```
-
-## immutable <Badge type="tip" text="optional" />
-
-This property may be used to specify properties that should be writable upon creation, but read-only upon update. If set to true, then will enable immutability to all properties, if set to an array of strings, only specified properties will receive that attribute.
-
-```typescript
-type Description = {
-  immutable?: boolean|ReadonlyArray<string>
   // ...
 }
 ```
@@ -162,17 +192,24 @@ type Description = {
 }
 ```
 
-## form <Badge type="tip" text="optional" /> <Badge type="tip" text="frontend" />
+## timestamps <Badge type="tip" text="optional" />
 
-If set, runtime generated forms will render only specified properties. Otherwise all properties are rendered.
-
-::: tip NOTE
-This property alone won't keep any of non-specified collection properties to be written. If you need to make properties read-only, use the `writable` property exclusively.
-:::
+This property should only be used to disable automatic timestamps in a certain collection (`created_at` and `updated_at`). Timestamps are always enabled by default.
 
 ```typescript
 type Description = {
-  form?: ReadonlyArray<PropertiesWithId<TDescription>>
+  timestamps?: false
+  // ...
+}
+```
+
+## required <Badge type="tip" text="optional" />
+
+This property is used to verify document wholeness upon creation and update. Case set to an array of strings, will consider only specified properties to validate document wholeness, otherwise will check if all properties are not null or undefined.
+
+```typescript
+type Description = {
+  required?: ReadonlyArray<PropertiesWithId<TDescription>>
   // ...
 }
 ```
@@ -184,44 +221,6 @@ If set, all properties except the one specified will be made read-only. Trying w
 ```typescript
 type Description = {
   form?: ReadonlyArray<PropertiesWithId<TDescription>>
-  // ...
-}
-```
-
-## filters <Badge type="tip" text="optional" /> <Badge type="tip" text="frontend" />
-
-This property is used to control a filter widget rendered inside the `aeria-crud` component. If set, a filter button will appear, otherwise no filter functionallity will be made available.
-
-The array passed to this property can contain two types of elements, either a string representing a property name, or an object containing both the property name and a default filter.
-
-```typescript
-type Description = {
-  filters?: ReadonlyArray<PropertiesWithId<TDescription>|{
-    property: PropertiesWithId<TDescription>
-    default: string
-  }>
-  // ...
-}
-```
-
-## filtersPresets <Badge type="tip" text="optional" /> <Badge type="tip" text="frontend" />
-
-<!-- This property is used to control a filter widget rendered inside the `aeria-crud` component. If set, a filter button will appear, otherwise no filter functionallity will be made available. -->
-
-<!-- The array passed to this property can contain two types of elements, either a string representing a property name, or an object containing both the property name and a default filter. -->
-
-```typescript
-export type FiltersPreset<TDescription extends Description> = {
-  name?: string
-  icon?: string
-  filters: Partial<Record<PropertiesWithId<TDescription> | `$${string}`, any>>
-  table?: Array<PropertiesWithId<TDescription>>
-  badgeFunction?: string
-  default?: boolean
-}
-
-type Description = {
-  filtersPresets?: Record<string, FiltersPreset<TDescription>>
   // ...
 }
 ```
