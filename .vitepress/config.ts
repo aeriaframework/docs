@@ -52,8 +52,8 @@ function sidebarGuide() {
       items: [
         { text: 'What is Semantic API?', link: '/guide/what-is-semantic-api' },
         { text: 'Getting started', link: '/guide/getting-started' },
-        { text: 'Setting the API up', link: '/guide/setting-the-api-up' },
-        { text: 'Setting the Web up', link: '/guide/setting-the-web-up' },
+        { text: 'Setting the Backend up', link: '/guide/setting-the-backend-up' },
+        { text: 'Setting the Frontend up', link: '/guide/setting-the-frontend-up' },
         { text: 'Deploy', link: '/guide/deploy' },
       ]
     }
@@ -63,8 +63,8 @@ function sidebarGuide() {
 function sidebarBackendReference() {
   return [
     {
-      text: 'Collections',
-      link: '/backend/collections',
+      text: 'Collection',
+      link: '/backend/collection',
       items: [
         { text: 'defineCollection', link: '/backend/define-collection' },
         { text: 'defineDescription', link: '/backend/define-description' },
