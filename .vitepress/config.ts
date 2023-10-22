@@ -4,6 +4,7 @@ export default defineConfig({
   lang: 'en-US',
   title: 'Semantic API',
   description: 'Official documentation for Semantic API',
+  base: '/docs/',
 
   lastUpdated: true,
   cleanUrls: true,
