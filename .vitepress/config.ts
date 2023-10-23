@@ -65,12 +65,26 @@ function sidebarBackendReference() {
     {
       text: 'Collection',
       items: [
+        { text: 'AccessControl', link: '/backend/access-control' },
         { text: 'Collection', link: '/backend/collection' },
         { text: 'CollectionProperty', link: '/backend/collection-property' },
         { text: 'Description', link: '/backend/description' },
         { text: 'defineCollection', link: '/backend/define-collection' },
         { text: 'defineDescription', link: '/backend/define-description' },
         { text: 'useFunctions', link: '/backend/use-functions' },
+      ]
+    },
+    {
+      text: 'Functions',
+      items: [
+        { text: 'count', link: '/backend/count' },
+        { text: 'get', link: '/backend/get' },
+        { text: 'getAll', link: '/backend/get-all' },
+        { text: 'insert', link: '/backend/insert' },
+        { text: 'remove', link: '/backend/remove' },
+        { text: 'removeAll', link: '/backend/remove-all' },
+        { text: 'removeFile', link: '/backend/remove-file' },
+        { text: 'upload', link: '/backend/upload' },
       ]
     },
     {
