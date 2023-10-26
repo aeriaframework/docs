@@ -127,7 +127,6 @@ function sidebarFrontendReference() {
       text: 'Components',
       link: '/backend/collections',
       items: [
-        { text: 'aeria-crud', link: '/frontend/components/aeria-crud' },
         { text: 'aeria-bare-button', link: '/frontend/components/aeria-bare-button' },
         { text: 'aeria-button', link: '/frontend/components/aeria-button' },
         { text: 'aeria-card', link: '/frontend/components/aeria-card' },

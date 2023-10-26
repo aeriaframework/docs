@@ -1,10 +1,6 @@
 # aeria-grid
 
-Used to create a grid with standardized gap and responsiveness breakpoints.
-
-## Slots
-
-- default (required): the contents of the grid.
+This components returns a grid with standardized gaps and responsiveness breakpoints.
 
 ## Example
 
@@ -24,3 +20,10 @@ Used to create a grid with standardized gap and responsiveness breakpoints.
   </aeria-grid>
 </template>
 ```
+
+## Slots
+
+### default
+
+Elements to be put inside the grid.
+

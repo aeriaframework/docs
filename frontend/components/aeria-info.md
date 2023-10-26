@@ -1,4 +1,6 @@
-# aeria-icon
+# aeria-info
+
+This component will render the content of the `text` slot inside a floating baloon when the mouse pointer is hovering the `default` slot.
 
 ## Example
 
@@ -13,3 +15,15 @@
   </aeria-info>
 </template>
 ```
+
+## Slots
+
+### default
+
+This slot must contain a single relatively positioned element. It can be anything.
+
+### text
+
+The content of this slot will be shown when user pointer is over the `default` slot.
+
+
