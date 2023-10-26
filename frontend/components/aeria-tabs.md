@@ -7,7 +7,6 @@
 type Section = 
   | 'home'
   | 'about'
-  | 'contact'
 
 const router = await useRouter()
 const section = computed(() => {
@@ -28,10 +27,6 @@ const section = computed(() => {
   
   <div v-if="section === 'about'">
     About us...
-  </div>
-
-  <div v-if="section === 'contact'">
-    Contact us...
   </div>
 </template>
 ```

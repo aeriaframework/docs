@@ -11,7 +11,26 @@ export default defineConfig({
   ignoreDeadLinks: true,
 
   themeConfig: {
-    nav: nav(),
+    nav: [
+      {
+        text: 'Guide',
+        link: '/guide/getting-started',
+        activeMatch: '^/guide/'
+      },
+      {
+        text: 'Reference',
+        activeMatch: '^/(backend|frontend)//',
+        items: [
+          { text: 'Backend Reference', link: '/backend/', activeMatch: '^/backend/' },
+          { text: 'Frontend Reference', link: '/frontend/', activeMatch: '^/frontend/' },
+        ]
+      },
+      {
+        text: 'Jobs',
+        link: '/jobs/',
+        activeMatch: '^/jobs/'
+      },
+    ],
     sidebar: {
       '/guide/': sidebarGuide(),
       '/backend/': sidebarBackendReference(),
@@ -25,24 +44,6 @@ export default defineConfig({
     ]
   }
 })
-
-function nav() {
-  return [
-    { text: 'Guide', link: '/guide/getting-started', activeMatch: '/guide/' },
-    { text: 'Backend Reference', link: '/backend/', activeMatch: '/backend/' },
-    { text: 'Frontend Reference', link: '/frontend/', activeMatch: '/frontend/' },
-    // {
-    //   text: 'Reference',
-    //   activeMatch: '^/(api|server|system)/',
-    //   items: [
-    //     { text: '@semantic-api/access-control', link: '/access-control/' },
-    //     { text: '@semantic-api/api', link: '/backend/' },
-    //     { text: '@semantic-api/server', link: '/server/' },
-    //     { text: '@semantic-api/system', link: '/system/' },
-    //   ]
-    // }
-  ]
-}
 
 function sidebarGuide() {
   return [
