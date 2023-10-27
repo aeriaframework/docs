@@ -25,11 +25,6 @@ export default defineConfig({
           { text: 'Aeria UI', link: '/aeria-ui/', activeMatch: '^/aeria-ui/' },
         ]
       },
-      {
-        text: 'Jobs',
-        link: '/jobs/',
-        activeMatch: '^/jobs/'
-      },
     ],
     sidebar: {
       '/guide/': sidebarGuide(),
