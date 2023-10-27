@@ -19,10 +19,10 @@ export default defineConfig({
       },
       {
         text: 'Reference',
-        activeMatch: '^/(backend|frontend)//',
+        activeMatch: '^/(aeria|aeria-ui)//',
         items: [
-          { text: 'Backend Reference', link: '/backend/', activeMatch: '^/backend/' },
-          { text: 'Frontend Reference', link: '/frontend/', activeMatch: '^/frontend/' },
+          { text: 'Aeria', link: '/aeria/', activeMatch: '^/aeria/' },
+          { text: 'Aeria UI', link: '/aeria-ui/', activeMatch: '^/aeria-ui/' },
         ]
       },
       {
@@ -33,8 +33,8 @@ export default defineConfig({
     ],
     sidebar: {
       '/guide/': sidebarGuide(),
-      '/backend/': sidebarBackendReference(),
-      '/frontend/': sidebarFrontendReference()
+      '/aeria/': sidebarBackendReference(),
+      '/aeria-ui/': sidebarFrontendReference()
     },
     socialLinks: [
       {
@@ -53,8 +53,8 @@ function sidebarGuide() {
       items: [
         { text: 'What is Aeria?', link: '/guide/what-is-aeria' },
         { text: 'Getting started', link: '/guide/getting-started' },
-        { text: 'Setting the Backend up', link: '/guide/setting-the-backend-up' },
-        { text: 'Setting the Frontend up', link: '/guide/setting-the-frontend-up' },
+        { text: 'Setting the Backend up', link: '/guide/setting-the-aeria-up' },
+        { text: 'Setting the Frontend up', link: '/guide/setting-the-aeria-ui-up' },
         { text: 'Deploy', link: '/guide/deploy' },
       ]
     }
@@ -66,48 +66,49 @@ function sidebarBackendReference() {
     {
       text: 'Collection',
       items: [
-        { text: 'AccessControl', link: '/backend/access-control' },
-        { text: 'Collection', link: '/backend/collection' },
-        { text: 'CollectionProperty', link: '/backend/collection-property' },
-        { text: 'Description', link: '/backend/description' },
-        { text: 'defineCollection', link: '/backend/define-collection' },
-        { text: 'defineDescription', link: '/backend/define-description' },
-        { text: 'useFunctions', link: '/backend/use-functions' },
+        { text: 'AccessControl', link: '/aeria/access-control' },
+        { text: 'Collection', link: '/aeria/collection' },
+        { text: 'CollectionProperty', link: '/aeria/collection-property' },
+        { text: 'Description', link: '/aeria/description' },
+        { text: 'defineCollection', link: '/aeria/define-collection' },
+        { text: 'defineDescription', link: '/aeria/define-description' },
+        { text: 'traverseDocument', link: '/aeria/traverse-document' },
+        { text: 'useFunctions', link: '/aeria/use-functions' },
       ]
     },
     {
       text: 'Functions',
       items: [
-        { text: 'count', link: '/backend/count' },
-        { text: 'get', link: '/backend/get' },
-        { text: 'getAll', link: '/backend/get-all' },
-        { text: 'insert', link: '/backend/insert' },
-        { text: 'remove', link: '/backend/remove' },
-        { text: 'removeAll', link: '/backend/remove-all' },
-        { text: 'removeFile', link: '/backend/remove-file' },
-        { text: 'upload', link: '/backend/upload' },
+        { text: 'count', link: '/aeria/count' },
+        { text: 'get', link: '/aeria/get' },
+        { text: 'getAll', link: '/aeria/get-all' },
+        { text: 'insert', link: '/aeria/insert' },
+        { text: 'remove', link: '/aeria/remove' },
+        { text: 'removeAll', link: '/aeria/remove-all' },
+        { text: 'removeFile', link: '/aeria/remove-file' },
+        { text: 'upload', link: '/aeria/upload' },
       ]
     },
     {
       text: 'Routing',
-      link: '/backend/routing',
+      link: '/aeria/routing',
       items: [
-        { text: 'makeRouter', link: '/backend/make-router' }
+        { text: 'makeRouter', link: '/aeria/make-router' }
       ]
     },
     {
       text: 'Validation',
-      link: '/backend/validation',
+      link: '/aeria/validation',
       items: [
-        { text: 'validate', link: '/backend/validate' },
-        { text: 'validateSilently', link: '/backend/validate-silently' },
+        { text: 'validate', link: '/aeria/validate' },
+        { text: 'validateSilently', link: '/aeria/validate-silently' },
       ]
     },
     {
       text: 'Error handling',
-      link: '/backend/error-handling',
+      link: '/aeria/error-handling',
       items: [
-        { text: 'Either', link: '/backend/either' },
+        { text: 'Either', link: '/aeria/either' },
       ]
     },
   ]
@@ -117,50 +118,49 @@ function sidebarFrontendReference() {
   return [
     {
       text: 'Stores',
-      link: '/frontend/stores',
       items: [
-        { text: 'useStore', link: '/frontend/use-store' },
-        { text: 'registerStore', link: '/frontend/register-store' },
-        { text: 'createCollectionStore', link: '/frontend/create-collection-store' },
+        { text: 'useStore', link: '/aeria-ui/use-store' },
+        { text: 'registerStore', link: '/aeria-ui/register-store' },
+        { text: 'createCollectionStore', link: '/aeria-ui/create-collection-store' },
+      ]
+    },
+    {
+      text: 'Composables',
+      items: [
+        { text: 'useAction', link: '/aeria-ui/use-action' },
+        { text: 'useBreakpoints', link: '/aeria-ui/use-breakpoints' },
+        { text: 'useClipboard', link: '/aeria-ui/use-clipboard' },
+        { text: 'useCondition', link: '/aeria-ui/use-condition' },
+        { text: 'useDebounce', link: '/aeria-ui/use-debounce' },
+        { text: 'useNavbar', link: '/aeria-ui/use-navbar' },
+        { text: 'usePasswordPolicy', link: '/aeria-ui/use-password-policy' },
+        { text: 'useRouter', link: '/aeria-ui/use-router' },
+      ]
+    },
+    {
+      text: 'Directives',
+      items: [
+        { text: 'v-clickable', link: '/aeria-ui/v-clickable' },
+        { text: 'v-focus', link: '/aeria-ui/v-focus' },
+        { text: 'v-loading', link: '/aeria-ui/v-loading' },
+        { text: 'v-overlay', link: '/aeria-ui/v-overlay' },
+        { text: 'v-theme', link: '/aeria-ui/v-theme' },
       ]
     },
     {
       text: 'Components',
-      link: '/backend/collections',
       items: [
-        { text: 'aeria-bare-button', link: '/frontend/components/aeria-bare-button' },
-        { text: 'aeria-button', link: '/frontend/components/aeria-button' },
-        { text: 'aeria-card', link: '/frontend/components/aeria-card' },
-        { text: 'aeria-crud', link: '/frontend/components/aeria-crud' },
-        { text: 'aeria-grid', link: '/frontend/components/aeria-grid' },
-        { text: 'aeria-info', link: '/frontend/components/aeria-info' },
-        { text: 'aeria-main', link: '/frontend/components/aeria-main' },
-        { text: 'aeria-picture', link: '/frontend/components/aeria-picture' },
-        { text: 'aeria-table', link: '/frontend/components/aeria-table' },
-        { text: 'aeria-tabs', link: '/frontend/components/aeria-tabs' },
+        { text: 'aeria-bare-button', link: '/aeria-ui/components/aeria-bare-button' },
+        { text: 'aeria-button', link: '/aeria-ui/components/aeria-button' },
+        { text: 'aeria-card', link: '/aeria-ui/components/aeria-card' },
+        { text: 'aeria-crud', link: '/aeria-ui/components/aeria-crud' },
+        { text: 'aeria-grid', link: '/aeria-ui/components/aeria-grid' },
+        { text: 'aeria-info', link: '/aeria-ui/components/aeria-info' },
+        { text: 'aeria-main', link: '/aeria-ui/components/aeria-main' },
+        { text: 'aeria-picture', link: '/aeria-ui/components/aeria-picture' },
+        { text: 'aeria-table', link: '/aeria-ui/components/aeria-table' },
+        { text: 'aeria-tabs', link: '/aeria-ui/components/aeria-tabs' },
       ]
     },
-    // {
-    //   text: 'Routing',
-    //   link: '/backend/routing',
-    //   items: [
-    //     { text: 'makeRouter', link: '/backend/make-router' }
-    //   ]
-    // },
-    // {
-    //   text: 'Validation',
-    //   link: '/backend/validation',
-    //   items: [
-    //     { text: 'validate', link: '/backend/validate' },
-    //     { text: 'validateSilently', link: '/backend/validate-silently' },
-    //   ]
-    // },
-    // {
-    //   text: 'Error handling',
-    //   link: '/backend/error-handling',
-    //   items: [
-    //     { text: 'Either', link: '/backend/either' },
-    //   ]
-    // },
   ]
 }

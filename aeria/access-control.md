@@ -42,7 +42,7 @@ export const collections = {
 
 ## Role
 
-#### inherit <Badge type="tip" text="string[]" />
+### inherit <Badge type="tip" text="string[]" />
 
 Will merge the specifies roles in a new one.
 
@@ -61,7 +61,7 @@ Will merge the specifies roles in a new one.
 }
 ```
 
-#### grant <Badge type="tip" text="string[]" />
+### grant <Badge type="tip" text="string[]" />
 
 Will deny access to all functions, except the ones contained within the array.
 
@@ -77,7 +77,7 @@ Will deny access to all functions, except the ones contained within the array.
 }
 ```
 
-#### forbid <Badge type="tip" text="string[]" />
+### forbid <Badge type="tip" text="string[]" />
 
 Will allow access to all functions, except the ones contained within the array.
 
@@ -94,7 +94,7 @@ Will allow access to all functions, except the ones contained within the array.
 }
 ```
 
-#### grantEverything <Badge type="tip" text="boolean" />
+### grantEverything <Badge type="tip" text="boolean" />
 
 If set to true, grants access to every function to the role.
 
@@ -110,11 +110,11 @@ If set to true, grants access to every function to the role.
 
 ## Default roles
 
-#### root
+### root
 
 When the `accessControl` property of a collection is omitted, the access to all of its functions is granted to the `root` role. Every builtin collection has this role set by default.
 
-#### guest
+### guest
 
 When no authentication token is present and there's no authenticated user, the session will have the `guest` role. This role is granted nothing by default.
 

@@ -1,3 +1,0 @@
-# Frontend Reference
-
-Test

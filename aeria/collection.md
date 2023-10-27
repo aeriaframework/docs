@@ -15,26 +15,26 @@ export type CollectionStructure<TCollectionStructure extends CollectionStructure
 }
 ```
 
-## item
+## item <Badge type="tip" text="any" />
 
 The `item` property is never used by the runtime. It serves only the purpose of typing.
 The value of this property is the first element of the tuple returned by `defineDescription`.
 
-## description
+## description <Badge type="tip" text="Description" />
 
 The `description` property is where the properties of your collection are
 defined, alongside some behavior rules. It should always be strongely typed
 using the `defineDescription` function. Descriptions have their own complexity,
 you can learn more about them in the `Description` page.
 
-## security
+## security <Badge type="tip" text="SecurityPolicy" /> <Badge type="tip" text="optional" />
 
 This property is used to define security policies.
 Learn more about security policies in the `SecurityPolicy` page.
 
 If omitted, no Security Policy will be applied.
 
-## accessControl
+## accessControl <Badge type="tip" text="AccessControl" /> <Badge type="tip" text="optional" />
 
 This property is used to restrict access to the endpoints of the collections by role.
 Learn more about access control in the `AccessControl` page.
