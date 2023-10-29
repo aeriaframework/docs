@@ -86,22 +86,20 @@ function sidebarBackendReference() {
     },
     {
       text: 'Routing',
-      link: '/aeria/routing',
       items: [
         { text: 'makeRouter', link: '/aeria/make-router' }
       ]
     },
     {
       text: 'Validation',
-      link: '/aeria/validation',
       items: [
         { text: 'validate', link: '/aeria/validate' },
         { text: 'validateSilently', link: '/aeria/validate-silently' },
+        { text: 'validator', link: '/aeria/validator' },
       ]
     },
     {
       text: 'Error handling',
-      link: '/aeria/error-handling',
       items: [
         { text: 'Either', link: '/aeria/either' },
       ]
