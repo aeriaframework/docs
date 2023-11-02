@@ -28,8 +28,8 @@ export default defineConfig({
     ],
     sidebar: {
       '/guide/': sidebarGuide(),
-      '/aeria/': sidebarBackendReference(),
-      '/aeria-ui/': sidebarFrontendReference()
+      '/aeria/': sidebarAeriaReference(),
+      '/aeria-ui/': sidebarAeriaUiReference()
     },
     socialLinks: [
       {
@@ -48,16 +48,20 @@ function sidebarGuide() {
       items: [
         { text: 'What is Aeria?', link: '/guide/what-is-aeria' },
         { text: 'Getting started', link: '/guide/getting-started' },
-        { text: 'Setting the Backend up', link: '/guide/setting-the-aeria-up' },
-        { text: 'Setting the Frontend up', link: '/guide/setting-the-aeria-ui-up' },
+        { text: 'Setting the Aeria up', link: '/guide/setting-the-aeria-up' },
+        { text: 'Setting the AeriaUi up', link: '/guide/setting-the-aeria-ui-up' },
         { text: 'Deploy', link: '/guide/deploy' },
       ]
     }
   ]
 }
 
-function sidebarBackendReference() {
+function sidebarAeriaReference() {
   return [
+    {
+      text: 'Problem solving',
+      link: '/aeria/problem-solving/'
+    },
     {
       text: 'Collection',
       items: [
@@ -107,8 +111,12 @@ function sidebarBackendReference() {
   ]
 }
 
-function sidebarFrontendReference() {
+function sidebarAeriaUiReference() {
   return [
+    {
+      text: 'Problem solving',
+      link: '/aeria-ui/problem-solving/'
+    },
     {
       text: 'Stores',
       items: [
