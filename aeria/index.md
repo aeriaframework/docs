@@ -2,11 +2,11 @@
 
 ## Types
 
-- [`ApiConfig`](/api/api-config)
-- [`Description`](/api/description)
-- [`Algorithm`](/api/algorithm)
-- [`Collection`](/api/collection)
-- [`Context`](/api/context)
+- [`ApiConfig`](/aeria/api-config)
+- [`Description`](/aeria/description)
+- [`Algorithm`](/aeria/algorithm)
+- [`Collection`](/aeria/collection)
+- [`Context`](/aeria/context)
 
 ## Public API
 

@@ -4,7 +4,7 @@ export default defineConfig({
   lang: 'en-US',
   title: 'Aeria',
   description: 'Official documentation for the Aeria Framework',
-  base: '/docs/',
+  base: '/',
 
   lastUpdated: true,
   cleanUrls: true,
