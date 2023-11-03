@@ -1,9 +1,9 @@
 # Collection
 
-Aeria has builtin primitives for persistent data storage. The word `collection` reads the same in Aeria as in `MongoDB`, but with a few differences.
-In both Aeria and MongoDB, a collection is a noun that represents a serie of documents with consistent structure that are stored in a database.
+Aeria has builtin primitives for persistent data storage. Each collection equals to a table in a relational database, or to a document database collection, but aside from the data access itself, an Aeria collection may have access control, security, and functions set.
 
-In addition to MongoDB, Aeria will provide validation, security, access control, and business logic primitives to retrieve and store data.
+Direct access to MongoDB collection is possible through `context.model`, but validation, autocasting and autopopulation of references won't be available. The CRUD functions available through `context.collection.functions` are the standard and should be preferred.
+
 
 ```typescript
 export type CollectionStructure<TCollectionStructure extends CollectionStructure = any> = {
