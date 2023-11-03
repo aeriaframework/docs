@@ -1,5 +1,7 @@
 # Aeria UI Reference
 
+To see how common problems are solved using Aeria UI, visit [Problem solving](/aeria-ui/problem-solving/).
+
 ## Public API
 
 - [`createCollectionStore`](/aeria-ui/create-collection-store)
