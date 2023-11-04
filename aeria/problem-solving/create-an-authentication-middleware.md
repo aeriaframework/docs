@@ -4,7 +4,7 @@ Collections have an intrisic `accessControl` property you can use to control whe
 
 ## How-to
 
-1. Create a folder named `middlewares` inside your project's `api/src` folder, then place two files inside it, one named `authenticated.ts` and another named `index.ts`.
+1. Create a folder named `middlewares` inside your project's `api/src` folder, then place two files inside it, one named `auth.ts` and another named `index.ts`.
 
 2. Inside the `auth.ts` export an `RouterOptions` object like the one below. You can extend the `middleware` function to also check for specific roles in `context.token.user.roles`.
 

@@ -1,6 +1,6 @@
 # useFunctions
 
-This is a shorthand function intended to reduce the boilerplate needed to pass in default functions to `Collection` definitions. Functions will be returned strongely typed with the type passed to the template argument.
+This is a shorthand function intended to reduce the boilerplate needed to pass in builtin functions to `Collection` definitions. Functions will be returned strongely typed with the type passed to the template argument.
 
 ## Example usage
 
