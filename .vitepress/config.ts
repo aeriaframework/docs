@@ -76,24 +76,20 @@ function sidebarAeriaReference() {
       ]
     },
     {
-      text: 'Routing',
-      items: [
-        { text: 'makeRouter', link: '/aeria/router-options' },
-        { text: 'makeRouter', link: '/aeria/make-router' }
-      ]
-    },
-    {
       text: 'Validation',
       items: [
+        { text: 'ValidationError', link: '/aeria/validationError' },
         { text: 'validate', link: '/aeria/validate' },
         { text: 'validateSilently', link: '/aeria/validate-silently' },
         { text: 'validator', link: '/aeria/validator' },
       ]
     },
     {
-      text: 'Error handling',
+      text: 'Miscellaneous',
       items: [
         { text: 'Either', link: '/aeria/either' },
+        { text: 'RouterOptions', link: '/aeria/router-options' },
+        { text: 'makeRouter', link: '/aeria/make-router' }
       ]
     },
   ]
@@ -138,6 +134,7 @@ function sidebarAeriaUiReference() {
     },
     {
       text: 'Components',
+      collapsed: true,
       items: [
         { text: 'aeria-bare-button', link: '/aeria-ui/components/aeria-bare-button' },
         { text: 'aeria-button', link: '/aeria-ui/components/aeria-button' },
