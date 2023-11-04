@@ -11,8 +11,6 @@ To see how common problems are solved using Aeria, visit [Problem solving](/aeri
 
 ## Public API
 
-- [`createModel`]()
-- [`createContext`]()
 - [`defineAliasDescription`]()
 - [`defineDescription`]()
 - [`defineCollection`](/aeria/define-collection)

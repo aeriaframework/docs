@@ -76,21 +76,9 @@ function sidebarAeriaReference() {
       ]
     },
     {
-      text: 'Functions',
-      items: [
-        { text: 'count', link: '/aeria/count' },
-        { text: 'get', link: '/aeria/get' },
-        { text: 'getAll', link: '/aeria/get-all' },
-        { text: 'insert', link: '/aeria/insert' },
-        { text: 'remove', link: '/aeria/remove' },
-        { text: 'removeAll', link: '/aeria/remove-all' },
-        { text: 'removeFile', link: '/aeria/remove-file' },
-        { text: 'upload', link: '/aeria/upload' },
-      ]
-    },
-    {
       text: 'Routing',
       items: [
+        { text: 'makeRouter', link: '/aeria/router-options' },
         { text: 'makeRouter', link: '/aeria/make-router' }
       ]
     },

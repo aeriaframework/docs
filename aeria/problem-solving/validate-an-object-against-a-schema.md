@@ -2,10 +2,12 @@
 
 ## How-to
 
-1. Use `defineDescription` to derive a tuple containing a type and the description of the object we want to validate. You may export this tuple inside a file named `dto.ts`.
+1. Use the `validator` helper to derive a tuple containing a type and a function that will validate the target object. You may export this tuple inside a file named `dto.ts`.
 
 ```typescript
-export const [PetQuery, petQueryDescription] = defineDescription({
+import { validator } from 'sonata-api'
+
+export const [PetQuery, validatePetDescription] = validator({
   properties: {
     name: {
       type: 'string'
@@ -24,10 +26,10 @@ export const [PetQuery, petQueryDescription] = defineDescription({
 
 ```typescript
 import { validate, isLeft, unwrapEither } from 'sonata-api'
-import { PetQuery, petQueryDescription } from './dto'
+import { PetQuery, validatePetDescription } from './dto'
 
 export const myRoute = (payload: PetQuery, context: Context) => {
-  const queryEither = validate(payload, petQueryDescription)
+  const queryEither = validatePetDescription(payload)
 
   if( isLeft(queryEither) ) {
     const error = unwrapEither(queryEither)
@@ -41,7 +43,7 @@ export const myRoute = (payload: PetQuery, context: Context) => {
 }
 ```
 
-3. A more succint approach is possible with `validateSilently`. This function will just return `null` in case the validation fails, so there will be no `Either` to unpack, but the validation error is also not retrieved.
+3. A more succinct approach is possible with `validateSilently`. This function will just return `null` in case the validation fails, so there will be no `Either` to unpack, but the validation error is also not retrieved.
 
 ```typescript
 import { validateSilently, isLeft, unwrapEither } from 'sonata-api'
