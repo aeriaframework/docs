@@ -59,8 +59,8 @@ function sidebarGuide() {
 function sidebarAeriaReference() {
   return [
     {
-      text: 'Problem solving',
-      link: '/aeria/problem-solving/'
+      text: 'Help Topics',
+      link: '/aeria/help-topics/'
     },
     {
       text: 'Collection',
@@ -98,8 +98,8 @@ function sidebarAeriaReference() {
 function sidebarAeriaUiReference() {
   return [
     {
-      text: 'Problem solving',
-      link: '/aeria-ui/problem-solving/'
+      text: 'Help Topics',
+      link: '/aeria-ui/help-topics/'
     },
     {
       text: 'Stores',
@@ -107,6 +107,22 @@ function sidebarAeriaUiReference() {
         { text: 'useStore', link: '/aeria-ui/use-store' },
         { text: 'registerStore', link: '/aeria-ui/register-store' },
         { text: 'createCollectionStore', link: '/aeria-ui/create-collection-store' },
+      ]
+    },
+    {
+      text: 'Components',
+      collapsed: true,
+      items: [
+        { text: 'aeria-bare-button', link: '/aeria-ui/components/aeria-bare-button' },
+        { text: 'aeria-button', link: '/aeria-ui/components/aeria-button' },
+        { text: 'aeria-card', link: '/aeria-ui/components/aeria-card' },
+        { text: 'aeria-crud', link: '/aeria-ui/components/aeria-crud' },
+        { text: 'aeria-grid', link: '/aeria-ui/components/aeria-grid' },
+        { text: 'aeria-info', link: '/aeria-ui/components/aeria-info' },
+        { text: 'aeria-main', link: '/aeria-ui/components/aeria-main' },
+        { text: 'aeria-picture', link: '/aeria-ui/components/aeria-picture' },
+        { text: 'aeria-table', link: '/aeria-ui/components/aeria-table' },
+        { text: 'aeria-tabs', link: '/aeria-ui/components/aeria-tabs' },
       ]
     },
     {
@@ -124,28 +140,13 @@ function sidebarAeriaUiReference() {
     },
     {
       text: 'Directives',
+      collapsed: true,
       items: [
         { text: 'v-clickable', link: '/aeria-ui/v-clickable' },
         { text: 'v-focus', link: '/aeria-ui/v-focus' },
         { text: 'v-loading', link: '/aeria-ui/v-loading' },
         { text: 'v-overlay', link: '/aeria-ui/v-overlay' },
         { text: 'v-theme', link: '/aeria-ui/v-theme' },
-      ]
-    },
-    {
-      text: 'Components',
-      collapsed: true,
-      items: [
-        { text: 'aeria-bare-button', link: '/aeria-ui/components/aeria-bare-button' },
-        { text: 'aeria-button', link: '/aeria-ui/components/aeria-button' },
-        { text: 'aeria-card', link: '/aeria-ui/components/aeria-card' },
-        { text: 'aeria-crud', link: '/aeria-ui/components/aeria-crud' },
-        { text: 'aeria-grid', link: '/aeria-ui/components/aeria-grid' },
-        { text: 'aeria-info', link: '/aeria-ui/components/aeria-info' },
-        { text: 'aeria-main', link: '/aeria-ui/components/aeria-main' },
-        { text: 'aeria-picture', link: '/aeria-ui/components/aeria-picture' },
-        { text: 'aeria-table', link: '/aeria-ui/components/aeria-table' },
-        { text: 'aeria-tabs', link: '/aeria-ui/components/aeria-tabs' },
       ]
     },
   ]

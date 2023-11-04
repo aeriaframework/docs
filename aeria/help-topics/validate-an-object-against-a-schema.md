@@ -22,7 +22,7 @@ export const [PetQuery, validatePetDescription] = validator({
 })
 ```
 
-2. The `validate` function can now be used to validate an object against the description we just created. This function returns an `Either<ValidationError, Result>` that can be unwraped using `unwrapEither` (see [Unwrap an Either value](/aeria/problem-solving/unwrap-an-either-value) section of this document).
+2. The `validate` function can now be used to validate an object against the description we just created. This function returns an `Either<ValidationError, Result>` that can be unwraped using `unwrapEither` (see [Unwrap an Either value](/aeria/help-topics/unwrap-an-either-value) section of this document).
 
 ```typescript
 import { validate, isLeft, unwrapEither } from 'sonata-api'

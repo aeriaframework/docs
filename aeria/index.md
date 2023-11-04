@@ -1,6 +1,6 @@
 # Aeria Reference
 
-To see how common problems are solved using Aeria, visit [Problem solving](/aeria/problem-solving/).
+To see how common problems are solved using Aeria, visit [Help Topics](/aeria/help-topics/).
 
 ## Types
 
