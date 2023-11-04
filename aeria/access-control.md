@@ -44,7 +44,7 @@ export const collections = {
 
 ### inherit <Badge type="tip" text="string[]" />
 
-Will merge the specifies roles in a new one.
+Will merge the specified roles in a new one.
 
 ```typescript
 {

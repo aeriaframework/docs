@@ -35,7 +35,7 @@ if( isLeft(resultEither) ) {
 }
 ```
 
-2. Typescript type system is smart enough to determine that, if `resultEither` is a `Left` the function will return imediatelly, then after the `if` the type is automatically narrowed to a `Right`. We may get our successful result using `unwrapEither` again.
+2. TypeScript type system is smart enough to determine that, if `resultEither` is a `Left` the function will return imediatelly, then after the `if` the type is automatically narrowed to a `Right`. We may get our successful result using `unwrapEither` again.
 
 ```typescript
 const result = unwrapEither(resultEither)
