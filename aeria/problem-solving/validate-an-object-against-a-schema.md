@@ -44,7 +44,7 @@ export const myRoute = (payload: PetQuery, context: Context) => {
 3. A more succint approach is possible with `validateSilently`. This function will just return `null` in case the validation fails, so there will be no `Either` to unpack, but the validation error is also not retrieved.
 
 ```typescript
-import { validate, isLeft, unwrapEither } from 'sonata-api'
+import { validateSilently, isLeft, unwrapEither } from 'sonata-api'
 import { PetQuery, petQueryDescription } from './dto'
 
 export const myRoute = (payload: PetQuery, context: Context) => {
