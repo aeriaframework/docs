@@ -20,7 +20,7 @@ import {
   useFunctions
 } from 'aeria'
 
-const [Person, description] = defineDescription({
+const [person, description] = definedescription({
   $id: 'person',
   properties: {
     name: {

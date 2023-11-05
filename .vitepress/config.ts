@@ -48,8 +48,6 @@ function sidebarGuide() {
       items: [
         { text: 'What is Aeria?', link: '/guide/what-is-aeria' },
         { text: 'Getting started', link: '/guide/getting-started' },
-        { text: 'Setting the Aeria up', link: '/guide/setting-the-aeria-up' },
-        { text: 'Setting the AeriaUi up', link: '/guide/setting-the-aeria-ui-up' },
         { text: 'Deploy', link: '/guide/deploy' },
       ]
     }
@@ -102,14 +100,6 @@ function sidebarAeriaUiReference() {
       link: '/aeria-ui/help-topics/'
     },
     {
-      text: 'Stores',
-      items: [
-        { text: 'useStore', link: '/aeria-ui/use-store' },
-        { text: 'registerStore', link: '/aeria-ui/register-store' },
-        { text: 'createCollectionStore', link: '/aeria-ui/create-collection-store' },
-      ]
-    },
-    {
       text: 'Components',
       collapsed: true,
       items: [
@@ -123,6 +113,14 @@ function sidebarAeriaUiReference() {
         { text: 'aeria-picture', link: '/aeria-ui/components/aeria-picture' },
         { text: 'aeria-table', link: '/aeria-ui/components/aeria-table' },
         { text: 'aeria-tabs', link: '/aeria-ui/components/aeria-tabs' },
+      ]
+    },
+    {
+      text: 'Stores',
+      items: [
+        { text: 'useStore', link: '/aeria-ui/use-store' },
+        { text: 'registerStore', link: '/aeria-ui/register-store' },
+        { text: 'createCollectionStore', link: '/aeria-ui/create-collection-store' },
       ]
     },
     {

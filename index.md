@@ -4,7 +4,7 @@ layout: home
 hero:
     name: Aeria
     text: A web framework tuned for security and efficiency
-    tagline: Keep unecessary complexity out of API development and ship your next product on record time.
+    tagline: Create high quality TypeScript applications using way less code
     actions:
         - theme: brand
           text: Get started
