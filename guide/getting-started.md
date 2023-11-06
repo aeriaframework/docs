@@ -2,21 +2,22 @@
 
 ## Scaffolding and installation
 
-First off, clone the template repository from Github. It sets up two workspaces, `api` and `web`, that will contain the Aeria backend and the Aeria UI frontend respectivelly. Each workspace has only the bare minimal boilerplate and configuration to start working, without any comments, even. Although you could easily setup a project by hand, this step saves a great amount of time.
+First off, clone the template repository from Github. It sets up two workspaces, `api` and `web`, that will contain the Aeria backend and the Aeria UI frontend respectivelly. Each workspace has only the bare minimal boilerplate and configuration to start working. You can also skip this step and install the dependencies and scaffold your project manually, but this would take an extra amount of time.
 
-Run `npm install` (or replace `npm` by your package manager of choice) in the root of the project. This will install all dependencies needed for running both the `api` and `web`. Some TypeScript declaration files will be generated upon install, those shouldn't be deleted and should be committed.
+Run `npm install` (or replace `npm` by your package manager of choice) in the root of the project. This is install the dependencies needed for the development environment and for both workspaces. Some TypeScript declaration files will be generated upon install, those shouldn't be deleted and should be committed.
 
-If you intend to use Aeria as a standalone API, without Aeria UI, just setup a fresh project, add `sonata-api` as a dependency and `sonata-build` as a dev dependency, and you're good to go.
-
+::: tip NOTE
+You can also use Aeria as a standalone API, without Aeria UI. In order to do that you can just start a fresh project, add `sonata-api` as a dependency and `sonata-build` as a dev dependency, and setup the `package.json` scripts as you wish.
+:::
 
 ## Running the project
 
-No services are needed to run the `web`. Before running the `api`, though, make sure you have a listening MongoDB server, then copy the `sample.env` file to `.env` and edit it accordingly. Now you just need to spawn two terminals and run `npm run serve` on each.
+Before running the `api`, though, make sure you have a listening MongoDB server, then copy the `sample.env` file to `.env` and edit it accordingly. Now you just need to spawn two terminals and run `npm run serve` on each.
 
 Your project should now be accessible through http://localhost:8080/user/signin. You can find the credentials for the first access in the `.env` file.
 
 ::: warning WARNING
-The environment variables contained in the `.env` file are meant to be used in the first access only. They must not make into production and should not be used during development.
+The `GODMODE_USERNAME` and `GODMODE_PASSWORD` environment variables are meant to be used in the first access only. They must not make into production and should not be used during development.
 :::
 
 
