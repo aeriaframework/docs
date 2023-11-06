@@ -7,37 +7,35 @@ The access control profile is defined with strong typing as an object literal in
 ## Example
 
 ```typescript
-export const collections = {
-  person: defineCollection(() => ({
-    item: Person,
-    description,
-    functions: useFunctions<typeof Person>()([
-      'getAll',
-      'insert',
-      'remove'
-    ]),
-    accessControl: {
-      roles: {
-        guest: {
-          grant: [
-            'getAll'
-          ]
-        },
-        root: {
-          grantEverything: true
-        },
-        moderator: {
-          inherit: [
-            'root'
-          ],
-          grant: [
-            'remove'
-          ]
-        }
+const person = defineCollection(() => ({
+  item: Person,
+  description,
+  functions: useFunctions<typeof Person>()([
+    'getAll',
+    'insert',
+    'remove'
+  ]),
+  accessControl: {
+    roles: {
+      guest: {
+        grant: [
+          'getAll'
+        ]
+      },
+      root: {
+        grantEverything: true
+      },
+      moderator: {
+        inherit: [
+          'root'
+        ],
+        grant: [
+          'remove'
+        ]
       }
     }
-  }))
-}
+  }
+}))
 ```
 
 ## Role
