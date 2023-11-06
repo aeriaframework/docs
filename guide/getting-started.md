@@ -13,7 +13,11 @@ If you intend to use Aeria as a standalone API, without Aeria UI, just setup a f
 
 No services are needed to run the `web`. Before running the `api`, though, make sure you have a listening MongoDB server, then copy the `sample.env` file to `.env` and edit it accordingly. Now you just need to spawn two terminals and run `npm run serve` on each.
 
-Your project should now be accessible through http://localhost:8080/user/signin. You can find the credentials for the first access in the `.env` file. These credentials MUST NOT make into production and are not suitable for development either, use them only to create an user.
+Your project should now be accessible through http://localhost:8080/user/signin. You can find the credentials for the first access in the `.env` file.
+
+::: warning WARNING
+The environment variables contained in the `.env` file are meant to be used in the first access only. They must not make into production and should not be used during development.
+:::
 
 
 ## Adding a collection
