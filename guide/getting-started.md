@@ -62,7 +62,7 @@ export const person = defineCollection(() => ({
 export * from './person'
 ```
 
-5. You may want to make your newly created collection appear in the frontend navbar. To do that, simple add a `'/dashboard/person'` entry to `menuSchema.start.children` array inside the `web/src/index.ts` file like so:
+5. You may want to make your newly created collection appear in the frontend navbar. To do that, simple add a `'/dashboard/person'` entry under `menuSchema.start.children` array inside the `web/src/index.ts` file like so:
 
 ```typescript
 menuSchema: {
@@ -87,7 +87,7 @@ import { init, makeRouter } from 'sonata-api'
 
 const router = makeRouter()
 
-router.GET('/hello-world' () => {
+router.GET('/hello-world', () => {
   return {
     message: 'Hello, world!'
   }

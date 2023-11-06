@@ -118,6 +118,7 @@ function sidebarAeriaUiReference() {
     {
       text: 'Stores',
       items: [
+        { text: 'CollectionStore', link: '/aeria-ui/collection-store' },
         { text: 'useStore', link: '/aeria-ui/use-store' },
         { text: 'registerStore', link: '/aeria-ui/register-store' },
         { text: 'createCollectionStore', link: '/aeria-ui/create-collection-store' },
