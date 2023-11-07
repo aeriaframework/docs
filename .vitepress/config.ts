@@ -37,7 +37,11 @@ export default defineConfig({
         icon: 'github',
         link: 'https://github.com/aeriaframework/aeria'
       }
-    ]
+    ],
+    footer: {
+      message: 'Released under the MIT License.',
+      copyright: 'Copyright © 2023-present Capsul'
+    }
   }
 })
 

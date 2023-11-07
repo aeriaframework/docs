@@ -1,5 +1,7 @@
 # AccessControl
 
+## Introduction
+
 Aeria comes with an already implemented [Role Based Access Control (RBAC)](https://en.wikipedia.org/wiki/Role-based_access_control). Each Collection may have it's own access control profile set, and Aeria will handle it on each endpoint call and internal function.
 
 The access control profile is defined with strong typing as an object literal inside `defineCollection` or `defineCollections`. An access control profile has many roles, and each role may be allowed or forbidden to access specific functions. They can also inherit each other using `inherit`.

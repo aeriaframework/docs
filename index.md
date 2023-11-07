@@ -20,4 +20,11 @@ features:
       details: The main goal of Aeria is to provide maximum interoperability between frontend and backend
     - title: Better error handling
       details: Aeria makes use of the much safer and runtime efficient Either approach to error handing
+    - title: Zero-latency experiences
+      details: With lightweight network payloads and runtime generated views loading state is minimal
+    - title: Intrinsically safe
+      details: Access control, rate limiting, runtime validation, everything is there!
+    - title: Slim codebases, faster CI/CDs
+      details: Aeria removes millions of lines of code from your dependency tree
+
 ---
