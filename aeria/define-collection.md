@@ -1,4 +1,4 @@
-# defineCollection
+# defineCollection()
 
 Provides type-safety for [`Collection`](/backend/collection.md) definition.
 The function accepts only one argument, which is the structure of the collection enclosed in a lambda function.

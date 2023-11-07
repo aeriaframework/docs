@@ -1,4 +1,4 @@
-# getAll
+# getAll()
 
 ## Type Signature
 

@@ -1,4 +1,4 @@
-# insert
+# insert()
 
 ## Type definition
 

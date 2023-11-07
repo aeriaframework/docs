@@ -1,4 +1,4 @@
-# validate
+# validate()
 
 ## ValidateOptions
 

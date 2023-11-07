@@ -1,46 +1,45 @@
 # CollectionStore
 
-Whenever you define a collection in the backend, it will be automatically reflected in a store in Aeria UI. Those are a special kind of store with a preset state and interfaces to interact with endpoints (`$actions` and `$functions`).
+Whenever you define a collection in the backend, it will be automatically reflected in a store in Aeria UI. Those are a special kind of store that contains states for inserting and retrieving items, pagination, collection metadata, and more, along with actions and a interface to interact with the collection endpoints.
 
 ## $actions <Badge type="tip" text="Record<string, (...args: any[]) => any" />
 
-This property is a object that contains default CRUD operations (`get`, `getAll`, `remove`, `removeAll`, `insert`, `deepInsert`). Whenever you cast them, the state of the store will be mutated. Note how, in the example below, we can access the `petStore.items` property right away after `petStore.$actions.getAll` is called, even though we haven't assigned it.
+### get()
+
+Will call `store.$functions.get` and mutate `store.item` with the retrieved document.
+
+### getAll()
+
+Will call `store.$functions.getAll` and mutate `store.items` with the retrieved documents.
+
+### insert()
+
+Will call `store.$functions.insert` and mutate `store.item` and `store.items` with the retrieved document.
+
+### deepInsert()
+
+Will call `store.$functions.insert` recursively on each referenced collection present within the payload, and finally on the parent document, and then mutate `store.item` and `store.items` with the retrieved document.
+
+### remove()
+
+Will call `store.$functions.insert` and mutate `store.item` and `store.items` with the retrieved document.
+
+### removeAll()
+
+Will call `store.$functions.insert` and mutate `store.item` and `store.items` with the retrieved document.
+
+### useProperties() <Badge type="tip" text="(properties: Array<string>) => Record<string, CollectionProperty>" />
+
+A helper function that will retrieved the specified properties from `store.properties`. Example usage:
 
 ```vue
-<script setup lang="ts">
-const petStore = useStore('pet')
-onMounted(() => petStore.$actions.getAll())
-</script>
-
-<template>
-  <ul>
-    <li
-      v-for="pet in petStore.items"
-      :key="pet._id"
-    >
-      {{ pet.name }}
-    </li>
-  </ul>
-</template>
-```
-
-On the other hand, `get`, `insert`, and `deepInsert` will mutate the `petStore.item` property instead. We may use the `v-if` Vue directive to determine whether or not the item was fetched already.
-
-```vue
-<script setup lang="ts">
-const petStore = useStore('pet')
-onMounted(() => petStore.$actions.get({
-  filters: {
-    name: 'Thor'
-  }
-}))
-</script>
-
-<template>
-  <section v-if="petStore.item._id">
-    <h1>{{ petStore.item.name }}</h1>
-  </section>
-</template>
+<aeria-form
+  v-bind="personStore.item"
+  :form="personStore.$actions.useProperties([
+    'name',
+    'age'
+  ])"
+></aeria-form>
 ```
 
 ### Note about `deepInsert` and `condensedItem`
@@ -99,7 +98,7 @@ personStore.$actions.insert({
 
 ## $functions <Badge type="tip" text="Record<string, (...args: any[]) => any" />
 
-This property is similar to `$actions`, but contains a proxy object that will map to any endpoint of the collection, including custom ones, and won't produce any mutations in the state. Functions will return a Promise that will resolve to the response of the endpoint.
+This property is similar to `$actions`, but contains a proxy object that maps to any endpoint of the collection, including custom and router-created ones, and won't produce any mutations in the state. Functions will return a Promise that will resolve to the response of the endpoint.
 For example:
 
 ```typescript
@@ -113,3 +112,7 @@ This property bears a document.
 ## items <Badge type="tip" text="Array<TDocument>" />
 
 This property bears a list of documents.
+
+## properties <Badge type="tip" text="TDescription['properties']" />
+
+This property is a getter that computes to `store.description.properties`.

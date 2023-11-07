@@ -42,7 +42,7 @@ const person = defineCollection(() => ({
 
 ### inherit <Badge type="tip" text="string[]" />
 
-Will merge the specified roles in a new one.
+Will merge the specified roles into a new one.
 
 ```typescript
 {

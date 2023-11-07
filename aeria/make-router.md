@@ -1,4 +1,4 @@
-# makeRouter
+# makeRouter()
 
 ```typescript
 import { init, makeRouter } from 'aeria'
