@@ -1,6 +1,8 @@
 # CollectionProperty
 
-## default <Badge type="tip" text="optional" /> <Badge type="tip" text="frontend" />
+## Properties
+
+### default <Badge type="tip" text="optional" /> <Badge type="tip" text="frontend" />
 
 If set to any value, the value of this property will be preferred over null or undefined on document creation.
 
@@ -11,7 +13,7 @@ type CollectionProperty = {
 }
 ```
 
-## description <Badge type="tip" text="optional" /> <Badge type="tip" text="frontend" />
+### description <Badge type="tip" text="optional" /> <Badge type="tip" text="frontend" />
 
 If set to a string, the value of this property will be preferred when displaying the property name on form labels. Otherwise an internationalized version of the property name will be used.
 
@@ -22,7 +24,7 @@ type CollectionProperty = {
 }
 ```
 
-## readOnly <Badge type="tip" text="optional" />
+### readOnly <Badge type="tip" text="optional" />
 
 If true, will make the property unwritable on document creation and update. Trying to write on it won't return any error, the new value will just be ignored instead.
 
@@ -33,7 +35,7 @@ type CollectionProperty = {
 }
 ```
 
-## s$element <Badge type="tip" text="optional" /> <Badge type="tip" text="frontend" />
+### s$element <Badge type="tip" text="optional" /> <Badge type="tip" text="frontend" />
 
 When applicable, this property specifies a custom HTML element to handle input.
 
@@ -50,7 +52,7 @@ type CollectionProperty = {
 }
 ```
 
-## s$focus <Badge type="tip" text="optional" /> <Badge type="tip" text="frontend" />
+### s$focus <Badge type="tip" text="optional" /> <Badge type="tip" text="frontend" />
 
 Signals the input of this property should be focused as soon as a form is rendered. Each form may have only one property with this flag enabled.
 
@@ -61,7 +63,7 @@ type CollectionProperty = {
 }
 ```
 
-## s$getter <Badge type="tip" text="optional" />
+### s$getter <Badge type="tip" text="optional" />
 
 This property receives a callback that receives the current document being processed and returns a computed value upon it. Getter properties are automatically flagged as read-only.
 
@@ -72,7 +74,7 @@ type CollectionProperty = {
 }
 ```
 
-## s$hidden <Badge type="tip" text="optional" />
+### s$hidden <Badge type="tip" text="optional" />
 
 If true, omits the value of this property from backend response.
 
@@ -87,7 +89,7 @@ type CollectionProperty = {
 }
 ```
 
-## s$hint <Badge type="tip" text="optional" /> <Badge type="tip" text="frontend" />
+### s$hint <Badge type="tip" text="optional" /> <Badge type="tip" text="frontend" />
 
 If set to a string, this property will exhibit a small text underneat form inputs, regardless of the input type.
 
@@ -98,7 +100,7 @@ type CollectionProperty = {
 }
 ```
 
-## s$icon <Badge type="tip" text="optional" /> <Badge type="tip" text="frontend" />
+### s$icon <Badge type="tip" text="optional" /> <Badge type="tip" text="frontend" />
 
 This property assigns an icon from an icon library to the property. It will be shown inside inputs and wherever applicable.
 
@@ -109,7 +111,7 @@ type CollectionProperty = {
 }
 ```
 
-## s$inputType <Badge type="tip" text="optional" /> <Badge type="tip" text="frontend" />
+### s$inputType <Badge type="tip" text="optional" /> <Badge type="tip" text="frontend" />
 
 When applicable, this property specifies a custom input type to be passed to the HTML `<input />` element.
 
@@ -128,7 +130,7 @@ type CollectionProperty = {
 }
 ```
 
-## s$mask <Badge type="tip" text="optional" /> <Badge type="tip" text="frontend" />
+### s$mask <Badge type="tip" text="optional" /> <Badge type="tip" text="frontend" />
 
 Specifies a mask or an array of masks to be applied to text inputs. Refer to [Maska Documentation](https://beholdr.github.io/) to learn about mask formats.
 
@@ -139,7 +141,7 @@ type CollectionProperty = {
 }
 ```
 
-## s$noForm <Badge type="tip" text="optional" /> <Badge type="tip" text="frontend" />
+### s$noForm <Badge type="tip" text="optional" /> <Badge type="tip" text="frontend" />
 
 If set to true will prevent the input of this property from being displayed on forms.
 
@@ -154,7 +156,7 @@ type CollectionProperty = {
 }
 ```
 
-## s$noLabel <Badge type="tip" text="optional" /> <Badge type="tip" text="frontend" />
+### s$noLabel <Badge type="tip" text="optional" /> <Badge type="tip" text="frontend" />
 
 If set to true will prevent a label containing the property name or description from being displayed on forms.
 
@@ -165,7 +167,7 @@ type CollectionProperty = {
 }
 ```
 
-## s$placeholder <Badge type="tip" text="optional" /> <Badge type="tip" text="frontend" />
+### s$placeholder <Badge type="tip" text="optional" /> <Badge type="tip" text="frontend" />
 
 When applicable, this property specifies the `placeholder` attribute of the HTML `<input />` element.
 
@@ -176,7 +178,7 @@ type CollectionProperty = {
 }
 ```
 
-## s$translate <Badge type="tip" text="optional" /> <Badge type="tip" text="frontend" />
+### s$translate <Badge type="tip" text="optional" /> <Badge type="tip" text="frontend" />
 
 This property defines whether or not the value of the input should be internationalized when displayed. Defaults to false.
 

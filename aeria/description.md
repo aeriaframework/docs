@@ -1,5 +1,7 @@
 # Description
 
+## Introduction
+
 Description is an intersection of [JSON Schema](https://json-schema.org/) used to define the properties of a collection for validation alongside with access and UI behaviors. As the purpose of Aeria is to provide cohesion between backend and frontend, some frontend directives, for instance, what properties are meant to be rendered in tables and forms, are defined directly in the backend.
 <!-- For declaring properties, JSON Schema is fully supported, with a few key differences. The `required` property will be actually used to verify the wholeness of your document on insertion. -->
 
@@ -62,12 +64,14 @@ Description is an intersection of [JSON Schema](https://json-schema.org/) used t
 <!-- } -->
 <!-- ``` -->
 
-## $id
+## Properties
+
+### $id
 
 As in JSON Schema, this property is used to name the structure we are defining. It must have the same name as the collection.
 Collection names must consist of a camel-cased noun in the singular, like `person`, `fruit` or `car`.
 
-## filters <Badge type="tip" text="optional" /> <Badge type="tip" text="frontend" />
+### filters <Badge type="tip" text="optional" /> <Badge type="tip" text="frontend" />
 
 This property is used to control a filter widget rendered inside the `aeria-crud` component. If set, a filter button will appear, otherwise no filter functionallity will be made available.
 
@@ -83,7 +87,7 @@ type Description = {
 }
 ```
 
-## filtersPresets <Badge type="tip" text="optional" /> <Badge type="tip" text="frontend" />
+### filtersPresets <Badge type="tip" text="optional" /> <Badge type="tip" text="frontend" />
 
 <!-- This property is used to control a filter widget rendered inside the `aeria-crud` component. If set, a filter button will appear, otherwise no filter functionallity will be made available. -->
 
@@ -105,7 +109,7 @@ type Description = {
 }
 ```
 
-## form <Badge type="tip" text="optional" /> <Badge type="tip" text="frontend" />
+### form <Badge type="tip" text="optional" /> <Badge type="tip" text="frontend" />
 
 If set, runtime generated forms will render only specified properties. Otherwise all properties are rendered.
 
@@ -120,7 +124,7 @@ type Description = {
 }
 ```
 
-## icon <Badge type="tip" text="optional" /> <Badge type="tip" text="frontend" />
+### icon <Badge type="tip" text="optional" /> <Badge type="tip" text="frontend" />
 
 This property may be used to specify an icon from an icon library to be associated with the collection in the frontend.
 It will be shown on navbars, breadcumbs, etc.
@@ -132,7 +136,7 @@ type Description = {
 }
 ```
 
-## immutable <Badge type="tip" text="optional" />
+### immutable <Badge type="tip" text="optional" />
 
 This property may be used to specify properties that should be writable upon creation, but read-only upon update. If set to true, then will enable immutability to all properties, if set to an array of strings, only specified properties will receive that attribute.
 
@@ -143,7 +147,7 @@ type Description = {
 }
 ```
 
-## indexes <Badge type="tip" text="optional" /> <Badge type="tip" text="frontend" />
+### indexes <Badge type="tip" text="optional" /> <Badge type="tip" text="frontend" />
 
 This optional property may be used to specify an icon from an icon library to be associated with the collection in the frontend.
 It will be shown on navbars, breadcumbs, etc.
@@ -155,7 +159,7 @@ type Description = {
 }
 ```
 
-## owned <Badge type="tip" text="optional" />
+### owned <Badge type="tip" text="optional" />
 
 This property is used to control the access of user-owned resources. If set to true or `'always'` in a description, users will only be able to view and edit resources created by themselves.
 
@@ -166,7 +170,7 @@ type Description = {
 }
 ```
 
-## table <Badge type="tip" text="optional" /> <Badge type="tip" text="frontend" />
+### table <Badge type="tip" text="optional" /> <Badge type="tip" text="frontend" />
 
 This property is used exclusively by the frontend. Case set to an array of strings, will specify properties to be used as columns in `aeria-crud` component. Otherwise all properties will be used.
 
@@ -181,7 +185,7 @@ type Description = {
 }
 ```
 
-## tableMeta <Badge type="tip" text="optional" /> <Badge type="tip" text="frontend" />
+### tableMeta <Badge type="tip" text="optional" /> <Badge type="tip" text="frontend" />
 
 If set, grid and tabular runtime generated views will request the specified properties alongside the ones specified in `table`.
 
@@ -192,7 +196,7 @@ type Description = {
 }
 ```
 
-## timestamps <Badge type="tip" text="optional" />
+### timestamps <Badge type="tip" text="optional" />
 
 This property should only be used to disable automatic timestamps in a certain collection (`created_at` and `updated_at`). Timestamps are always enabled by default.
 
@@ -203,7 +207,7 @@ type Description = {
 }
 ```
 
-## required <Badge type="tip" text="optional" />
+### required <Badge type="tip" text="optional" />
 
 This property is used to verify document wholeness upon creation and update. Case set to an array of strings, will consider only specified properties to validate document wholeness, otherwise will check if all properties are not null or undefined.
 
@@ -214,7 +218,7 @@ type Description = {
 }
 ```
 
-## writable <Badge type="tip" text="optional" />
+### writable <Badge type="tip" text="optional" />
 
 If set, all properties except the one specified will be made read-only. Trying writing on them will trigger an Access Control error.
 

@@ -11,6 +11,7 @@ export default defineConfig({
   ignoreDeadLinks: true,
 
   themeConfig: {
+    outline: [2, 3],
     nav: [
       {
         text: 'Guide',
