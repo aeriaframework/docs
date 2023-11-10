@@ -154,7 +154,43 @@ This property is used to verify document wholeness upon creation and update. Cas
 
 If set, all properties except the one specified will be made read-only. Trying writing on them will trigger an Access Control error.
 
-<!--   search?: { -->
-<!--     active: boolean -->
-<!--     placeholder?: string -->
-<!--   } -->
+### search <Badge type="tip" text="SearchOptions" />
+
+Activates a search bar in the frontend that will perform a MongoDB `$text` query.
+
+::: tip NOTE
+Setting this property alone won't work. If you want to make your collection searchable, the `$text` indexes must be manually created in MongoDB.
+:::
+
+```typescript
+type SearchOptions = {
+  active: boolean
+  placeholder?: string
+}
+```
+
+### layout <Badge type="tip" text="Layout" />
+
+Specifies a layout to override the default tabular one.
+
+```typescript
+type LayoutName =
+  | 'tabular'
+  | 'grid'
+  | 'list'
+
+type LayoutOptions<TDescription extends Description=any> = {
+  picture?: PropertiesWithId<TDescription>
+  title?: PropertiesWithId<TDescription>
+  badge?: PropertiesWithId<TDescription>
+  information?: PropertiesWithId<TDescription>
+  active?: PropertiesWithId<TDescription>
+  translateBadge?: boolean
+}
+
+type Layout<TDescription extends Description=any> = {
+  name: LayoutName
+  options?: LayoutOptions<TDescription>
+}
+
+```
