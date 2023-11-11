@@ -105,22 +105,6 @@ function sidebarAeriaUiReference() {
       link: '/aeria-ui/help-topics/'
     },
     {
-      text: 'Components',
-      collapsed: true,
-      items: [
-        { text: 'aeria-bare-button', link: '/aeria-ui/components/aeria-bare-button' },
-        { text: 'aeria-button', link: '/aeria-ui/components/aeria-button' },
-        { text: 'aeria-card', link: '/aeria-ui/components/aeria-card' },
-        { text: 'aeria-crud', link: '/aeria-ui/components/aeria-crud' },
-        { text: 'aeria-grid', link: '/aeria-ui/components/aeria-grid' },
-        { text: 'aeria-info', link: '/aeria-ui/components/aeria-info' },
-        { text: 'aeria-main', link: '/aeria-ui/components/aeria-main' },
-        { text: 'aeria-picture', link: '/aeria-ui/components/aeria-picture' },
-        { text: 'aeria-table', link: '/aeria-ui/components/aeria-table' },
-        { text: 'aeria-tabs', link: '/aeria-ui/components/aeria-tabs' },
-      ]
-    },
-    {
       text: 'Stores',
       items: [
         { text: 'CollectionStore', link: '/aeria-ui/collection-store' },
@@ -134,6 +118,31 @@ function sidebarAeriaUiReference() {
       items: [
         { text: 'Directives', link: '/aeria-ui/directives' },
         { text: 'Composables', link: '/aeria-ui/composables' },
+      ]
+    },
+    {
+      text: 'Components',
+      items: [
+        { text: 'aeria-accordion', link: '/aeria-ui/components/aeria-accordion' },
+        { text: 'aeria-bare-button', link: '/aeria-ui/components/aeria-bare-button' },
+        { text: 'aeria-box', link: '/aeria-ui/components/aeria-box' },
+        { text: 'aeria-button', link: '/aeria-ui/components/aeria-button' },
+        { text: 'aeria-card', link: '/aeria-ui/components/aeria-card' },
+        { text: 'aeria-checkbox', link: '/aeria-ui/components/aeria-checkbox' },
+        { text: 'aeria-crud', link: '/aeria-ui/components/aeria-crud' },
+        { text: 'aeria-file', link: '/aeria-ui/components/aeria-file' },
+        { text: 'aeria-form', link: '/aeria-ui/components/aeria-form' },
+        { text: 'aeria-grid', link: '/aeria-ui/components/aeria-grid' },
+        { text: 'aeria-info', link: '/aeria-ui/components/aeria-info' },
+        { text: 'aeria-input', link: '/aeria-ui/components/aeria-input' },
+        { text: 'aeria-main', link: '/aeria-ui/components/aeria-main' },
+        { text: 'aeria-options', link: '/aeria-ui/components/aeria-options' },
+        { text: 'aeria-picture', link: '/aeria-ui/components/aeria-picture' },
+        { text: 'aeria-search', link: '/aeria-ui/components/aeria-search' },
+        { text: 'aeria-select', link: '/aeria-ui/components/aeria-select' },
+        { text: 'aeria-switch', link: '/aeria-ui/components/aeria-switch' },
+        { text: 'aeria-table', link: '/aeria-ui/components/aeria-table' },
+        { text: 'aeria-tabs', link: '/aeria-ui/components/aeria-tabs' },
       ]
     },
   ]

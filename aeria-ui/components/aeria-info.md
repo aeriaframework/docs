@@ -4,16 +4,14 @@ This component will render the content of the `text` slot inside a floating balo
 
 ## Example
 
-```vue
-<template>
-  <aeria-info>
-    <template #text>
-      This text will show when you hover
-    </template>
+```vue-html
+<aeria-info>
+  <template #text>
+    This text will show when you hover
+  </template>
 
-    <div>Hover to see more info</div>
-  </aeria-info>
-</template>
+  <div>Hover to see more info</div>
+</aeria-info>
 ```
 
 ## Slots

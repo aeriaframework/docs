@@ -4,28 +4,26 @@
 
 ### Normal usage
 
-```vue
-<template>
-  <aeria-table>
-    <template #thead>
-      <tr>
-        <th>#</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </template>
-    <template #tbody>
-      <tr
-        v-for="index in 10"
-        :key="`roaeria-${index}`"
-      >
-        <th>{{ index }}</th>
-        <th>Example</th>
-        <th>This is an example row</th>
-      </tr>
-    </template>
-  </aeria-table>
-</template>
+```vue-html
+<aeria-table>
+  <template #thead>
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </template>
+  <template #tbody>
+    <tr
+      v-for="index in 10"
+      :key="`roaeria-${index}`"
+    >
+      <th>{{ index }}</th>
+      <th>Example</th>
+      <th>This is an example row</th>
+    </tr>
+  </template>
+</aeria-table>
 ```
 
 ### Declarative usage

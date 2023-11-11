@@ -4,26 +4,38 @@ This components returns a grid with standardized gaps and responsiveness breakpo
 
 ## Example
 
-```vue
-<template>
-  <aeria-grid>
-    <aeria-card
-      v-for="index in 12"
-      :key="`card-${index}`"
-    >
-      <aeria-picture link="/static/card.svg"></aeria-picture>
-      <template #footer>
-        Card #{{ index }}
-      </template>
-    </aeria-card>
+```vue-html
+<aeria-grid>
+  <aeria-card
+    v-for="index in 12"
+    :key="`card-${index}`"
+  >
+    <aeria-picture link="/static/card.svg"></aeria-picture>
+    <template #footer>
+      Card #{{ index }}
+    </template>
+  </aeria-card>
 
-  </aeria-grid>
-</template>
+</aeria-grid>
 ```
+
+## Props
+
+```typescript
+type Props = {
+  list?: boolean
+}
+
+```
+
+### list <Badge type="tip" text="boolean" />
+
+Turns the grid into a single column list.
+
 
 ## Slots
 
 ### default
 
-Elements to be put inside the grid.
+The grid elements.
 

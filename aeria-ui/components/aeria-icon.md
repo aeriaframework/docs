@@ -2,8 +2,9 @@
 
 ## Example
 
-```vue
-<template>
-  <aeria-icon reactive name="user-circle"></aeria-icon>
-</template>
+```vue-html
+<aeria-icon
+  reactive
+  name="user-circle"
+></aeria-icon>
 ```

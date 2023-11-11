@@ -1,9 +1,10 @@
 # aeria-main
 
+This is the root component of your application. It shouldn't appear more than once.
+
 ## Example
 
-```vue
-<template>
-  <aeria-main></aeria-main>
-</template>
+```vue-html
+<aeria-main></aeria-main>
 ```
+
