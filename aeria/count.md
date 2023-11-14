@@ -1,6 +1,6 @@
 # count
 
-## Type signature
+## Type
 
 ```typescript
 declare const count: <TDocument extends CollectionDocument<any>>() => <TContext>(

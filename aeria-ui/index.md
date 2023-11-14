@@ -18,6 +18,7 @@ To see how common problems are solved using Aeria UI, visit [Help Topics](/aeria
 
 ## Components
 
+- [`aeria-accordion`](/aeria-ui/components/aeria-accordion)
 - [`aeria-bare-button`](/aeria-ui/components/aeria-bare-button)
 - [`aeria-box`](/aeria-ui/components/aeria-box)
 - [`aeria-button`](/aeria-ui/components/aeria-button)

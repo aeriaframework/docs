@@ -1,6 +1,8 @@
 # insert()
 
-## Type definition
+In Aeria there's no terminological distinction between creating and updating a document. The `insert()` function will either create a new document or update an existing one based on the presence or absence of a `_id` property in the payload.
+
+## Type
 
 ```typescript
 declare const insert: <TDocument extends CollectionDocument<any>>() => <TContext>(
@@ -21,7 +23,7 @@ declare const insert: <TDocument extends CollectionDocument<any>>() => <TContext
 
 #### what <Badge type="tip" text="What<TDocument & { _id?: any }>" />
 
-An object containing filters.
+The object to be inserted.
 
 #### project <Badge type="tip" text="Projection<TDocument>" />
 

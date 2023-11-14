@@ -88,6 +88,22 @@ function sidebarAeriaReference() {
       ]
     },
     {
+      text: 'Built-ins',
+      items: [
+        {
+          text: 'Functions',
+          collapsed: true,
+          items: [
+            { text: 'count', link: '/aeria/count' },
+            { text: 'get', link: '/aeria/get' },
+            { text: 'getAll', link: '/aeria/get-all' },
+            { text: 'insert', link: '/aeria/insert' },
+            { text: 'remove', link: '/aeria/remove' },
+          ]
+        }
+      ]
+    },
+    {
       text: 'Miscellaneous',
       items: [
         { text: 'Either', link: '/aeria/either' },

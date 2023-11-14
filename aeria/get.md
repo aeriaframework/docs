@@ -1,6 +1,6 @@
 # get()
 
-## Type signature
+## Type
 
 ```typescript
 type GetOptions = {

@@ -1,6 +1,6 @@
 # getAll()
 
-## Type Signature
+## Type
 
 ```typescript
 type GetAllOptions = {
