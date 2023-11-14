@@ -27,11 +27,11 @@ const personStore = useStore('person')
 If one of the properties passed to the `form` prop is a reference, then `aeria-form` must know what is the parent collection name to deal with it. You should then pass the collection name to the `collection` prop of the component.
 :::
 
-3. Create a function inside the `<script />` block that will dispatch the `store.$actions.insert` action. This action will perform the insert on `store.item` when parameter is passed. You can use this same function to change a state after the insert is done (like closing a panel or going to another route), or parse validation errors.
+3. Create a function inside the `<script />` block that will dispatch the `store.$actions.deepInsert` action. This action will perform the insert on `store.item` when parameter is passed. You can use this same function to change a state after the insert is done (like closing a panel or going to another route), or parse validation errors.
 
 ```typescript
 const insert = async () => {
-  const resultEither = await personStore.$actions.insert()
+  const resultEither = await personStore.$actions.deepInsert()
   if( isLeft(resultEither) ) {
     // ...
     return
