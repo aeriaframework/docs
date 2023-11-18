@@ -39,35 +39,36 @@ const menuSchema: MenuSchema = [
 ## Type
 
 ```typescript
-type MenuAdvancedChildBase = {
+type MenuNodeBase = Partial<RouteMeta> & {
+  roles?: Array<string> | ((role: Array<string>) => boolean | Promise<boolean>)
+  children?: Array<string | MenuNode>
   badge?: () => string | number extends infer ReturnType
     ? ReturnType | Promise<ReturnType>
     : never
 }
 
-type MenuAdvancedChildNamed = MenuAdvancedChildBase & {
-  name: string
+type MenuNodeNamed = MenuNodeBase & {
+  name?: string | Symbol
 }
 
-type MenuAdvancedChildCollapsible = MenuAdvancedChildBase & {
+type MenuNodeCollapsible = MenuNodeBase & {
   collapsed: boolean | 'user'
-  children: Array<string | MenuAdvancedChild>
+  children: Array<string | MenuNode>
   meta: {
     title: string
     icon?: string
   }
 }
 
-type MenuAdvancedChild = 
-  | MenuAdvancedChildNamed
-  | MenuAdvancedChildCollapsible
+type MenuNode = 
+  | MenuNodeNamed
+  | MenuNodeCollapsible
 
-type MenuSchemaNode = Partial<RouteMeta> & {
-  roles?: Array<string> | ((role: Array<string>) => boolean | Promise<boolean>)
-  children: Array<string | MenuAdvancedChild>
-}
-
-type MenuSchema = Array<MenuSchemaNode | string | Array<string | MenuAdvancedChild>>
+type MenuSchema = (
+  | MenuNode
+  | string
+  | Array<string | MenuNode>
+)[]
 ```
 
 ## MenuAdvancedChildBase
