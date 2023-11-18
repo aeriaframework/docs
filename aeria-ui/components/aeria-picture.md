@@ -1,5 +1,9 @@
 # aeria-picture
 
+## Introduction
+
+This component provides a basic wrapper for displaying images.
+
 ## Example
 
 ```vue

@@ -121,6 +121,12 @@ function sidebarAeriaUiReference() {
       link: '/aeria-ui/help-topics/'
     },
     {
+      text: 'Configuration',
+      items: [
+        { text: 'MenuSchema', link: '/aeria-ui/menu-schema' }
+      ]
+    },
+    {
       text: 'Stores',
       items: [
         { text: 'CollectionStore', link: '/aeria-ui/collection-store' },

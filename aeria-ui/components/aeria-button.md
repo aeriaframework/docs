@@ -1,5 +1,7 @@
 # aeria-button
 
+## Introduction
+
 This component renders a styled button that will add style controls on top of [`aeria-bare-button`](/frontend/components/aeria-bare-button) functionalities.
 
 ## Example

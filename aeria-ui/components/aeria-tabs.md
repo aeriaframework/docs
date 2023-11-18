@@ -1,5 +1,9 @@
 # aeria-tabs
 
+## Introduction
+
+This component renders either a context menu or horizontal tabs that will change a specified router param.
+
 ## Example
 
 ```vue

@@ -1,5 +1,7 @@
 # aeria-info
 
+## Introduction
+
 This component will render the content of the `text` slot inside a floating baloon when the mouse pointer is hovering the `default` slot.
 
 ## Example

@@ -1,7 +1,8 @@
 # aeria-crud
 
-This components renders all necessary CRUD widgets (table, action buttons, filter button, search bar) to be used as a standalone view or inside a panel.
+## Introduction
 
+This components renders all necessary CRUD widgets (table, action buttons, filter button, search bar) to be used as a standalone view or inside a panel.
 
 The following [`Description`](/backend/description) properties takes effect on how this component is rendered:
 

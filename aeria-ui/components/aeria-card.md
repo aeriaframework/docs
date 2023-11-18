@@ -1,5 +1,7 @@
 # aeria-card
 
+## Introduction
+
 This component renders a picture frame with a text slot below it.
 
 ## Example
