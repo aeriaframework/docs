@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This component renders a picture frame with a text slot below it.
+This component renders a frame with a picture and some text near it and it's commonly used along with [grids](/aeria-ui/help-topics/create-a-list-or-a-grid-of-cards). Cards can be either vertical or horizontal, and they can have a inactive state. Predefined slots are also available to place badges and buttons.
 
 ## Example
 
@@ -32,11 +32,12 @@ type Props = {
 
 ### inactive <Badge type="tip" text="boolean" />
 
-If set to true, the card will become slightly transparent.
+If set to true, the card will become slightly transparent. This can be used to
+indicate the content of this card is unavailable.
 
 ### horizontal <Badge type="tip" text="boolean" />
 
-If set to true, the card will have a horizontal layout.
+If set to true, the card will switch to a horizontal layout.
 
 ## Slots
 

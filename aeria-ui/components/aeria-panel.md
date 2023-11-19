@@ -1,8 +1,8 @@
-# aeria-box
+# aeria-panel
 
 ## Introduction
 
-Standardized floating, fixed, and inline panels.
+Used without any props, this component renders only a blank div. Passing the `float` or `fixed-right` properties, though, you can make modals or side panels.
 
 ## Example
 
@@ -12,7 +12,7 @@ const panelVisible = ref(false)
 </script>
 
 <template>
-  <aeria-box
+  <aeria-panel
     float
     close-hint
     title="Example"
@@ -23,11 +23,16 @@ const panelVisible = ref(false)
     <template #footer>
       <aeria-button>Ok!</aeria-button>
     </template>
-  </aeria-box>
+  </aeria-panel>
 </template>
 ```
 
 ## Props
+
+### modelValue <Badge type="tip" text="any" />
+
+The `modelValue` of this component is the state that determines whether or not
+the panel is showing. If falsy, the panel is hidden, otherwise it's showing.
 
 ### title <Badge type="tip" text="string" />
 

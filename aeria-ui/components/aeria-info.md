@@ -2,7 +2,9 @@
 
 ## Introduction
 
-This component will render the content of the `text` slot inside a floating baloon when the mouse pointer is hovering the `default` slot.
+This component will render the content of the `text` slot inside a floating
+baloon whenever the hover state is active. It comes handy when you need to
+provide more info about something where size doesn't fit.
 
 ## Example
 

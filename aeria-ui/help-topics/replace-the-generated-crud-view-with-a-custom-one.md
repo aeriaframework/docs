@@ -31,7 +31,7 @@ const sidePanel = ref(false)
 
 <template>
   <teleport to="main">
-    <aeria-box
+    <aeria-panel
       v-model="sidePanel"
       fixed-right
       title="Custom panel"
@@ -44,7 +44,7 @@ const sidePanel = ref(false)
           Close
         </aeria-button>
       </template>
-    </aeria-box>
+    </aeria-panel>
   </teleport>
 
   <aeria-crud collection="myCollection">

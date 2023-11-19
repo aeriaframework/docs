@@ -71,7 +71,16 @@ type MenuSchema = (
 )[]
 ```
 
-## MenuAdvancedChildBase
+## MenuNode
+
+### name <Badge type="tip" text="string | Symbol" />
+
+A string or symbol representing a route name.
+
+### roles <Badge type="tip" text="Array<string> | ((role: Array<string>) => boolean | Promise<boolean>)" />
+
+Will make this menu entry visible only to roles specified by an array of
+strings, or by a custom callback.
 
 ### badge <Badge type="tip" text="() => Promise<string | number>" />
 
@@ -81,9 +90,6 @@ This property specifies a callback whose result will be rendered inside a badge 
 The execution of this callback will be memoized, meaning it won't run more than
 once on subsequent re-renderizations.
 :::
-
-
-## MenuAdvancedChildCollapsible
 
 ### collapsed <Badge type="tip" text="boolean | 'user'" />
 

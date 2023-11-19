@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This component renders a styled button that will add style controls on top of [`aeria-bare-button`](/frontend/components/aeria-bare-button) functionalities.
+This component renders a styled button that will add style controls on top of [`aeria-bare-button`](/frontend/components/aeria-bare-button) functionalities. Buttons can have different sizes and variants and can also have loading and disabled states.
 
 ## Example
 
@@ -38,10 +38,9 @@ Accepted variants are:
 
 ```typescript
 type Variant =
-  | 'normal'
+  | 'primary'
   | 'alt'
   | 'transparent'
-  | 'brand'
 ```
 
 ### size <Badge type="tip" text="Size" /> <Badge type="tip" text="default: 'medium'" />

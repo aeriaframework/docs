@@ -20,7 +20,7 @@ To see how common problems are solved using Aeria UI, visit [Help Topics](/aeria
 
 - [`aeria-accordion`](/aeria-ui/components/aeria-accordion)
 - [`aeria-bare-button`](/aeria-ui/components/aeria-bare-button)
-- [`aeria-box`](/aeria-ui/components/aeria-box)
+- [`aeria-panel`](/aeria-ui/components/aeria-panel)
 - [`aeria-button`](/aeria-ui/components/aeria-button)
 - [`aeria-card`](/aeria-ui/components/aeria-card)
 - [`aeria-checkbox`](/aeria-ui/components/aeria-checkbox)

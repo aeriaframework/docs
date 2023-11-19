@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This component renders an unstyled button that will ultimately be an `<a />` HTML element. It provides controls for disabling click with adaptative cursor change.
+This component renders an unstyled button that will ultimately be an `<a />` HTML element. Sometimes you may use useful to have controls for disabling click and adaptative cursor change without having a styled button.
 
 ## Example
 

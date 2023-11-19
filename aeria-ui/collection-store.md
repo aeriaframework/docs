@@ -1,5 +1,7 @@
 # CollectionStore
 
+## Introduction
+
 Whenever you define a collection in the backend, it will be automatically reflected in a store in Aeria UI. Those are a special kind of store that contains states for inserting and retrieving items, pagination, collection metadata, and more, along with actions and a interface to interact with the collection endpoints.
 
 ## $actions <Badge type="tip" text="Record<string, (...args: any[]) => any" />

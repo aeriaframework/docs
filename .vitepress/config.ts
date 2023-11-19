@@ -129,10 +129,10 @@ function sidebarAeriaUiReference() {
     {
       text: 'Stores',
       items: [
+        { text: 'Store', link: '/aeria-ui/store' },
         { text: 'CollectionStore', link: '/aeria-ui/collection-store' },
         { text: 'useStore()', link: '/aeria-ui/use-store' },
         { text: 'registerStore()', link: '/aeria-ui/register-store' },
-        { text: 'createCollectionStore()', link: '/aeria-ui/create-collection-store' },
       ]
     },
     {
@@ -147,7 +147,6 @@ function sidebarAeriaUiReference() {
       items: [
         { text: 'aeria-accordion', link: '/aeria-ui/components/aeria-accordion' },
         { text: 'aeria-bare-button', link: '/aeria-ui/components/aeria-bare-button' },
-        { text: 'aeria-box', link: '/aeria-ui/components/aeria-box' },
         { text: 'aeria-button', link: '/aeria-ui/components/aeria-button' },
         { text: 'aeria-card', link: '/aeria-ui/components/aeria-card' },
         { text: 'aeria-checkbox', link: '/aeria-ui/components/aeria-checkbox' },
@@ -159,6 +158,7 @@ function sidebarAeriaUiReference() {
         { text: 'aeria-input', link: '/aeria-ui/components/aeria-input' },
         { text: 'aeria-main', link: '/aeria-ui/components/aeria-main' },
         { text: 'aeria-options', link: '/aeria-ui/components/aeria-options' },
+        { text: 'aeria-panel', link: '/aeria-ui/components/aeria-panel' },
         { text: 'aeria-picture', link: '/aeria-ui/components/aeria-picture' },
         { text: 'aeria-search', link: '/aeria-ui/components/aeria-search' },
         { text: 'aeria-select', link: '/aeria-ui/components/aeria-select' },

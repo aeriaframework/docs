@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This components returns a grid with standardized gaps and responsiveness breakpoints.
+This components returns a grid with standardized gaps and responsive breakpoints.
 
 ## Example
 

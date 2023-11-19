@@ -14,7 +14,7 @@ const panel = ref(false)
 
 ```vue
 <template>
-  <aeria-box
+  <aeria-panel
     v-model="panel"
     float
     close-hint
@@ -22,7 +22,7 @@ const panel = ref(false)
     @overlay-click="panel = false"
   >
     Hey! From inside the modal.
-  <aeria-box>
+  <aeria-panel>
 </template>
 ```
 
@@ -30,7 +30,7 @@ const panel = ref(false)
 
 ```vue
 <template>
-  <aeria-box
+  <aeria-panel
     v-model="panel"
     fixed-right
     title="My panel"
@@ -43,7 +43,7 @@ const panel = ref(false)
         Close
       </aeria-button>
     </template>
-  <aeria-box>
+  <aeria-panel>
 </template>
 ```
 

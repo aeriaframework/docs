@@ -2,6 +2,8 @@
 
 This section of the documentation aims to provide quick examples of how to solve several real-world problems using Aeria.
 
+## General
+
 - [Change collection layout from default tabular layout](/aeria/help-topics/change-collection-layout-from-default-tabular-layout)
 - [Create an authentication middleware](/aeria/help-topics/create-an-authentication-middleware)
 - [Create an upload field](/aeria/help-topics/create-an-upload-field)

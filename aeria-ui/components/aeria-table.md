@@ -1,6 +1,24 @@
 # aeria-table
 
+## Introduction
+
+This component renders a styled table with some extra features. If used with stores, columns and rows can be passed in dynamically, but they can be still customized later with slots. HTML-style usage is also possible using `thead`, `tbody`, and `tfoot` slots.
+
 ## Example
+
+### Usage along with stores
+
+```vue-html
+<aeria-table
+  v-bind="{
+    columns: userStore.useProperties([
+      'first_name',
+      'last_name',
+      'roles'
+    ]),
+    rows: userStore.items
+}"></aeria-table>
+```
 
 ### Normal usage
 
@@ -16,7 +34,7 @@
   <template #tbody>
     <tr
       v-for="index in 10"
-      :key="`roaeria-${index}`"
+      :key="`row-${index}`"
     >
       <th>{{ index }}</th>
       <th>Example</th>
@@ -26,29 +44,3 @@
 </aeria-table>
 ```
 
-### Declarative usage
-
-```vue
-<script setup lang="ts">
-const userStore = useStore('user')
-await userStore.getAll()
-</script>
-
-<template>
-  <aeria-table
-    v-bind="{
-      columns: userStore.useProperties([
-        'first_name',
-        'last_name',
-        'roles'
-      ]),
-      rows: userStore.items
-    }"
-  >
-    <!-- You can still customize specified cells -->
-    <template #roaeria-name="{ row, column }">
-      <strong>{{ row[column] }}</strong>
-    </template>
-  </aeria-table>
-</template>
-```

@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This component renders either a context menu or horizontal tabs that will change a specified router param.
+This component will render a context menu or a horizontal strip containing tabs that will change a route param whenever a tab is clicked. The value of the clicked tab can later be accessed through `$route` or `useRoute()`.
 
 ## Example
 
