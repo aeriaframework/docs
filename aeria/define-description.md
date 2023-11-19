@@ -1,5 +1,7 @@
 # defineDescription()
 
+## Introduction
+
 Provides type-safety for [`Description`](/backend/description.md) definition. This function takes the description structure as an object literal as the first parameter and returns a tuple consisting of a type inferred from this object and the untouched description object.
 
 ```typescript

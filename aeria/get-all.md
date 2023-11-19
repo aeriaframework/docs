@@ -1,5 +1,7 @@
 # getAll()
 
+## Introduction
+
 ## Type
 
 ```typescript

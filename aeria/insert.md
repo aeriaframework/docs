@@ -1,5 +1,7 @@
 # insert()
 
+## Introduction
+
 In Aeria there's no terminological distinction between creating and updating a document. The `insert()` function will either create a new document or update an existing one based on the presence or absence of a `_id` property in the payload.
 
 ## Type
