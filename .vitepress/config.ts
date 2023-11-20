@@ -123,16 +123,15 @@ function sidebarAeriaUiReference() {
     {
       text: 'Configuration',
       items: [
-        { text: 'MenuSchema', link: '/aeria-ui/menu-schema' }
+        { text: 'App configuration', link: '/aeria-ui/app-configuration' },
+        { text: 'Menu configuration', link: '/aeria-ui/menu-configuration' }
       ]
     },
     {
       text: 'Stores',
       items: [
-        { text: 'Store', link: '/aeria-ui/store' },
+        { text: 'Using and registering stores', link: '/aeria-ui/using-and-registering-stores' },
         { text: 'CollectionStore', link: '/aeria-ui/collection-store' },
-        { text: 'useStore()', link: '/aeria-ui/use-store' },
-        { text: 'registerStore()', link: '/aeria-ui/register-store' },
       ]
     },
     {

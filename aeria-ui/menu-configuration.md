@@ -1,4 +1,4 @@
-# MenuSchema
+# Menu configuration
 
 ## Introduction
 
@@ -36,7 +36,7 @@ const menuSchema: MenuSchema = [
 ]
 ```
 
-## Type
+## MenuSchema
 
 ```typescript
 type MenuNodeBase = Partial<RouteMeta> & {

@@ -2,7 +2,7 @@
 
 ## Introduction
 
-In Aeria there's no terminological distinction between creating and updating a document. The `insert()` function will either create a new document or update an existing one based on the presence or absence of a `_id` property in the payload.
+In Aeria both creation and update operations are made through insert. The only thing that tells an update apart of a document creation is the presence of an `_id` prop within `what`. This function will either return a `Right` with the latest version of the created or updated document, with it's unique ID, or a `Left` with access control or validation errors.
 
 ## Type
 
