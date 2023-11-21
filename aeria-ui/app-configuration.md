@@ -49,6 +49,7 @@ type InstanceConfig = {
     signupForm?: boolean
   }
   icons?: string[]
+  sourcemap?: boolean
 }
 ```
 
@@ -73,3 +74,7 @@ you must also set up the backend properly.
 ### icons <Badge type="tip" text="string[]" />
 
 This property should contain an array of icon names that for some reason can't be matched statically.
+
+### sourcemap <Badge type="tip" text="boolean" />
+
+Bundles sourcemaps along with source files.

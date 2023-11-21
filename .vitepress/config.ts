@@ -107,6 +107,7 @@ function sidebarAeriaReference() {
       text: 'Miscellaneous',
       items: [
         { text: 'Either', link: '/aeria/either' },
+        { text: 'Condition', link: '/aeria/condition' },
         { text: 'RouterOptions', link: '/aeria/router-options' },
         { text: 'makeRouter()', link: '/aeria/make-router' }
       ]
