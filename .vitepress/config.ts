@@ -70,7 +70,7 @@ function sidebarAeriaReference() {
       items: [
         { text: 'AccessControl', link: '/aeria/access-control' },
         { text: 'Collection', link: '/aeria/collection' },
-        { text: 'CollectionProperty', link: '/aeria/collection-property' },
+        { text: 'Property', link: '/aeria/property' },
         { text: 'Description', link: '/aeria/description' },
         { text: 'defineCollection()', link: '/aeria/define-collection' },
         { text: 'defineDescription()', link: '/aeria/define-description' },

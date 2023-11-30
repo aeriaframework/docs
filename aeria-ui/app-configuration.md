@@ -43,25 +43,29 @@ The instance config is defined inside a `instance.json` file in the same level t
 
 ```typescript
 type InstanceConfig = {
-  exposed: {
-    title: string
-    signinText: string
+  site: {
+    title?: string
+    signinText?: string
     signupForm?: boolean
   }
-  icons?: string[]
+  icons?: {
+    safeList?: string[]
+    libraries?: string[]
+  }
   sourcemap?: boolean
 }
+
 ```
 
-### exposed.title <Badge type="tip" text="string" />
+### site.title <Badge type="tip" text="string" />
 
 The title of your application.
 
-### exposed.signinText <Badge type="tip" text="string" />
+### site.signinText <Badge type="tip" text="string" />
 
 A text that will be put above the sign in form.
 
-### exposed.signupForm <Badge type="tip" text="boolean" />
+### site.signupForm <Badge type="tip" text="boolean" />
 
 This toggles the visibility of the button leading to the sign up form in the
 sign in page.
@@ -71,9 +75,13 @@ This is a client-side only flag. To make sign up available in your application,
 you must also set up the backend properly.
 :::
 
-### icons <Badge type="tip" text="string[]" />
+### icons.safeList <Badge type="tip" text="string[]" />
 
 This property should contain an array of icon names that for some reason can't be matched statically.
+
+### icons.safeList <Badge type="tip" text="string[]" />
+
+This property specifies libraries to be included in during static search for icons.
 
 ### sourcemap <Badge type="tip" text="boolean" />
 
