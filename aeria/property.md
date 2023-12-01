@@ -1,5 +1,14 @@
 # Property
 
+- [ObjectProperty](#objectproperty)
+- [StringProperty](#stringproperty)
+- [NumberProperty](#numberproperty)
+- [BooleanProperty](#booleanproperty)
+- [RefProperty](#refproperty)
+- [FileProperty](#fileproperty)
+- [EnumProperty](#enumproperty)
+- [ArrayProperty](#arrayproperty)
+
 ## ObjectProperty
 
 This type of property is used to create denormalized subschemas that will be validated on runtime. Unlike `RefProperty`, which is another way of storing data structures, it inserts the actual object instead of it's identifier, and doesn't require a collection.
@@ -35,12 +44,64 @@ Object properties are distinguished by the `type` property set to `'object'`. It
 
 String properties are distinguished by the `type` property set to `'string'`. **Dates also use the same type**, but they are set apart by the `format` attribute.
 
+### minLength <Badge type="tip" text="number" />
+
+This property sets a minimal string length.
+
+### maxLength <Badge type="tip" text="number" />
+
+This property sets a maximal string length.
+
+### format <Badge type="tip" text="PropertyFormat" />
+
+The following text is quoted directly from [json-schema.org](https://json-schema.org/understanding-json-schema/reference/string): "The format keyword allows for basic semantic identification of certain kinds of string values that are commonly used. For example, because JSON doesn't have a "DateTime" type, dates need to be encoded as strings. format allows the schema author to indicate that the string value should be interpreted as a date".
+
+```typescript
+type PropertyFormat = 
+  | 'date'
+  | 'date-time'
+```
+
+### inputType <Badge type="tip" text="PropertyInputType" /> <Badge type="tip" text="frontend" />
+
+When applicable, this property specifies a custom input type to be passed to the HTML `<input />` element.
+
+```typescript
+type PropertyInputType =
+  | 'text'
+  | 'email'
+  | 'password'
+  | 'search'
+  | 'time'
+  | 'month'
+```
+
+### mask <Badge type="tip" text="string | ReadonlyArray<string>" />
+
+This property specifies one or more masks to be applied to the input.
+
 
 ## NumberProperty
 
 ### type <Badge type="tip" text="'number' | 'integer'" />
 
 This property is used to represent JS-native numbers. It can also specify integers only, in which case runtime validators will be used.
+
+### minimum <Badge type="tip" text="number" />
+
+This property ensures number will be greater than specified value, inclusively.
+
+### maximum <Badge type="tip" text="number" />
+
+This property ensures number will be less than specified value, inclusively.
+
+### exclusiveMinimum <Badge type="tip" text="number" />
+
+This property ensures number will be greater than specified value, exclusively.
+
+### exclusiveMaximum <Badge type="tip" text="number" />
+
+This property ensures number will be less than specified value, exclusively.
 
 
 ## BooleanProperty
@@ -183,18 +244,6 @@ If set to a string, the value of this property will be preferred when displaying
 
 If true, will make the property unwritable on document creation and update. Trying to write on it won't return any error, the new value will just be ignored instead.
 
-### element <Badge type="tip" text="PropertyElement" /> <Badge type="tip" text="frontend" />
-
-When applicable, this property specifies a custom HTML element to handle input.
-
-```typescript
-type PropertyElement =
-  | 'select'
-  | 'checkbox'
-  | 'radio'
-  | 'textarea'
-```
-
 ### focus <Badge type="tip" text="boolea" /> <Badge type="tip" text="frontend" />
 
 Signals the input of this property should be focused as soon as a form is rendered. Each form may have only one property with this flag enabled.
@@ -206,20 +255,11 @@ This property receives a callback that receives the current document being proce
 **Example:**
 
 ```typescript
-const description: Description = {
-  $id: 'person',
-  properties: {
-    first_name: {
-      type: 'string'
-    },
-    last_name: {
-      type: 'string'
-    },
-    full_name: {
-      type: 'string',
-      getter: (value: any) => {
-        return `${value.first_name} ${value.last_name}`
-      }
+{
+  full_name: {
+    type: 'string',
+    getter: (value: any) => {
+      return `${value.first_name} ${value.last_name}`
     }
   }
 }
@@ -240,24 +280,6 @@ If set to a string, this property will exhibit a small text underneat form input
 ### icon <Badge type="tip" text="string" /> <Badge type="tip" text="frontend" />
 
 This property assigns an icon from an icon library to the property. It will be shown inside inputs and wherever applicable.
-
-### inputType <Badge type="tip" text="PropertyInputType" /> <Badge type="tip" text="frontend" />
-
-When applicable, this property specifies a custom input type to be passed to the HTML `<input />` element.
-
-```typescript
-type PropertyInputType =
-  | 'text'
-  | 'email'
-  | 'password'
-  | 'search'
-  | 'time'
-  | 'month'
-```
-
-### mask <Badge type="tip" text="string | ReadonlyArray<string>" /> <Badge type="tip" text="frontend" />
-
-Specifies a mask or an array of masks to be applied to text inputs. Refer to [Maska Documentation](https://beholdr.github.io/) to learn about mask formats.
 
 ### noForm <Badge type="tip" text="boolean" /> <Badge type="tip" text="frontend" />
 

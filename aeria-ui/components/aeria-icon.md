@@ -5,6 +5,6 @@
 ```vue-html
 <aeria-icon
   reactive
-  name="user-circle"
+  icon="user-circle"
 ></aeria-icon>
 ```

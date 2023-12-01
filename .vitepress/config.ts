@@ -154,6 +154,7 @@ function sidebarAeriaUiReference() {
         { text: 'aeria-file', link: '/aeria-ui/components/aeria-file' },
         { text: 'aeria-form', link: '/aeria-ui/components/aeria-form' },
         { text: 'aeria-grid', link: '/aeria-ui/components/aeria-grid' },
+        { text: 'aeria-icon', link: '/aeria-ui/components/aeria-icon' },
         { text: 'aeria-info', link: '/aeria-ui/components/aeria-info' },
         { text: 'aeria-input', link: '/aeria-ui/components/aeria-input' },
         { text: 'aeria-main', link: '/aeria-ui/components/aeria-main' },

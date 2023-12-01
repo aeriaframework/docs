@@ -8,6 +8,7 @@ To see how common problems are solved using Aeria, visit [Help Topics](/aeria/he
 - [`Collection`](/aeria/collection)
 - [`Context`](/aeria/context)
 - [`Description`](/aeria/description)
+- [`Property`](/aeria/property)
 
 ## Public API
 
