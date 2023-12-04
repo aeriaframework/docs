@@ -1,31 +1,38 @@
 # get()
 
-## Type
+## Introduction
+
+This function is used to retrieve the first document from the database matching specified filters. It is associated with the `GET` method on the `/collectionName/:id` route.
+
+## Payload
+
+**Type:**
+
+```typescript
+type GetPayload<TDocument extends CollectionDocument<OptionalId<any>>> = {
+  filters?: Filters<TDocument>
+  project?: Projection<TDocument>
+}
+```
+
+### filters <Badge type="tip" text="Filters<TDocument>" />
+
+An object containing filters.
+
+### project <Badge type="tip" text="Projection<TDocument>" />
+
+An array of strings representing property names. Properties not present in this array will be filtered out from the retrieved document.
+
+## Options
+
+**Type:**
 
 ```typescript
 type GetOptions = {
   bypassAccessControl?: boolean
 }
-
-declare const get: <TDocument extends CollectionDocument<any>>() => <TContext>(
-  payload: {
-    filters?: Filters<TDocument>
-    project?: Projection<TDocument>
-  },
-  context: TContext extends Context<infer Description>
-    ? TContext
-    : never,
-  options?: GetOptions
-
-) => Promise<TDocument | null>
 ```
 
-## Payload
+### bypassAccessControl <Badge type="tip" text="boolean" />
 
-#### filters <Badge type="tip" text="Filters<TDocument>" />
-
-An object containing filters.
-
-#### project <Badge type="tip" text="Projection<TDocument>" />
-
-An array of strings representing property names, only the specified properties will be returned from the document.
+This property toggles access control.
