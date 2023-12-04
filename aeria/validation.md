@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Runtime validation of data is possible in Aeria using functions exposed in the public API. Those same functions are used internally when validating documents before insertion, so validation errors will consistently have the same type throughout your application. [Validators](#validator) return both the inferred type of the given schema and a validation function, so there's no hassle of typing twice.
+Runtime validation of data is possible in Aeria using functions exposed in the public API. These same functions are used internally when validating documents before insertion, so validation errors will consistently have the same type throughout your application. [Validators](#validator) are helper functions that will return both the inferred type of the given schema and a validation function.
 
 
 ## validate()
