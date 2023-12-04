@@ -146,7 +146,14 @@ If set, grid and tabular runtime generated views will request the specified prop
 
 This property should only be used to disable automatic timestamps in a certain collection (`created_at` and `updated_at`). Timestamps are always enabled by default.
 
-### required <Badge type="tip" text="ReadonlyArray<PropertiesWithId<TDescription>>" />
+### required <Badge type="tip" text="RequiredProperties" />
+
+```typescript
+type RequiredProperties<TDescription extends Description> = ReadonlyArray<PropertiesWithId<TDescription>> | Partial<Record<
+  PropertiesWithId<TDescription>,
+  Condition<TDescription> | boolean
+>>
+```
 
 This property is used to verify document wholeness upon creation and update. Case set to an array of strings, will consider only specified properties to validate document wholeness, otherwise will check if all properties are not null or undefined.
 

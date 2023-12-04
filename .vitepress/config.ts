@@ -79,12 +79,13 @@ function sidebarAeriaReference() {
       ]
     },
     {
-      text: 'Validation',
+      text: 'General',
       items: [
-        { text: 'ValidationError', link: '/aeria/validationError' },
-        { text: 'validate()', link: '/aeria/validate' },
-        { text: 'validateSilently()', link: '/aeria/validate-silently' },
-        { text: 'validator()', link: '/aeria/validator' },
+        { text: 'Validation', link: '/aeria/validation' },
+        { text: 'Routing', link: '/aeria/routing' },
+        // { text: 'validate()', link: '/aeria/validate' },
+        // { text: 'validateSilently()', link: '/aeria/validate-silently' },
+        // { text: 'validator()', link: '/aeria/validator' },
       ]
     },
     {
@@ -94,11 +95,11 @@ function sidebarAeriaReference() {
           text: 'Functions',
           collapsed: true,
           items: [
-            { text: 'count', link: '/aeria/count' },
-            { text: 'get', link: '/aeria/get' },
-            { text: 'getAll', link: '/aeria/get-all' },
-            { text: 'insert', link: '/aeria/insert' },
-            { text: 'remove', link: '/aeria/remove' },
+            { text: 'count()', link: '/aeria/count' },
+            { text: 'get()', link: '/aeria/get' },
+            { text: 'getAll()', link: '/aeria/get-all' },
+            { text: 'insert()', link: '/aeria/insert' },
+            { text: 'remove()', link: '/aeria/remove' },
           ]
         }
       ]
@@ -108,7 +109,6 @@ function sidebarAeriaReference() {
       items: [
         { text: 'Either', link: '/aeria/either' },
         { text: 'Condition', link: '/aeria/condition' },
-        { text: 'Routing', link: '/aeria/routing' }
       ]
     },
   ]

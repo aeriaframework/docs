@@ -1,4 +1,8 @@
-# count
+# count()
+
+## Introduction
+
+This function is used to retrieve the number of existent documents given a filter.
 
 ## Type
 
