@@ -24,6 +24,7 @@ export default defineConfig({
         items: [
           { text: 'Aeria', link: '/aeria/', activeMatch: '^/aeria/' },
           { text: 'Aeria UI', link: '/aeria-ui/', activeMatch: '^/aeria-ui/' },
+          { text: 'Aeria SDK', link: '/aeria-sdk/', activeMatch: '^/aeria-sdk/' },
         ]
       },
     ],
