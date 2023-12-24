@@ -1,4 +1,4 @@
-# AccessControl
+# Access Control
 
 ## Introduction
 
@@ -9,14 +9,15 @@ The access control profile is defined with strong typing as an object literal in
 ## Example
 
 ```typescript
-const person = defineCollection(() => ({
-  item: Person,
+import { defineCollection, get, insert, remove } from 'aeria'
+
+const person = defineCollection({
   description,
-  functions: useFunctions<typeof Person>()([
-    'getAll',
-    'insert',
-    'remove'
-  ]),
+  functions: {
+    get,
+    insert,
+    remove
+  }
   accessControl: {
     roles: {
       guest: {
@@ -37,7 +38,7 @@ const person = defineCollection(() => ({
       }
     }
   }
-}))
+})
 ```
 
 ## Role

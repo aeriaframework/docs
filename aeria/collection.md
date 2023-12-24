@@ -1,28 +1,28 @@
 # Collection
 
-## Introduction
-
-Aeria has builtin primitives for persistent data storage. Each collection equals to a table in a relational database, or to a document database collection, but aside from the data access itself, an Aeria collection may have access control, security, and functions set.
-
-Direct access to MongoDB collection is possible through `context.model`, but validation, autocasting and autopopulation of references won't be available. The CRUD functions available through `context.collection.functions` are the standard and should be preferred.
-
+## Defining collections
 
 ```typescript
-export type CollectionStructure<TCollectionStructure extends CollectionStructure = any> = {
-  item: any
-  description: Description
-  security?: SecurityPolicy
-  accessControl?: AccessControl<TCollectionStructure>
-  functions?: Record<string, (...args: any[]) => any>
-}
+import { defineCollection, get, getAll, remove } from 'sonata-api'
+
+export const collectionName = defineCollection({
+  description: {
+    $id: 'collectionName',
+    properties: {
+      name: {
+        type: 'string'
+      }
+    }
+  },
+  functions: {
+    get,
+    getAll,
+    remove
+  }
+})
 ```
 
 ## Properties
-
-### item <Badge type="tip" text="any" />
-
-The `item` property is never used by the runtime. It serves only the purpose of typing.
-The value of this property is the first element of the tuple returned by `defineDescription`.
 
 ### description <Badge type="tip" text="Description" />
 
@@ -30,6 +30,8 @@ The `description` property is where the properties of your collection are
 defined, alongside some behavior rules. It should always be strongely typed
 using the `defineDescription` function. Descriptions have their own complexity,
 you can learn more about them in the `Description` page.
+
+### functions <Badge type="tip" text="Record<string, (...args: any[]) => any>" /> <Badge type="tip" text="optional" />
 
 ### security <Badge type="tip" text="SecurityPolicy" /> <Badge type="tip" text="optional" />
 

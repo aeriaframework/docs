@@ -11,15 +11,14 @@ This function is used to create a router object with an optional `RouterOptions`
 ```typescript
 type RouterOptions = {
   exhaust?: boolean
-  base: RouteUri
-  middleware?: (context: Context) => any
+  base?: RouteUri
 }
 ```
 
 The router object may be used to bind callback to routes. The route string is actually a regular expression that can be used to catch params using grouping. Routes can be defined either by using the uppercase method name directly or by using the `router.route` function to register multiple methods at once.
 
 ```typescript
-const router = makeRouter()
+export const router = makeRouter()
 
 router.GET('/age/([0-9]+)', (context) => {
   const age = Number(context.request.fragments)

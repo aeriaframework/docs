@@ -1,5 +1,7 @@
 # Property
 
+## Summary
+
 - [ObjectProperty](#objectproperty)
 - [StringProperty](#stringproperty)
 - [NumberProperty](#numberproperty)
@@ -8,6 +10,7 @@
 - [FileProperty](#fileproperty)
 - [EnumProperty](#enumproperty)
 - [ArrayProperty](#arrayproperty)
+- [LiteralProperty](#literalproperty)
 
 ## ObjectProperty
 
@@ -228,6 +231,22 @@ Array properties are properties which type is set to `'array'`. Additionally, th
 ### items <Badge type="tip" text="Property" />
 
 This property defines the schema of array elements.
+
+## LiteralProperty
+
+**Example:**
+
+```typescript
+{
+  success: {
+    literal: true
+  }
+}
+```
+
+### literal <Badge type="tip" text="string | number | boolean" />
+
+Array properties are properties which type is set to `'array'`. Additionally, the `items` property is required to type the elements of the array.
 
 
 ## PropertyBase

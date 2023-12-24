@@ -25,49 +25,41 @@ The `GODMODE_USERNAME` and `GODMODE_PASSWORD` environment variables are meant to
 
 Aeria uses a pretty straightforward folder-by-feature hierarchy, so collections along with all their assets (functions, DTOs, etc) are placed inside a folder inside `collections/`. Adding a "person" collection couldn't be simpler:
 
-1. Create a `collections/person/description.ts` file that will bear the [`Description`](/aeria/description) of the collection (to understand descriptions, think of Mongoose schemas, or ORM entities). We will export the tuple returned by [`defineDescription`](/aeria/define-description).
+1. Create a `collections/person/index.ts` file that will contain a single export containing the structure of the collection.
 
 ```typescript
-import { defineDescription } from 'sonata-api'
+import { defineCollection, get, getAll, insert } from 'sonata-api'
 
-export const [Person, description] = definedescription({
-  $id: 'person',
-  properties: {
-    name: {
-      type: 'string'
+export const person = defineCollection({
+  description: {
+    $id: 'person',
+    properties: {
+      name: {
+        type: 'string'
+      },
+      age: {
+        type: 'number'
+      }
     },
-    age: {
-      type: 'number'
-    }
+    presets: [
+      'crud'
+    ]
   },
-  presets: [
-    'crud'
-  ]
+  functions: {
+    get,
+    getAll,
+    insert
+  }
 })
 ```
 
-2. Create a `collections/person/index.ts` file that will export the collection itself.
-
-```typescript
-import { defineCollection } from 'sonata-api'
-
-export const person = defineCollection(() => ({
-  item: Person,
-  description,
-  functions: useFunctions<typeof Person>()([
-    'getAll',
-    'insert'
-  ])
-}))
-```
-
-3. Re-export the collection we've just created in the `collections/index.ts` file:
+2. Re-export the collection we've just created in the `collections/index.ts` file:
 
 ```typescript
 export * from './person'
 ```
 
-5. You may want to make your newly created collection appear in the frontend navbar. To do that, simple add a `'/dashboard/person'` entry under `menuSchema.start.children` array inside the `web/src/index.ts` file like so:
+3. You may want to make your newly created collection appear in the frontend navbar. To do that, simple add a `'/dashboard/person'` entry under `menuSchema.start.children` array inside the `web/src/index.ts` file like so:
 
 ```typescript
 menuSchema: {
@@ -89,18 +81,13 @@ menuSchema: {
 
 ```typescript
 import { init, makeRouter } from 'sonata-api'
+export * from './collections'
 
 const router = makeRouter()
 
 router.GET('/hello-world', () => {
   return {
     message: 'Hello, world!'
-  }
-})
-
-router.route(['POST', 'PUT'], (context) => {
-  return {
-    message: `Hey, your name is ${context.request.query.name || 'John'}`
   }
 })
 ```

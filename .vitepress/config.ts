@@ -63,27 +63,42 @@ function sidebarGuide() {
 function sidebarAeriaReference() {
   return [
     {
-      text: 'Help Topics',
-      link: '/aeria/help-topics/'
+      text: 'Getting started',
+      items: [
+        { text: 'Glossary', link: '/aeria/glossary' },
+        { text: 'Help Topics', link: '/aeria/help-topics/' },
+      ]
     },
     {
       text: 'Collection',
       items: [
-        { text: 'AccessControl', link: '/aeria/access-control' },
-        { text: 'Collection', link: '/aeria/collection' },
-        { text: 'Property', link: '/aeria/property' },
-        { text: 'Description', link: '/aeria/description' },
-        { text: 'defineCollection()', link: '/aeria/define-collection' },
-        { text: 'defineDescription()', link: '/aeria/define-description' },
-        { text: 'traverseDocument()', link: '/aeria/traverse-document' },
-        { text: 'useFunctions()', link: '/aeria/use-functions' },
+        {
+          text: 'Collection',
+          link: '/aeria/collection',
+          items: [
+            { text: 'Access Control', link: '/aeria/access-control' },
+          ]
+        },
+        {
+          text: 'Description',
+          link: '/aeria/description',
+          items: [
+            { text: 'Property', link: '/aeria/property' },
+            { text: 'Validation', link: '/aeria/validation' },
+          ]
+        },
       ]
     },
     {
       text: 'General',
       items: [
-        { text: 'Validation', link: '/aeria/validation' },
-        { text: 'Routing', link: '/aeria/routing' },
+        {
+          text: 'Routing',
+          link: '/aeria/routing',
+          items: [
+            { text: 'Contracts', link: '/aeria/contracts' }
+          ]
+        },
         // { text: 'validate()', link: '/aeria/validate' },
         // { text: 'validateSilently()', link: '/aeria/validate-silently' },
         // { text: 'validator()', link: '/aeria/validator' },
@@ -92,6 +107,17 @@ function sidebarAeriaReference() {
     {
       text: 'Built-ins',
       items: [
+        {
+          text: 'Collections',
+          collapsed: true,
+          items: [
+            { text: 'User', link: '/aeria/user' },
+            { text: 'File', link: '/aeria/file' },
+            { text: 'ResourceUsage', link: '/aeria/resourceUsage' },
+            { text: 'Log', link: '/aeria/log' },
+            { text: 'ApiKey', link: '/aeria/apiKey' },
+          ]
+        },
         {
           text: 'Functions',
           collapsed: true,
@@ -106,10 +132,11 @@ function sidebarAeriaReference() {
       ]
     },
     {
-      text: 'Miscellaneous',
+      text: 'Advanced API',
       items: [
         { text: 'Either', link: '/aeria/either' },
         { text: 'Condition', link: '/aeria/condition' },
+        { text: 'traverseDocument()', link: '/aeria/traverse-document' },
       ]
     },
   ]
