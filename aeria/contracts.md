@@ -64,7 +64,7 @@ export const CheckKeyContract = defineContract([
 ])
 ```
 
-Route definition:
+Usage with a route:
 
 ```typescript
 import { makeRouter } from 'aeria'
