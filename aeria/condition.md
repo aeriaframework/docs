@@ -3,7 +3,7 @@
 ## Introduction
 
 Conditions are use throughout Aeria to control dynamic behaviors.
-They offer equality, existence, and numeric operators, and negation and logic concatenation can be built using `not`, `and`, and `or`.
+They offer equality, existence, and numeric operators, and logical connectives can be built using `not`, `and`, and `or`.
 
 **Example:**
 
