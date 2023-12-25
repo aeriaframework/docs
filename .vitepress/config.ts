@@ -53,7 +53,7 @@ function sidebarGuide() {
       text: 'Introduction',
       collapsed: false,
       items: [
-        { text: 'What is Aeria?', link: '/guide/what-is-aeria' },
+        { text: 'Why choose Aeria over another options?', link: '/guide/why-choose-aeria-over-another-options' },
         { text: 'Getting started', link: '/guide/getting-started' },
         { text: 'Deploy', link: '/guide/deploy' },
       ]
@@ -168,6 +168,7 @@ function sidebarAeriaUiReference() {
       items: [
         { text: 'Directives', link: '/aeria-ui/directives' },
         { text: 'Composables', link: '/aeria-ui/composables' },
+        { text: 'Template functions and computed variables', link: '/aeria-ui/template-functions-and-computed-variables' },
       ]
     },
     {
