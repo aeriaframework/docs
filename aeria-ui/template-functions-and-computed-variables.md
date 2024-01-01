@@ -20,18 +20,6 @@ This is the i18n "t" function used to translate text.
 </div>
 ```
 
-### capitalize()
-> Imported from "@sonata-api/common"
-
-Make the first character of a string uppercase.
-
-```vue-html
-<div>
-  Hello,
-  <div>{{ capitalize(currentUser.first_name) }}</div>
-</div>
-```
-
 ### formatDateTime()
 > Imported from "@sonata-api/common"
 
