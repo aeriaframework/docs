@@ -11,6 +11,7 @@
 - [EnumProperty](#enumproperty)
 - [ArrayProperty](#arrayproperty)
 - [LiteralProperty](#literalproperty)
+- [GetterProperty](#getterproperty)
 
 ## ObjectProperty
 
@@ -113,9 +114,6 @@ This property ensures number will be less than specified value, exclusively.
 
 Boolean properties are distinguished by the `type` property set to `'boolean'`
 
-::: warning WARNING
-Boolean properties can actually bear three states: true, false, and undefined. To check for falsiness, instead of comparing it with `false`, you must ensure it isn't `true`.
-:::
 
 ## RefProperty
 
@@ -249,6 +247,25 @@ This property defines the schema of array elements.
 Array properties are properties which type is set to `'array'`. Additionally, the `items` property is required to type the elements of the array.
 
 
+## GetterProperty
+
+**Example:**
+
+```typescript
+{
+  full_name: {
+    getter: (doc: any) => {
+      return `${doc.first_name} ${doc.full_name}`
+    }
+  }
+}
+```
+
+### getter <Badge type="tip" text="(doc: any) => any" />
+
+The getter function. In TypeScript, the `doc` parameter must be explicitly annotated to `any`.
+
+
 ## PropertyBase
 
 ### default <Badge type="tip" text="any" /> <Badge type="tip" text="frontend" />
@@ -267,9 +284,6 @@ If true, will make the property unwritable on document creation and update. Tryi
 
 Signals the input of this property should be focused as soon as a form is rendered. Each form may have only one property with this flag enabled.
 
-### getter <Badge type="tip" text="(value: any) => any" />
-
-This property receives a callback that receives the current document being processed and returns a computed value upon it. Getter properties are automatically flagged as read-only.
 
 **Example:**
 
