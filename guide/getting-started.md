@@ -104,10 +104,10 @@ init(null, (context) => {
 
 ## Further reading
 
-This small guide gave you an overview of how Aeria works. With this topics only you should be able to do a lot, but as your application grows you'll likely need some other features, like [file uploading](/aeria/help-topics/create-an-upload-field), [validation](/aeria/help-topics/validate-an-object-against-a-schema) and [references](/aeria/help-topics/reference-another-collection). We've bring together some useful help topics that will assist you with doing these common tasks.
+This small guide gave you an overview of how Aeria works. With this topics only you should be able to do a lot, but as your application grows you'll likely need some other features, like [file uploading](/aeria/cheatsheet/create-an-upload-field), [validation](/aeria/cheatsheet/validate-an-object-against-a-schema) and [references](/aeria/cheatsheet/reference-another-collection). We've bring together some useful help topics that will assist you with doing these common tasks.
 
-- [Help Topics - Aeria](/aeria/help-topics/)
-- [Help Topics - Aeria UI](/aeria-ui/help-topics/)
+- [Help Topics - Aeria](/aeria/cheatsheet/)
+- [Help Topics - Aeria UI](/aeria-ui/cheatsheet/)
 
 API references of both tools are also available below and fixed on the top navigation bar to be accessed at any time.
 

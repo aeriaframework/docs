@@ -67,7 +67,7 @@ function sidebarAeriaReference() {
       text: 'Getting started',
       items: [
         { text: 'Glossary', link: '/aeria/glossary' },
-        { text: 'Help Topics', link: '/aeria/help-topics/' },
+        { text: 'Cheatsheet', link: '/aeria/cheatsheet/' },
       ]
     },
     {
@@ -146,8 +146,8 @@ function sidebarAeriaReference() {
 function sidebarAeriaUiReference() {
   return [
     {
-      text: 'Help Topics',
-      link: '/aeria-ui/help-topics/'
+      text: 'Cheatsheet',
+      link: '/aeria-ui/cheatsheet/'
     },
     {
       text: 'Configuration',

@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This component renders a frame with a picture and some text near it and it's commonly used along with [grids](/aeria-ui/help-topics/create-a-list-or-a-grid-of-cards). Cards can be either vertical or horizontal, and they can have a inactive state. Predefined slots are also available to place badges and buttons.
+This component renders a frame with a picture and some text near it and it's commonly used along with [grids](/aeria-ui/cheatsheet/create-a-list-or-a-grid-of-cards). Cards can be either vertical or horizontal, and they can have a inactive state. Predefined slots are also available to place badges and buttons.
 
 ## Example
 
