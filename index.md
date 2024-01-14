@@ -5,6 +5,9 @@ hero:
     name: Aeria
     text: A web framework tuned for security and efficiency
     tagline: Create high quality TypeScript applications using way less code
+    image:
+        src: /logo.png
+        alt: Aeria logo
     actions:
         - theme: brand
           text: Get started
