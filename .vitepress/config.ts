@@ -11,6 +11,7 @@ export default defineConfig({
   ignoreDeadLinks: true,
 
   themeConfig: {
+    logo: '/logo.png',
     outline: [2, 3],
     nav: [
       {
