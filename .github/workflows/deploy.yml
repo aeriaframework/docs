@@ -47,6 +47,8 @@ jobs:
 
       - name: Build with VitePress
         run: pnpm build
+      - name: Copy assets to dist
+        run: cp -r assets .vitepress/dist
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
@@ -63,3 +65,4 @@ jobs:
       - name: Deploy to Github Pages
         id: deployment
         uses: actions/deploy-pages@v2
+
