@@ -1,6 +1,6 @@
 # Aeria UI Reference
 
-To see how common problems are solved using Aeria UI, visit [Help Topics](/aeria-ui/cheatsheet/).
+To see how common problems are solved using Aeria UI, visit [Cheatsheet](/aeria-ui/cheatsheet/).
 
 ## Public API
 

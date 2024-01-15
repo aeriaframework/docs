@@ -1,6 +1,6 @@
 # Aeria Reference
 
-To see how common problems are solved using Aeria, visit [Help Topics](/aeria/cheatsheet/).
+To see how common problems are solved using Aeria, visit [Cheatsheet](/aeria/cheatsheet/).
 
 ## Types
 
@@ -16,7 +16,7 @@ To see how common problems are solved using Aeria, visit [Help Topics](/aeria/ch
 - [`defineDescription`]()
 - [`defineCollection`](/aeria/define-collection)
 - [`defineOptions`]()
-- [`makeRouter`](/aeria/routing#makerouter)
+- [`createRouter`](/aeria/routing#createrouter)
 - [`traverseDocument`](/aeria/traverse-document)
 - [`useFunctions`](/aeria/use-functions)
 - [`validate`](/aeria/validation#validate)
