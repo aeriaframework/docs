@@ -62,9 +62,9 @@ The `getAll` and `insert` strings passed to the `functions` property through the
 Creating custom routes is also simple.
 
 ```typescript
-import { init, makeRouter } from 'aeria'
+import { init, createRouter } from 'aeria'
 
-const router = makeRouter()
+const router = createRouter()
 
 router.GET('/hello/(\\w+)', (context) => {
   return {

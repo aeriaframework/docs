@@ -77,13 +77,13 @@ menuSchema: {
 
 ## Adding a route
 
-1. Inside `api/src/index.ts`, import `makeRouter` and create a router like below. The router object has functions named as default HTTP methods that will register a callback on the desired path. You may also define a route that accepts multiple methods with the `router.route` function.
+1. Inside `api/src/index.ts`, import `createRouter` and create a router like below. The router object has functions named as default HTTP methods that will register a callback on the desired path. You may also define a route that accepts multiple methods with the `router.route` function.
 
 ```typescript
-import { init, makeRouter } from 'sonata-api'
+import { init, createRouter } from 'sonata-api'
 export * from './collections'
 
-const router = makeRouter()
+const router = createRouter()
 
 router.GET('/hello-world', () => {
   return {

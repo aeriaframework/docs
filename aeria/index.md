@@ -16,10 +16,10 @@ To see how common problems are solved using Aeria, visit [Help Topics](/aeria/ch
 - [`defineDescription`]()
 - [`defineCollection`](/aeria/define-collection)
 - [`defineOptions`]()
-- [`makeRouter`](/aeria/make-router)
+- [`makeRouter`](/aeria/routing#makerouter)
 - [`traverseDocument`](/aeria/traverse-document)
 - [`useFunctions`](/aeria/use-functions)
-- [`validate`](/aeria/validate)
-- [`validateSilently`](/aeria/validate-silently)
+- [`validate`](/aeria/validation#validate)
+- [`validateSilently`](/aeria/validation#validatesilently)
 
 

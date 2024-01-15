@@ -4,7 +4,7 @@
 
 Aeria ships a minimalistic web server with routing and pattern matching support.
 
-## makeRouter()
+## createRouter()
 
 This function is used to create a router object with an optional `RouterOptions` parameter.
 
@@ -18,7 +18,7 @@ type RouterOptions = {
 The router object may be used to bind callback to routes. The route string is actually a regular expression that can be used to catch params using grouping. Routes can be defined either by using the uppercase method name directly or by using the `router.route` function to register multiple methods at once.
 
 ```typescript
-export const router = makeRouter()
+export const router = createRouter()
 
 router.GET('/age/([0-9]+)', (context) => {
   const age = Number(context.request.fragments)
@@ -39,10 +39,10 @@ init(null, (context) => {
 })
 ```
 
-If none of the patterns of the router are matched, it will by default allow for default routes to be matched. To disable this behavior and make the user-defined router the only one available, set the `exhaust` flag to `true` in `makeRouter` options.
+If none of the patterns of the router are matched, it will by default allow for default routes to be matched. To disable this behavior and make the user-defined router the only one available, set the `exhaust` flag to `true` in `createRouter` options.
 
 ```typescript
-const router = makeRouter({
+const router = createRouter({
   exhaust: true
 })
 ```

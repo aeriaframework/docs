@@ -67,11 +67,11 @@ export const CheckKeyContract = defineContract([
 Usage with a route:
 
 ```typescript
-import { makeRouter } from 'aeria'
+import { createRouter } from 'aeria'
 
-export const router = makeRouter()
+export const router = createRouter()
 
-router.POST('/check-key', (context) => {
+router.POST('/checkKey', (context) => {
   const result = businessLogic()
 
   if( result ) {
