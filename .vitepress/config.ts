@@ -94,13 +94,8 @@ function sidebarAeriaReference() {
     {
       text: 'General',
       items: [
-        {
-          text: 'Routing',
-          link: '/aeria/routing',
-          items: [
-            { text: 'Contracts', link: '/aeria/contracts' }
-          ]
-        },
+        { text: 'Routing', link: '/aeria/routing', },
+        { text: 'Contracts', link: '/aeria/contracts' }
         // { text: 'validate()', link: '/aeria/validate' },
         // { text: 'validateSilently()', link: '/aeria/validate-silently' },
         // { text: 'validator()', link: '/aeria/validator' },
@@ -117,7 +112,6 @@ function sidebarAeriaReference() {
             { text: 'File', link: '/aeria/file' },
             { text: 'ResourceUsage', link: '/aeria/resourceUsage' },
             { text: 'Log', link: '/aeria/log' },
-            { text: 'ApiKey', link: '/aeria/apiKey' },
           ]
         },
         {

@@ -1,6 +1,8 @@
 # Contracts
 
-## 
+## Introduction
+
+Contracts are a way to provide runtime validation and typing to routes. If input data fails to be validated, the `422 Unprocessable Entity` HTTP status is returned alongside with the `ValidationError` object. Once a contract is assigned to a route, its function becomes strongly typed in [Aeria SDK](/aeria-sdk/).
 
 ## Example
 
@@ -26,15 +28,15 @@ Contract definition:
 ```typescript
 import { defineContract } from 'aeria'
 
-export const CheckKeyContract = defineContract([
-  {
+export const CheckKeyContract = defineContract({
+  payload: {
     properties: {
       key: {
         type: 'string'
       },
     }
   },
-  [
+  response: [
     {
       properties: {
         error: {
@@ -61,7 +63,7 @@ export const CheckKeyContract = defineContract([
       }
     },
   ]
-])
+})
 ```
 
 Usage with a route:
@@ -91,3 +93,4 @@ router.POST('/checkKey', (context) => {
   contract: CheckKeyContract
 })
 ```
+
