@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Aeria ships a minimalistic web server with routing and pattern matching support.
+Aeria ships a minimalistic web server with pattern matching, grouping, middlewares, and runtime validation support.
 
 ## createRouter()
 
@@ -47,28 +47,43 @@ const router = createRouter({
 })
 ```
 
-## Route callbacks and middlewares
+## Route groups and middlewares
 
-Middlewares can be passed as the third (or fourth) parameter of router registration in `RouterOptions.middleware`. They work the same as route callbacks, except that, if they return anything but `undefined` then the execution of the route callback will be suspended and the return value will be treated as being the response of the endpoint.
-
-We could think of a simple middleware that ensures the user is authenticated the following way:
+Routes can be grouped under a same path using the `router.group()` function. Route groups can have middlewares specified in the optional third argument. Middlewares are nothing more that a `(context: Context) => any` callback that will interrupt the route execution if they return a non-undefined value.
 
 ```typescript
-import { error, ACErrors, type RouterOptions } from 'sonata-api'
+const helloRouter = createRouter()
+helloRouter.GET('/', () => 'hello, everyone')
+helloRouter.GET('/world', () => 'hello, world')
 
-export const auth: RouterOptions = {
-  base: '/api',
-  middleware(context) {
-    if( !context.token.user._id ) {
-      return error(ACErrors.AuthorizationError)
+const router = createRouter()
+router.group('/hello', authRouter, (context) => {
+  if( !context.token.authenticated ) {
+    return {
+      message: 'out of here, punk!'
     }
   }
-}
-
+})
 ```
 
-To use it:
+## Runtime validation
+
+Data passed through `context.request.payload` and `context.request.query` can be validated during the runtime, resulting in a `422 Unprocessable Entity` error in case the validation fails (see: [Contracts](/aeria/contracts)). Simply pass a `Contract` object in the optional third (or fourth, if using `router.route`) parameter of the router registration function:
 
 ```typescript
-router.GET('/stats', stats, auth)
+router.POST('/sayMyName', (context) => {
+  return context.request.payload.name
+}, {
+  payload: {
+    type: 'object',
+    properties: {
+      name: {
+        type: 'string'
+      }
+    }
+  }
+})
 ```
+
+
+

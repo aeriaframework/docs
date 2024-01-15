@@ -106,13 +106,7 @@ function sidebarAeriaReference() {
       items: [
         {
           text: 'Collections',
-          collapsed: true,
-          items: [
-            { text: 'User', link: '/aeria/user' },
-            { text: 'File', link: '/aeria/file' },
-            { text: 'ResourceUsage', link: '/aeria/resourceUsage' },
-            { text: 'Log', link: '/aeria/log' },
-          ]
+          link: '/aeria/builtin-collections'
         },
         {
           text: 'Functions',

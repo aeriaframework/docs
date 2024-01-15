@@ -4,6 +4,24 @@
 
 Contracts are a way to provide runtime validation and typing to routes. If input data fails to be validated, the `422 Unprocessable Entity` HTTP status is returned alongside with the `ValidationError` object. Once a contract is assigned to a route, its function becomes strongly typed in [Aeria SDK](/aeria-sdk/).
 
+## Type
+
+```typescript
+type Contract =
+  | { response: Property | Property[] }
+  | { payload: Property }
+  | { query: Property }
+  | {
+    response?: Property | Property[]
+    payload?: Property
+    query?: Property
+  }
+```
+
+- `payload`: JSON-parsed request body
+- `query`: JSON-parsed GET query string
+- `response`: the return of the route callback
+
 ## Example
 
 Below is an example of a contract that ensures:
