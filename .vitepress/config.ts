@@ -54,9 +54,9 @@ function sidebarGuide() {
       text: 'Introduction',
       collapsed: false,
       items: [
-        { text: 'Why choose Aeria over another options?', link: '/guide/why-choose-aeria-over-another-options' },
         { text: 'Getting started', link: '/guide/getting-started' },
         { text: 'Deploy', link: '/guide/deploy' },
+        { text: 'Picking Aeria over another options', link: '/guide/picking-aeria-over-another-options' },
       ]
     }
   ]
