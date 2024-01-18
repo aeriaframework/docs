@@ -74,8 +74,6 @@ Of course you will need custom endpoints in your API. We have put a lot of effor
 
 To create a route that will make use of data sent through GET parameters, tip the following in `routes/index.ts`:
 
-<!-- 1. Inside `api/src/index.ts`, import `createRouter` and create a router like below. The router object has functions named as default HTTP methods that will register a callback on the desired path. You may also define a route that accepts multiple methods with the `router.route` function. -->
-
 ```typescript
 import { createRouter } from 'sonata-api'
 
@@ -105,13 +103,6 @@ Navigate to `http://localhost:3000/api/hello-world?name=Terry` to test your fres
 
 
 ## Further reading
-
-This small guide gave you an overview of how Aeria works. With this topics only you should be able to do a lot, but as your application grows you'll likely need some other features, like [file uploading](/aeria/cheatsheet/create-an-upload-field), [validation](/aeria/cheatsheet/validate-an-object-against-a-schema) and [references](/aeria/cheatsheet/reference-another-collection). We've bring together some useful help topics that will assist you with doing these common tasks.
-
-- [Cheatsheet - Aeria](/aeria/cheatsheet/)
-- [Cheatsheet - Aeria UI](/aeria-ui/cheatsheet/)
-
-API references of both tools are also available below and fixed on the top navigation bar to be accessed at any time.
 
 - [Reference - Aeria](/aeria/)
 - [Reference - Aeria UI](/aeria-ui/)

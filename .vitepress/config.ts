@@ -68,7 +68,6 @@ function sidebarAeriaReference() {
       text: 'Getting started',
       items: [
         { text: 'Glossary', link: '/aeria/glossary' },
-        { text: 'Cheatsheet', link: '/aeria/cheatsheet/' },
       ]
     },
     {
