@@ -65,12 +65,6 @@ function sidebarGuide() {
 function sidebarAeriaReference() {
   return [
     {
-      text: 'Getting started',
-      items: [
-        { text: 'Glossary', link: '/aeria/glossary' },
-      ]
-    },
-    {
       text: 'Collection',
       items: [
         {
