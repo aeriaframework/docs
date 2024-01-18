@@ -2,22 +2,25 @@
 
 ## Introduction
 
-Aeria has a lot of new features to offer to the JS/TS communities.
+Yes, Aeria is yet another JavaScript framework. But it is far from being just another framework. Aeria offers code ergonomy at it's peak. The greatest advantage Aeria has to offer is: you write less, you get more (and more safely).
+
 
 ## Picking Aeria over Express + Mongoose (or similar)
 
-We removed more than a million dependent lines of code from Mongoose and Hapi, which we used during early stages of development, to make code more fast and cohesive.
+We removed more than a million dependent lines of code from Mongoose and Hapi, which we used during early stages of development, to make code more fast, cohesive, and strongely typed. Some dependencies just stood in the way of how Aeria traverses types throughout functions.
 
-We choose to not put abstractions on top of MongoDB, offering direct access to it instead, in order to improve the performance and reduce maintenance cost. Aeria's HTTP server is also much simpler -- there's no need of a plugin system, hooks, or anything of the sort. Instead, we just offer functions, and it is up to the user how to use them.
+We also choose to not build abstractions on top of MongoDB. You want to do something on the database, you do it yourself, without the need of hooks, getters, virtuals, a plugging system, etc, like Mongoose has. Resolution of reference IDs to documents and cascading removal of nested documents are handled internally when you call the built-in CRUD functions.
+
 
 ## Picking Aeria over AdminJS
 
-Whereas AdminJS is a pluggable dashboard meant to be used on top of existing JS applications, Aeria is a much better option for applications being built from scratch.
+AdminJS is very good at being a dashboard system puggable to existing NodeJS applications. When building from scratch, however, performance and maintenance cost are things to consider. AdminJS requires much more boilerplate to set up a single feature, while Aeria has it all declarabe in a single file.
+
+Also, when you are adding a feature to an AdminJS project, you must choose between adding the feature in the host webserver or in AdminJS itself, as they are two separate things. Aeria saves you this hassle: you have all your business logic reunited in a single source of truth.
 
 ## Picking Aeria over headless CMS
 
-Aeria offers end-to-end strong typing, and that alone is a strong reason to consider chosing it over popular headless content management systems, like Strapi, and Pocketbase.
+If you got a big SQL dataset you want to build a dashboard on top of it without adding heavy business logic, headless CMS is probably for you. If however your application will depend on heavy business logic, or you just don't want to depend on a graphical interface or on a API hosted by third parties, you may want to consider using something that is just code and you have total control over it.
 
-Another good reason is that Aeria is much simpler to extend. It is not a graphical interface, it is just code.
-
+Another big reason someone should consider picking Aeria over some headless CMS is end-to-end typing. Aeria is intrinsically strongly typed -- 100% of it's code is made in TypeScript, so that makes it a lot easier to get the typing working in the frontend (see [Aeria SDK](/aeria-sdk/)).
 

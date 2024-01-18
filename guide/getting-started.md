@@ -1,31 +1,37 @@
 # Getting started
 
-## Scaffolding and installation
+## Initial setup
 
-First off, clone the template repository from Github. It sets up two workspaces, `api` and `web`, that will contain the Aeria backend and the Aeria UI frontend respectivelly. Each workspace has only the bare minimal boilerplate and configuration to start working. You can also skip this step and install the dependencies and scaffold your project manually, but this would take an extra amount of time.
+You can save some time cloning the Aeria Quickstart repository and building your project on top of it. The repository has backend and frontend workspaces, scripts, and dependencies set up.
 
-Run `npm install` (or replace `npm` by your package manager of choice) in the root of the project. This is install the dependencies needed for the development environment and for both workspaces. Some TypeScript declaration files will be generated upon install, those shouldn't be deleted and should be committed.
+Each workspace has a purpose:
 
-::: tip NOTE
-You can also use Aeria as a standalone API, without Aeria UI. In order to do that you can just start a fresh project, add `sonata-api` as a dependency and `sonata-build` as a dev dependency, and setup the `package.json` scripts as you wish.
-:::
+- `api`: the backend (collections, routes, etc)
+- `web`: the Aeria UI frontend (views, components, etc)
 
-## Running the project
+After cloning the repository, move to it's directory and install the dependencies from the root (not from each workspace separately).
 
-Before running the `api`, though, make sure you have a listening MongoDB server, then copy the `sample.env` file to `.env` and edit it accordingly. Now you just need to spawn two terminals and run `npm run serve` on each.
+```sh
+$ git clone https://... my-project
+$ cd my-project
+$ npm install
+```
 
-Your project should now be accessible through http://localhost:8080/user/signin. You can find the credentials for the first access in the `.env` file.
+## Running the project and signing in
 
-::: warning WARNING
-The `GODMODE_USERNAME` and `GODMODE_PASSWORD` environment variables are meant to be used in the first access only. They must not make into production and should not be used during development.
-:::
+First, make sure you have a listening MongoDB server. Copy the `sample.env` file to `.env` and adjust it to your needs. Two environment variables are used to grant you first access to the project you just created: `GODMODE_USERNAME` and `GODMODE_PASSWORD`.
 
+Next, open a web browser and navigate to the following address:
+
+```
+http://localhost:8080/user/signin
+```
+
+Now you may create your own user and sign in with it. You may want to do that instead of using the user defined in `.env` because it doesn't persist between page reloads and it will raise a security error when trying to modify owned documents.
 
 ## Adding a collection
 
-Aeria uses a pretty straightforward folder-by-feature hierarchy, so collections along with all their assets (functions, DTOs, etc) are placed inside a folder inside `collections/`. Adding a "person" collection couldn't be simpler:
-
-1. Create a `collections/person/index.ts` file that will contain a single export containing the structure of the collection.
+Adding a collection to your project is pretty straightforward. In fact, you just need to create one file. Create a `collections/person/index.ts` file and tip the following, just to get a taste of Aeria's functionalities:
 
 ```typescript
 import { defineCollection, get, getAll, insert } from 'sonata-api'
@@ -53,61 +59,57 @@ export const person = defineCollection({
 })
 ```
 
-2. Re-export the collection we've just created in the `collections/index.ts` file:
+That isn't all. Now, make sure to re-export the collection object in `collections/index.ts` by adding the following line:
 
 ```typescript
 export * from './person'
 ```
 
-3. You may want to make your newly created collection appear in the frontend navbar. To do that, simple add a `'/dashboard/person'` entry under `menuSchema.start.children` array inside the `web/src/index.ts` file like so:
+Now you can navigate to `http://localhost:8080/dashboard` and interact with the `person` collection through the interface.
 
-```typescript
-menuSchema: {
-  start: {
-    meta: {
-      title: 'Start',
-      icon: 'home'
-    },
-    children: [
-      '/dashboard/person',
-      '/dashboard/user'
-    ]
-  }
-```
 
 ## Adding a route
 
-1. Inside `api/src/index.ts`, import `createRouter` and create a router like below. The router object has functions named as default HTTP methods that will register a callback on the desired path. You may also define a route that accepts multiple methods with the `router.route` function.
+Of course you will need custom endpoints in your API. We have put a lot of effort into making routing the more ergonomic and type safe possible. In fact, routing it's a lot easier in Aeria than it is in Express or Hapi, for example.
+
+To create a route that will make use of data sent through GET parameters, tip the following in `routes/index.ts`:
+
+<!-- 1. Inside `api/src/index.ts`, import `createRouter` and create a router like below. The router object has functions named as default HTTP methods that will register a callback on the desired path. You may also define a route that accepts multiple methods with the `router.route` function. -->
 
 ```typescript
-import { init, createRouter } from 'sonata-api'
-export * from './collections'
+import { createRouter } from 'sonata-api'
 
-const router = createRouter()
+export const router = createRouter()
 
-router.GET('/hello-world', () => {
+router.GET('/hello-world', (context) => {
   return {
-    message: 'Hello, world!'
+    message: `Hello, ${context.request.query.name}`
   }
 })
 ```
 
-Exception handling inside router callbacks isn't needed, the exceptions will be caught automatically. Also, instead of the conventional `(req: HTTPRequest, res: HTTPResponse) => void` callback used by web frameworks such as Express, Aeria uses a `(context: Context) => any`, where `Context` is a top-level object that gives access to all API resources and `any` is an object or primitive value that will be returned also by the endpoint.
-
-2. Register the router by returning it's execution in the second argument callback of `init`.
+Now, import and install the router in the entrypoint of your API. Here goes how the entire file should look:
 
 ```typescript
+import { init } from 'sonata-api'
+import { router } from './routes'
+
+export * from './collections'
+
 init(null, (context) => {
   return router.install(context)
 })
 ```
 
+Navigate to `http://localhost:3000/api/hello-world?name=Terry` to test your freshly created route.
+
+
 ## Further reading
 
 This small guide gave you an overview of how Aeria works. With this topics only you should be able to do a lot, but as your application grows you'll likely need some other features, like [file uploading](/aeria/cheatsheet/create-an-upload-field), [validation](/aeria/cheatsheet/validate-an-object-against-a-schema) and [references](/aeria/cheatsheet/reference-another-collection). We've bring together some useful help topics that will assist you with doing these common tasks.
 
-- [Help Topics - Aeria](/aeria/cheatsheet/)
-- [Help Topics - Aeria UI](/aeria-ui/cheatsheet/)
+- [Cheatsheet - Aeria](/aeria/cheatsheet/)
+- [Cheatsheet - Aeria UI](/aeria-ui/cheatsheet/)
 
 API references of both tools are also available below and fixed on the top navigation bar to be accessed at any time.
 
