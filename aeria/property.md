@@ -284,20 +284,6 @@ If true, will make the property unwritable on document creation and update. Tryi
 
 Signals the input of this property should be focused as soon as a form is rendered. Each form may have only one property with this flag enabled.
 
-
-**Example:**
-
-```typescript
-{
-  full_name: {
-    type: 'string',
-    getter: (value: any) => {
-      return `${value.first_name} ${value.last_name}`
-    }
-  }
-}
-```
-
 ### hidden <Badge type="tip" text="boolean" />
 
 If true, omits the value of this property from backend response.

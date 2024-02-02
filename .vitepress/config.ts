@@ -12,7 +12,7 @@ export default defineConfig({
 
   themeConfig: {
     logo: '/assets/logo.png',
-    outline: [2, 3],
+    outline: [1, 4],
     nav: [
       {
         text: 'Guide',
@@ -99,18 +99,11 @@ function sidebarAeriaReference() {
       items: [
         {
           text: 'Collections',
-          link: '/aeria/builtin-collections'
+          link: '/aeria/builtins/collections'
         },
         {
           text: 'Functions',
-          collapsed: true,
-          items: [
-            { text: 'count()', link: '/aeria/count' },
-            { text: 'get()', link: '/aeria/get' },
-            { text: 'getAll()', link: '/aeria/get-all' },
-            { text: 'insert()', link: '/aeria/insert' },
-            { text: 'remove()', link: '/aeria/remove' },
-          ]
+          link: '/aeria/builtins/functions'
         }
       ]
     },
