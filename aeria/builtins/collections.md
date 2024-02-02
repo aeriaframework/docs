@@ -1,25 +1,5 @@
 # Builtin collections
 
-## Extending or replacing builtin collections
-
-You can choose to either extend or fully replace a builtin collection.
-
-```typescript
-import { defineCollection, deepMerge, user as originalUser } from 'sonata-api'
-
-const user = defineCollection(deepMerge(originalUser, {
-  description: {
-    form: [
-      'referral'
-    ],
-      referral: {
-        type: 'string'
-      },
-    }
-  },
-}))
-```
-
 ## `user`
 
 This collection is required to authentication and authorization. It contains by default basic user information, and most importantly, an email, a password, and an array of roles used by Access Control.
@@ -99,3 +79,23 @@ This collection implements logging.
 
 This collection implements tracking of function calls by users. It is needed in order to rate limiting to work.
 
+## Extending or replacing builtin collections
+
+You can choose to either extend or fully replace a builtin collection.
+
+```typescript
+import { defineCollection, deepMerge, user as originalUser } from 'sonata-api'
+
+const user = defineCollection(deepMerge(originalUser, {
+  description: {
+    form: [
+      'referral'
+    ],
+    properties: {
+      referral: {
+        type: 'string'
+      },
+    }
+  },
+}))
+```
