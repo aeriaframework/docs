@@ -1,7 +1,5 @@
 # aeria-panel
 
-## Introduction
-
 Used without any props, this component renders only a blank div. Passing the `float` or `fixed-right` properties, though, you can make modals or side panels.
 
 ## Example

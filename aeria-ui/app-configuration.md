@@ -1,7 +1,5 @@
 # App configuration
 
-## Introduction
-
 Aeria has an all-in-one configuration object that will among other things define the root component, the [menu schema](/aeria-ui/menu-schema), initial routes and i18n settings. This object is passed to `useApp()` that will then render your application.
 
 ## AppOptions

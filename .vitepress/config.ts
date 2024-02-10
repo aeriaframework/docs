@@ -75,7 +75,7 @@ function sidebarAeriaReference() {
           ]
         },
         {
-          text: 'Description',
+          text: 'Aeria Schema',
           link: '/aeria/description',
           items: [
             { text: 'Property', link: '/aeria/property' },
@@ -87,6 +87,7 @@ function sidebarAeriaReference() {
     {
       text: 'General',
       items: [
+        { text: 'init()', link: '/aeria/init', },
         { text: 'Routing', link: '/aeria/routing', },
         { text: 'Contracts', link: '/aeria/contracts' }
         // { text: 'validate()', link: '/aeria/validate' },
@@ -113,6 +114,8 @@ function sidebarAeriaReference() {
         { text: 'Either', link: '/aeria/either' },
         { text: 'Condition', link: '/aeria/condition' },
         { text: 'traverseDocument()', link: '/aeria/traverse-document' },
+        { text: 'getReferences()', link: '/aeria/get-references' },
+        { text: 'buildLookupPipeline()', link: '/aeria/build-lookup-pipeline' },
       ]
     },
   ]

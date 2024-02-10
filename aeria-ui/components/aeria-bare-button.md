@@ -1,7 +1,5 @@
 # aeria-bare-button
 
-## Introduction
-
 This component renders an unstyled button that will ultimately be an `<a />` HTML element. Sometimes you may use useful to have controls for disabling click and adaptative cursor change without having a styled button.
 
 ## Example

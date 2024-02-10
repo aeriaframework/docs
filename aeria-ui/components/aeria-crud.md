@@ -1,7 +1,5 @@
 # aeria-crud
 
-## Introduction
-
 This component renders widgets to display, paginate, search, modify, and interact with collections. In it's most basic usage, it receives only the name of the target collection as a string. Props can be passed to change how widgets should behave. Slots can also be used to place custom content inside this view, or to modify existing.
 
 The following [`Description`](/backend/description) properties takes effect on how this component is rendered:

@@ -1,7 +1,5 @@
 # Menu configuration
 
-## Introduction
-
 The navigation menu in Aeria UI is generated from a `MenuSchema` object that
 goes in app options. In it's most basic form, the menu schema is an array of
 strings matching route names. For example:

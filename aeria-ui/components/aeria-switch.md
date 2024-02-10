@@ -1,7 +1,5 @@
 # aeria-switch
 
-## Introduction
-
 ## Example
 
 ```vue

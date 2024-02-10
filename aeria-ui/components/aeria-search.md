@@ -1,7 +1,5 @@
 # aeria-search
 
-## Introduction
-
 ## Example
 
 ```vue

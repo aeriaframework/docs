@@ -1,7 +1,5 @@
 # Condition
 
-## Introduction
-
 Conditions are use throughout Aeria to control dynamic behaviors.
 They offer equality, existence, and numeric operators, and logical connectives can be built using `not`, `and`, and `or`.
 

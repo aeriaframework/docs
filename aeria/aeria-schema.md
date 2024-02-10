@@ -1,7 +1,5 @@
 # Aeria Schema
 
-## Introduction
-
 ## Properties
 
 ### $id

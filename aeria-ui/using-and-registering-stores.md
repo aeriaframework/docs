@@ -1,7 +1,5 @@
 # Using and registering stores
 
-## Introduction
-
 Stores are objects that contain global state. In Aeria, they are also what glue the backend and frontend together through item states, metadata, and functions.
 
 When accessed with `useStore()` the stores have the following `Store` type:

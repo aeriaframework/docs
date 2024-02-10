@@ -1,7 +1,5 @@
 # aeria-grid
 
-## Introduction
-
 This components returns a grid with standardized gaps and responsive breakpoints.
 
 ## Example

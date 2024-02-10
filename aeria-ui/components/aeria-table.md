@@ -1,7 +1,5 @@
 # aeria-table
 
-## Introduction
-
 This component renders a styled table with some extra features. If used with stores, columns and rows can be passed in dynamically, but they can be still customized later with slots. HTML-style usage is also possible using `thead`, `tbody`, and `tfoot` slots.
 
 ## Example

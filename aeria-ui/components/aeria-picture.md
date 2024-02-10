@@ -1,7 +1,5 @@
 # aeria-picture
 
-## Introduction
-
 This component provides a basic wrapper with basic styling and utilities for displaying images.
 
 ## Example

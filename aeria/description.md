@@ -1,6 +1,4 @@
-# Description
-
-## Introduction
+# Aeria Schema
 
 Description is an intersection of [JSON Schema](https://json-schema.org/) used to define the properties of a collection for validation alongside with access and UI behaviors. As the purpose of Aeria is to provide cohesion between backend and frontend, some frontend directives, for instance, what properties are meant to be rendered in tables and forms, are defined directly in the backend.
 <!-- For declaring properties, JSON Schema is fully supported, with a few key differences. The `required` property will be actually used to verify the wholeness of your document on insertion. -->

@@ -1,7 +1,5 @@
 # aeria-input
 
-## Introduction
-
 ## Example
 
 ```vue
