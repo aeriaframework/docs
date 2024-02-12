@@ -42,7 +42,7 @@ type FinalOperator =
   | 'lte'
 ```
 
-### term1 <Badge type="tip" text="PropertiesWithId<TDescription>" />
+### term1 <Badge type="tip" text="PropertiesWithId<TSchema>" />
 
 The name of the property that will be the first term of the condition.
 
@@ -61,7 +61,7 @@ In case the condition is false, specify this value instead.
 
 The operator of a ExistCondition must be `'truthy'`.
 
-### term1 <Badge type="tip" text="PropertiesWithId<TDescription>" />
+### term1 <Badge type="tip" text="PropertiesWithId<TSchema>" />
 
 The name of the property that will have it's existence checked.
 
@@ -71,12 +71,12 @@ The name of the property that will have it's existence checked.
 Logic concatenation is possible by passing an array of conditions to either `and` or `or`.
 
 ```typescript
-type OrCondition<TDescription extends Description> = {
-  or: Condition<TDescription>[]
+type OrCondition<TSchema extends JsonSchema> = {
+  or: Condition<TSchema>[]
 }
 
-type AndCondition<TDescription extends Description> = {
-  and: Condition<TDescription>[]
+type AndCondition<TSchema extends JsonSchema> = {
+  and: Condition<TSchema>[]
 }
 ```
 
@@ -85,7 +85,7 @@ type AndCondition<TDescription extends Description> = {
 It's possible to check for falsiness passing a condition to `not`.
 
 ```typescript
-type NotCondition<TDescription extends Description> = {
-  not: Condition<TDescription>
+type NotCondition<TSchema extends JsonSchema> = {
+  not: Condition<TSchema>
 }
 ```
