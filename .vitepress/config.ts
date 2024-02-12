@@ -76,7 +76,7 @@ function sidebarAeriaReference() {
         },
         {
           text: 'Aeria Schema',
-          link: '/aeria/description',
+          link: '/aeria/aeria-schema',
           items: [
             { text: 'Property', link: '/aeria/property' },
             { text: 'Validation', link: '/aeria/validation' },

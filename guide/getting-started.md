@@ -88,10 +88,14 @@ router.GET('/hello-world', (context) => {
 
 Now, create your API instance using the `init` function. It is important to export the function call as default, so the runtime can access your options. Place the collections inside the options object and install the router returning it from the callback property. Here goes how the entire file should look:
 
+::: tip IMPORTANT
+If you try to use `defineCollection()` in the same file the `init()` is you might get a TypeScript circularity error.
+:::
+
 ```typescript
 import { init } from 'sonata-api'
 import { router } from './routes'
-import * from './collections'
+import * as collections from './collections'
 
 export default init({
   collections,
