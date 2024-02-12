@@ -55,11 +55,11 @@ The second term of the condition.
 In case the condition is false, specify this value instead.
 
 
-## ExistsCondition
+## TruthyCondition
 
-### operator <Badge type="tip" text="'exists'" />
+### operator <Badge type="tip" text="'truthy'" />
 
-The operator of a ExistCondition must be `'exists'`.
+The operator of a ExistCondition must be `'truthy'`.
 
 ### term1 <Badge type="tip" text="PropertiesWithId<TDescription>" />
 
