@@ -2,6 +2,10 @@
 
 Runtime validation of data is possible in Aeria using functions exposed in the public API. These same functions are used internally when validating documents before insertion, so validation errors will consistently have the same type throughout your application. [Validators](#validator) are helper functions that will return both the inferred type of the given schema and a validation function.
 
+::: tip INFO
+Input data sent to routes is validated differently through [Contracts](/aeria/contracts). If you are looking to validate the query or the payload of a route, you are looking for contracts instead.
+:::
+
 
 ## validate()
 
