@@ -4,7 +4,8 @@
 
 Repositories created with `create-aeria-app` comes with a ready-to-use docker-compose.yml file, alongside with dockerfiles to build the api, the web, and to bring up a nginx reverse proxy to serve both. This is the bare minimal required to deploy a full Aeria app exposing a single port. You may change or augment this file as needed.
 
-```docker-compose
+::: details View docker-compose.yml
+```yaml
 version: '3.8'
 
 services:
@@ -52,6 +53,7 @@ volumes:
   web-build:
 
 ```
+:::
 
 ### Installing dependencies
 
@@ -72,9 +74,9 @@ Browse to `http://localhost:8080` after they are finished to see it has worked.
 
 To deploy on remote machines over SSH, [Docker contexts](https://docs.docker.com/engine/context/working-with-contexts/) are strongly recommended.
 
-1. Make sure you have public and private SSH keys set up.
+- 1. Make sure you have public and private SSH keys set up.
 
-2. Create a Docker context if you hadn't already.
+- 2. Create a Docker context if you hasn't already.
 
 ::: warning WARNING
 If you aren't logged in as root on your host machine, don't escalate privileges
@@ -82,16 +84,16 @@ before running `docker context` commands, otherwise your SSH keys won't read.
 :::
 
 ```
-$ docker context create remote --docker host=ssh://root@89.116.186.44
+$ docker context create remote --docker host=ssh://root@remotehost
 ```
 
-3. Switch over to the context you just created.
+- 3. Switch over to the context you just created.
 
 ```
 $ docker context use remote
 ```
 
-4. Run the commands to build and bring up the container orchestration as you would do locally.
+- 4. Run the commands to build and bring up the container orchestration as you would do locally.
 
 ```
 $ docker-compose build
