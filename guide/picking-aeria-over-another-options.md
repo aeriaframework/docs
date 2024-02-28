@@ -9,7 +9,7 @@ Yes, Aeria is yet another JavaScript framework. But it is far from being just an
 
 We removed more than a million dependent lines of code from Mongoose and Hapi, which we used during early stages of development, to make code more fast, cohesive, and strongely typed. Some dependencies just stood in the way of how Aeria traverses types throughout functions.
 
-We also choose to not build abstractions on top of MongoDB. You want to do something on the database, you do it yourself, without the need of hooks, getters, virtuals, a plugging system, etc, like Mongoose has. Resolution of reference IDs to documents and cascading removal of nested documents are handled internally when you call the built-in CRUD functions.
+We also choose to not build abstractions on top of MongoDB. You want to do something on the database, you do it directly, without the need of hooks, getters, virtuals, a plugging system, etc, like Mongoose has. Resolution of reference IDs to documents and cascading removal of nested documents are handled internally when you call the built-in CRUD functions.
 
 
 ## Picking Aeria over AdminJS

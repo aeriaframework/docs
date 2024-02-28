@@ -5,7 +5,7 @@ Aeria is a web framework that focuses on security and efficiency. It does so by 
 However, depending on the context, Aeria may refer to the ecossystem built around this framework. This ecossystem is made of:
 
 - `aeria`: the secure and efficient web framework
-- `aeria-ui`: server-driven UI library
+- `aeria-ui`: a server-driven UI library
 - `aeria-lang`: a schema declaration language
 - `create-aeria-app`: a command-line utility to quickly setup Aeria projects
 - _etc..._
