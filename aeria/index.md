@@ -1,25 +1,13 @@
-# Aeria Reference
+# What is Aeria?
 
-To see how common problems are solved using Aeria, visit [Cheatsheet](/aeria/cheatsheet/).
+Aeria is a web framework that focuses on security and efficiency. It does so by mostly reducing the code volume drastically (an app written in Aeria is generally much smaller in terms of LOC, so less prone to bugs and easier to maintain).
 
-## Types
+However, depending on the context, Aeria may refer to the ecossystem built around this framework. This ecossystem is made of:
 
-- [`ApiConfig`](/aeria/api-config)
-- [`Collection`](/aeria/collection)
-- [`Context`](/aeria/context)
-- [`Description`](/aeria/description)
-- [`Property`](/aeria/property)
-
-## Public API
-
-- [`defineAliasDescription`]()
-- [`defineDescription`]()
-- [`defineCollection`](/aeria/define-collection)
-- [`defineOptions`]()
-- [`createRouter`](/aeria/routing#createrouter)
-- [`traverseDocument`](/aeria/traverse-document)
-- [`useFunctions`](/aeria/use-functions)
-- [`validate`](/aeria/validation#validate)
-- [`validateSilently`](/aeria/validation#validatesilently)
+- `aeria`: the secure and efficient web framework
+- `aeria-ui`: server-driven UI library
+- `aeria-lang`: a schema declaration language
+- `create-aeria-app`: a command-line utility to quickly setup Aeria projects
+- _etc..._
 
 
