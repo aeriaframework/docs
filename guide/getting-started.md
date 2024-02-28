@@ -1,40 +1,53 @@
 # Getting started
 
+## Requirements
+
+- Node v20+
+- A running MongoDB server <Badge type="info" text="optional" />
+- Git command line utility <Badge type="info" text="optional" />
+- A POSIX-like environment <Badge type="info" text="optional" />
+    - Some scripts will require commands such as `mv` and `sh` to be available. On Windows, those are commonly packed together with `git`.
+
 ## Initial setup
 
-You can save some time cloning the Aeria Quickstart repository and building your project on top of it. The repository has backend and frontend workspaces, scripts, and dependencies set up.
+The official way to start an Aeria project is through the `create-aeria-app` command line utility. It is done the following way (it may vary according to the package manager you use):
 
-Each workspace has a purpose:
-
-- `api`: the backend (collections, routes, etc)
-- `web`: the Aeria UI frontend (views, components, etc)
-
-After cloning the repository, move to it's directory and install the dependencies from the root (not from each workspace separately).
-
-```sh
-$ git clone https://... my-project
-$ cd my-project
-$ npm install
 ```
+npm create -y aeria-app project-name
+```
+
+The utility will scaffold a new project with some defaults:
+
+- TypeScript
+- ESlint installed with the official Aeria style guideline
+- Husky and commitlint with conventional commits set up
+- Tailwind preconfigured in the frontend with the `tw-` prefix in classes
+
+If you wish for a more vanilla approach instead, simply install the `aeria` package and start your project from a `.js` or a `.mjs` file. The only important thing is to make sure the `main` property inside the `package.json` exists and points to the right file.
+
 
 ## Running the project and signing in
 
-First, make sure you have a listening MongoDB server. Copy the `sample.env` file to `.env` and adjust it to your needs. Two environment variables are used to grant you first access to the project you just created: `GODMODE_USERNAME` and `GODMODE_PASSWORD`.
+Make sure the MongoDB server is running. Next, navigate into the project root and run the `dev` script:
 
-Next, open a web browser and navigate to the following address:
+```
+npm run dev
+```
+
+This command will serve the backend and frontend at once. If execution is successful, a sign in page will be made available in the following location:
 
 ```
 http://localhost:8080/user/signin
 ```
 
-Now you may create your own user and sign in with it. You may want to do that instead of using the user defined in `.env` because it doesn't persist between page reloads and it will raise a security error when trying to modify owned documents.
+Finally, to grant you access to the application during development, sign in using the default credentials specified in the `.env` file, create another user with the `root` role, change its password, and sign in again with it instead. Do not skip this step as the default user (the one that signs in with the credentials specified in env vars) lacks some important attributes.
 
 ## Adding a collection
 
-Adding a collection to your project is pretty straightforward. In fact, you just need to create one file. Create a `collections/person/index.ts` file and tip the following, just to get a taste of Aeria's functionalities:
+Create a `collections/person/index.ts` file and place the content below. It will bring up a `person` collection with `name` and `age` properties and a set of CRUD functions that can be interacted with using REST endpoints.
 
 ```typescript
-import { defineCollection, get, getAll, insert } from 'sonata-api'
+import { defineCollection, get, getAll, insert, remove } from 'sonata-api'
 
 export const person = defineCollection({
   description: {
@@ -54,25 +67,24 @@ export const person = defineCollection({
   functions: {
     get,
     getAll,
-    insert
+    insert,
+    remove
   }
 })
 ```
 
-That isn't all. Now, make sure to re-export the collection object in `collections/index.ts` by adding the following line:
+Now, to make the runtime acknowledge the existence of the new collection, re-export it by adding the following line in `collections/index.ts`:
 
 ```typescript
 export * from './person'
 ```
 
-Now you can navigate to `http://localhost:8080/dashboard` and interact with the `person` collection through the interface.
-
 
 ## Adding a route
 
-Of course you will need custom endpoints in your API. We have put a lot of effort into making routing the more ergonomic and type safe possible. In fact, routing it's a lot easier in Aeria than it is in Express or Hapi, for example.
+A lot of effort was put into making routing safe and ergonomic. Route callbacks have a `context` parameter from where collections, request and response data, and authentication token can be used.
 
-To create a route that will make use of data sent through GET parameters, tip the following in `routes/index.ts`:
+Do as the following to create a `GET /hello-world` route in `routes/index.ts`:
 
 ```typescript
 import { createRouter } from 'sonata-api'
@@ -86,11 +98,12 @@ router.GET('/hello-world', (context) => {
 })
 ```
 
-Now, create your API instance using the `init` function. It is important to export the function call as default, so the runtime can access your options. Place the collections inside the options object and install the router returning it from the callback property. Here goes how the entire file should look:
+## Puting it all together with init()
 
-::: tip IMPORTANT
-If you try to use `defineCollection()` in the same file the `init()` is you might get a TypeScript circularity error.
-:::
+The Aeria runtime relies on dynamic imports of the entrypoint file to read collections and configuration (that's why the `main` property of `package.json` is important). The entrypoint file must export the return of the `init()` function as default.
+
+By its turn, the `init()` function receives a configuration object, and optionally a custom HTTP server callback that can be used to install a router.
+
 
 ```typescript
 import { init } from 'sonata-api'
@@ -98,17 +111,22 @@ import { router } from './routes'
 import * as collections from './collections'
 
 export default init({
-  collections,
+  config: {
+    database: {
+      mongodbUrl: process.env.MONGODB_URL
+    }
+  },
   callback: (context) => {
     return router.install(context)
   }
 })
 ```
 
-Navigate to `http://localhost:3000/api/hello-world?name=Terry` to test your freshly created route.
 
 
 ## Further reading
+
+This guide covered the basics of Aeria. You should consult documentation for more detailed usage and examples of the public APIs.
 
 - [Reference - Aeria](/aeria/)
 - [Reference - Aeria UI](/aeria-ui/)
