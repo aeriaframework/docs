@@ -7,7 +7,7 @@ Input data sent to routes is validated differently through [Contracts](/aeria/co
 :::
 
 
-## validate()
+## `validate()`
 
 This function validates a object against a schema. It receives an optional third argument containing [`ValidateOptions`](#validateoptions). It will return `Right<TWhat>` case the validation succeeds, and `Left<ValidationError>` case it fails.
 
@@ -23,7 +23,7 @@ const personEither = validate(person, {
 })
 ```
 
-## validateSilently()
+## `validateSilently()`
 
 This function is just like [`validate()`](#validate), except that it will return `null` in case the validation fails instead of a `Left<ValidationError>`.
 
@@ -44,7 +44,7 @@ if( !person ) {
 }
 ```
 
-## validator()
+## `validator()`
 
 This function receives a schema and a optional second argument containing `ValidateOptions`. It will return a tuple composed by a empty object whose type is inferred from the specified schema, and a function that will receive a object and return the `Either<TWhat, ValidationError>` derived from it's validation.
 
@@ -62,7 +62,7 @@ const [Person, personValidator] = validator({
 const personEither = personValidator(person)
 ```
 
-## silentValidator()
+## `silentValidator()`
 
 This function receives the same parameters and returns a tuple just as [`validator()`](#validator), except that it will call `validateSilently()` instead of `validate()`.
 
@@ -83,7 +83,7 @@ if( !person ) {
 }
 ```
 
-## ValidateOptions
+## `ValidateOptions`
 
 ```typescript
 type ValidateOptions = {
@@ -92,7 +92,7 @@ type ValidateOptions = {
 }
 ```
 
-## ValidationError
+## `ValidationError`
 
 ```typescript
 enum ValidationErrorCodes {

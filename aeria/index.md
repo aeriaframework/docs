@@ -8,6 +8,6 @@ However, depending on the context, Aeria may refer to the ecossystem built aroun
 - `aeria-ui`: a server-driven UI library
 - `aeria-lang`: a schema declaration language
 - `create-aeria-app`: a command-line utility to quickly setup Aeria projects
-- _etc..._
+- _themes, extensions, static analysys tools, etc..._
 
 

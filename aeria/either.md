@@ -4,7 +4,7 @@
 type Either<L, R> = Left<L> | Right<R>
 ```
 
-## left() and right()
+## `left()` and `right()`
 
 These are functions used to return Either values. In most cases, TypeScript will be able to infer the `Either<L, R>` correctly, so no explicit annotation is needed.
 
@@ -24,7 +24,7 @@ const isEven = (num: number) => {
 }
 ```
 
-## isLeft() and isRight()
+## `isLeft()` and `isRight()`
 
 These functions are used to narrow the value of an Either to Left or Right.
 
@@ -40,7 +40,7 @@ if( isLeft(resultEither) ) {
 console.log('resultEither is a Right<T>')
 ```
 
-## unwrapEither()
+## `unwrapEither()`
 
 This function safely returns the value beared by the Either.
 
@@ -55,7 +55,7 @@ if( isLeft(resultEither) ) {
 }
 ```
 
-## unsafe()
+## `unsafe()`
 
 This function returns the unwraped value of an Either or throws if the Either is actually a Left.
 
@@ -65,3 +65,4 @@ This function returns the unwraped value of an Either or throws if the Either is
 const result = unsafe(businessLogic())
 // result will be Right<T>
 ```
+

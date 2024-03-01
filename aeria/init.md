@@ -58,7 +58,7 @@ export default init({
 ```
 
 
-## ApiConfig
+## `ApiConfig`
 
 **Type:**
 
