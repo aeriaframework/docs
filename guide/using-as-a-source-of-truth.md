@@ -18,10 +18,9 @@ Make sure `main` and `types` properties exist in `package.json`. The `main` prop
 ### NextJS
 
 ```tsx
-import { useAeria } from 'sonata-api'
+import { aeria } from 'sonata-api'
 
 export async function getStaticProps() {
-  const aeria = await useAeria()
   const users = await aeria.collections.user.functions.getAll()
 
   return {
