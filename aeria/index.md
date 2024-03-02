@@ -17,6 +17,6 @@ Get started [here](/guide/getting-started) if you haven't already.
 
 - Aeria is opinative by nature, meaning it comes with some defaults (which some of them you can change later)
 - Aeria is heavily dependent on MongoDB, meaning you can't plug in another database engines
-- Aeria does not bring a view layer -- you can however use it as a source of truth in Next/Nuxt/Sveltekit or whatever frameworks
+- Aeria does not bring a view layer -- you can however [use it as a source of truth](/guide/using-as-a-source-of-truth) in Next/Nuxt/Sveltekit or whatever frameworks
 
 Still not sure if Aeria suits you? Visit [Picking Aeria over another options](/guide/picking-aeria-over-another-options).
