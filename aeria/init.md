@@ -1,4 +1,4 @@
-# init()
+# `init()`
 
 This function bootstraps an Aeria instance. Inside it goes the API configuration object, user collections, and a callback for controlling HTTP requests.
 

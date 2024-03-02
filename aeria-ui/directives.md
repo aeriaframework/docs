@@ -1,6 +1,6 @@
 # Directives
 
-## v-clickable
+## `v-clickable`
 
 - **Expects:** none
 - **Details**
@@ -16,7 +16,7 @@
     ></aeria-icon>
     ```
 
-## v-focus
+## `v-focus`
 
 - **Expects:** `boolean`
 - **Details**
@@ -30,7 +30,7 @@
     ></aeria-icon>
     ```
 
-## v-loading
+## `v-loading`
 
 - **Expects:** `boolean`
 - **Details**
@@ -57,7 +57,7 @@
   </aeria-table>
   ```
 
-## v-overlay
+## `v-overlay`
 
 - **Expects:** `OverlayOptions`
 - **Details**
@@ -85,3 +85,4 @@
   >
   </div>
   ```
+

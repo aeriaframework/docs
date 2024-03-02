@@ -1,4 +1,4 @@
-# useStore()
+# `useStore()`
 
 ```typescript
 declare const useStore: (storeId: string) => Store

@@ -8,7 +8,7 @@ An object containg data from the current signed in user. The same as `useStore('
 
 ## Functions
 
-### t()
+### `t()`
 >Imported from "waltz-ui"
 
 This is the i18n "t" function used to translate text.
@@ -20,7 +20,7 @@ This is the i18n "t" function used to translate text.
 </div>
 ```
 
-### formatDateTime()
+### `formatDateTime()`
 > Imported from "@sonata-api/common"
 
 Formats a Date object or a JSON-serialized date to current locale string.
@@ -32,7 +32,7 @@ Formats a Date object or a JSON-serialized date to current locale string.
 </div>
 ```
 
-### getRelativeTimeFromNow()
+### `getRelativeTimeFromNow()`
 > Imported from "@sonata-api/common"
 
 Gets a string contaning relative time from `Date.now`. Example output: "20 minutes ago", "2 days ago", "1 month ago", etc.
@@ -44,7 +44,7 @@ Gets a string contaning relative time from `Date.now`. Example output: "20 minut
 </div>
 ```
 
-### hasRoles()
+### `hasRoles()`
 
 Returns whether or not current user has given role.
 
@@ -58,3 +58,4 @@ Returns whether or not current user has given role.
   </aeria-button>
 </div>
 ```
+

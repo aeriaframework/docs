@@ -71,8 +71,11 @@ function sidebarAeriaReference() {
           text: 'Collection',
           link: '/aeria/collection',
           items: [
-            { text: 'Access Control', link: '/aeria/access-control' },
           ]
+        },
+        {
+          text: 'Access Control',
+          link: '/aeria/access-control'
         },
         {
           text: 'Aeria Schema',
@@ -89,23 +92,24 @@ function sidebarAeriaReference() {
       items: [
         { text: 'init()', link: '/aeria/init', },
         { text: 'Routing', link: '/aeria/routing', },
-        { text: 'Contracts', link: '/aeria/contracts' }
+        { text: 'Contracts', link: '/aeria/contracts' },
+        {
+          text: 'Built-ins',
+          collapsed: true,
+          items: [
+            {
+              text: 'Collections',
+              link: '/aeria/builtins/collections'
+            },
+            {
+              text: 'Functions',
+              link: '/aeria/builtins/functions'
+            }
+          ]
+        },
         // { text: 'validate()', link: '/aeria/validate' },
         // { text: 'validateSilently()', link: '/aeria/validate-silently' },
         // { text: 'validator()', link: '/aeria/validator' },
-      ]
-    },
-    {
-      text: 'Built-ins',
-      items: [
-        {
-          text: 'Collections',
-          link: '/aeria/builtins/collections'
-        },
-        {
-          text: 'Functions',
-          link: '/aeria/builtins/functions'
-        }
       ]
     },
     {
@@ -114,8 +118,7 @@ function sidebarAeriaReference() {
         { text: 'Either', link: '/aeria/either' },
         { text: 'Condition', link: '/aeria/condition' },
         { text: 'traverseDocument()', link: '/aeria/traverse-document' },
-        { text: 'getReferences()', link: '/aeria/get-references' },
-        { text: 'buildLookupPipeline()', link: '/aeria/build-lookup-pipeline' },
+        { text: 'getLookupPipeline()', link: '/aeria/get-lookup-pipeline' },
       ]
     },
   ]

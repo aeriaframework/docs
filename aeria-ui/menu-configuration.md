@@ -34,7 +34,7 @@ const menuSchema: MenuSchema = [
 ]
 ```
 
-## MenuSchema
+## `MenuSchema`
 
 ```typescript
 type MenuNodeBase = Partial<RouteMeta> & {
@@ -69,7 +69,7 @@ type MenuSchema = (
 )[]
 ```
 
-## MenuNode
+## `MenuNode`
 
 ### name <Badge type="tip" text="string | Symbol" />
 
@@ -104,3 +104,4 @@ entry. Collapsible routes can recurse infinitely inside each other this way.
 
 This property determines the `title` and `icon` that should be displayed by the
 entry on the menu.
+

@@ -2,7 +2,7 @@
 
 Aeria has an all-in-one configuration object that will among other things define the root component, the [menu schema](/aeria-ui/menu-schema), initial routes and i18n settings. This object is passed to `useApp()` that will then render your application.
 
-## AppOptions
+## `AppOptions`
 
 ```typescript
 type AppOptions = {
@@ -15,7 +15,7 @@ type AppOptions = {
 }
 ```
 
-## defineOptions()
+## `defineOptions()`
 
 This is a helper function that will provide strong typing and callback support for defining app options. It receives the options as a literal object or by a callback that returns it.
 
@@ -35,7 +35,7 @@ useApp(options).then((app) => {
 })
 ```
 
-## InstanceConfig
+## `InstanceConfig`
 
 The instance config is defined inside a `instance.json` file in the same level the `package.json` of your frontend project is. The purpose of it being separate from overall configuration is because the configuration contained in it must be made available during build time.
 
@@ -84,3 +84,4 @@ This property specifies libraries to be included in during static search for ico
 ### sourcemap <Badge type="tip" text="boolean" />
 
 Bundles sourcemaps along with source files.
+

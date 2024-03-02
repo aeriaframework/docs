@@ -1,4 +1,4 @@
-# buildLookupPipeline()
+# `getLookupPipeline()`
 
 ## Example
 
