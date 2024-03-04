@@ -100,10 +100,6 @@ If set, all properties except the one specified will be made read-only. Trying w
 
 Activates a search bar in the frontend that will perform a MongoDB `$text` query.
 
-::: tip NOTE
-Setting this property alone won't work. If you want to make your collection searchable, the `$text` indexes must be manually created in MongoDB.
-:::
-
 ```typescript
 type SearchOptions<TDescription extends Description> = {
   placeholder?: string
