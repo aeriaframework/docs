@@ -105,9 +105,9 @@ Setting this property alone won't work. If you want to make your collection sear
 :::
 
 ```typescript
-type SearchOptions = {
-  active: boolean
+type SearchOptions<TDescription extends Description> = {
   placeholder?: string
+  indexes: readonly (keyof TDescription['properties'])[]
 }
 ```
 
