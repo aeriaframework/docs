@@ -47,7 +47,7 @@ Finally, to grant you access to the application during development, sign in usin
 Create a `collections/person/index.ts` file and place the content below. It will bring up a `person` collection with `name` and `age` properties and a set of CRUD functions that can be interacted with using REST endpoints.
 
 ```typescript
-import { defineCollection, get, getAll, insert, remove } from 'sonata-api'
+import { defineCollection, get, getAll, insert, remove } from 'aeria'
 
 export const person = defineCollection({
   description: {
@@ -87,7 +87,7 @@ A lot of effort was put into making routing safe and ergonomic. Route callbacks 
 Do as the following to create a `GET /hello-world` route in `routes/index.ts`:
 
 ```typescript
-import { createRouter } from 'sonata-api'
+import { createRouter } from 'aeria'
 
 export const router = createRouter()
 
@@ -106,7 +106,7 @@ By its turn, the `init()` function receives a configuration object, and optional
 
 
 ```typescript
-import { init } from 'sonata-api'
+import { init } from 'aeria'
 import { router } from './routes'
 import * as collections from './collections'
 

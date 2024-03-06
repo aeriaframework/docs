@@ -9,7 +9,7 @@ An object containg data from the current signed in user. The same as `useStore('
 ## Functions
 
 ### `t()`
->Imported from "waltz-ui"
+>Imported from "aeria-ui"
 
 This is the i18n "t" function used to translate text.
 
@@ -21,7 +21,7 @@ This is the i18n "t" function used to translate text.
 ```
 
 ### `formatDateTime()`
-> Imported from "@sonata-api/common"
+> Imported from "@aeriajs/common"
 
 Formats a Date object or a JSON-serialized date to current locale string.
 
@@ -33,7 +33,7 @@ Formats a Date object or a JSON-serialized date to current locale string.
 ```
 
 ### `getRelativeTimeFromNow()`
-> Imported from "@sonata-api/common"
+> Imported from "@aeriajs/common"
 
 Gets a string contaning relative time from `Date.now`. Example output: "20 minutes ago", "2 days ago", "1 month ago", etc.
 

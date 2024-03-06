@@ -3,7 +3,7 @@
 ## Defining collections
 
 ```typescript
-import { defineCollection, get, getAll, remove } from 'sonata-api'
+import { defineCollection, get, getAll, remove } from 'aeria'
 
 export const collectionName = defineCollection({
   description: {

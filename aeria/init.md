@@ -19,7 +19,7 @@ type InitOptions = {
 Inline collections (collections are declared *inside* the `init` function, more suitable to smaller and more portable projects):
 
 ```typescript
-import { init } from 'sonata-api'
+import { init } from 'aeria'
 
 export default init({
   collections: {
@@ -45,7 +45,7 @@ export default init({
 Re-exported collections (collections are *re-exported* from another module, more suitable to bigger projects with a lot of collections):
 
 ```typescript
-import { init } from 'sonata-api'
+import { init } from 'aeria'
 export * as collections from './collections'
 
 export default init({

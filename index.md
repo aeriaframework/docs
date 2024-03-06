@@ -14,7 +14,7 @@ hero:
           link: /guide/getting-started
         - theme: alt
           text: View on Github
-          link: https://github.com/sonata-api/sonata-api
+          link: https://github.com/aeria-org/aeria
 
 features:
     - title: Minimalistically typed
