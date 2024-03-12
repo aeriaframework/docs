@@ -47,7 +47,7 @@ Collections must be named-exported by `./stores` and have the same name as their
 ### Example
 
 ```typescript
-export const employees = registerStore((manager) => createCollectionStore()({
+export const employees = registerStore((manager) => createCollectionStore({
   $id: 'employees',
   state: {
     week_day: 1,
