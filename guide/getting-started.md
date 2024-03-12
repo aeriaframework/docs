@@ -46,7 +46,9 @@ Finally, to grant you access to the application during development, sign in usin
 
 Create a `collections/person/index.ts` file and place the content below. It will bring up a `person` collection with `name` and `age` properties and a set of CRUD functions that can be interacted with using REST endpoints.
 
-```typescript
+::: code-group
+
+```typescript [collections/person/index.ts]
 import { defineCollection, get, getAll, insert, remove } from 'aeria'
 
 export const person = defineCollection({
@@ -73,11 +75,17 @@ export const person = defineCollection({
 })
 ```
 
+:::
+
 Now, to make the runtime acknowledge the existence of the new collection, re-export it by adding the following line in `collections/index.ts`:
 
-```typescript
+::: code-group
+
+```typescript [collections/index.ts]
 export * from './person'
 ```
+
+:::
 
 
 ## Adding a route
@@ -86,7 +94,9 @@ A lot of effort was put into making routing safe and ergonomic. Route callbacks 
 
 Do as the following to create a `GET /hello-world` route in `routes/index.ts`:
 
-```typescript
+::: code-group
+
+```typescript [routes/index.ts]
 import { createRouter } from 'aeria'
 
 export const router = createRouter()
@@ -98,6 +108,8 @@ router.GET('/hello-world', (context) => {
 })
 ```
 
+:::
+
 ## Puting it all together with init()
 
 The Aeria runtime relies on dynamic imports of the entrypoint file to read collections and configuration (that's why the `main` property of `package.json` is important). The entrypoint file must export the return of the `init()` function as default.
@@ -105,7 +117,9 @@ The Aeria runtime relies on dynamic imports of the entrypoint file to read colle
 By its turn, the `init()` function receives a configuration object, and optionally a custom HTTP server callback that can be used to install a router.
 
 
-```typescript
+::: code-group
+
+```typescript [index.ts]
 import { init } from 'aeria'
 import { router } from './routes'
 import * as collections from './collections'
@@ -122,6 +136,7 @@ export default init({
 })
 ```
 
+:::
 
 
 ## Further reading
