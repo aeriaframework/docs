@@ -47,7 +47,7 @@ const router = createRouter({
 
 ## Route groups and middlewares
 
-Routes can be grouped under a same path using the `router.group()` function. Route groups can have middlewares specified in the optional third argument. Middlewares are nothing more that a `(context: Context) => any` callback that will interrupt the route execution if they return a non-undefined value.
+Routes can be grouped under a same path using the `router.group()` function. Route groups can have middlewares specified in the optional third argument. Middlewares are nothing more that a `(context: Context) => any` callback. If the middleware return value is not `undefined`, then route execution will be aborted and the return value of the middleware will be sent as the response instead.
 
 ```typescript
 const helloRouter = createRouter()
@@ -55,12 +55,8 @@ helloRouter.GET('/', () => 'hello, everyone')
 helloRouter.GET('/world', () => 'hello, world')
 
 const router = createRouter()
-router.group('/hello', authRouter, (context) => {
-  if( !context.token.authenticated ) {
-    return {
-      message: 'out of here, punk!'
-    }
-  }
+router.group('/hello', helloRouter, (context) => {
+  context.log('user hit /hello/*')
 })
 ```
 
@@ -83,5 +79,30 @@ router.POST('/sayMyName', (context) => {
 })
 ```
 
+## Route guards
 
+You can make sure a route is only accessible if the user has certain roles. This is done using the `roles` property of [`ContractWithRoles`](/aeria/routing). Setting the `roles` for a specific route ensures type safety and requests with tokens that don't match the criteria will fail with `403 Forbidden` error.
 
+```typescript
+router.GET('/authenticated', (context) => {
+  // TS will produce no errors since the type of `context.token` was narrowed
+  context.token.authenticated === true
+  context.token.userinfo.email
+}, {
+  roles: [
+    'root',
+  ]
+})
+
+router.GET('/mixed', (context) => {
+  // TS will produce errors because 'guest' is among the roles
+  // this is actually equivalent to passing no roles at all
+  context.token.authenticated === true // [!code error]
+  context.token.userinfo.email // [!code error]
+}, {
+  roles: [
+    'root',
+    'guest', // [!code ++]
+  ]
+})
+```

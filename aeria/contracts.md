@@ -5,6 +5,10 @@ Contracts are a way to provide runtime validation and typing to routes. If input
 ## Type
 
 ```typescript
+type ContractRoles = {
+  roles?: Collections['user']['item']['roles']
+}
+
 type Contract =
   | { response: Property | Property[] }
   | { payload: Property }
@@ -14,11 +18,14 @@ type Contract =
     payload?: Property
     query?: Property
   }
+
+type ContractWithRoles = ContractRoles & Contract
 ```
 
 - `payload`: JSON-parsed request body
 - `query`: JSON-parsed GET query string
 - `response`: the return of the route callback
+- `roles`: array of strings representing roles that will be allowed to access the resource
 
 ## Example
 
