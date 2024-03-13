@@ -50,7 +50,7 @@ type InstanceConfig = {
     safeList?: string[]
     libraries?: string[]
   }
-  sourcemap?: boolean
+  vite?: import('vite').InlineConfig
 }
 
 ```
@@ -81,7 +81,7 @@ This property should contain an array of icon names that for some reason can't b
 
 This property specifies libraries to be included in during static search for icons.
 
-### sourcemap <Badge type="tip" text="boolean" />
+### vite <Badge type="tip" text="import('vite').InlineConfig" />
 
-Bundles sourcemaps along with source files.
+Vite configuration to be merged into the default one.
 
