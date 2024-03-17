@@ -20,6 +20,10 @@ export default defineConfig({
         activeMatch: '^/guide/'
       },
       {
+        text: 'Demo',
+        link: 'https://demo.aeria.land/',
+      },
+      {
         text: 'Reference',
         activeMatch: '^/(aeria|aeria-ui)//',
         items: [
