@@ -15,13 +15,13 @@ export default defineConfig({
     outline: [1, 4],
     nav: [
       {
+        text: 'Demo',
+        link: 'https://demo.aeria.land/',
+      },
+      {
         text: 'Guide',
         link: '/guide/getting-started',
         activeMatch: '^/guide/'
-      },
-      {
-        text: 'Demo',
-        link: 'https://demo.aeria.land/',
       },
       {
         text: 'Reference',
