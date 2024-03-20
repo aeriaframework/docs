@@ -42,7 +42,7 @@ export default defineConfig({
     socialLinks: [
       {
         icon: 'github',
-        link: 'https://github.com/aeriaframework/aeria'
+        link: 'https://github.com/aeria-org/aeria'
       }
     ],
     footer: {
