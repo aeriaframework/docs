@@ -1,7 +1,7 @@
-<script setup lang="ts">
-import { ref } from 'vue'
-import { AeriaPicture } from 'aeria-ui'
-</script>
+<!-- <script setup lang="ts"> -->
+<!-- import { ref } from 'vue' -->
+<!-- import { AeriaPicture } from 'aeria-ui' -->
+<!-- </script> -->
 
 # aeria-picture
 
@@ -9,12 +9,12 @@ This component provides a basic wrapper with basic styling and utilities for dis
 
 ## Example
 
-<aeria-picture
-  width="12rem"
-  height="12rem"
-  url="/assets/logo.png"
-  alt="Aeria Logo"
-></aeria-picture>
+<!-- <aeria-picture -->
+<!--   width="12rem" -->
+<!--   height="12rem" -->
+<!--   url="/assets/logo.png" -->
+<!--   alt="Aeria Logo" -->
+<!-- ></aeria-picture> -->
 
 ```vue
 <aeria-picture

@@ -28,13 +28,11 @@ const context: StoreContext = {
   manager: globalStateManager,
 }
 
-
 const { isDark } = useData()
 
 const metaStore = meta(context)
 
 watch(isDark, (value) => {
-  console.log('fisaifdas', value)
   metaStore.theme = value
     ? 'dark'
     : 'default'
