@@ -26,14 +26,20 @@ This component renders a styled button that will add style controls on top of [`
   </aeria-button>
 </div>
 
-```vue-html
-<aeria-button @click="count++">
-  Count: {{ count }}
-</aeria-button>
+```vue
+<script setup lang="ts">
+const count = ref(0)
+</script>
 
-<aeria-button variant="alt" @click="count = 0">
-  Reset
-</aeria-button>
+<template>
+  <aeria-button @click="count++">
+    Count: {{ count }}
+  </aeria-button>
+
+  <aeria-button variant="alt" @click="count = 0">
+    Reset
+  </aeria-button>
+</template>
 ```
 
 ## Props
