@@ -6,11 +6,11 @@ settings:
 
 dependencies:
   '@aeria-ui/ui':
-    specifier: ^0.0.27
-    version: 0.0.27(@aeria-ui/i18n@0.0.1)(@aeria-ui/state-management@0.0.8)(@aeria-ui/web@0.0.21)(@aeriajs/common@0.0.29)(vue-router@4.3.0)
+    specifier: latest
+    version: 0.0.30(@aeria-ui/i18n@0.0.1)(@aeria-ui/state-management@0.0.9)(@aeria-ui/web@0.0.24)(@aeriajs/common@0.0.29)(vue-router@4.3.0)
   aeria-ui:
-    specifier: ^0.0.28
-    version: 0.0.28(@aeria-ui/i18n@0.0.1)(@aeria-ui/state-management@0.0.8)(@aeria-ui/ui@0.0.27)(@aeria-ui/web@0.0.21)
+    specifier: latest
+    version: 0.0.31(@aeria-ui/i18n@0.0.1)(@aeria-ui/state-management@0.0.9)(@aeria-ui/ui@0.0.30)(@aeria-ui/web@0.0.24)
 
 devDependencies:
   '@types/node':
@@ -39,40 +39,40 @@ packages:
       '@aeriajs/common': 0.0.29(@aeriajs/types@0.0.26)(bson@6.5.0)
     dev: false
 
-  /@aeria-ui/state-management@0.0.8(vue@3.4.21):
-    resolution: {integrity: sha512-foTWXLVhbh5LS0BaR8xJfSw1umgx1KSdMpyz5AfMYnNTMu+PCWawsSted3K+qlCV3GnWOrQmDMeTuIFBg4xVCQ==}
+  /@aeria-ui/state-management@0.0.9(vue@3.4.21):
+    resolution: {integrity: sha512-duh+0VWOWf5ouFeddGLUWObaOjkSS+9c9TkKuUBfzWFgSzU4HTlSkSxfEyKUXX9/09udFJagpDHQ+wfegr/wmQ==}
     peerDependencies:
       vue: '*'
     dependencies:
       vue: 3.4.21(typescript@5.4.3)
     dev: false
 
-  /@aeria-ui/ui@0.0.27(@aeria-ui/i18n@0.0.1)(@aeria-ui/state-management@0.0.8)(@aeria-ui/web@0.0.21)(@aeriajs/common@0.0.29)(vue-router@4.3.0):
-    resolution: {integrity: sha512-ILjPcD0ApcfzJ2/Rcp/nmT56Dbalo3YTZgEGMpHP5yqyocPaUu+VrVTFXoHrAMw7geGQ5LIpKDno/NVlpGyuNA==}
+  /@aeria-ui/ui@0.0.30(@aeria-ui/i18n@0.0.1)(@aeria-ui/state-management@0.0.9)(@aeria-ui/web@0.0.24)(@aeriajs/common@0.0.29)(vue-router@4.3.0):
+    resolution: {integrity: sha512-rX7R44KZcyPbl9QRCHkXo0DwZoIlWfpCyamihPFOn0Z1O+9xPEQ54F+RVITEkXpxknRyZ+aANTAt4yEhTfjt9g==}
     peerDependencies:
       '@aeria-ui/i18n': ^0.0.1
-      '@aeria-ui/state-management': ^0.0.8
-      '@aeria-ui/web': ^0.0.21
+      '@aeria-ui/state-management': ^0.0.9
+      '@aeria-ui/web': ^0.0.24
       '@aeriajs/common': '*'
       vue-router: '*'
     dependencies:
       '@aeria-ui/i18n': 0.0.1(@aeriajs/common@0.0.29)
-      '@aeria-ui/state-management': 0.0.8(vue@3.4.21)
-      '@aeria-ui/web': 0.0.21(@aeria-ui/i18n@0.0.1)(@aeria-ui/state-management@0.0.8)(aeria-sdk@0.0.48)(bson@6.5.0)(typescript@5.4.3)
+      '@aeria-ui/state-management': 0.0.9(vue@3.4.21)
+      '@aeria-ui/web': 0.0.24(@aeria-ui/i18n@0.0.1)(@aeria-ui/state-management@0.0.9)(aeria-sdk@0.0.48)(bson@6.5.0)(typescript@5.4.3)
       '@aeriajs/common': 0.0.29(@aeriajs/types@0.0.26)(bson@6.5.0)
       vue-router: 4.3.0(vue@3.4.21)
     dev: false
 
-  /@aeria-ui/web@0.0.21(@aeria-ui/i18n@0.0.1)(@aeria-ui/state-management@0.0.8)(aeria-sdk@0.0.48)(bson@6.5.0)(typescript@5.4.3):
-    resolution: {integrity: sha512-LPctI0jRKA5taYSepvtFuclM/5kyaqU1NUHeyGddU+8m550NfO0oyO/rjR7Tl5MSBB9v2I71aCCFeTLWoYxOEA==}
+  /@aeria-ui/web@0.0.24(@aeria-ui/i18n@0.0.1)(@aeria-ui/state-management@0.0.9)(aeria-sdk@0.0.48)(bson@6.5.0)(typescript@5.4.3):
+    resolution: {integrity: sha512-yid2/d5Unsq90vKsMFV3Hq3QU2s4PlcFcVLXa2qb8S+/NiNZBjmF7vLllg9EVVK1XJrNS3zRoxXgHtaqNdlAsA==}
     requiresBuild: true
     peerDependencies:
       '@aeria-ui/i18n': ^0.0.1
-      '@aeria-ui/state-management': ^0.0.8
+      '@aeria-ui/state-management': ^0.0.9
       aeria-sdk: ~0.0.48
     dependencies:
       '@aeria-ui/i18n': 0.0.1(@aeriajs/common@0.0.29)
-      '@aeria-ui/state-management': 0.0.8(vue@3.4.21)
+      '@aeria-ui/state-management': 0.0.9(vue@3.4.21)
       '@aeriajs/common': 0.0.29(@aeriajs/types@0.0.26)(bson@6.5.0)
       '@aeriajs/types': 0.0.26
       aeria-sdk: 0.0.48(@aeriajs/common@0.0.29)(@aeriajs/types@0.0.26)
@@ -678,18 +678,18 @@ packages:
       '@aeriajs/types': 0.0.26
     dev: false
 
-  /aeria-ui@0.0.28(@aeria-ui/i18n@0.0.1)(@aeria-ui/state-management@0.0.8)(@aeria-ui/ui@0.0.27)(@aeria-ui/web@0.0.21):
-    resolution: {integrity: sha512-rejOl4/59NeAanv0TyNoCPmZGO3MmTek68uEfO91SCnE5NbZo1wDulipjkBY6S4e7q4V3wTK0f3QDq9iKRzH8A==}
+  /aeria-ui@0.0.31(@aeria-ui/i18n@0.0.1)(@aeria-ui/state-management@0.0.9)(@aeria-ui/ui@0.0.30)(@aeria-ui/web@0.0.24):
+    resolution: {integrity: sha512-lNl74ZAQX5YJOTwAqeUqgqtdZe6xdMeCC9l/gdW8am9foR0FIbwIpyeZdsKwIdBd2kIbtJ1cI4L0aC1QGXPQ0g==}
     peerDependencies:
       '@aeria-ui/i18n': ^0.0.1
-      '@aeria-ui/state-management': ^0.0.8
-      '@aeria-ui/ui': ^0.0.27
-      '@aeria-ui/web': ^0.0.21
+      '@aeria-ui/state-management': ^0.0.9
+      '@aeria-ui/ui': ^0.0.30
+      '@aeria-ui/web': ^0.0.24
     dependencies:
       '@aeria-ui/i18n': 0.0.1(@aeriajs/common@0.0.29)
-      '@aeria-ui/state-management': 0.0.8(vue@3.4.21)
-      '@aeria-ui/ui': 0.0.27(@aeria-ui/i18n@0.0.1)(@aeria-ui/state-management@0.0.8)(@aeria-ui/web@0.0.21)(@aeriajs/common@0.0.29)(vue-router@4.3.0)
-      '@aeria-ui/web': 0.0.21(@aeria-ui/i18n@0.0.1)(@aeria-ui/state-management@0.0.8)(aeria-sdk@0.0.48)(bson@6.5.0)(typescript@5.4.3)
+      '@aeria-ui/state-management': 0.0.9(vue@3.4.21)
+      '@aeria-ui/ui': 0.0.30(@aeria-ui/i18n@0.0.1)(@aeria-ui/state-management@0.0.9)(@aeria-ui/web@0.0.24)(@aeriajs/common@0.0.29)(vue-router@4.3.0)
+      '@aeria-ui/web': 0.0.24(@aeria-ui/i18n@0.0.1)(@aeria-ui/state-management@0.0.9)(aeria-sdk@0.0.48)(bson@6.5.0)(typescript@5.4.3)
     dev: false
 
   /algoliasearch@4.22.1:

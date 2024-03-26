@@ -22,7 +22,7 @@
     "vitepress": "1.0.0-rc.22"
   },
   "dependencies": {
-    "@aeria-ui/ui": "^0.0.27",
-    "aeria-ui": "^0.0.28"
+    "@aeria-ui/ui": "latest",
+    "aeria-ui": "latest"
   }
 }
