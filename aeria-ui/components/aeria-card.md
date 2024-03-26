@@ -10,10 +10,7 @@ This component renders a frame with a picture and some text near it and it's com
 ## Example
 
 <aeria-card style="max-width: 20rem;">
-  <aeria-picture
-    url="/assets/logo.png"
-    alt="Aeria Logo"
-  ></aeria-picture>
+  <aeria-picture alt="Aeria Logo"></aeria-picture>
 
   <template #badge>
     <aeria-badge>
