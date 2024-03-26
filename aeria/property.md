@@ -150,6 +150,21 @@ This attribute determines the reference is always linked to the parent document,
 
 Sometimes reference properties need to have constraints to make them useful. Constraints are [conditions](/aeria/condition) applied when inserting documents from the referenced collection into the property. Constraints allow you to have 
 
+**Example:**
+
+```typescript
+{
+  herbivore_animals: {
+    $ref: 'animals',
+    constraints: {
+      operator: 'equal',
+      term1: 'herbivore',
+      term2: true,
+    }
+  }
+}
+```
+
 
 ## FileProperty
 
