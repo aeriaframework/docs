@@ -100,7 +100,7 @@ A string containing regexp options as in JavaScript `RegExp` constructor.
 
 ### operator <Badge type="tip" text="'truthy'" />
 
-The operator of a ExistCondition must be `'truthy'`.
+The string `'thruthy'`.
 
 ### term1 <Badge type="tip" text="PropertiesWithId<TSchema>" />
 
