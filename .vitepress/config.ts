@@ -1,15 +1,24 @@
 import { defineConfig } from 'vitepress'
+import { fileURLToPath } from 'node:url'
 
 export default defineConfig({
   lang: 'en-US',
   title: 'Aeria',
   description: 'Official documentation for the Aeria Framework',
   base: '/',
-
   lastUpdated: true,
   cleanUrls: true,
   ignoreDeadLinks: true,
-
+  vite: {
+    resolve: {
+      alias: {
+        'bson': fileURLToPath(new URL('bson.cjs', import.meta.resolve('bson'))),
+      },
+    },
+    optimizeDeps: {
+      include: ['bson'],
+    },
+  },
   themeConfig: {
     logo: '/assets/logo.png',
     outline: [1, 4],
@@ -132,10 +141,6 @@ function sidebarAeriaReference() {
 
 function sidebarAeriaUiReference() {
   return [
-    {
-      text: 'Cheatsheet',
-      link: '/aeria-ui/cheatsheet/'
-    },
     {
       text: 'Configuration',
       items: [

@@ -15,6 +15,14 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/node": "^20.11.30",
+    "bson": "^6.5.0",
+    "less": "^4.2.0",
+    "typescript": "^5.4.3",
     "vitepress": "1.0.0-rc.22"
+  },
+  "dependencies": {
+    "@aeria-ui/ui": "^0.0.27",
+    "aeria-ui": "^0.0.28"
   }
 }

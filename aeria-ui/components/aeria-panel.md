@@ -1,8 +1,43 @@
+<script setup lang="ts">
+import { ref } from 'vue'
+import { AeriaPanel, AeriaButton } from 'aeria-ui'
+import '@aeria-ui/ui/style.css'
+import '../../src/style/main.less'
+
+const panelVisible = ref(false)
+</script>
+
+<style scoped>
+:deep(.panel) > * {
+  z-index: 9999999;
+}
+</style>
+
 # aeria-panel
 
 Used without any props, this component renders only a blank div. Passing the `float` or `fixed-right` properties, though, you can make modals or side panels.
 
 ## Example
+
+<aeria-panel
+  fixed-right
+  close-hint
+  title="Example"
+  v-model="panelVisible"
+  :overlay-layer="9999999999"
+  class="panel"
+  @overlay-click="panelVisible = false"
+>
+  This is an example
+
+  <template #footer>
+    <aeria-button large>Ok!</aeria-button>
+  </template>
+</aeria-panel>
+
+<aeria-button @click="panelVisible = true">
+ Try me
+</aeria-button>
 
 ```vue
 <script setup lang="ts">
@@ -15,11 +50,12 @@ const panelVisible = ref(false)
     close-hint
     title="Example"
     v-model="panelVisible"
+    @overlay-click="panelVisible = false"
   >
     This is an example
 
     <template #footer>
-      <aeria-button>Ok!</aeria-button>
+      <aeria-button large>Ok!</aeria-button>
     </template>
   </aeria-panel>
 </template>
@@ -27,20 +63,20 @@ const panelVisible = ref(false)
 
 ## Props
 
-### modelValue <Badge type="tip" text="any" />
+### modelValue <Badge type="tip" text="any?" />
 
 The `modelValue` of this component is the state that determines whether or not
 the panel is showing. If falsy, the panel is hidden, otherwise it's showing.
 
-### title <Badge type="tip" text="string" />
+### title <Badge type="tip" text="string?" />
 
 This property sets a text to be shown in the header section of the panel.
 
-### float <Badge type="tip" text="boolean" />
+### float <Badge type="tip" text="boolean?" />
 
 Will make the panel a modal.
 
-### close-hint <Badge type="tip" text="boolean" />
+### close-hint <Badge type="tip" text="boolean?" />
 
 This property determines that the panel will have a clickable icon that will close it.
 

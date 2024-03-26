@@ -21,7 +21,7 @@ const count = ref(0)
 
 ## Props
 
-### disabled <Badge type="tip" text="boolean" /> <Badge type="tip" text="optional" />
+### disabled <Badge type="tip" text="boolean?" /> 
 
 ## Slots
 

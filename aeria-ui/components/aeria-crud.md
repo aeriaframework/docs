@@ -36,19 +36,19 @@ type Props = {
 
 A string containg the name of the collection that will have its CRUD rendered.
 
-### noControls <Badge type="tip" text="boolean" />
+### noControls <Badge type="tip" text="boolean?" />
 
 This property disables the CRUD controls.
 
-### noActions <Badge type="tip" text="boolean" />
+### noActions <Badge type="tip" text="boolean?" />
 
 This property disables the CRUD actions.
 
-### noFetch <Badge type="tip" text="boolean" />
+### noFetch <Badge type="tip" text="boolean?" />
 
 This property will prevent the component from calling `store.$funcions.getAll` initially.
 
-### noLayoutToggle <Badge type="tip" text="boolean" />
+### noLayoutToggle <Badge type="tip" text="boolean?" />
 
 This property will prevent the user from switching back to tabular layout if a custom layout is specified.
 

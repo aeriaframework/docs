@@ -33,31 +33,31 @@ type Props = {
 }
 ```
 
-### url <Badge type="tip" text="string" />
+### url <Badge type="tip" text="string?" />
 
 The absolute or relative URL of the image (the same as `modelValue`).
 
-### bordered <Badge type="tip" text="boolean" />
+### bordered <Badge type="tip" text="boolean?" />
 
 Put the default border around the picture.
 
-### objectFit <Badge type="tip" text="boolean" />
+### objectFit <Badge type="tip" text="boolean?" />
 
 Sets the CSS `object-fit` property of the image.
 
-### width <Badge type="tip" text="boolean" />
+### width <Badge type="tip" text="boolean?" />
 
 Image width, as in CSS.
 
-### height <Badge type="tip" text="boolean" />
+### height <Badge type="tip" text="boolean?" />
 
 Image height, as in CSS.
 
-### expandable <Badge type="tip" text="boolean" />
+### expandable <Badge type="tip" text="boolean?" />
 
 This property will make the picture expand upon clicked showing it's metadata when available.
 
-### meta <Badge type="tip" text="object" />
+### meta <Badge type="tip" text="object?" />
 
 The metadata of the image.
 

@@ -33,7 +33,7 @@ const users = ref([])
 
 The model value of this component will be an object matching the properties passed in the `form` prop.
 
-### panel <Badge type="tip" text="boolean" />
+### panel <Badge type="tip" text="boolean?" />
 
 When `select-only` attribute is set, this property controls the state of the select panel. This property must be used with `v-model`.
 
@@ -45,7 +45,7 @@ A property that is either a RefProperty or an ArrayProperty whose items is RefPr
 
 The name of the property that is being searched.
 
-### selectOnly <Badge type="tip" text="boolean" />
+### selectOnly <Badge type="tip" text="boolean?" />
 
 By default, a div with the selected items is placed by this component. When this attribute is set, this div will be omitted and only the select panel will be used.
 

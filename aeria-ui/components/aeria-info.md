@@ -1,3 +1,10 @@
+<script setup lang="ts">
+import { ref } from 'vue'
+import { AeriaInfo } from 'aeria-ui'
+import '@aeria-ui/ui/style.css'
+import '../../src/style/main.less'
+</script>
+
 # aeria-info
 
 This component will render the content of the `text` slot inside a floating
@@ -6,8 +13,16 @@ provide more info about something where size doesn't fit.
 
 ## Example
 
+<aeria-info where="left">
+  <template #text>
+    This text will show when you hover
+  </template>
+
+  <div>Hover to see more info</div>
+</aeria-info>
+
 ```vue-html
-<aeria-info>
+<aeria-info where="left">
   <template #text>
     This text will show when you hover
   </template>
