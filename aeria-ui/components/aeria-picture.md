@@ -1,13 +1,27 @@
+<script setup lang="ts">
+import { ref } from 'vue'
+import { AeriaPicture } from 'aeria-ui'
+</script>
+
 # aeria-picture
 
 This component provides a basic wrapper with basic styling and utilities for displaying images.
 
 ## Example
 
+<aeria-picture
+  width="12rem"
+  height="12rem"
+  url="/assets/logo.png"
+  alt="Aeria Logo"
+></aeria-picture>
+
 ```vue
 <aeria-picture
-  expandable
-  url="/static/image.svg"
+  width="12rem"
+  height="12rem"
+  url="/assets/logo.png"
+  alt="Aeria Logo"
 ></aeria-picture>
 ```
 
@@ -16,6 +30,7 @@ This component provides a basic wrapper with basic styling and utilities for dis
 ```typescript
 type Props = {
   url?: string
+  alt: string
   fileId?: string
   modelValue?: string
   objectFit?: string
@@ -36,6 +51,10 @@ type Props = {
 ### url <Badge type="tip" text="string?" />
 
 The absolute or relative URL of the image (the same as `modelValue`).
+
+### alt <Badge type="tip" text="string" />
+
+Alternative text to display when image can't be displayed.
 
 ### bordered <Badge type="tip" text="boolean?" />
 

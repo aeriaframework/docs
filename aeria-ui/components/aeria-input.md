@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { AeriaInput } from 'aeria-ui'
-import '@aeria-ui/ui/style.css'
-import '../../src/style/main.less'
 
 const name = ref('changeme')
 </script>

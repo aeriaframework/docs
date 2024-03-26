@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { AeriaAccordion } from 'aeria-ui'
-import '@aeria-ui/ui/style.css'
-import '../../src/style/main.less'
 </script>
 
 # aeria-accordion

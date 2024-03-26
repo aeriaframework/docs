@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { AeriaGrid, AeriaCard, AeriaPicture } from 'aeria-ui'
-import '@aeria-ui/ui/style.css'
-import '../../src/style/main.less'
 </script>
 
 # aeria-grid

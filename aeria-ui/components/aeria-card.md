@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { AeriaCard, AeriaPicture, AeriaBadge, AeriaButton } from 'aeria-ui'
-import '@aeria-ui/ui/style.css'
-import '../../src/style/main.less'
 </script>
 
 # aeria-card
@@ -13,8 +11,8 @@ This component renders a frame with a picture and some text near it and it's com
 
 <aeria-card style="max-width: 20rem;">
   <aeria-picture
-    expandable
-    link="/static/dog.svg"
+    url="/assets/logo.png"
+    alt="Aeria Logo"
   ></aeria-picture>
 
   <template #badge>
@@ -37,8 +35,8 @@ This component renders a frame with a picture and some text near it and it's com
 ```vue-html
 <aeria-card style="max-width: 20rem;">
   <aeria-picture
-    expandable
-    link="/static/dog.svg"
+    url="/assets/logo.png"
+    alt="Aeria Logo"
   ></aeria-picture>
 
   <template #badge>
