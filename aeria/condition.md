@@ -50,9 +50,50 @@ The name of the property that will be the first term of the condition.
 
 The second term of the condition.
 
-### else <Badge type="tip" text="any" />
+### else <Badge type="tip" text="any?" />
 
 In case the condition is false, specify this value instead.
+
+### fromState <Badge type="tip" text="boolean?" />
+
+Treats `term2` as a path in the state. Example:
+
+```typescript
+{
+  user: {
+    $ref: 'user',
+    constraints: {
+      operator: 'regex',
+      term1: 'active',
+      term2: 'role.item.active',
+      fromState: true,
+    },
+  },
+}
+```
+
+
+## RegexCondition
+
+### operator <Badge type="tip" text="'regex'" />
+
+The string `'regex'`.
+
+### term1 <Badge type="tip" text="PropertiesWithId<TSchema>" />
+
+The name of the property that will be the first term of the condition.
+
+### term2 <Badge type="tip" text="any" />
+
+A string representing a regex.
+
+### fromState <Badge type="tip" text="boolean?" />
+
+Same as in `FinalCondition`.
+
+### regexOptions <Badge type="tip" text="string?" />
+
+A string containing regexp options as in JavaScript `RegExp` constructor.
 
 
 ## TruthyCondition

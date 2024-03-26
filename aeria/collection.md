@@ -31,16 +31,16 @@ defined, alongside some behavior rules. It should always be strongely typed
 using the `defineDescription` function. Descriptions have their own complexity,
 you can learn more about them in the `Description` page.
 
-### functions <Badge type="tip" text="Record<string, (...args: any[]) => any>" /> <Badge type="tip" text="optional" />
+### functions <Badge type="tip" text="Record<string, (...args: any[]) => any>?" /> 
 
-### security <Badge type="tip" text="SecurityPolicy" /> <Badge type="tip" text="optional" />
+### security <Badge type="tip" text="SecurityPolicy?" /> 
 
 This property is used to define security policies.
 Learn more about security policies in the `SecurityPolicy` page.
 
 If omitted, no Security Policy will be applied.
 
-### accessControl <Badge type="tip" text="AccessControl" /> <Badge type="tip" text="optional" />
+### accessControl <Badge type="tip" text="AccessControl?" />
 
 This property is used to restrict access to the endpoints of the collections by role.
 Learn more about access control in the `AccessControl` page.

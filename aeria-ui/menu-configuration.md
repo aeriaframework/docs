@@ -71,16 +71,16 @@ type MenuSchema = (
 
 ## `MenuNode`
 
-### name <Badge type="tip" text="string | Symbol" />
+### name <Badge type="tip" text="(string | Symbol)?" />
 
 A string or symbol representing a route name.
 
-### roles <Badge type="tip" text="Array<string> | ((role: Array<string>) => boolean | Promise<boolean>)" />
+### roles <Badge type="tip" text="(Array<string> | ((role: Array<string>) => boolean | Promise<boolean>))?" />
 
 Will make this menu entry visible only to roles specified by an array of
 strings, or by a custom callback.
 
-### badge <Badge type="tip" text="() => Promise<string | number>" />
+### badge <Badge type="tip" text="(() => Promise<string | number>)?" />
 
 This property specifies a callback whose result will be rendered inside a badge near the menu entry.
 
@@ -89,18 +89,18 @@ The execution of this callback will be memoized, meaning it won't run more than
 once on subsequent re-renderizations.
 :::
 
-### collapsed <Badge type="tip" text="boolean | 'user'" />
+### collapsed <Badge type="tip" text="(boolean | 'user')?" />
 
 If set to `true`, this property will determine that the collapsible entry
 should be initially collapsed on page load. Otherwise it will appear
 uncollapsed.
 
-### children <Badge type="tip" text="Array<string | MenuAdvancedChild>" />
+### children <Badge type="tip" text="Array<string | MenuAdvancedChild>?" />
 
 This property determines the route entries that will go inside the collapsible
 entry. Collapsible routes can recurse infinitely inside each other this way.
 
-### meta <Badge type="tip" text="object" />
+### meta <Badge type="tip" text="object?" />
 
 This property determines the `title` and `icon` that should be displayed by the
 entry on the menu.

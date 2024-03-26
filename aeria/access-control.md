@@ -42,7 +42,7 @@ const person = defineCollection({
 
 ## Role
 
-### inherit <Badge type="tip" text="string[]" />
+### inherit <Badge type="tip" text="string[]?" />
 
 Will merge the specified roles into a new one.
 
@@ -61,7 +61,7 @@ Will merge the specified roles into a new one.
 }
 ```
 
-### grant <Badge type="tip" text="string[]" />
+### grant <Badge type="tip" text="string[]?" />
 
 Will deny access to all functions, except the ones contained within the array.
 
@@ -77,7 +77,7 @@ Will deny access to all functions, except the ones contained within the array.
 }
 ```
 
-### forbid <Badge type="tip" text="string[]" />
+### forbid <Badge type="tip" text="string[]?" />
 
 Will allow access to all functions, except the ones contained within the array.
 
@@ -94,7 +94,7 @@ Will allow access to all functions, except the ones contained within the array.
 }
 ```
 
-### grantEverything <Badge type="tip" text="boolean" />
+### grantEverything <Badge type="tip" text="boolean?" />
 
 If set to true, grants access to every function to the role.
 

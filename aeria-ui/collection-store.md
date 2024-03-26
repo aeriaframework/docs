@@ -116,3 +116,4 @@ This property bears a list of documents.
 ## properties <Badge type="tip" text="TDescription['properties']" />
 
 This property is a getter that computes to `store.description.properties`.
+
