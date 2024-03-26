@@ -1,7 +1,7 @@
-<!-- <script setup lang="ts"> -->
-<!-- import { ref } from 'vue' -->
-<!-- import { AeriaCard, AeriaPicture, AeriaBadge, AeriaButton } from 'aeria-ui' -->
-<!-- </script> -->
+<script setup lang="ts">
+import { ref } from 'vue'
+import { AeriaCard, AeriaPicture, AeriaBadge, AeriaButton } from 'aeria-ui'
+</script>
 
 # aeria-card
 
@@ -9,25 +9,25 @@ This component renders a frame with a picture and some text near it and it's com
 
 ## Example
 
-<!-- <aeria-card style="max-width: 20rem;"> -->
-<!--   <aeria-picture alt="Aeria Logo"></aeria-picture> -->
+<aeria-card style="max-width: 20rem;">
+  <aeria-picture alt="Aeria Logo"></aeria-picture>
 
-<!--   <template #badge> -->
-<!--     <aeria-badge> -->
-<!--       good-boy -->
-<!--     </aeria-badge> -->
-<!--   </template> -->
+  <template #badge>
+    <aeria-badge>
+      good-boy
+    </aeria-badge>
+  </template>
 
-<!--   <template #actions> -->
-<!--     <aeria-button small> -->
-<!--       Adopt -->
-<!--     </aeria-button> -->
-<!--   </template> -->
+  <template #actions>
+    <aeria-button small>
+      Adopt
+    </aeria-button>
+  </template>
 
-<!--   <template #footer> -->
-<!--     This is a dog -->
-<!--   </template> -->
-<!-- </aeria-card> -->
+  <template #footer>
+    This is a dog
+  </template>
+</aeria-card>
 
 ```vue-html
 <aeria-card style="max-width: 20rem;">
