@@ -1,22 +1,83 @@
+<script setup lang="ts">
+import { reactive } from 'vue'
+import { AeriaForm } from 'aeria-ui'
+
+const formData = reactive({
+  name: '',
+  roles: [],
+})
+</script>
+
 # aeria-form
 
-Aeria leverage [Descriptions](/aeria/description) to dynamically render forms, saving a lot of work and allowing useful perks like dealing with references and recursion. The `modelValue` is updated whenever the user inputs something.
-
-In rarer cases, forms can also be rendered in a more procedural way using the default slot and input components. This can also be used to modify how a single field is rendered inside the form when using the dynamic approach.
+Forms can either be generated from a schema or composed using slots.
 
 ## Example
 
-```vue-html
-<template>
-  <pre>{{ personStore.item }}</pre>
+<aeria-form
+  v-model="formData"
+  :property="{
+    type: 'object',
+    properties: {
+      name: {
+        description: 'Name',
+        type: 'string',
+        icon: 'user',
+      },
+      roles: {
+        description: 'Roles',
+        type: 'array',
+        items: {
+          enum: [
+            'customer',
+            'manager',
+            'supervisor',
+          ]
+        },
+        uniqueItems: true,
+      },
+    }
+  }"
+></aeria-form>
 
+<pre>{{ formData }}</pre>
+
+```vue
+<script setup lang="ts">
+const formData = reactive({
+  name: '',
+  roles: [],
+})
+</script>
+
+<template>
   <aeria-form
-    v-model="personStore.item"
-    :form="personStore.$actions.useProperties([
-      'name',
-      'age'
-    ])"
+    v-model="formData"
+    :property="{
+      type: 'object',
+      properties: {
+        name: {
+          description: 'Name',
+          type: 'string',
+          icon: 'user',
+        },
+        roles: {
+          description: 'Roles',
+          type: 'array',
+          items: {
+            enum: [
+              'customer',
+              'manager',
+              'supervisor',
+            ]
+          },
+          uniqueItems: true,
+        },
+      }
+    }"
   ></aeria-form>
+
+  <pre>{{ formData }}</pre>
 </template>
 ```
 

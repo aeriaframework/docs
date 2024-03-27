@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { AeriaInfo } from 'aeria-ui'
+import { AeriaInfo, AeriaIcon } from 'aeria-ui'
 </script>
 
 # aeria-info
@@ -16,7 +16,9 @@ provide more info about something where size doesn't fit.
     This text will show when you hover
   </template>
 
-  <div>Hover to see more info</div>
+  <aeria-icon icon="info">
+    Hover to see more info
+  </aeria-icon>
 </aeria-info>
 
 ```vue-html
@@ -25,7 +27,9 @@ provide more info about something where size doesn't fit.
     This text will show when you hover
   </template>
 
-  <div>Hover to see more info</div>
+  <aeria-icon icon="info">
+    Hover to see more info
+  </aeria-icon>
 </aeria-info>
 ```
 

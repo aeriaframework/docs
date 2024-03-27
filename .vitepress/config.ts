@@ -1,5 +1,6 @@
 import { defineConfig } from 'vitepress'
 import { fileURLToPath } from 'node:url'
+import aeriaIcons from 'aeria-icons'
 
 export default defineConfig({
   lang: 'en-US',
@@ -18,6 +19,11 @@ export default defineConfig({
     optimizeDeps: {
       include: ['bson'],
     },
+    plugins: [
+      aeriaIcons({
+        hash: true,
+      }),
+    ],
   },
   themeConfig: {
     logo: '/assets/logo.png',
