@@ -5,6 +5,11 @@
     "target": "esnext",
     "module": "esnext",
     "moduleResolution": "bundler",
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "paths": {
+      "vite": [
+          "../node_modules/vite"
+      ]
+    }
   }
 }
