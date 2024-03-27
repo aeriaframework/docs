@@ -20,9 +20,7 @@ export default defineConfig({
       include: ['bson'],
     },
     plugins: [
-      aeriaIcons({
-        hash: true,
-      }),
+      aeriaIcons(),
     ],
   },
   themeConfig: {
