@@ -171,6 +171,7 @@ function sidebarAeriaUiReference() {
     },
     {
       text: 'Components',
+      collapsed: true,
       items: [
         { text: 'aeria-accordion', link: '/aeria-ui/components/aeria-accordion' },
         { text: 'aeria-bare-button', link: '/aeria-ui/components/aeria-bare-button' },

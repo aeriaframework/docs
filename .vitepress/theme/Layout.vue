@@ -3,6 +3,7 @@ import DefaultTheme from 'vitepress/theme'
 import { useData } from 'vitepress'
 import '@aeria-ui/ui/style.css'
 import '../../src/style/main.less'
+import '../../src/style/tailwind.css'
 
 const { isDark } = useData()
 </script>
@@ -12,7 +13,7 @@ const { isDark } = useData()
     id="aeria-layout"
     :class="
       isDark
-        ? 'main--dark'
+        ? 'main--dark tw-dark'
         : 'main'
     "
   >
