@@ -26,6 +26,7 @@
   },
   "dependencies": {
     "@aeria-ui/ui": "latest",
-    "aeria-ui": "latest"
+    "aeria-ui": "latest",
+    "vue": "^3.4.21"
   }
 }
