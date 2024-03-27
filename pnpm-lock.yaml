@@ -20,8 +20,8 @@ devDependencies:
     specifier: ^20.11.30
     version: 20.11.30
   aeria-icons:
-    specifier: ^0.0.3
-    version: 0.0.3(@phosphor-icons/core@2.0.8)(@vitejs/plugin-vue@5.0.4)(glob@10.3.10)(vite@5.2.6)
+    specifier: latest
+    version: 0.0.4(@phosphor-icons/core@2.0.8)(@vitejs/plugin-vue@5.0.4)(glob@10.3.10)(vite@5.2.6)
   autoprefixer:
     specifier: ^10.4.19
     version: 10.4.19(postcss@8.4.38)
@@ -1096,10 +1096,10 @@ packages:
       - vue
     dev: true
 
-  /aeria-icons@0.0.3(@phosphor-icons/core@2.0.8)(@vitejs/plugin-vue@5.0.4)(glob@10.3.10)(vite@5.2.6):
-    resolution: {integrity: sha512-joEDorYBhvpmjeJe1F88Yg+LR+MLseAI1SRxNKtKLVJvbOeSqppq5tknj2fMvVzCr6d0ptN/WgZFrOfrvuGt+Q==}
+  /aeria-icons@0.0.4(@phosphor-icons/core@2.0.8)(@vitejs/plugin-vue@5.0.4)(glob@10.3.10)(vite@5.2.6):
+    resolution: {integrity: sha512-A7X2NDFZZOcHyqiG/2c7TGQmCYGvDlXoRj4jU0wahrbwU9dZghvtfqU0TVxvkMAs2HmdXCattovGnh8JTGyPsw==}
     peerDependencies:
-      '@phosphor-icons/core': '*'
+      '@phosphor-icons/core': ^2.0.8
       '@vitejs/plugin-vue': '*'
       glob: '*'
       vite: '*'
