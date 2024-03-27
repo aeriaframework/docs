@@ -54,7 +54,9 @@ Forms can either be generated from a schema or composed using slots.
 <script setup lang="ts">
 const formData = reactive({
   name: '',
-  roles: [],
+  details: {
+    roles: []
+  }
 })
 </script>
 
