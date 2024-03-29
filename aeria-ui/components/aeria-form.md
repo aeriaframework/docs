@@ -4,9 +4,7 @@ import { AeriaForm } from 'aeria-ui'
 
 const formData = reactive({
   name: '',
-  details: {
-    roles: []
-  }
+  roles: [],
 })
 </script>
 
@@ -26,6 +24,18 @@ Forms can either be generated from a schema or composed using slots.
         type: 'string',
         icon: 'user',
       },
+      roles: {
+        description: 'Roles',
+        type: 'array',
+        items: {
+          enum: [
+            'customer',
+            'manager',
+            'supervisor',
+          ]
+        },
+        uniqueItems: true,
+      },
     }
   }"
 ></aeria-form>
@@ -36,9 +46,7 @@ Forms can either be generated from a schema or composed using slots.
 <script setup lang="ts">
 const formData = reactive({
   name: '',
-  details: {
-    roles: []
-  }
+  roles: [],
 })
 </script>
 
@@ -53,24 +61,18 @@ const formData = reactive({
           type: 'string',
           icon: 'user',
         },
-        details: {
-          description: 'Details',
-          type: 'object',
-          properties: {
-            roles: {
-              description: 'Roles',
-              type: 'array',
-              items: {
-                enum: [
-                  'customer',
-                  'manager',
-                  'supervisor',
-                ]
-              },
-              uniqueItems: true,
-            },
-          }
-        }
+        roles: {
+          description: 'Roles',
+          type: 'array',
+          items: {
+            enum: [
+              'customer',
+              'manager',
+              'supervisor',
+            ]
+          },
+          uniqueItems: true,
+        },
       }
     }"
   ></aeria-form>
