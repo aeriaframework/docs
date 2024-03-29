@@ -11,9 +11,6 @@ export default defineConfig({
   cleanUrls: true,
   ignoreDeadLinks: true,
   vite: {
-    build: {
-      sourcemap: true,
-    },
     resolve: {
       alias: {
         'bson': fileURLToPath(new URL('bson.cjs', import.meta.resolve('bson'))),

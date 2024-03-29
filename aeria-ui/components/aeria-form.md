@@ -17,7 +17,8 @@ Forms can either be generated from a schema or composed using slots.
 ## Example
 
 <aeria-form
-  v-model="formData"
+  :model-value="formData"
+  @update:model-value="formData.value = $event"
   :property="{
     type: 'object',
     properties: {
