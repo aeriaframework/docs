@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { reactive } from 'vue'
 import { AeriaForm } from 'aeria-ui'
 
-const formData = ref({
+const formData = reactive({
   name: '',
   details: {
     roles: []
@@ -17,8 +17,7 @@ Forms can either be generated from a schema or composed using slots.
 ## Example
 
 <aeria-form
-  :model-value="formData"
-  @update:model-value="formData.value = $event"
+  v-model="formData"
   :property="{
     type: 'object',
     properties: {
@@ -27,24 +26,6 @@ Forms can either be generated from a schema or composed using slots.
         type: 'string',
         icon: 'user',
       },
-      details: {
-        description: 'Details',
-        type: 'object',
-        properties: {
-          roles: {
-            description: 'Roles',
-            type: 'array',
-            items: {
-              enum: [
-                'customer',
-                'manager',
-                'supervisor',
-              ]
-            },
-            uniqueItems: true,
-          }
-        },
-      }
     }
   }"
 ></aeria-form>
