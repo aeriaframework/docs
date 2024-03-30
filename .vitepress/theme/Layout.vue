@@ -10,21 +10,20 @@ const { isDark } = useData()
 
 onMounted(() => {
   if( typeof localStorage !== 'undefined' ) {
-    setTimeout(() => {
-      console.log('uepaaa')
-      isDark.value = localStorage.getItem('vitepress-theme-appearance') === 'dark'
-      console.log(localStorage)
-      console.log(isDark.value)
-    }, 100)
+    const isDark = localStorage.getItem('vitepress-theme-appearance') === 'dark'
+    if( isDark ) {
+      const el = document.querySelector('#aeria-layout')
+      if( el ) {
+        el.classList.add('main--dark', 'tw-dark')
+      }
+    }
   }
 })
 </script>
 
 <template>
-  <h1>{{ isDark? 'fsafdsjaifnasj' : 'n' }}</h1>
   <div
     id="aeria-layout"
-    :key="`${isDark}`"
     :class="
       isDark
         ? 'main--dark tw-dark'
