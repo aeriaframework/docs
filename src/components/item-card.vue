@@ -6,7 +6,7 @@
     tw-cursor-pointer
     tw-transition-all
     tw-bg-gray-50
-    dark:tw-bg-gray-700
+    dark:tw-bg-gray-800
     hover:tw-scale-105
     hover:tw-shadow
   ">

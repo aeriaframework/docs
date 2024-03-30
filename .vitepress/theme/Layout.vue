@@ -1,16 +1,17 @@
 <script setup lang="ts">
-import { ref, nextTick } from 'vue'
+import { onMounted } from 'vue'
 import { useData } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
 import '@aeria-ui/ui/style.css'
 import '../../src/style/main.less'
 import '../../src/style/tailwind.css'
 
-const data = useData()
-const isDark = ref(data.isDark)
+const { isDark } = useData()
 
-nextTick(() => {
-  isDark.value = data.isDark.value
+onMounted(() => {
+  if( typeof localStorage !== 'undefined' ) {
+    isDark.value = localStorage.getItem('vitepress-theme-appearance') === 'dark'
+  }
 })
 </script>
 

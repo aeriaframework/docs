@@ -12,6 +12,7 @@ withDefaults(defineProps<{
     tw-flex-col
     tw-gap-4
     tw-border
+    dark:tw-border-gray-800
     tw-p-4
     tw-rounded-lg
   ">
@@ -23,6 +24,7 @@ withDefaults(defineProps<{
       class="
         tw-p-2
         tw-bg-gray-50
+        dark:tw-bg-gray-800
         tw-whitespace-pre
         tw-font-[300]
         tw-rounded-lg
