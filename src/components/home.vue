@@ -11,7 +11,7 @@ import { AeriaIcon } from 'aeria-ui'
       End-to-end strong typing, server-driven UI components and native AppSec
       features: we've got everything packed so you can ship faster.
     </p>
-    <p class="actions">
+    <div class="actions">
       <aeria-icon
         icon="book"
         href="/aeria/"
@@ -25,7 +25,7 @@ import { AeriaIcon } from 'aeria-ui'
       >
         Get started
       </aeria-icon>
-    </p>
+    </div>
   </section>
 </template>
 
@@ -97,11 +97,11 @@ section {
     width: 54rem;
     left: 50%;
     transform: translateX(-50%);
+    gap: 1rem;
   }
 
   .tagline {
     font-size: 5rem;
-    margin-bottom: 1rem;
   }
 
   .actions a {
