@@ -10,7 +10,9 @@ const { isDark } = useData()
 
 onMounted(() => {
   if( typeof localStorage !== 'undefined' ) {
-    isDark.value = localStorage.getItem('vitepress-theme-appearance') === 'dark'
+    setTimeout(() => {
+      isDark.value = localStorage.getItem('vitepress-theme-appearance') === 'dark'
+    }, 100)
   }
 })
 </script>
