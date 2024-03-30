@@ -11,13 +11,17 @@ const { isDark } = useData()
 onMounted(() => {
   if( typeof localStorage !== 'undefined' ) {
     setTimeout(() => {
+      console.log('uepaaa')
       isDark.value = localStorage.getItem('vitepress-theme-appearance') === 'dark'
+      console.log(localStorage)
+      console.log(isDark.value)
     }, 100)
   }
 })
 </script>
 
 <template>
+  <h1>{{ isDark? 'fsafdsjaifnasj' : 'n' }}</h1>
   <div
     id="aeria-layout"
     :class="
