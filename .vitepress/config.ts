@@ -115,6 +115,7 @@ function sidebarAeriaReference() {
       items: [
         { text: 'init()', link: '/aeria/init', },
         { text: 'Routing', link: '/aeria/routing', },
+        { text: 'Security', link: '/aeria/security', },
         { text: 'Contracts', link: '/aeria/contracts' },
         {
           text: 'Built-ins',
@@ -130,9 +131,6 @@ function sidebarAeriaReference() {
             }
           ]
         },
-        // { text: 'validate()', link: '/aeria/validate' },
-        // { text: 'validateSilently()', link: '/aeria/validate-silently' },
-        // { text: 'validator()', link: '/aeria/validator' },
       ]
     },
     {
