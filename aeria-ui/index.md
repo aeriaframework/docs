@@ -1,10 +1,63 @@
+---
+aside: false
+---
+
 <script setup lang="ts">
-import ComponentsIndex from '../src/components/components-index.vue'
+import { useRouter } from 'vitepress'
+import * as statics from '../src/aeria-ui/static.js'
+import ApiContainer from '../src/components/api-container.vue'
+import ItemCard from '../src/components/item-card.vue'
+
+const router = useRouter()
 </script>
 
 # Aeria UI Reference
 
 ## Components
 
-<components-index />
+<div class="
+  tw-grid
+  tw-gap-3
+  md:tw-grid-cols-4
+">
+<item-card
+  v-for="componentName of statics.components"
+  :key="componentName"
+  @click="router.go(`/aeria-ui/components/${componentName}`)"
+>
+  &lt;{{ componentName }} /&gt;
+
+  <template #description>
+    a
+  </template>
+</item-card>
+</div>
+
+## Runtime APIs
+
+<div class="
+  tw-grid
+  md:tw-grid-cols-3
+  tw-gap-4
+">
+  <api-container title="Composables">
+    <a
+      v-for="([symbolName, symbol]) in Object.entries(statics.composables)"
+      :key="symbolName"
+      :href="symbol"
+    >
+      {{ symbolName }}
+    </a>
+  </api-container>
+
+  <api-container title="Directives">
+    <a
+      v-for="([symbolName, symbol]) in Object.entries(statics.directives)"
+      :key="symbolName"
+      :href="symbol"
+    >
+      {{ symbolName }}
+    </a>
+  </api-container>
+</div>
 

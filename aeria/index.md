@@ -1,22 +1,78 @@
-# What is Aeria?
+---
+aside: false
+---
 
-Aeria is a web framework that focuses on security and efficiency. It does so by mostly reducing the code volume drastically (an app written in Aeria is generally much smaller in terms of LOC, so less prone to bugs and easier to maintain).
+<script setup lang="ts">
+import * as statics from '../src/aeria/static.js'
+import ApiContainer from '../src/components/api-container.vue'
+</script>
 
-However, depending on the context, Aeria may refer to the ecossystem built around this framework. This ecossystem is made of:
+# Aeria Reference
 
-- `aeria`: the secure and efficient web framework
-- `aeria-ui`: a server-driven UI library
-- `aeria-lang`: a schema declaration language
-- `create-aeria-app`: a command-line utility to quickly setup Aeria projects
-- _themes, extensions, static analysys tools, etc..._
+## Public API
 
-Get started [here](/guide/getting-started) if you haven't already.
+<div class="
+  tw-grid
+  md:tw-grid-cols-3
+  tw-gap-4
+">
+  <api-container title="General">
+    <a
+      v-for="([symbolName, symbol]) in Object.entries(statics.general)"
+      :key="symbolName"
+      :href="symbol"
+    >
+      {{ symbolName }}
+    </a>
+  </api-container>
+
+  <api-container title="Error handling">
+    <a
+      v-for="([symbolName, symbol]) in Object.entries(statics.errorHandling)"
+      :key="symbolName"
+      :href="symbol"
+    >
+      {{ symbolName }}
+    </a>
+  </api-container>
+
+  <api-container title="Routing">
+    <a
+      v-for="([symbolName, symbol]) in Object.entries(statics.routing)"
+      :key="symbolName"
+      :href="symbol"
+    >
+      {{ symbolName }}
+    </a>
+  </api-container>
+</div>
+
+## Builtins
+
+<div class="
+  tw-grid
+  md:tw-grid-cols-3
+  tw-gap-4
+">
+  <api-container title="Collections">
+    <a
+      v-for="([symbolName, symbol]) in Object.entries(statics.builtinCollections)"
+      :key="symbolName"
+      :href="symbol"
+    >
+      {{ symbolName }}
+    </a>
+  </api-container>
+
+  <api-container title="Functions">
+    <a
+      v-for="([symbolName, symbol]) in Object.entries(statics.builtinFunctions)"
+      :key="symbolName"
+      :href="symbol"
+    >
+      {{ symbolName }}
+    </a>
+  </api-container>
+</div>
 
 
-## Some things to have in mind
-
-- Aeria is opinative by nature, meaning it comes with some defaults (which some of them you can change later)
-- Aeria is heavily dependent on MongoDB, meaning you can't plug in another database engines
-- Aeria does not bring a view layer -- you can however [use it as a source of truth](/guide/using-as-a-source-of-truth) in Next/Nuxt/Sveltekit or whatever frameworks
-
-Still not sure if Aeria suits you? Visit [Picking Aeria over another options](/guide/picking-aeria-over-another-options).
