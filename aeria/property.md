@@ -10,6 +10,7 @@
 - [FileProperty](#fileproperty)
 - [EnumProperty](#enumproperty)
 - [ArrayProperty](#arrayproperty)
+- [ConstProperty](#constproperty)
 - [GetterProperty](#getterproperty)
 
 ## ObjectProperty
@@ -243,6 +244,26 @@ Array properties are properties which type is set to `'array'`. Additionally, th
 ### items <Badge type="tip" text="Property?" />
 
 This property defines the schema of array elements.
+
+
+## ConstProperty
+
+**Example:**
+
+```typescript
+{
+  error: {
+    const: true
+  },
+  message: {
+    type: 'string'
+  }
+}
+```
+
+### const <Badge type="tip" text="any" />
+
+The literal value the property expects.
 
 
 ## GetterProperty
