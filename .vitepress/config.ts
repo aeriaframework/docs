@@ -21,8 +21,8 @@ export default defineConfig({
     },
     plugins: [
       aeriaIcons({
-        libraries: [
-          '@aeria-ui/ui',
+        safeList: [
+          'x'
         ]
       }),
     ],
