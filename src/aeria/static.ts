@@ -1,7 +1,10 @@
 export const general = {
   'init()': '/aeria/init',
-  'defineCollection()': '/aeria/define-collection',
+  'defineDescription()': '/aeria/collection',
+  'defineDescriptionTuple()': '/aeria/collection',
+  'defineCollection()': '/aeria/collection',
   'defineContract()': '/aeria/contracts',
+  'extendCollection()': '/aeria/contracts',
   'validate()': '/aeria/validation#validate',
   'validateSilently()': '/aeria/validation#validatesilently',
   'validator()': '/aeria/validation#validator',

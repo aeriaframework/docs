@@ -9,8 +9,8 @@ defineProps<{
     tw-flex
     tw-flex-col
     tw-gap-4
-    tw-bg-gray-50
-    dark:tw-bg-gray-800
+    tw-bg-zinc-50
+    dark:tw-bg-zinc-800
     tw-p-6
     tw-rounded-lg
   ">

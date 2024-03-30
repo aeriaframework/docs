@@ -5,8 +5,8 @@
     tw-transform
     tw-cursor-pointer
     tw-transition-all
-    tw-bg-gray-50
-    dark:tw-bg-gray-800
+    tw-bg-zinc-50
+    dark:tw-bg-zinc-800
     hover:tw-scale-[1.02]
     hover:tw-shadow
   ">
