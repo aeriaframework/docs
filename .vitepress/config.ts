@@ -20,7 +20,11 @@ export default defineConfig({
       include: ['bson'],
     },
     plugins: [
-      aeriaIcons(),
+      aeriaIcons({
+        libraries: [
+          '@aeria-ui/ui',
+        ]
+      }),
     ],
   },
   themeConfig: {
