@@ -24,6 +24,7 @@ onMounted(() => {
   <h1>{{ isDark? 'fsafdsjaifnasj' : 'n' }}</h1>
   <div
     id="aeria-layout"
+    :key="`${isDark}`"
     :class="
       isDark
         ? 'main--dark tw-dark'
