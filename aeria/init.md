@@ -63,14 +63,16 @@ export default init({
 **Type:**
 
 ```typescript
-export type ApiConfig = {
+type ApiConfig = {
   secret?: string
   apiUrl?: string
+  apiBase?: RouteUri
   port?: number
   paginationLimit?: number
   database?: {
     mongodbUrl?: string
     noDatabase?: boolean
+    logQueries?: boolean
   }
   storage?: {
     fs?: string
@@ -85,11 +87,15 @@ export type ApiConfig = {
     roles: string[]
     active: boolean
   }>
-  logSuccessfulAuthentications?: boolean
+  security?: {
+    logSuccessfulAuthentications?: boolean
+    authenticationRateLimiting?: RateLimitingParams | null
+  }
   tokenUserProperties?: string[]
   errorHandler?: <TError extends Error>(
-    context: Context,
+    context: RouteContext,
     error: TError
   )=> any | Promise<any>
 }
+
 ```
