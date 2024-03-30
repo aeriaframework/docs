@@ -1,11 +1,17 @@
 <script setup lang="ts">
-import DefaultTheme from 'vitepress/theme'
+import { ref, nextTick } from 'vue'
 import { useData } from 'vitepress'
+import DefaultTheme from 'vitepress/theme'
 import '@aeria-ui/ui/style.css'
 import '../../src/style/main.less'
 import '../../src/style/tailwind.css'
 
-const { isDark } = useData()
+const data = useData()
+const isDark = ref(data.isDark)
+
+nextTick(() => {
+  isDark.value = data.isDark.value
+})
 </script>
 
 <template>
