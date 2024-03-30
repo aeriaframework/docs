@@ -61,6 +61,10 @@ export default defineConfig({
       {
         icon: 'github',
         link: 'https://github.com/aeria-org/aeria'
+      },
+      {
+        icon: 'discord',
+        link: 'https://discord.aeria.land/'
       }
     ],
     footer: {
