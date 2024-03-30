@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { AeriaInput } from 'aeria-ui'
+import ResultBox from '../../src/components/result-box.vue'
 
 const name = ref('changeme')
 </script>
@@ -9,11 +10,15 @@ const name = ref('changeme')
 
 ## Example
 
-<aeria-input v-model="name">
-  Name
-</aeria-input>
+<result-box>
+  <aeria-input v-model="name">
+    Name
+  </aeria-input>
 
-<i>Your name is: {{ name }}</i>
+  <template #result>
+    {{ name }}
+  </template>
+</result-box>
 
 ```vue
 <script setup lang="ts">

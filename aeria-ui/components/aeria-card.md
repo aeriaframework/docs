@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { AeriaCard, AeriaPicture, AeriaBadge, AeriaButton } from 'aeria-ui'
+import ResultBox from '../../src/components/result-box.vue'
 </script>
 
 # aeria-card
@@ -9,6 +10,7 @@ This component renders a frame with a picture and some text near it and it's com
 
 ## Example
 
+<result-box>
 <aeria-card style="max-width: 20rem;">
   <aeria-picture alt="Aeria Logo"></aeria-picture>
 
@@ -28,6 +30,7 @@ This component renders a frame with a picture and some text near it and it's com
     This is a dog
   </template>
 </aeria-card>
+</result-box>
 
 ```vue-html
 <aeria-card style="max-width: 20rem;">

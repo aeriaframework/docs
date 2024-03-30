@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { AeriaBareButton } from 'aeria-ui'
+import ResultBox from '../../src/components/result-box.vue'
 
 const count1 = ref(0)
 const count2 = ref(0)
@@ -12,13 +13,17 @@ This component renders an unstyled button that will ultimately be an `<a />` HTM
 
 ## Example
 
-<aeria-bare-button @click="count1 += 1">
-  Enabled (click me): {{ count1 }}
-</aeria-bare-button>
+<result-box class="tw-mb-4">
+  <aeria-bare-button @click="count1 += 1">
+    Enabled (click me): {{ count1 }}
+  </aeria-bare-button>
+</result-box>
 
-<aeria-bare-button disabled @click="count2 += 1">
-  Disabled (click me): {{ count2 }}
-</aeria-bare-button>
+<result-box>
+  <aeria-bare-button disabled @click="count2 += 1">
+    Disabled (click me): {{ count2 }}
+  </aeria-bare-button>
+</result-box>
 
 ```vue
 <script setup lang="ts">

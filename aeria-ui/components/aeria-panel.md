@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { AeriaPanel, AeriaButton } from 'aeria-ui'
+import ResultBox from '../../src/components/result-box.vue'
 
 const panelVisible = ref(false)
 </script>
@@ -33,9 +34,11 @@ Used without any props, this component renders only a blank div. Passing the `fl
   </template>
 </aeria-panel>
 
-<aeria-button @click="panelVisible = true">
- Try me
-</aeria-button>
+<result-box>
+  <aeria-button @click="panelVisible = true">
+   Try me
+  </aeria-button>
+</result-box>
 
 ```vue
 <script setup lang="ts">

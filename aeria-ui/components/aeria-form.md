@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { reactive } from 'vue'
 import { AeriaForm } from 'aeria-ui'
+import ResultBox from '../../src/components/result-box.vue'
 
 const formData = reactive({
   name: '',
@@ -14,33 +15,37 @@ Forms can either be generated from a schema or composed using slots.
 
 ## Example
 
-<aeria-form
-  v-model="formData"
-  :property="{
-    type: 'object',
-    properties: {
-      name: {
-        description: 'Name',
-        type: 'string',
-        icon: 'user',
-      },
-      roles: {
-        description: 'Roles',
-        type: 'array',
-        items: {
-          enum: [
-            'customer',
-            'manager',
-            'supervisor',
-          ]
+<result-box title="Result">
+  <aeria-form
+    v-model="formData"
+    :property="{
+      type: 'object',
+      properties: {
+        name: {
+          description: 'Name',
+          type: 'string',
+          icon: 'user',
         },
-        uniqueItems: true,
-      },
-    }
-  }"
-></aeria-form>
+        roles: {
+          description: 'Roles',
+          type: 'array',
+          items: {
+            enum: [
+              'customer',
+              'manager',
+              'supervisor',
+            ]
+          },
+          uniqueItems: true,
+        },
+      }
+    }"
+  ></aeria-form>
 
-<pre class="tw-mt-6">{{ formData }}</pre>
+  <template #result>
+    {{ formData }}
+  </template>
+</result-box>
 
 ```vue
 <script setup lang="ts">

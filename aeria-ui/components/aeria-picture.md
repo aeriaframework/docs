@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { AeriaPicture } from 'aeria-ui'
+import ResultBox from '../../src/components/result-box.vue'
 </script>
 
 # aeria-picture
@@ -9,12 +10,14 @@ This component provides a basic wrapper with basic styling and utilities for dis
 
 ## Example
 
-<aeria-picture
-  width="12rem"
-  height="12rem"
-  url="/assets/logo.png"
-  alt="Aeria Logo"
-></aeria-picture>
+<result-box>
+  <aeria-picture
+    width="12rem"
+    height="12rem"
+    url="/assets/logo.png"
+    alt="Aeria Logo"
+  ></aeria-picture>
+</result-box>
 
 ```vue
 <aeria-picture

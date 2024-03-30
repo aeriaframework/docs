@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { AeriaIcon } from 'aeria-ui'
+import ResultBox from '../../src/components/result-box.vue'
 
 const name = ref('changeme')
 </script>
@@ -9,12 +10,14 @@ const name = ref('changeme')
 
 ## Example
 
-<aeria-icon
-  reactive
-  icon="user-circle"
->
-  Users
-</aeria-icon>
+<result-box>
+  <aeria-icon
+    reactive
+    icon="user-circle"
+  >
+    Users
+  </aeria-icon>
+</result-box>
 
 ```vue-html
 <aeria-icon

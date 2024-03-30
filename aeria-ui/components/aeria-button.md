@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { AeriaButton } from 'aeria-ui'
+import ResultBox from '../../src/components/result-box.vue'
 
 const count = ref(0)
 </script>
@@ -11,18 +12,25 @@ This component renders a styled button that will add style controls on top of [`
 
 ## Example
 
-<div style="
-  display: flex;
-  gap: .6rem;
-">
+<result-box title="Result" class="tw-mb-4">
   <aeria-button @click="count++">
-    Count: {{ count }}
+    Increment
   </aeria-button>
 
+  <template #result>
+    {{ count }}
+  </template>
+</result-box>
+
+<result-box title="Result">
   <aeria-button variant="alt" @click="count = 0">
     Reset
   </aeria-button>
-</div>
+
+  <template #result>
+    {{ count }}
+  </template>
+</result-box>
 
 ```vue
 <script setup lang="ts">

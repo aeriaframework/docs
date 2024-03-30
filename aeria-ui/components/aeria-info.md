@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { AeriaInfo, AeriaIcon } from 'aeria-ui'
+import ResultBox from '../../src/components/result-box.vue'
 </script>
 
 # aeria-info
@@ -11,6 +12,7 @@ provide more info about something where size doesn't fit.
 
 ## Example
 
+<result-box>
 <aeria-info where="left">
   <template #text>
     This text will show when you hover
@@ -20,6 +22,7 @@ provide more info about something where size doesn't fit.
     Hover to see more info
   </aeria-icon>
 </aeria-info>
+</result-box>
 
 ```vue-html
 <aeria-info where="left">

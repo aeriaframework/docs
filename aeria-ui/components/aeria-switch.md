@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { AeriaSwitch } from 'aeria-ui'
+import ResultBox from '../../src/components/result-box.vue'
 
 const toggle = ref(false)
 </script>
@@ -9,11 +10,15 @@ const toggle = ref(false)
 
 ## Example
 
-<aeria-switch v-model="toggle">
-  Toggle me
-</aeria-switch>
+<result-box title="Active?">
+  <aeria-switch v-model="toggle">
+    Toggle me
+  </aeria-switch>
 
-<i>Active? {{ toggle ? 'yes' : 'no' }}</i>
+  <template #result>
+    {{ toggle ? 'yes' : 'no' }}
+  </template>
+</result-box>
 
 
 ```vue

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { AeriaCheckbox } from 'aeria-ui'
+import ResultBox from '../../src/components/result-box.vue'
 
 const tosAccepted = ref(false)
 </script>
@@ -9,16 +10,20 @@ const tosAccepted = ref(false)
 
 ## Example
 
-<aeria-checkbox
-  v-model="tosAccepted"
-  :property="{
-    type: 'boolean',
-  }"
->
-  I have read and accepted the <a href="#">Terms of Use</a>
-</aeria-checkbox>
+<result-box title="Terms of Use accepted?">
+  <aeria-checkbox
+    v-model="tosAccepted"
+    :property="{
+      type: 'boolean',
+    }"
+  >
+    I have read and accepted the <a href="#">Terms of Use</a>
+  </aeria-checkbox>
 
-<i>Terms of Use accepted? {{ tosAccepted ? 'yes' : 'no' }}</i>
+  <template #result>
+    {{ tosAccepted ? 'yes' : 'no' }}
+  </template>
+</result-box>
 
 ```vue
 <script setup lang="ts">

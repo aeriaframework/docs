@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { AeriaAccordion } from 'aeria-ui'
+import ResultBox from '../../src/components/result-box.vue'
 </script>
 
 # aeria-accordion
@@ -9,6 +10,7 @@ This will render a minimally styled accordion.
 
 ## Example
 
+<result-box>
 <aeria-accordion
   enumerate
   :headers="{
@@ -24,6 +26,7 @@ This will render a minimally styled accordion.
     Absolutely. Learning Aeria couldn't be easier.
   </template>
 </aeria-accordion>
+</result-box>
 
 ```vue-html
 <aeria-accordion
