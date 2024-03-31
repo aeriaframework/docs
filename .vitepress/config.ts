@@ -80,7 +80,7 @@ function sidebarGuide() {
       text: 'Introduction',
       items: [
         { text: 'Getting started', link: '/guide/getting-started' },
-        { text: 'Picking Aeria over another options', link: '/guide/picking-aeria-over-another-options' },
+        { text: 'Using as a source of truth', link: '/guide/using-as-a-source-of-truth' },
         { text: 'Deploy', link: '/guide/deploy' },
       ]
     },
