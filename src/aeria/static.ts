@@ -1,5 +1,6 @@
 export const general = {
   'init()': '/aeria/init',
+  'createRouter()': '/aeria/routing#createrouter',
   'defineDescription()': '/aeria/collection',
   'defineDescriptionTuple()': '/aeria/collection',
   'defineCollection()': '/aeria/collection',
@@ -20,11 +21,6 @@ export const errorHandling = {
   'isRight()': '/aeria/either#isleft-and-isright',
   'unwrapEither()': '/aeria/either#unwrapeither',
   'unsafe()': '/aeria/either#unsafe',
-}
-
-export const routing = {
-  'createRouter()': '/aeria/routing#createrouter',
-  'defineCollection()': '/aeria/define-collection',
 }
 
 export const builtinCollections = {

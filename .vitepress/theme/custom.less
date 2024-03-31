@@ -1,0 +1,22 @@
+@theme-brand-color: #b7dde9;
+
+:root {
+  --vp-c-brand-1: darken(@theme-brand-color, 50%);
+  --vp-c-brand-2: darken(@theme-brand-color, 30%);
+}
+
+.dark {
+  --vp-c-brand-1: @theme-brand-color;
+  --vp-c-brand-2: @theme-brand-color;
+}
+
+h1, h2, h3 {
+  color: darken(@theme-brand-color, 40%);
+}
+
+.dark {
+  h1, h2, h3 {
+    color: @theme-brand-color;
+  }
+}
+

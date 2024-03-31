@@ -35,16 +35,6 @@ import ApiContainer from '../src/components/api-container.vue'
       {{ symbolName }}
     </a>
   </api-container>
-
-  <api-container title="Routing">
-    <a
-      v-for="([symbolName, symbol]) in Object.entries(statics.routing)"
-      :key="symbolName"
-      :href="symbol"
-    >
-      {{ symbolName }}
-    </a>
-  </api-container>
 </div>
 
 ## Builtins
