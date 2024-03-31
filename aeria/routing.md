@@ -95,8 +95,8 @@ router.GET('/authenticated', (context) => {
 })
 
 router.GET('/mixed', (context) => {
-  // TS will produce errors because 'guest' is among the roles
-  // this is actually equivalent to passing no roles at all
+  // TS will produce errors because 'guest' is among the roles, so the user may or
+  // may not be authenticated
   context.token.authenticated === true // [!code error]
   context.token.userinfo.email // [!code error]
 }, {
