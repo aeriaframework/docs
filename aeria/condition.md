@@ -100,7 +100,7 @@ A string containing regexp options as in JavaScript `RegExp` constructor.
 
 ### operator <Badge type="tip" text="'truthy'" />
 
-The string `'thruthy'`.
+The string `'truthy'`.
 
 ### term1 <Badge type="tip" text="PropertiesWithId<TSchema>" />
 
