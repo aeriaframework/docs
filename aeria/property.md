@@ -19,7 +19,9 @@ This type of property is used to create denormalized subschemas that will be val
 
 **Example:**
 
-```typescript
+::: code-group
+
+```typescript [description.ts]
 {
   error: {
     type: 'object',
@@ -35,6 +37,17 @@ This type of property is used to create denormalized subschemas that will be val
 }
 ```
 
+```ts [sample]
+{
+  error: {
+    code: '001',
+    message: 'file not found'
+  }
+}
+```
+
+:::
+
 ### type <Badge type="tip" text="'object'" />
 
 Object properties are distinguished by the `type` property set to `'object'`. It can either specify a fixed data structure with `properties` or make a variable `Map<string, T>` with `additionalProperties`.
@@ -43,6 +56,27 @@ Object properties are distinguished by the `type` property set to `'object'`. It
 
 
 ## StringProperty
+
+**Example:**
+
+::: code-group
+
+```typescript [description.ts]
+{
+  name: {
+    type: 'string',
+    maximumLength: 20,
+  }
+}
+```
+
+```ts [sample]
+{
+  name: 'Terry Davis'
+}
+```
+
+:::
 
 ### type <Badge type="tip" text="'string'" />
 
@@ -87,6 +121,28 @@ This property specifies one or more masks to be applied to the input.
 
 ## NumberProperty
 
+**Example:**
+
+::: code-group
+
+```typescript [description.ts]
+{
+  rating: {
+    type: 'number',
+    minimum: 5,
+    maximum: 5,
+  }
+}
+```
+
+```ts [sample]
+{
+  rating: 5
+}
+```
+
+:::
+
 ### type <Badge type="tip" text="'number' | 'integer'" />
 
 This property is used to represent JS-native numbers. It can also specify integers only, in which case runtime validators will be used.
@@ -110,6 +166,26 @@ This property ensures number will be less than specified value, exclusively.
 
 ## BooleanProperty
 
+**Example:**
+
+::: code-group
+
+```typescript [description.ts]
+{
+  active: {
+    type: 'boolean'
+  }
+}
+```
+
+```ts [sample]
+{
+  active: true
+}
+```
+
+:::
+
 ### type <Badge type="tip" text="'boolean'?" />
 
 Boolean properties are distinguished by the `type` property set to `'boolean'`
@@ -119,7 +195,9 @@ Boolean properties are distinguished by the `type` property set to `'boolean'`
 
 **Example:**
 
-```typescript
+::: code-group
+
+```typescript [description.ts]
 {
   company: {
     $ref: 'company',
@@ -130,6 +208,20 @@ Boolean properties are distinguished by the `type` property set to `'boolean'`
   }
 }
 ```
+
+```typescript [sample]
+{
+  company: {
+    _id: ObjectId('...'),
+    name: 'ACME Co.',
+    headquarters: [
+      'Baltimore'
+    ]
+  }
+}
+```
+
+:::
 
 ### $ref <Badge type="tip" text="string" />
 
@@ -171,7 +263,9 @@ Sometimes reference properties need to have constraints to make them useful. Con
 
 **Example:**
 
-```typescript
+::: code-group
+
+```typescript [description.ts]
 {
   picture: {
     $ref: 'file',
@@ -181,6 +275,19 @@ Sometimes reference properties need to have constraints to make them useful. Con
   }
 }
 ```
+
+```typescript [sample]
+{
+  picture: {
+    _id: ObjectId('...'),
+    name: 'picture.jpg',
+    link: 'https://example.com/api/file/...',
+    download_link: 'https://example.com/api/file/...',
+  }
+}
+```
+
+:::
 
 ### $ref <Badge type="tip" text="'file'" />
 
@@ -195,7 +302,9 @@ This read-only array of strings may contain accepted mime types. Wildcards such 
 
 **Example:**
 
-```typescript
+::: code-group
+
+```typescript [description.ts]
 {
   status: {
     enum: [
@@ -206,8 +315,15 @@ This read-only array of strings may contain accepted mime types. Wildcards such 
     ]
   }
 }
-
 ```
+
+```typescript [sample]
+{
+  status: 'pending'
+}
+```
+
+:::
 
 ### enum <Badge type="tip" text="ReadonlyArray<any>?" />
 
@@ -217,7 +333,9 @@ Enum properties specify an array of valid elements that will be validated upon i
 
 **Example:**
 
-```typescript
+::: code-group
+
+```typescript [description.ts]
 {
   items: {
     type: 'array',
@@ -237,6 +355,29 @@ Enum properties specify an array of valid elements that will be validated upon i
 }
 ```
 
+```typescript [sample]
+{
+  items: [
+    {
+      product: {
+        _id: ObjectId('...'),
+        name: 'Product 1'
+      },
+      quantity: 1
+    },
+    {
+      product: {
+        _id: ObjectId('...'),
+        name: 'Product 2'
+      },
+      quantity: 3
+    }
+  ]
+}
+```
+
+:::
+
 ### type <Badge type="tip" text="'array'" />
 
 Array properties are properties which type is set to `'array'`. Additionally, the `items` property is required to type the elements of the array.
@@ -250,7 +391,9 @@ This property defines the schema of array elements.
 
 **Example:**
 
-```typescript
+::: code-group
+
+```typescript [description.ts]
 {
   error: {
     const: true
@@ -261,6 +404,15 @@ This property defines the schema of array elements.
 }
 ```
 
+```typescript [sample]
+{
+  error: true,
+  message: 'there was an error'
+}
+```
+
+:::
+
 ### const <Badge type="tip" text="any" />
 
 The literal value the property expects.
@@ -270,7 +422,9 @@ The literal value the property expects.
 
 **Example:**
 
-```typescript
+::: code-group
+
+```typescript [description.ts]
 {
   full_name: {
     getter: (doc: any) => {
@@ -279,6 +433,14 @@ The literal value the property expects.
   }
 }
 ```
+
+```typescript [sample]
+{
+  full_name: 'Terry'
+}
+```
+
+:::
 
 ### getter <Badge type="tip" text="(doc: any) => any" />
 
