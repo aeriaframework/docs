@@ -8,7 +8,8 @@ type Either<L, R> = Left<L> | Right<R>
 
 ## `left()` and `right()`
 
-These are functions used to return Either values. In most cases, TypeScript will be able to infer the `Either<L, R>` correctly, so no explicit annotation is needed.
+Functions used to build `Left<T>` and `Right<T>` values.
+In the example below, the return type of the function is inferred as `Either<BusinessErrors, boolean>`.
 
 **Example:**
 
