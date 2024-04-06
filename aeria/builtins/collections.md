@@ -9,7 +9,7 @@ This collection is required to authentication and authorization. It contains by 
 
 Creates an user account, that is, insert a new user with an optional hashed password, then send account activation link through email.
 
-- **Type**:
+**Type**:
 
 ```typescript
 function activate(
@@ -23,7 +23,7 @@ function activate(
 
 Creates an user account, that is, insert a new user with an optional hashed password, then send account activation link through email.
 
-- **Type**:
+**Type**:
 
 ```typescript
 function createAccount(payload: Omit<User, 'roles'>): Promise<Either<Error, User>>
@@ -33,7 +33,7 @@ function createAccount(payload: Omit<User, 'roles'>): Promise<Either<Error, User
 
 Creates an user account, that is, insert a new user with an optional hashed password, then send account activation link through email.
 
-- **Type**:
+**Type**:
 
 ```typescript
 function getInfo(
@@ -56,7 +56,7 @@ This collection implements basic file management.
 Fetchs a file from the database by its id, then returns a readable stream of its content.
 By default, this function also sets `content-type`, `content-length`, `content-range`, and `content-disposition` headers.
 
-- **Type**:
+**Type**:
 
 ```typescript
 function download(

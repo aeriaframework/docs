@@ -7,7 +7,7 @@ This function is used to create new documents and update existing ones in the da
 This function is automatically bound to the `POST` method on the `/collectionName` route.
 
 
-- **Type:**
+**Type:**
 
 ```typescript
 type InsertPayload<TDocument extends CollectionDocument<any>> = {
@@ -28,7 +28,7 @@ type InsertPayload<TDocument extends CollectionDocument<any>> = {
 
 This function is used to retrieve the number of existent documents matching passed filters.
 
-- **Type:**
+**Type:**
 
 ```typescript
 type CountPayload<TDocument extends CollectionDocument<OptionalId<any>>> = {
@@ -79,7 +79,7 @@ type GetPayload<TDocument extends CollectionDocument<OptionalId<any>>> = {
 
 This function is used to retrieve a array of documents from the database matching specified filters. It is associated with the `GET` method on `/collectionName` route.
 
-- **Type:**
+**Type:**
 
 ```typescript
 type GetAllPayload<TDocument extends CollectionDocument<OptionalId<any>>> = {
@@ -138,7 +138,7 @@ type GetAllPayload<TDocument extends CollectionDocument<OptionalId<any>>> = {
 This function is used to delete a single document from the database given a set of filters.
 Remove is automatically bound to the `DELETE` method on the `/collectionName/:id` route.
 
-- **Type:**
+**Type:**
 
 ```typescript
 type RemovePayload<TDocument extends CollectionDocument<OptionalId<any>>> = {
