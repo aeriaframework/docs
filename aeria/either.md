@@ -1,5 +1,7 @@
 # Either
 
+**Type:**
+
 ```typescript
 type Either<L, R> = Left<L> | Right<R>
 ```
