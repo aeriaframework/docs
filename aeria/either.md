@@ -45,7 +45,7 @@ console.log('resultEither is a Right<T>')
 
 ## `unwrapEither()`
 
-This function safely returns the value beared by the Either.
+This function safely returns the value beared by the `Either<L, R>`.
 
 **Example:**
 
