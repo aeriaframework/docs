@@ -29,7 +29,7 @@ const isEven = (num: number) => {
 
 ## `isLeft()` and `isRight()`
 
-These functions are used to narrow the value of an Either to Left or Right.
+These functions are used to narrow the value of an `Either<L, R>` to `Left<T>` or `Right<T>`.
 
 **Example:**
 
@@ -52,15 +52,15 @@ This function safely returns the value beared by the Either.
 ```typescript
 const resultEither = businessLogic()
 if( isLeft(resultEither) ) {
-  const error = unwrapEither(resultEither)
-  console.log('businessLogic() failed with the following error:', error)
+  const error = unwrapEither(resultEither) // [!code ++]
+  console.log('businessLogic() failed with the following error:', error) // [!code ++]
   return
 }
 ```
 
 ## `unsafe()`
 
-This function returns the unwraped value of an Either or throws if the Either is actually a Left.
+This function returns the unwraped value of an `Either<L, R>` if it is a `Right<T>` or throws if it is a `Left<T>`. Useful when there's no possible case where a `Left<T>` is returned and you just want to unwrap the value without testing it first.
 
 **Example:**
 
