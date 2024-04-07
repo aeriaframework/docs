@@ -1,20 +1,26 @@
 # Security
 
-## Rate Limiting
+## Discrimination strategies
 
 There are two strategies for limiting the rate with which the user can request a resource, `'tenant'` and `'ip'`. The `'tenant'` strategy will account requests made by the signed in user, while `'ip'` will use the user's IP address for this purpose.
 
-**Types:**
+**Type:**
+
+```typescript
+type DiscriminationStrategy =
+  | 'tenant'
+  | 'ip'
+```
+
+## Rate Limiting
+
+**Type:**
 
 ```typescript
 enum RateLimitingErrors {
   Unauthenticated = 'UNAUTHENTICATED',
   LimitReached = 'LIMIT_REACHED',
 }
-
-type DiscriminationStrategy =
-  | 'tenant'
-  | 'ip'
 
 type RateLimitingWithScale = {
   scale: number
@@ -92,3 +98,16 @@ const collection = defineCollection({
   }
 })
 ```
+
+
+## Logging
+
+**Type:**
+
+```typescript
+type LoggingParams = {
+  strategy: DiscriminationStrategy
+}
+
+```
+
