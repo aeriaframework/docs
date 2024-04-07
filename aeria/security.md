@@ -12,14 +12,27 @@ enum RateLimitingErrors {
   LimitReached = 'LIMIT_REACHED',
 }
 
-type RateLimitingParams = {
-  strategy:
-    | 'tenant'
-    | 'ip'
-  limit?: number
-  scale?: number
-  increment?: number
+type DiscriminationStrategy =
+  | 'tenant'
+  | 'ip'
+
+type RateLimitingWithScale = {
+  scale: number
 }
+
+type RateLimitingWithLimit = {
+  limit: number
+}
+
+type RateLimitingParams = {
+  strategy: DiscriminationStrategy
+  increment?: number
+} & (
+  | RateLimitingWithLimit
+  | RateLimitingWithScale
+  | (RateLimitingWithLimit & RateLimitingWithScale)
+)
+
 ```
 
 ### Limiting the rate for a route
@@ -70,8 +83,8 @@ const collection = defineCollection({
     remove,
   },
   security: {
-    rateLimiting: {
-      get: {
+    get: {
+      rateLimiting: {
         strategy: 'tenant',
         scale: 5
       }
