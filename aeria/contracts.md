@@ -61,6 +61,7 @@ import { defineContract } from 'aeria'
 
 export const CheckKeyContract = defineContract({
   payload: {
+    type: 'object',
     properties: {
       key: {
         type: 'string'
@@ -69,6 +70,7 @@ export const CheckKeyContract = defineContract({
   },
   response: [
     {
+      type: 'object',
       properties: {
         error: {
           literal: false
@@ -87,6 +89,7 @@ export const CheckKeyContract = defineContract({
       }
     },
     {
+      type: 'object',
       properties: {
         error: {
           literal: true
@@ -120,8 +123,6 @@ router.POST('/checkKey', (context) => {
       token: result.token
     }
   }
-}, {
-  contract: CheckKeyContract
-})
+}, CheckKeyContract)
 ```
 
