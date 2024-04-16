@@ -27,3 +27,8 @@ const name = ref('changeme')
   Users
 </aeria-icon>
 ```
+
+## CSS overrides
+
+- `--icon-color: color;`: the foreground color of the icon (default: `var(--theme-foreground-color)`)
+

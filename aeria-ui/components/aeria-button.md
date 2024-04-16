@@ -100,3 +100,7 @@ Shorthand property for `size: 'large'`.
 
 Content to be displayed inside the button.
 
+## CSS overrides
+
+- `--button-border-color: color;`: the color of the border of the button (default: `var(--theme-border-color)`)
+
