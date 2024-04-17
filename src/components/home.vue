@@ -61,7 +61,7 @@ section {
 
 .actions {
   display: flex;
-  gap: .8rem;
+  gap: .8em;
   justify-content: center;
 }
 
