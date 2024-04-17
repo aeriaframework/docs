@@ -2,7 +2,7 @@
 
 Aeria has an all-in-one configuration object that will among other things define the root component, the [menu schema](/aeria-ui/menu-schema), initial routes and i18n settings. This object is passed to `useApp()` that will then render your application.
 
-## `AppOptions`
+### `AppOptions`
 
 ```typescript
 type AppOptions = {
@@ -15,7 +15,7 @@ type AppOptions = {
 }
 ```
 
-## `defineOptions()`
+### `defineOptions()`
 
 This is a helper function that will provide strong typing and callback support for defining app options. It receives the options as a literal object or by a callback that returns it.
 

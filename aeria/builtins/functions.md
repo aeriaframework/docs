@@ -1,6 +1,6 @@
 # Builtin functions
 
-## `insert()`
+### `insert()`
 
 This function is used to create new documents and update existing ones in the database. Creation will be performed when the `_id` property is absent from the `payload.what`, otherwise insert will update the specified properties in the document with the given ID. Insert will either return a `Right` with the latest version of the created or updated document, with it's unique ID, or a `Left` with [access control](/aeria/access-control) or [validation errors](/aeria/validation#validationerror).
 
@@ -24,7 +24,7 @@ type InsertPayload<TDocument extends CollectionDocument<any>> = {
 
 <!-- An array of strings representing property names, only the specified properties will be returned from the document. -->
 
-## `count()`
+### `count()`
 
 This function is used to retrieve the number of existent documents matching passed filters.
 
@@ -40,7 +40,7 @@ type CountPayload<TDocument extends CollectionDocument<OptionalId<any>>> = {
 
 <!-- An object containing filters. -->
 
-## `get()`
+### `get()`
 
 This function is used to retrieve the first document from the database matching specified filters. It is associated with the `GET` method on the `/collectionName/:id` route.
 
@@ -75,7 +75,7 @@ type GetPayload<TDocument extends CollectionDocument<OptionalId<any>>> = {
 
 <!-- This property toggles access control. -->
 
-## `getAll()`
+### `getAll()`
 
 This function is used to retrieve a array of documents from the database matching specified filters. It is associated with the `GET` method on `/collectionName` route.
 
@@ -133,7 +133,7 @@ type GetAllPayload<TDocument extends CollectionDocument<OptionalId<any>>> = {
 <!-- This property toggles access control. -->
 
 
-## `remove()`
+### `remove()`
 
 This function is used to delete a single document from the database given a set of filters.
 Remove is automatically bound to the `DELETE` method on the `/collectionName/:id` route.

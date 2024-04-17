@@ -2,7 +2,7 @@
 
 This function builts a MongoDB aggregation pipeline using the internal reference resolution API. It can be used to iterate documents lazily with `.next()` instead of returning paginated arrays.
 
-## Example
+### Example
 
 ```typescript
 const pipeline = await getLookupPipeline(context.description, {

@@ -6,7 +6,7 @@
 type Either<L, R> = Left<L> | Right<R>
 ```
 
-## `left()` and `right()`
+### `left()` and `right()`
 
 Functions used to build `Left<T>` and `Right<T>` values.
 In the example below, the return type of the function is inferred as `Either<BusinessErrors, boolean>`.
@@ -27,7 +27,7 @@ const isEven = (num: number) => {
 }
 ```
 
-## `isLeft()` and `isRight()`
+### `isLeft()` and `isRight()`
 
 These functions are used to narrow the value of an `Either<L, R>` to `Left<T>` or `Right<T>`.
 
@@ -43,7 +43,7 @@ if( isLeft(resultEither) ) {
 console.log('resultEither is a Right<T>')
 ```
 
-## `unwrapEither()`
+### `unwrapEither()`
 
 This function safely returns the value beared by the `Either<L, R>`.
 
@@ -61,7 +61,7 @@ const result = unwrapEither(resultEither) // [!code ++] // the result itself
 ...
 ```
 
-## `unsafe()`
+### `unsafe()`
 
 This function returns the unwraped value of an `Either<L, R>` if it is a `Right<T>` or throws if it is a `Left<T>`. Useful when there's no possible case where a `Left<T>` is returned and you just want to unwrap the value without testing it first.
 

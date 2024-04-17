@@ -14,7 +14,7 @@ type InitOptions = {
 }
 ```
 
-## Example
+### Example
 
 Inline collections (collections are declared *inside* the `init` function, more suitable to smaller and more portable projects):
 
@@ -58,7 +58,7 @@ export default init({
 ```
 
 
-## `ApiConfig`
+### `ApiConfig`
 
 **Type:**
 
