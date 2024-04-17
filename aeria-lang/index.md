@@ -1,12 +1,8 @@
 # Aeria Lang Reference
 
-## Introduction
+Aeria Lang is a domain specific language that contains web and infosec primitives, meant to bring up complex and large projects fast. It outputs `.js` and `.d.ts` files and is meant to interoperate with TypeScript rather than standalone usage.
 
-Aeria Lang is a declarative programming language that contains web backend primitives and outputs to TypeScript or JavaScript with optional esbuild bundling. It was greatly inspired by Prisma in its early stages of development but it aims in rapid prototyping rather than model declaration only.
-
-The language itself is made using PureScript, a strongly typed functional language that ensures maximum correctness, and most of its tooling is made using TypeScript.
-
-## Quick example
+### Example
 
 ```
 collection Person {
@@ -33,17 +29,19 @@ collection Person {
 - num: represents a number
 - bool: represents a boolean
 
-### router
-
-There are two kinds of router declarations, named routers and the main router. Named routers are subrouters that will be grouped inside a route while the main router is the router that put all routes together. There can be several named routes but only one main router.
-
-Router columns are made of:
-
-- **verb**: a standard HTTP verb
-- **uri**: a URI or regular expression starting with /
+### contract
 
 ```
-router {
-  GET /hello-world
+contract TransactionContract {
+  payload {
+    properties {
+      amount number
+    }
+  }
+  response {
+    properties {
+      success boolean
+    }
+  }
 }
 ```

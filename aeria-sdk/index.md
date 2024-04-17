@@ -1,8 +1,6 @@
 # Aeria SDK Reference
 
-## Introduction
-
-The Aeria ecossystem features a TypeScript SDK that enables third-party interaction with Aeria APIs.
+Aeria has an officially supported SDK that enables third-party interaction with Aeria APIs. The SDK benefits from data reflected from the backend to provide strong typing.
 
 
 ## Getting started
