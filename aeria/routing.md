@@ -2,7 +2,7 @@
 
 Aeria ships a minimalistic web server with pattern matching, grouping, middlewares, and runtime validation support.
 
-## `createRouter()`
+### `createRouter()`
 
 This function is used to create a router object with an optional `RouterOptions` parameter.
 
@@ -45,7 +45,7 @@ const router = createRouter({
 })
 ```
 
-## Route groups and middlewares
+### Groups and middlewares
 
 Routes can be grouped under a same path using the `router.group()` function. Route groups can have middlewares specified in the optional third argument. Middlewares are nothing more that a `(context: Context) => any` callback. If the middleware return value is not `undefined`, then route execution will be aborted and the return value of the middleware will be sent as the response instead.
 
@@ -60,7 +60,7 @@ router.group('/hello', helloRouter, (context) => {
 })
 ```
 
-## Runtime validation
+### Runtime validation
 
 Data passed through `context.request.payload` and `context.request.query` can be validated during the runtime, resulting in a `422 Unprocessable Entity` error in case the validation fails (see: [Contracts](/aeria/contracts)). Simply pass a `Contract` object in the optional third (or fourth, if using `router.route`) parameter of the router registration function:
 
@@ -79,9 +79,11 @@ router.POST('/sayMyName', (context) => {
 })
 ```
 
-## Route guards
+### Guards
 
 You can make sure a route is only accessible if the user has certain roles. This is done using the `roles` property of [`ContractWithRoles`](/aeria/routing). Setting the `roles` for a specific route ensures type safety and requests with tokens that don't match the criteria will fail with `403 Forbidden` error.
+
+Refer to [Access Control](/aeria/access-control) for more.
 
 ```typescript
 router.GET('/authenticated', (context) => {

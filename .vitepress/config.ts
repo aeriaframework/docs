@@ -96,35 +96,22 @@ function sidebarGuide() {
 function sidebarAeriaReference() {
   return [
     {
-      text: 'Collection',
+      text: 'General',
       items: [
-        {
-          text: 'Collection',
-          link: '/aeria/collection',
-          items: [
-          ]
-        },
-        {
-          text: 'Access Control',
-          link: '/aeria/access-control'
-        },
+        { text: 'Collection', link: '/aeria/collection', },
+        { text: 'Routing', link: '/aeria/routing', },
+        { text: 'Contracts', link: '/aeria/contracts' },
+        { text: 'Access Control', link: '/aeria/access-control' },
+        { text: 'Security', link: '/aeria/security', },
         {
           text: 'Aeria Schema',
           link: '/aeria/aeria-schema',
+          collapsed: true,
           items: [
             { text: 'Property', link: '/aeria/property' },
             { text: 'Validation', link: '/aeria/validation' },
           ]
         },
-      ]
-    },
-    {
-      text: 'General',
-      items: [
-        { text: 'init()', link: '/aeria/init', },
-        { text: 'Routing', link: '/aeria/routing', },
-        { text: 'Security', link: '/aeria/security', },
-        { text: 'Contracts', link: '/aeria/contracts' },
         {
           text: 'Built-ins',
           collapsed: true,
@@ -139,6 +126,7 @@ function sidebarAeriaReference() {
             }
           ]
         },
+        { text: 'init()', link: '/aeria/init', },
       ]
     },
     {

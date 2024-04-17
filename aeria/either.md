@@ -56,6 +56,9 @@ if( isLeft(resultEither) ) {
   console.log('businessLogic() failed with the following error:', error) // [!code ++]
   return
 }
+
+const result = unwrapEither(resultEither) // [!code ++] // the result itself 
+...
 ```
 
 ## `unsafe()`
