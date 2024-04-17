@@ -1,5 +1,7 @@
 # Security
 
+Aeria provides native mechanisms to avoid common security flaws. For a list of flaws that are covered, see [this README](https://github.com/aeria-org/aeria/tree/master/packages/security).
+
 ## Discrimination strategies
 
 There are two strategies for limiting the rate with which the user can request a resource, `'tenant'` and `'ip'`. The `'tenant'` strategy will account requests made by the signed in user, while `'ip'` will use the user's IP address for this purpose.
