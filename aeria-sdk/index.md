@@ -5,13 +5,13 @@ Aeria has an officially supported SDK that enables third-party interaction with 
 
 ## Getting started
 
-First thing needed is to setup the `package.json` with properties that will be used by the code generation utility. Create a top-level property called `aeriaSdk` that contains a `apiUrl` string property. The `apiUrl` should point to a running Aeria instance.
+First thing needed is to setup the `package.json` with properties that will be used by the code generation utility. Create a top-level property called `aeriaSdk` that contains a `publicUrl` string property. The `publicUrl` should point to a running Aeria instance.
 
 ```json
 {
   ...
   "aeriaSdk": {
-    "apiUrl": "https://my-application.com/api"
+    "publicUrl": "https://my-application.com/api"
   }
 }
 ```
@@ -31,6 +31,29 @@ Running the `describe` script should generate a `aeria-sdk.d.ts` file inside pro
 ::: tip IMPORTANT
 Make sure to call the `describe` script (`npm run describe` or the equivalent of another package managers) during the deployment pipeline fo your application, otherwise runtime will fail.
 :::
+
+### Configuration
+
+**Type:**
+
+```typescript
+type StorageStrategy =
+  | 'none'
+  | 'memo'
+  | 'localStorage'
+
+type InstanceConfig = {
+  publicUrl: string | {
+    production: string
+    development: string
+  }
+  storage?: {
+    strategy?: StorageStrategy
+    namespace?: string
+  }
+  integrated?: boolean
+}
+```
 
 ### Creating an instance
 
