@@ -1,6 +1,6 @@
 # Builtin collections
 
-## `user`
+## user
 
 This collection is required to authentication and authorization. It contains by default basic user information, and most importantly, an email, a password, and an array of roles used by Access Control.
 
@@ -47,7 +47,7 @@ function getInfo(
 }>>
 ```
 
-## `file`
+## file
 
 This collection implements basic file management.
 
@@ -71,11 +71,11 @@ function download(
 ): Promise<Left<Error> | fs.ReadableStream>
 ```
 
-## `log`
+## log
 
 This collection implements logging. 
 
-## `resourceUsage`
+## resourceUsage
 
 This collection implements tracking of function calls by users. It is needed in order to rate limiting to work.
 
@@ -99,3 +99,4 @@ const user = defineCollection(deepMerge(originalUser, {
   },
 }))
 ```
+
