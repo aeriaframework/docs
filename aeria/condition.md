@@ -7,7 +7,15 @@ They offer equality, existence, and numeric operators, and logical connectives c
 
 The following example tells the following: the "responsible" property will only be required if either the age of the subject is lesser than 18, or it has a disability.
 
-```typescript
+::: code-group
+
+```aeria-properties [schema.aeria]
+required {
+  responsible @cond(age < 18 || has_disability == true)
+}
+```
+
+```typescript [description.ts]
 {
   required: {
     responsible: {
@@ -27,6 +35,8 @@ The following example tells the following: the "responsible" property will only 
   }
 }
 ```
+
+:::
 
 ## FinalCondition
 
