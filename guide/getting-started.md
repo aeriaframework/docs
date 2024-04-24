@@ -75,6 +75,24 @@ export const person = defineCollection({
 })
 ```
 
+```typescript [aeria/schema.aeria]
+collection Person {
+  properties {
+    name str
+    age num
+  }
+  presets {
+    crud
+  }
+  functions {
+    get
+    getAll
+    insert
+    remove
+  }
+}
+```
+
 :::
 
 Now, to make the runtime acknowledge the existence of the new collection, re-export it by adding the following line in `collections/index.ts`:
@@ -83,6 +101,8 @@ Now, to make the runtime acknowledge the existence of the new collection, re-exp
 
 ```typescript [collections/index.ts]
 export * from './person'
+// or if you're using Aeria Lang
+export * from 'aeria-runtime/collections/person'
 ```
 
 :::

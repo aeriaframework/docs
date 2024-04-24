@@ -56,7 +56,9 @@ Below is an example of a contract that ensures:
 
 Contract definition:
 
-```typescript
+::: code-group
+
+```typescript [checkKeyContract.ts]
 import { defineContract } from 'aeria'
 
 export const CheckKeyContract = defineContract({
@@ -99,6 +101,18 @@ export const CheckKeyContract = defineContract({
   ]
 })
 ```
+
+``` [contracts.aeria]
+contract CheckKey {
+  payload {
+    properties {
+      key str
+    }
+  }
+}
+```
+
+:::
 
 Usage with a route:
 
