@@ -37,6 +37,15 @@ This type of property is used to create denormalized subschemas that will be val
 }
 ```
 
+```aeria-properties [schema.aeria]
+error {
+  properties {
+    code str
+    message str
+  }
+}
+```
+
 ```ts [sample]
 {
   error: {
@@ -68,6 +77,10 @@ Object properties are distinguished by the `type` property set to `'object'`. It
     maximumLength: 20,
   }
 }
+```
+
+```aeria-properties [schema.aeria]
+name str @maximumLength(20)
 ```
 
 ```ts [sample]
@@ -135,6 +148,10 @@ This property specifies one or more masks to be applied to the input.
 }
 ```
 
+```aeria-properties [schema.aeria]
+rating num @minimum(5) @maximum(5)
+```
+
 ```ts [sample]
 {
   rating: 5
@@ -178,6 +195,10 @@ This property ensures number will be less than specified value, exclusively.
 }
 ```
 
+```aeria-properties [schema.aeria]
+active bool
+```
+
 ```ts [sample]
 {
   active: true
@@ -207,6 +228,10 @@ Boolean properties are distinguished by the `type` property set to `'boolean'`
     ]
   }
 }
+```
+
+```aeria-properties [schema.aeria]
+company Company @indexes(["name", "headquarters"])
 ```
 
 ```typescript [sample]
@@ -276,6 +301,10 @@ Sometimes reference properties need to have constraints to make them useful. Con
 }
 ```
 
+```aeria-properties [schema.aeria]
+picture File @accept(["image/*"])
+```
+
 ```typescript [sample]
 {
   picture: {
@@ -317,6 +346,15 @@ This read-only array of strings may contain accepted mime types. Wildcards such 
 }
 ```
 
+```aeria-properties [schema.aeria]
+status enum @options([
+  "pending",
+  "paid",
+  "refused",
+  "chargeback"
+])
+```
+
 ```typescript [sample]
 {
   status: 'pending'
@@ -347,10 +385,19 @@ Enum properties specify an array of valid elements that will be validated upon i
         },
         quantity: {
           type: 'integer',
-          min: 1
+          minimum: 1
         }
       }
     }
+  }
+}
+```
+
+```aeria-properties [schema.aeria]
+items []{
+  properties {
+    product Product
+    quantity int @minimum(1)
   }
 }
 ```
@@ -402,6 +449,11 @@ This property defines the schema of array elements.
     type: 'string'
   }
 }
+```
+
+```aeria-properties [schema.aeria]
+error const @value(true)
+message str
 ```
 
 ```typescript [sample]

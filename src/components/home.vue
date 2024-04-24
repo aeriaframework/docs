@@ -52,6 +52,27 @@ import { AeriaIcon } from 'aeria-ui'
           </p>
           <a href="/aeria/security">Know more</a>
         </div>
+        <div>
+          <h4>Don't let complexity overwhelm you</h4>
+          <p>
+            Model complex data with nested references and denormalisation with ease
+          </p>
+          <a href="/aeria/security">Know more</a>
+        </div>
+        <div>
+          <h4>Rich IDE integration</h4>
+          <p>
+            Get syntax highlighting and hints directly from your IDE
+          </p>
+          <a href="/aeria/security">Know more</a>
+        </div>
+        <div>
+          <h4>No need to run configure anything</h4>
+          <p>
+            Got Aeria Lang installed? Aeria's CLI will automatically detect it and compile on file changes
+          </p>
+          <a href="/aeria/security">Know more</a>
+        </div>
       </div>
     </section>
   </div>
