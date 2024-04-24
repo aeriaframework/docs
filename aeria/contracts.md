@@ -58,6 +58,16 @@ Contract definition:
 
 ::: code-group
 
+``` [contracts.aeria]
+contract CheckKey {
+  payload {
+    properties {
+      key str
+    }
+  }
+}
+```
+
 ```typescript [checkKeyContract.ts]
 import { defineContract } from 'aeria'
 
@@ -100,16 +110,6 @@ export const CheckKeyContract = defineContract({
     },
   ]
 })
-```
-
-``` [contracts.aeria]
-contract CheckKey {
-  payload {
-    properties {
-      key str
-    }
-  }
-}
 ```
 
 :::

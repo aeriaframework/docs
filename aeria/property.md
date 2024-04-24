@@ -21,6 +21,15 @@ This type of property is used to create denormalized subschemas that will be val
 
 ::: code-group
 
+```aeria-properties [schema.aeria]
+error {
+  properties {
+    code str
+    message str
+  }
+}
+```
+
 ```typescript [description.ts]
 {
   error: {
@@ -33,15 +42,6 @@ This type of property is used to create denormalized subschemas that will be val
         type: 'string'
       }
     }
-  }
-}
-```
-
-```aeria-properties [schema.aeria]
-error {
-  properties {
-    code str
-    message str
   }
 }
 ```
@@ -70,6 +70,10 @@ Object properties are distinguished by the `type` property set to `'object'`. It
 
 ::: code-group
 
+```aeria-properties [schema.aeria]
+name str @maximumLength(20)
+```
+
 ```typescript [description.ts]
 {
   name: {
@@ -77,10 +81,6 @@ Object properties are distinguished by the `type` property set to `'object'`. It
     maximumLength: 20,
   }
 }
-```
-
-```aeria-properties [schema.aeria]
-name str @maximumLength(20)
 ```
 
 ```ts [sample]
@@ -138,6 +138,10 @@ This property specifies one or more masks to be applied to the input.
 
 ::: code-group
 
+```aeria-properties [schema.aeria]
+rating num @minimum(5) @maximum(5)
+```
+
 ```typescript [description.ts]
 {
   rating: {
@@ -146,10 +150,6 @@ This property specifies one or more masks to be applied to the input.
     maximum: 5,
   }
 }
-```
-
-```aeria-properties [schema.aeria]
-rating num @minimum(5) @maximum(5)
 ```
 
 ```ts [sample]
@@ -187,16 +187,16 @@ This property ensures number will be less than specified value, exclusively.
 
 ::: code-group
 
+```aeria-properties [schema.aeria]
+active bool
+```
+
 ```typescript [description.ts]
 {
   active: {
     type: 'boolean'
   }
 }
-```
-
-```aeria-properties [schema.aeria]
-active bool
 ```
 
 ```ts [sample]
@@ -218,6 +218,10 @@ Boolean properties are distinguished by the `type` property set to `'boolean'`
 
 ::: code-group
 
+```aeria-properties [schema.aeria]
+company Company @indexes(["name", "headquarters"])
+```
+
 ```typescript [description.ts]
 {
   company: {
@@ -228,10 +232,6 @@ Boolean properties are distinguished by the `type` property set to `'boolean'`
     ]
   }
 }
-```
-
-```aeria-properties [schema.aeria]
-company Company @indexes(["name", "headquarters"])
 ```
 
 ```typescript [sample]
@@ -290,6 +290,10 @@ Sometimes reference properties need to have constraints to make them useful. Con
 
 ::: code-group
 
+```aeria-properties [schema.aeria]
+picture File @accept(["image/*"])
+```
+
 ```typescript [description.ts]
 {
   picture: {
@@ -299,10 +303,6 @@ Sometimes reference properties need to have constraints to make them useful. Con
     ]
   }
 }
-```
-
-```aeria-properties [schema.aeria]
-picture File @accept(["image/*"])
 ```
 
 ```typescript [sample]
@@ -333,6 +333,15 @@ This read-only array of strings may contain accepted mime types. Wildcards such 
 
 ::: code-group
 
+```aeria-properties [schema.aeria]
+status enum @options([
+  "pending",
+  "paid",
+  "refused",
+  "chargeback"
+])
+```
+
 ```typescript [description.ts]
 {
   status: {
@@ -344,15 +353,6 @@ This read-only array of strings may contain accepted mime types. Wildcards such 
     ]
   }
 }
-```
-
-```aeria-properties [schema.aeria]
-status enum @options([
-  "pending",
-  "paid",
-  "refused",
-  "chargeback"
-])
 ```
 
 ```typescript [sample]
@@ -373,6 +373,15 @@ Enum properties specify an array of valid elements that will be validated upon i
 
 ::: code-group
 
+```aeria-properties [schema.aeria]
+items []{
+  properties {
+    product Product
+    quantity int @minimum(1)
+  }
+}
+```
+
 ```typescript [description.ts]
 {
   items: {
@@ -389,15 +398,6 @@ Enum properties specify an array of valid elements that will be validated upon i
         }
       }
     }
-  }
-}
-```
-
-```aeria-properties [schema.aeria]
-items []{
-  properties {
-    product Product
-    quantity int @minimum(1)
   }
 }
 ```
@@ -440,6 +440,11 @@ This property defines the schema of array elements.
 
 ::: code-group
 
+```aeria-properties [schema.aeria]
+error const @value(true)
+message str
+```
+
 ```typescript [description.ts]
 {
   error: {
@@ -449,11 +454,6 @@ This property defines the schema of array elements.
     type: 'string'
   }
 }
-```
-
-```aeria-properties [schema.aeria]
-error const @value(true)
-message str
 ```
 
 ```typescript [sample]
