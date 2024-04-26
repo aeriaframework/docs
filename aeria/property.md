@@ -71,14 +71,14 @@ Object properties are distinguished by the `type` property set to `'object'`. It
 ::: code-group
 
 ```aeria-properties [schema.aeria]
-name str @maximumLength(20)
+name str @maxLength(20)
 ```
 
 ```typescript [description.ts]
 {
   name: {
     type: 'string',
-    maximumLength: 20,
+    maxLength: 20,
   }
 }
 ```
