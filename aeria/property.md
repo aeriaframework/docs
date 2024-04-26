@@ -207,7 +207,7 @@ active bool
 
 :::
 
-### type <Badge type="tip" text="'boolean'?" />
+### type <Badge type="tip" text="'boolean'" />
 
 Boolean properties are distinguished by the `type` property set to `'boolean'`
 
