@@ -65,8 +65,8 @@ export default init({
 ```typescript
 type ApiConfig = {
   secret?: string
-  apiUrl?: string
-  apiBase?: RouteUri
+  publicUrl?: string
+  baseUrl?: RouteUri
   port?: number
   paginationLimit?: number
   database?: {
