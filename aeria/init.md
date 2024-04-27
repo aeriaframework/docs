@@ -65,8 +65,8 @@ export default init({
 ```typescript
 type ApiConfig = {
   secret?: string
-  publicUrl?: string
   baseUrl?: RouteUri
+  publicUrl?: string
   port?: number
   paginationLimit?: number
   database?: {
@@ -82,14 +82,14 @@ type ApiConfig = {
     username: string
     password: string
   }
-  allowSignup?: boolean
-  signupDefaults?: Partial<{
-    roles: string[]
-    active: boolean
-  }>
   security?: {
     logSuccessfulAuthentications?: boolean
     authenticationRateLimiting?: RateLimitingParams | null
+    allowSignup?: boolean
+    signupDefaults?: Partial<{
+      roles: string[]
+      active: boolean
+    }>
   }
   tokenUserProperties?: string[]
   errorHandler?: <TError extends Error>(
