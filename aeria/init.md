@@ -82,7 +82,7 @@ type ApiConfig = {
     username: string
     password: string
   }
-  security?: {
+  security: {
     logSuccessfulAuthentications?: boolean
     authenticationRateLimiting?: RateLimitingParams | null
     allowSignup?: boolean
@@ -90,6 +90,7 @@ type ApiConfig = {
       roles: string[]
       active: boolean
     }>
+    exposeFunctionsByDefault?: boolean
   }
   tokenUserProperties?: string[]
   errorHandler?: <TError extends Error>(
@@ -97,5 +98,4 @@ type ApiConfig = {
     error: TError
   )=> any | Promise<any>
 }
-
 ```
