@@ -90,7 +90,9 @@ type ApiConfig = {
       roles: string[]
       active: boolean
     }>
-    exposeFunctionsByDefault?: boolean
+    exposeFunctionsByDefault?:
+      | boolean
+      | 'unauthenticated'
   }
   tokenUserProperties?: string[]
   errorHandler?: <TError extends Error>(

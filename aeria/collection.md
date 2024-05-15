@@ -14,7 +14,7 @@ export const pizza = defineCollection({
       name: {
         type: 'string'
       }
-      glutenFree: {
+      gluten_free: {
         type: 'boolean'
       }
     }
@@ -36,18 +36,15 @@ type Collection<TCollection extends Collection = any> = {
   description: Description
   item?: any
   security?: CollectionSecurityPolicy<TCollection>
-  accessControl?: AccessControl<TCollection>
-  functions?: Record<string, ((payload: any, context: Context, ...args: any[])=> any) & Partial<FunctionAttributes>>
+  functions?: Record<string, ((payload: any, context: Context, ...args: any[])=> any) & FunctionAttributes>
   functionContracts?: Record<string, Contract>
-  exposedFunctions?: string[]
+  exposedFunctions?: Record<string, readonly string[] | boolean>
 }
 ```
 
 ### Functions
 
 Collections can have functions assigned to them. Those functions can either be called somewhere else in the application or be exposed directly as endpoints. They work similarly as route callbacks -- both have a `(context) => any` signature whose return is whatever the endpoint returns.
-
-[Access Control](/aeria/access-control) is used to restrict the access to functions to specific roles.
 
 ```typescript
 router.GET('/glutenFreePizzas', (context) => {
@@ -58,6 +55,21 @@ router.GET('/glutenFreePizzas', (context) => {
   })
 })
 ```
+
+### Access Control
+
+Functions can be turned into endpoints to help with brevity and reusability, but then it is required to specify who can have access to them: authenticated users, unauthenticated users, or users containing specified roles. This is where the `exposedFunctions` property comes in.
+
+The `exposedFuncions` property has the following type, where the keys represents function names and the values are either an array of roles or a boolean. When set to an **array**, access to the endpoint will only be granted to specified roles. When set to a **false**, the function is not exposed at all. When set to **true**, the function is exposed to every authenticated user.
+
+
+```typescript
+type ExposedFunctions = Partial<
+  Record<keyof TFunctions, readonly string[] | boolean>
+>
+```
+
+For some use cases it might be unnecessary to control the access to every endpoint. In such cases the `config.security.exposeFunctionsByDefault` can be set to `true` to exposed functions to authenticated users by default, or to `'unauthenticate'` to include unauthenticated users.
 
 ### Interacting directly with MongoDB
 
@@ -70,6 +82,4 @@ router.GET('/glutenFreePizzas', (context) => {
   }).toArray()
 })
 ```
-
-
 
