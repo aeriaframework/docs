@@ -38,7 +38,7 @@ type Collection<TCollection extends Collection = any> = {
   security?: CollectionSecurityPolicy<TCollection>
   functions?: Record<string, ((payload: any, context: Context, ...args: any[])=> any) & FunctionAttributes>
   functionContracts?: Record<string, Contract>
-  exposedFunctions?: Record<string, readonly string[] | boolean>
+  exposedFunctions?: Record<string, AccessCondition>
 }
 ```
 
@@ -58,16 +58,61 @@ router.GET('/glutenFreePizzas', (context) => {
 
 ### Access Control
 
-Functions can be turned into endpoints to help with brevity and reusability, but then it is required to specify who can have access to them: authenticated users, unauthenticated users, or users containing specified roles. This is where the `exposedFunctions` property comes in.
-
-The `exposedFuncions` property has the following type, where the keys represents function names and the values are either an array of roles or a boolean. When set to an **array**, access to the endpoint will only be granted to specified roles. When set to a **false**, the function is not exposed at all. When set to **true**, the function is exposed to every authenticated user.
-
+Functions can be turned into endpoints to help with brevity and reusability, but then it is required to specify who can have access to them: authenticated users, unauthenticated users, or users containing specified roles. This is where the `exposedFunctions` property comes in. Each exposed function has it's access condition:
 
 ```typescript
-type ExposedFunctions = Partial<
-  Record<keyof TFunctions, readonly string[] | boolean>
->
+export type AccessCondition =
+  | readonly string[]
+  | boolean
+  | 'unauthenticated'
+  | 'unauthenticated-only'
 ```
+
+- `UserRole[]`: only specified roles have access
+- `true`: only authenticated users have access
+- `false`: function isn't exposed
+- `'unauthenticated'`: only authenticated users have access
+- `'unauthenticated-only'`: only authenticated users have access
+
+Functions that aren't explicitly exposed remain accessible through `context`. Bellow are examples of how to expose functions in Aeria Lang and TypeScript:
+
+::: code-group
+
+``` [collection.aeria]
+collection Example {
+  exposedFunctions {
+    -- function is not exposed
+    businessLogic
+    -- both authenticated and unauthenticated users have access
+    get @expose(unauthenticated)
+    getAll @expose(unauthenticated)
+    -- only authenticated users have access
+    insert @expose(true)
+    -- only 'root' users have access
+    remove @expose([
+      'root'
+    ])
+  }
+}
+```
+
+```typescript [collection.ts]
+const example = defineCollection({
+  exposedFunctions: {
+    // both authenticated and unauthenticated users have access
+    get: 'unauthenticated',
+    getAll: 'unauthenticated',
+    // only authenticated users have access
+    insert: true,
+    // only 'root' users have access
+    remove: [
+      'root'
+    ]
+  }
+})
+```
+
+:::
 
 For some use cases it might be unnecessary to control the access to every endpoint. In such cases the `config.security.exposeFunctionsByDefault` can be set to `true` to exposed functions to authenticated users by default, or to `'unauthenticate'` to include unauthenticated users.
 
