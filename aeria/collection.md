@@ -72,7 +72,7 @@ export type AccessCondition =
 - `true`: only authenticated users have access
 - `false`: function isn't exposed
 - `'unauthenticated'`: both authenticated and unauthenticated users have access
-- `'unauthenticated-only'`: only authenticated users have access
+- `'unauthenticated-only'`: only unauthenticated users have access
 
 Functions that aren't explicitly exposed remain accessible through `context`. Bellow are examples of how to expose functions in Aeria Lang and TypeScript:
 
