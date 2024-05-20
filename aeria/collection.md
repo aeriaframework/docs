@@ -1,6 +1,6 @@
 # Collection
 
-Collections are storable entities, like the "Model" in MVC, but featuring some important extra attributes. Collections can have atomic functions that can also be turned into endpoints, and the Access Control and security policies are declared all in the same place, pretty much like if the "Model" and the "Controller" in MVC were merged together.
+Collections are storable entities, like the "Model" in MVC, but featuring some important extra attributes. Collections can have functions that can be turned into endpoints and security policies are declared all in the same place, pretty much like if the "Model" and the "Controller" in MVC were merged together.
 
 The schema of the collection is defined in a special [JSON Schema](https://json-schema.org) dialect refered to as [Aeria Schema](/aeria/aeria-schema). Only when defining collections this dialect is wrapped in another type called [Description](/aeria/description) that adds collection-specific attributes.
 
@@ -56,23 +56,9 @@ router.GET('/glutenFreePizzas', (context) => {
 })
 ```
 
-### Access Control
+### Exposing functions as endpoints
 
-Functions can be turned into endpoints to help with brevity and reusability, but then it is required to specify who can have access to them: authenticated users, unauthenticated users, or users containing specified roles. This is where the `exposedFunctions` property comes in. Each exposed function has it's access condition:
-
-```typescript
-export type AccessCondition =
-  | readonly string[]
-  | boolean
-  | 'unauthenticated'
-  | 'unauthenticated-only'
-```
-
-- `UserRole[]`: only specified roles have access
-- `true`: only authenticated users have access
-- `false`: function isn't exposed
-- `'unauthenticated'`: both authenticated and unauthenticated users have access
-- `'unauthenticated-only'`: only unauthenticated users have access
+Collection functions can be directly exposed as endpoints for the sake of brevity and reusability. This is where the `exposedFunctions` property comes in. A [`AccessCondition`](/aeria/access-control) is passed at the time of exposing a function to tell which set of users will have access to it based on their roles.
 
 Functions that aren't explicitly exposed remain accessible through `context`. Bellow are examples of how to expose functions in Aeria Lang and TypeScript:
 
@@ -81,14 +67,10 @@ Functions that aren't explicitly exposed remain accessible through `context`. Be
 ``` [collection.aeria]
 collection Example {
   exposedFunctions {
-    -- function is not exposed
     businessLogic
-    -- both authenticated and unauthenticated users have access
     get @expose(unauthenticated)
     getAll @expose(unauthenticated)
-    -- only authenticated users have access
     insert @expose(true)
-    -- only 'root' users have access
     remove @expose([
       'root'
     ])
@@ -99,12 +81,9 @@ collection Example {
 ```typescript [collection.ts]
 const example = defineCollection({
   exposedFunctions: {
-    // both authenticated and unauthenticated users have access
     get: 'unauthenticated',
     getAll: 'unauthenticated',
-    // only authenticated users have access
     insert: true,
-    // only 'root' users have access
     remove: [
       'root'
     ]

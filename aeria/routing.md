@@ -83,7 +83,6 @@ router.POST('/sayMyName', (context) => {
 
 You can make sure a route is only accessible if the user has certain roles. This is done using the `roles` property of [`ContractWithRoles`](/aeria/routing). Setting the `roles` for a specific route ensures type safety and requests with tokens that don't match the criteria will fail with `403 Forbidden` error.
 
-Refer to [Access Control](/aeria/access-control) for more.
 
 ```typescript
 router.GET('/authenticated', (context) => {
