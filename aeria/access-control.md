@@ -5,8 +5,7 @@ Aeria implements [Role-Based Access Control (RBAC)](https://en.wikipedia.org/wik
 The Access Control implementation discriminates users by the following ways:
 
 - by their roles
-- by whether they're authenticated
-- by whether they're unauthenticated
+- by whether they're authenticated or not
 
 More dynamic access controlling for special needs must be manually implemented within the endpoint logic itself.
 
