@@ -100,6 +100,7 @@ function sidebarAeriaReference() {
         { text: 'Collection', link: '/aeria/collection', },
         { text: 'Routing', link: '/aeria/routing', },
         { text: 'Access Control', link: '/aeria/access-control', },
+        { text: 'Error Responses', link: '/aeria/error-responses', },
         { text: 'Contracts', link: '/aeria/contracts' },
         { text: 'Security', link: '/aeria/security', },
         {

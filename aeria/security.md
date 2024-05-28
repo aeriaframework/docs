@@ -62,17 +62,17 @@ function limitRate(params: RateLimitingParams): Promise<Either<RateLimitingError
 
 ```typescript
 router.GET('/resource', (context) => {
-  const rate = context.limitRate({
+  const rateEither = context.limitRate({
     strategy: 'tenant',
     scale: 5,
   })
 
-  if( isLeft(rate) ) {
+  if( isLeft(rateEither) ) {
     // rate limit exceeded
-    context.response.writeHead(429, {
-      'content-type': 'application/json'
+    const error = unwrapEither(rateEither)
+    return context.error(HTTPStatus.TooManyRequests, {
+      code: error
     })
-    return rate
   }
 })
 ```
@@ -91,10 +91,12 @@ const collection = defineCollection({
     remove,
   },
   security: {
-    get: {
-      rateLimiting: {
-        strategy: 'tenant',
-        scale: 5
+    functions: {
+      get: {
+        rateLimiting: {
+          strategy: 'tenant',
+          scale: 5
+        }
       }
     }
   }

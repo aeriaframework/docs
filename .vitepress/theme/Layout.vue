@@ -11,6 +11,10 @@ const { isDark } = useData()
 onMounted(() => {
   if( typeof localStorage !== 'undefined' ) {
     const isDark = localStorage.getItem('vitepress-theme-appearance') === 'dark'
+      || (
+        window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+      )
+
     if( isDark ) {
       const el = document.querySelector('#aeria-layout')
       if( el ) {
