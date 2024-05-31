@@ -90,7 +90,7 @@ export const fn = (context: Context) => {
   }
   if( businessLogic2() ) {
     return context.error(HTTPStatus.Forbidden, {
-      code: FnError.CUSTOM_ERROR,
+      code: FnError.CustomError,
     })
   }
   return {
