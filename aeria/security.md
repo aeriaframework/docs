@@ -50,36 +50,63 @@ The `context` object has a `limitRate` function (also exported by `aeria`) that 
 **Function signature:**
 
 ```typescript
-function limitRate(params: RateLimitingParams): Promise<Either<RateLimitingErrors, {
-  hits: number
-  points: number
-  last_reach: Date
-  last_maximum_reach: Date
-}>>
+function limitRate(params: RateLimitingParams): Promise<
+  | EndpointError<
+    EndpointErrorContent<
+      RateLimitingError,
+      HTTPStatus.TooManyRequests
+    >
+  >
+  | {
+    hits: number
+    points: number
+    last_reach: Date
+    last_maximum_reach: Date
+  }
+>
 ```
 
 **Example:**
 
-```typescript
-router.GET('/resource', (context) => {
-  const rateEither = context.limitRate({
+::: code-group
+
+```typescript [router.ts]
+router.GET('/resource', async (context) => {
+  const rate = await context.limitRate({
     strategy: 'tenant',
     scale: 5,
   })
 
-  if( isLeft(rateEither) ) {
-    // rate limit exceeded
-    const error = unwrapEither(rateEither)
-    return context.error(HTTPStatus.TooManyRequests, {
-      code: error
-    })
+  if( isError(rateEither) ) {
+    return rate
+  }
+
+  return {
+    success: true
   }
 })
 ```
 
+```http [sample response]
+HTTP/1.1 429 Too Many Requests
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: *
+Access-Control-Allow-Headers: Accept,Accept-Version,Authorization,Content-Length,Content-MD5,Content-Type,Date,X-Api-Version,X-Stream-Request
+Access-Control-Max-Age: 2592000
+content-type: application/json
+Date: Sun, 26 May 2024 06:23:49 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+Transfer-Encoding: chunked
+
+{"_tag":"Error","value":{"httpStatus":429,"code":"LIMIT_REACHED"},"#__ERROR_SYMBOL__":true}
+```
+
+:::
+
 ### Limiting the rate for a collection function
 
-The rate limit of collection functions can be set declaratively in the `security` property when using `defineCollection()`. Case the users reachs the limit, the request fails with `429 Too Many Request` HTTP status.
+The rate limit of collection functions can be set declaratively in the `security` property when using `defineCollection()`. Case the users reachs the limit, the request also fails with `429 Too Many Request` HTTP status.
 
 ```typescript
 const collection = defineCollection({

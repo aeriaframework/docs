@@ -48,7 +48,8 @@ Connection: keep-alive
 Keep-Alive: timeout=5
 Transfer-Encoding: chunked
 
-{"_tag":"Error","value":{"httpStatus":404,"code":"NOT_FOUND"},"#__ERROR_SYMBOL__":true}```
+{"_tag":"Error","value":{"httpStatus":404,"code":"NOT_FOUND"},"#__ERROR_SYMBOL__":true}
+```
 
 :::
 
