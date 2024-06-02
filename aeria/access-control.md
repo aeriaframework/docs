@@ -15,7 +15,7 @@ More dynamic access controlling for special needs must be manually implemented w
 type UserRole =
   | Collections['user']['item']['roles'][number]
   | 'root'
-  | 'guest'
+  | 'unauthenticated'
 
 type AccessCondition =
   | readonly UserRole[]
@@ -44,5 +44,4 @@ enum ACError {
   ResourceNotFound = 'RESOURCE_NOT_FOUND',
   InsecureOperator = 'INSECURE_OPERATOR',
 }
-
 ```

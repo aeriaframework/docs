@@ -36,8 +36,8 @@ type Collection<TCollection extends Collection = any> = {
   description: Description
   item?: any
   security?: CollectionSecurityPolicy<TCollection>
-  functions?: Record<string, ((payload: any, context: Context, ...args: any[])=> any) & FunctionAttributes>
-  functionContracts?: Record<string, Contract>
+  functions?: Record<string, (payload: any, context: Context<any>, ...args: any[])=> any>
+  contracts?: Record<string, Contract>
   exposedFunctions?: Record<string, AccessCondition>
 }
 ```

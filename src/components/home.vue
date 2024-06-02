@@ -34,7 +34,7 @@ import { AeriaIcon } from 'aeria-ui'
         <div>
           <h4>Minimal code surface</h4>
           <p>
-            Prototype your next project with 2 files with our schema definition language
+            Prototype your next project with a few lines of code with the help of a schema definition DSL
           </p>
           <a href="/aeria/security">Know more</a>
         </div>

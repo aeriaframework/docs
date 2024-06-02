@@ -41,7 +41,7 @@ export default defineConfig({
         activeMatch: '^/guide/'
       },
       {
-        text: 'Reference',
+        text: 'Docs',
         activeMatch: '^/(aeria|aeria-ui)//',
         items: [
           { text: 'Aeria', link: '/aeria/', activeMatch: '^/aeria/' },
