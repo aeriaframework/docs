@@ -2,7 +2,7 @@
 
 Aeria provides two types used for error handling: `EndpointError` and `Either`. The `EndpointError` type is a more general one and should be preferred over `Either` when possible due to it's standardized structure and capacity of setting HTTP status codes.
 
-When the successful return type of the function is `any` or any other supertype of `EndpointError`, `Either` should be preferred instead because of the following:
+When the successful return type of the function is `any` or any type that overlaps with `EndpointError`, `Either` should be preferred instead because of the following:
 
 ::: code-group
 
