@@ -16,9 +16,9 @@ const router = useRouter()
 ## Components
 
 <div class="
-  tw-grid
-  tw-gap-3
-  md:tw-grid-cols-4
+  grid
+  gap-3
+  md:grid-cols-4
 ">
 <item-card
   v-for="componentName of statics.components"
@@ -36,9 +36,9 @@ const router = useRouter()
 ## Runtime APIs
 
 <div class="
-  tw-grid
-  md:tw-grid-cols-3
-  tw-gap-4
+  grid
+  md:grid-cols-3
+  gap-4
 ">
   <api-container title="Composables">
     <a

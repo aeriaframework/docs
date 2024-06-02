@@ -30,7 +30,7 @@ onMounted(() => {
     id="aeria-layout"
     :class="
       isDark
-        ? 'main--dark tw-dark'
+        ? 'main--dark'
         : 'main'
     "
   >

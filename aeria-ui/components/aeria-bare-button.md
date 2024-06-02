@@ -13,7 +13,7 @@ This component renders an unstyled button that will ultimately be an `<a />` HTM
 
 ## Example
 
-<result-box class="tw-mb-4">
+<result-box class="mb-4">
   <aeria-bare-button @click="count1 += 1">
     Enabled (click me): {{ count1 }}
   </aeria-bare-button>

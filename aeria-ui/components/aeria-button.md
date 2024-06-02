@@ -12,7 +12,7 @@ This component renders a styled button that will add style controls on top of [`
 
 ## Example
 
-<result-box title="Result" class="tw-mb-4">
+<result-box title="Result" class="mb-4">
   <aeria-button @click="count++">
     Increment
   </aeria-button>

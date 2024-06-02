@@ -8,13 +8,13 @@ withDefaults(defineProps<{
 
 <template>
   <div class="
-    tw-flex
-    tw-flex-col
-    tw-gap-4
-    tw-border
-    dark:tw-border-gray-800
-    tw-p-4
-    tw-rounded-lg
+    flex
+    flex-col
+    gap-4
+    border
+    dark:border-gray-800
+    p-4
+    rounded-lg
   ">
     <div>
       <slot></slot>
@@ -22,17 +22,17 @@ withDefaults(defineProps<{
     <div 
       v-if="$slots.result"
       class="
-        tw-p-2
-        tw-bg-gray-50
-        dark:tw-bg-gray-800
-        tw-whitespace-pre
-        tw-font-[300]
-        tw-rounded-lg
+        p-2
+        bg-gray-50
+        dark:bg-gray-800
+        whitespace-pre
+        font-[300]
+        rounded-lg
     ">
-      <div class="tw-font-[500]">
+      <div class="font-[500]">
         {{ title }}
       </div>
-      <div class="tw-p-2">
+      <div class="p-2">
         <slot name="result"></slot>
       </div>
     </div>

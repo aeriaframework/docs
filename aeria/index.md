@@ -12,9 +12,9 @@ import ApiContainer from '../src/components/api-container.vue'
 ## Public API
 
 <div class="
-  tw-grid
-  md:tw-grid-cols-3
-  tw-gap-4
+  grid
+  md:grid-cols-3
+  gap-4
 ">
   <api-container title="General">
     <a
@@ -40,9 +40,9 @@ import ApiContainer from '../src/components/api-container.vue'
 ## Builtins
 
 <div class="
-  tw-grid
-  md:tw-grid-cols-3
-  tw-gap-4
+  grid
+  md:grid-cols-3
+  gap-4
 ">
   <api-container title="Collections">
     <a

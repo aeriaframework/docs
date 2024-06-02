@@ -13,7 +13,7 @@ This component renders a group of checkboxes (or radio inputs) depending on the 
 
 ## Example
 
-<result-box title="Single choice" class="tw-mb-4">
+<result-box title="Single choice" class="mb-4">
   <aeria-options
     v-model="singleChoice"
     :property="{

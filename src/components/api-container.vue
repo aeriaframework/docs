@@ -6,25 +6,25 @@ defineProps<{
 
 <template>
   <div class="
-    tw-flex
-    tw-flex-col
-    tw-gap-4
-    tw-bg-zinc-50
-    dark:tw-bg-zinc-800
-    tw-p-6
-    tw-rounded-lg
+    flex
+    flex-col
+    gap-4
+    bg-zinc-50
+    dark:bg-zinc-800
+    p-6
+    rounded-lg
   ">
     <div class="
-      tw-text-lg
-      tw-font-[600]
+      text-lg
+      font-[600]
       ">
       {{ title }}
     </div>
 
     <div class="
-      tw-flex
-      tw-flex-col
-      tw-gap-2
+      flex
+      flex-col
+      gap-2
     ">
       <slot></slot>
     </div>
