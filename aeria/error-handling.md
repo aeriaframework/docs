@@ -2,43 +2,6 @@
 
 Aeria provides two types used for error handling: `EndpointError` and `Either`. The `EndpointError` type is a more general one and should be preferred over `Either` when possible due to it's standardized structure and capacity of setting HTTP status codes.
 
-When the successful return type of the function is `any` or any type that overlaps with `EndpointError`, `Either` should be preferred instead because of the following:
-
-::: code-group
-
-```typescript [badExample.ts]
-declare const errorOrAny: () =>
-  | EndpointError<EndpointErrorContent<'EXPECTED_ERROR'>>
-  | any
-
-const fn = () => {
-  const value = errorOrAny()
-  if( isError(value) ) {
-    const error = unwrapError(value)
-    // "error.code" isn't inferred correctly because
-    // "EndpointError<EndpointErrorContent<'RANDOM_STRING'>>" overlaps with "any"
-    // as a result, error loses it's type safety
-    'RANDOM_STRING' satisfies typeof error.code
-  }
-}
-```
-
-```typescript [goodExample.ts]
-declare const errorOrAny: () => Either<any, 'EXPECTED_ERROR'>
-
-const fn = () => {
-  const valueEither = errorOrAny()
-  if( isLeft(value) ) {
-    const error = unwrapEither(valueEither)
-    // Error: Type '"RANDOM_STRING"' does not satisfy the expected type '"EXPECTED_ERROR".'
-    // left is inferred correctly
-    'RANDOM_STRING' satisfies typeof error
-  }
-}
-```
-
-:::
-
 
 ## EndpointError
 
@@ -259,4 +222,42 @@ declare const successful: ExtractSuccessful<MyError>
 declare const error: ExtractError<MyError>
 ```
 
+## When to use one or another
+
+When the successful return type of the function is `any` or any type that overlaps with `EndpointError`, `Either` should be preferred instead because of the following:
+
+::: code-group
+
+```typescript [badExample.ts]
+declare const errorOrAny: () =>
+  | EndpointError<EndpointErrorContent<'EXPECTED_ERROR'>>
+  | any
+
+const fn = () => {
+  const value = errorOrAny()
+  if( isError(value) ) {
+    const error = unwrapError(value)
+    // "error.code" isn't inferred correctly because
+    // "EndpointError<EndpointErrorContent<'RANDOM_STRING'>>" overlaps with "any"
+    // as a result, error loses it's type safety
+    'RANDOM_STRING' satisfies typeof error.code
+  }
+}
+```
+
+```typescript [goodExample.ts]
+declare const errorOrAny: () => Either<any, 'EXPECTED_ERROR'>
+
+const fn = () => {
+  const valueEither = errorOrAny()
+  if( isLeft(value) ) {
+    const error = unwrapEither(valueEither)
+    // Error: Type '"RANDOM_STRING"' does not satisfy the expected type '"EXPECTED_ERROR".'
+    // left is inferred correctly
+    'RANDOM_STRING' satisfies typeof error
+  }
+}
+```
+
+:::
 
