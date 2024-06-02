@@ -100,7 +100,7 @@ function sidebarAeriaReference() {
         { text: 'Collection', link: '/aeria/collection', },
         { text: 'Routing', link: '/aeria/routing', },
         { text: 'Access Control', link: '/aeria/access-control', },
-        { text: 'Endpoint Errors', link: '/aeria/endpoint-errors', },
+        { text: 'Error Handling', link: '/aeria/error-handling', },
         { text: 'Contracts', link: '/aeria/contracts' },
         { text: 'Security', link: '/aeria/security', },
         {
@@ -132,7 +132,6 @@ function sidebarAeriaReference() {
     {
       text: 'Advanced API',
       items: [
-        { text: 'Either', link: '/aeria/either' },
         { text: 'Condition', link: '/aeria/condition' },
         { text: 'traverseDocument()', link: '/aeria/traverse-document' },
         { text: 'getLookupPipeline()', link: '/aeria/get-lookup-pipeline' },

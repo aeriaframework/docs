@@ -1,7 +1,6 @@
 # Aeria Schema
 
-Aeria Schema is an intersection of [JSON Schema](https://json-schema.org/) used to define the properties of a collection for validation alongside with access and UI behaviors. As the purpose of Aeria is to provide cohesion between backend and frontend, some frontend directives, for instance, what properties are meant to be rendered in tables and forms, are defined directly in the backend.
-
+Schemas in Aeria are defined using a subset of [JSON Schema](https://json-schema.org/). More general schemas, called "descriptions", are used to define collections, and they not only define data structure, but also behavior.
 
 ## Properties
 

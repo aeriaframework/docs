@@ -18,7 +18,7 @@ onMounted(() => {
     if( isDark ) {
       const el = document.querySelector('#aeria-layout')
       if( el ) {
-        el.classList.add('main--dark', 'tw-dark')
+        el.classList.add('main--dark')
       }
     }
   }
