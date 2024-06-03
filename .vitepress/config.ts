@@ -36,11 +36,6 @@ export default defineConfig({
         link: 'https://demo.aeria.land/',
       },
       {
-        text: 'Guide',
-        link: '/guide/getting-started',
-        activeMatch: '^/guide/'
-      },
-      {
         text: 'Docs',
         activeMatch: '^/(aeria|aeria-ui)//',
         items: [
@@ -49,6 +44,11 @@ export default defineConfig({
           { text: 'Aeria SDK', link: '/aeria-sdk/', activeMatch: '^/aeria-sdk/' },
           { text: 'create-aeria-app', link: 'https://github.com/aeria-org/create-aeria-app' },
         ]
+      },
+      {
+        text: 'Guide',
+        link: '/guide/getting-started',
+        activeMatch: '^/guide/'
       },
     ],
     sidebar: {
