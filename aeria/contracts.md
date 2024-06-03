@@ -11,11 +11,11 @@ type ContractBase = {
 }
 
 type ContractRoles = {
-  roles?: (
-    | Collections['user']['item']['roles'][number]
-    | 'root'
-    | 'guest'
-  )[]
+  roles?:
+    | readonly UserRole[]
+    | boolean
+    | 'unauthenticated'
+    | 'unauthenticated-only'
 }
 
 type Contract = ContractBase & (
@@ -43,15 +43,17 @@ Below is an example of a contract that ensures:
 - the response have the following type (the return of the callback will be typed accordingly, no runtime validation is made):
 
 ```typescript
-{
-  error: false,
-  payload: {
+  | {
     customer: string
     token: string
   }
-  } | {
-  error: true
-}
+  | EndpointError<
+    EndpointErrorContent<
+      ACError.ResourceNotFound,
+      unknown,
+      HTTPStatus.NotFound
+    >
+  >
 ```
 
 Contract definition:
@@ -69,7 +71,7 @@ contract CheckKey {
 ```
 
 ```typescript [checkKeyContract.ts]
-import { defineContract } from 'aeria'
+import { defineContract, HTTPStatus, ACError } from 'aeria'
 
 export const CheckKeyContract = defineContract({
   payload: {
@@ -84,30 +86,22 @@ export const CheckKeyContract = defineContract({
     {
       type: 'object',
       properties: {
-        error: {
-          literal: false
+        customer: {
+          type: 'string'
         },
-        payload: {
-          type: 'object',
-          properties: {
-            customer: {
-              type: 'string'
-            },
-            token: {
-              type: 'string'
-            }
-          }
+        token: {
+          type: 'string'
         }
       }
     },
-    {
-      type: 'object',
-      properties: {
-        error: {
-          literal: true
-        }
-      }
-    },
+    endpointErrorSchema({
+      code: [
+        ACError.ResourceNotFound
+      ],
+      httpStatus: [
+        HTTPStatus.NotFound
+      ]
+    })
   ]
 })
 ```
@@ -117,21 +111,18 @@ export const CheckKeyContract = defineContract({
 Usage with a route:
 
 ```typescript
-import { createRouter } from 'aeria'
+import { createRouter, HTTPStatus, ACError } from 'aeria'
 
 export const router = createRouter()
 
 router.POST('/checkKey', (context) => {
-  const result = businessLogic()
-
-  if( result ) {
-    return { 
-      error: true
-    }
+  if( businessLogic() ) {
+    return context.error(HTTPStatus.NotFound, {
+      code: ACError.ResourceNotFound
+    })
   }
 
   return {
-    error: false,
     payload: {
       customer: result.customer,
       token: result.token

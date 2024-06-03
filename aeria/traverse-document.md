@@ -13,7 +13,7 @@ type TraverseOptions = {
   recurseReferences?: boolean
 }
 
-declare const traverseDocument: <const TWhat extends Record<string, any>>(
+declare const traverseDocument: <const TWhat extends Record<string, unknown>>(
   what: TWhat,
   description: Description,
   options: TraverseOptions
