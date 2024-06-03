@@ -84,9 +84,9 @@ This collection implements tracking of function calls by users. It is needed in 
 You can choose to either extend or fully replace a builtin collection.
 
 ```typescript
-import { defineCollection, deepMerge, user as originalUser } from 'aeria'
+import { extendCollection user as originalUser } from 'aeria'
 
-const user = defineCollection(deepMerge(originalUser, {
+const user = extendCollection(originalUser, {
   description: {
     form: [
       'referral'
@@ -97,6 +97,6 @@ const user = defineCollection(deepMerge(originalUser, {
       },
     }
   },
-}))
+})
 ```
 
