@@ -76,7 +76,7 @@ When exposed as an endpoint, the JSON-unserialized `POST` request body will be p
 ::: code-group
 
 ```aeria [schema.aeria]
-collections Pizza {
+collection Pizza {
   properties {
     // ...
   }
