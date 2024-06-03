@@ -204,7 +204,13 @@ const result = throwIfLeft(mightEitherSucceedOrFail())
 Sometimes you need to access the type of the content of an `Either` or an `EndpointError` ahead of time. There are utility types that allow you to do so.
 
 ```typescript
-import type { ExtractLeft, ExtractRight, ExtractError, ExtractError } from 'aeria'
+import type {
+  ExtractLeft,
+  ExtractRight,
+  ExtractError,
+  ExtractError,
+  ExtractSuccessful
+} from 'aeria'
 
 type MyEither = Either<'left', 'right'>
 type MyError = 'success' | EndpointError<
@@ -216,10 +222,10 @@ declare const myLeft: ExtractLeft<MyEither>
 // const myRight: 'right'
 declare const myRight: ExtractRight<MyEither>
 
-// const successful: 'successful'
-declare const successful: ExtractSuccessful<MyError>
 // const error: EndpointError<EndpointErrorContent<'MY_CODE'>>
 declare const error: ExtractError<MyError>
+// const successful: 'successful'
+declare const successful: ExtractSuccessful<MyError>
 ```
 
 ## When to use one or another
