@@ -4,7 +4,7 @@ Collections are storable entities. Each collection has it's [data structure](/ae
 
 ::: code-group
 
-```aeria
+```aeria [schema.aeria]
 collection Pizza {
   properties {
     name str
@@ -73,15 +73,43 @@ Collections can have `(payload: any, context: Context, options?: any) => any` fu
 
 When exposed as an endpoint, the JSON-unserialized `POST` request body will be passed as the first parameter `payload`.
 
-```typescript
-router.GET('/glutenFreePizzas', (context) => {
-  return context.collections.pizza.functions.getAll({
-    filters: {
-      glutenFree: true
+::: code-group
+
+```aeria [schema.aeria]
+collections Pizza {
+  properties {
+    // ...
+  }
+  functions {
+    getAll
+    customFunction?
+  }
+}
+```
+
+```typescript [pizza.ts]
+import { extendCollection } from 'aeria-lang/collections/pizza'
+
+export const pizza = extendCollection({
+  functions: {
+    customFunction: (payload: { name: string }, context) => {
+      return {
+        message: `Hello, ${payload.name}!`
+      }
     }
+  }
+})
+```
+
+```typescript [router.ts]
+router.GET('/example', (context) => {
+  return context.collections.pizza.functions.customFunction({
+    name: 'Terry'
   })
 })
 ```
+
+:::
 
 ### Exposing functions as endpoints
 
@@ -91,6 +119,9 @@ Functions can be directly exposed as endpoints for the sake of brevity and reusa
 
 ```aeria [collection.aeria]
 collection Example {
+  properties {
+    // ...
+  }
   functions {
     businessLogic
     get @expose('unauthenticated')
