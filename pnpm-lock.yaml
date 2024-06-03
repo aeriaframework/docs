@@ -19,8 +19,8 @@ importers:
         version: 3.4.27(typescript@5.4.5)
     devDependencies:
       '@aeria-lang/vscode':
-        specifier: ^0.0.2
-        version: 0.0.2
+        specifier: ^0.0.4
+        version: 0.0.4
       '@types/node':
         specifier: ^20.14.0
         version: 20.14.0
@@ -51,8 +51,8 @@ importers:
 
 packages:
 
-  '@aeria-lang/vscode@0.0.2':
-    resolution: {integrity: sha512-XtfO4Ts+7zMddTXmhLiAqRCsggeXnyYF/UMoaSlpJ2OtUyMSd1HVUHP8hWrrBouIESYWA8iYO1MXKwl+t19BZA==}
+  '@aeria-lang/vscode@0.0.4':
+    resolution: {integrity: sha512-IxRdFe8J5ro/SnSY2FLBkYwHWB23Mf+U3odGxAzENkn09Fowe00+qclAxwWmJB2o6DlkQGbc/OmMTyjx6vAqmA==}
     engines: {vscode: '>=0.9.0-pre.1'}
 
   '@aeria-ui/cli@0.0.6':
@@ -1618,7 +1618,7 @@ packages:
 
 snapshots:
 
-  '@aeria-lang/vscode@0.0.2':
+  '@aeria-lang/vscode@0.0.4':
     dependencies:
       vscode: 1.1.37
       vscode-languageclient: 9.0.1

@@ -21,7 +21,7 @@ This type of property is used to create denormalized subschemas that will be val
 
 ::: code-group
 
-```aeria [schema.aeria]
+```aeria-properties [schema.aeria]
 error {
   properties {
     code str
@@ -70,7 +70,7 @@ Object properties are distinguished by the `type` property set to `'object'`. It
 
 ::: code-group
 
-```aeria [schema.aeria]
+```aeria-properties [schema.aeria]
 name str @maxLength(20)
 ```
 
@@ -138,7 +138,7 @@ This property specifies one or more masks to be applied to the input.
 
 ::: code-group
 
-```aeria [schema.aeria]
+```aeria-properties [schema.aeria]
 rating num @minimum(5) @maximum(5)
 ```
 
@@ -187,7 +187,7 @@ This property ensures number will be less than specified value, exclusively.
 
 ::: code-group
 
-```aeria [schema.aeria]
+```aeria-properties [schema.aeria]
 active bool
 ```
 
@@ -218,7 +218,7 @@ Boolean properties are distinguished by the `type` property set to `'boolean'`
 
 ::: code-group
 
-```aeria [schema.aeria]
+```aeria-properties [schema.aeria]
 company Company @indexes(["name", "headquarters"])
 ```
 
@@ -290,7 +290,7 @@ Sometimes reference properties need to have constraints to make them useful. Con
 
 ::: code-group
 
-```aeria [schema.aeria]
+```aeria-properties [schema.aeria]
 picture File @accept(["image/*"])
 ```
 
@@ -333,7 +333,7 @@ This read-only array of strings may contain accepted mime types. Wildcards such 
 
 ::: code-group
 
-```aeria [schema.aeria]
+```aeria-properties [schema.aeria]
 status enum @options([
   "pending",
   "paid",
@@ -373,7 +373,7 @@ Enum properties specify an array of valid elements that will be validated upon i
 
 ::: code-group
 
-```aeria [schema.aeria]
+```aeria-properties [schema.aeria]
 items []{
   properties {
     product Product
@@ -440,7 +440,7 @@ This property defines the schema of array elements.
 
 ::: code-group
 
-```aeria [schema.aeria]
+```aeria-properties [schema.aeria]
 error const @value(true)
 message str
 ```

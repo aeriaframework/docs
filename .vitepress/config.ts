@@ -33,9 +33,17 @@ export default defineConfig({
   },
   markdown: {
     languages: [
-      Object.assign(aeriaGrammar, {
-        name: 'aeria'
-      })
+      aeriaGrammar,
+      {
+        ...aeriaGrammar,
+        name: 'aeria-properties',
+        scopeName: 'source.aeria-properties',
+        patterns: [
+          { include: '#comment' },
+          { include: '#property_column' },
+          { include: '#property_object_column' },
+        ]
+      },
     ]
   },
   themeConfig: {
