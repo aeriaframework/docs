@@ -1,6 +1,10 @@
 import { defineConfig } from 'vitepress'
 import { fileURLToPath } from 'node:url'
+import * as path from 'path'
+import * as fs from 'fs'
 import aeriaIcons from 'aeria-icons'
+
+const aeriaGrammar = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'node_modules', '@aeria-lang', 'vscode', 'syntaxes', 'aeria.tmLanguage.json'), 'utf8'))
 
 export default defineConfig({
   lang: 'en-US',
@@ -27,14 +31,17 @@ export default defineConfig({
       }),
     ],
   },
+  markdown: {
+    languages: [
+      Object.assign(aeriaGrammar, {
+        name: 'aeria'
+      })
+    ]
+  },
   themeConfig: {
     logo: '/assets/logo.png',
     outline: [1, 4],
     nav: [
-      {
-        text: 'Demo',
-        link: 'https://demo.aeria.land/',
-      },
       {
         text: 'Docs',
         activeMatch: '^/(aeria|aeria-ui)//',
@@ -49,6 +56,10 @@ export default defineConfig({
         text: 'Guide',
         link: '/guide/getting-started',
         activeMatch: '^/guide/'
+      },
+      {
+        text: 'Demo',
+        link: 'https://demo.aeria.land/',
       },
     ],
     sidebar: {

@@ -2,7 +2,23 @@
 
 Collections are storable entities. Each collection has it's [data structure](/aeria/aeria-schema), functions, [contracts](/aeria/contracts), and [security policies](/aeria/security). Collection functions can also be exposed directly as endpoints if they're configured in `exposedFunctions` property, in such cases `functions.test` becomes accessible through `POST /collectionName/test`.
 
-```typescript
+::: code-group
+
+```aeria
+collection Pizza {
+  properties {
+    name str
+    gluten_free bool
+  }
+  functions {
+    get
+    getAll
+    remove
+  }
+}
+```
+
+```typescript [pizza.ts]
 import { defineCollection, get, getAll, remove } from 'aeria'
 
 export const pizza = defineCollection({
@@ -24,6 +40,8 @@ export const pizza = defineCollection({
   }
 })
 ```
+
+:::
 
 Statically and during runtime collections are fetched from `import('.').collections`. So in order to expose collections, re-export them inside your `main` file:
 
@@ -71,12 +89,12 @@ Functions can be directly exposed as endpoints for the sake of brevity and reusa
 
 ::: code-group
 
-``` [collection.aeria]
+```aeria [collection.aeria]
 collection Example {
-  exposedFunctions {
+  functions {
     businessLogic
-    get @expose(unauthenticated)
-    getAll @expose(unauthenticated)
+    get @expose("unauthenticated")
+    getAll @expose("unauthenticated")
     insert @expose(true)
     remove @expose([
       'root'
@@ -87,6 +105,14 @@ collection Example {
 
 ```typescript [collection.ts]
 const example = defineCollection({
+  description,
+  functions: {
+    businessLogic,
+    get,
+    getAll,
+    insert,
+    remove,
+  },
   exposedFunctions: {
     get: 'unauthenticated',
     getAll: 'unauthenticated',

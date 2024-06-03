@@ -60,7 +60,7 @@ Contract definition:
 
 ::: code-group
 
-``` [contracts.aeria]
+```aeria [contracts.aeria]
 contract CheckKey {
   payload {
     properties {

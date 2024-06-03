@@ -2,7 +2,7 @@
 declare module 'aeria-ui' {
   export * from 'aeria-ui/dist'
 
-  type SystemStores = typeof import('@aeria-ui/web/stores')
+  type SystemStores = typeof import('@aeria-ui/core/stores')
   type UserStores = typeof import('../src/stores')
 
   type Stores = {
@@ -26,7 +26,7 @@ declare module 'aeria-ui' {
 }
 
 declare module '@vue/runtime-core' {
-  import type { TemplateFunctions } from '@aeria-ui/web'
+  import type { TemplateFunctions } from '@aeria-ui/core'
 
   interface ComponentCustomProperties {
     formatDateTime: TemplateFunctions['formatDateTime']
@@ -35,7 +35,7 @@ declare module '@vue/runtime-core' {
     t: TemplateFunctions['t']
     viewTitle: string
     viewIcon: string
-    instanceVars: typeof import('aeria-ui-build').InstanceConfig['site']
+    instanceVars: typeof import('@aeria-ui/cli').InstanceConfig['site']
     currentUser: Collections['user']['item']
     t: typeof import('@aeria-ui/i18n').t
   }
