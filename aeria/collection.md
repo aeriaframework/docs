@@ -1,8 +1,6 @@
 # Collection
 
-Collections are storable entities, like the "Model" in MVC, but featuring some important extra attributes. Collections can have functions that can be turned into endpoints and security policies are declared all in the same place, pretty much like if the "Model" and the "Controller" in MVC were merged together.
-
-The schema of the collection is defined in a special [JSON Schema](https://json-schema.org) dialect refered to as [Aeria Schema](/aeria/aeria-schema). Only when defining collections this dialect is wrapped in another type called [Description](/aeria/description) that adds collection-specific attributes.
+Collections are storable entities. Each collection has it's [data structure](/aeria/aeria-schema), functions, [contracts](/aeria/contracts), and [security policies](/aeria/security). Collection functions can also be exposed directly as endpoints if they're configured in `exposedFunctions` property, in such cases `functions.test` becomes accessible through `POST /collectionName/test`.
 
 ```typescript
 import { defineCollection, get, getAll, remove } from 'aeria'
@@ -27,7 +25,16 @@ export const pizza = defineCollection({
 })
 ```
 
-Collections are not visible to the application until you export them in the entrypoint file.
+Statically and during runtime collections are fetched from `import('.').collections`. So in order to expose collections, re-export them inside your `main` file:
+
+::: code-group
+
+```typescript [index.ts]
+export * as collections from './collections/index.js'
+```
+
+:::
+
 
 ### Type
 
@@ -44,7 +51,9 @@ type Collection<TCollection extends Collection = any> = {
 
 ### Functions
 
-Collections can have functions assigned to them. Those functions can either be called somewhere else in the application or be exposed directly as endpoints. They work similarly as route callbacks -- both have a `(context) => any` signature whose return is whatever the endpoint returns.
+Collections can have `(payload: any, context: Context, options?: any) => any` functions that will later be accessible through `context.collections.collectionName.functions` with their second parameter omitted. The third `options` parameter might be used to protect sensitive options from being controlled by the user when the function is exposed as an endpoint.
+
+When exposed as an endpoint, the JSON-unserialized `POST` request body will be passed as the first parameter `payload`.
 
 ```typescript
 router.GET('/glutenFreePizzas', (context) => {
@@ -58,9 +67,7 @@ router.GET('/glutenFreePizzas', (context) => {
 
 ### Exposing functions as endpoints
 
-Collection functions can be directly exposed as endpoints for the sake of brevity and reusability. This is where the `exposedFunctions` property comes in. A [`AccessCondition`](/aeria/access-control) is passed at the time of exposing a function to tell which set of users will have access to it based on their roles.
-
-Functions that aren't explicitly exposed remain accessible through `context`. Bellow are examples of how to expose functions in Aeria Lang and TypeScript:
+Functions can be directly exposed as endpoints for the sake of brevity and reusability. This is where the `exposedFunctions` property comes in. A [`AccessCondition`](/aeria/access-control) is passed at the time of exposing a function to tell which set of users will have access to it based on their roles.
 
 ::: code-group
 
