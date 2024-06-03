@@ -224,7 +224,7 @@ declare const error: ExtractError<MyError>
 
 ## When to use one or another
 
-When the successful return type of the function is `any` or any type that overlaps with `EndpointError`, `Either` should be preferred instead because of the following:
+If the successful return type of your function is a very broad type, `any` or `unknown`, this will include all possible errors, and narrowing with `isError()` will no longer work. In this case use `Either`. See the examples below:
 
 ::: code-group
 
@@ -236,11 +236,8 @@ declare const errorOrAny: () =>
 const fn = () => {
   const value = errorOrAny()
   if( isError(value) ) {
+    // "error.code" is typed as "string" not "'EXPECTED_ERROR'"
     const error = unwrapError(value)
-    // "error.code" isn't inferred correctly because
-    // "EndpointError<EndpointErrorContent<'RANDOM_STRING'>>" overlaps with "any"
-    // as a result, error loses it's type safety
-    'RANDOM_STRING' satisfies typeof error.code
   }
 }
 ```
@@ -253,7 +250,7 @@ const fn = () => {
   if( isLeft(value) ) {
     const error = unwrapEither(valueEither)
     // Error: Type '"RANDOM_STRING"' does not satisfy the expected type '"EXPECTED_ERROR".'
-    // left is inferred correctly
+    // error is inferred correctly
     'RANDOM_STRING' satisfies typeof error
   }
 }
