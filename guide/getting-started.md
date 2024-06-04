@@ -48,6 +48,24 @@ Create a `collections/person/index.ts` file and place the content below. It will
 
 ::: code-group
 
+```aeria [schemas/schema.aeria]
+collection Person {
+  properties {
+    name str
+    age num
+  }
+  presets {
+    crud
+  }
+  functions {
+    get
+    getAll
+    insert
+    remove
+  }
+}
+```
+
 ```typescript [collections/person/index.ts]
 import { defineCollection, get, getAll, insert, remove } from 'aeria'
 
@@ -75,24 +93,6 @@ export const person = defineCollection({
 })
 ```
 
-```typescript [aeria/schema.aeria]
-collection Person {
-  properties {
-    name str
-    age num
-  }
-  presets {
-    crud
-  }
-  functions {
-    get
-    getAll
-    insert
-    remove
-  }
-}
-```
-
 :::
 
 Now, to make the runtime acknowledge the existence of the new collection, re-export it by adding the following line in `collections/index.ts`:
@@ -100,7 +100,7 @@ Now, to make the runtime acknowledge the existence of the new collection, re-exp
 ::: code-group
 
 ```typescript [collections/index.ts]
-export * from './person'
+export * from './person/index.js'
 // or if you're using Aeria Lang
 export * from 'aeria-runtime/collections/person'
 ```

@@ -123,26 +123,33 @@ collection Example {
     // ...
   }
   functions {
-    businessLogic
     get @expose('unauthenticated')
     getAll @expose('unauthenticated')
     insert @expose(true)
     remove @expose([
       'root'
     ])
+    businessLogic?
   }
 }
 ```
 
 ```typescript [collection.ts]
+import { defineCollection, get, getAll, insert, remove } from 'aeria'
+
 const example = defineCollection({
   description,
   functions: {
-    businessLogic,
     get,
     getAll,
     insert,
     remove,
+    businessLogic: (payload, context) => {
+      // custom function
+      return {
+        success: true
+      }
+    },
   },
   exposedFunctions: {
     get: 'unauthenticated',
@@ -161,7 +168,7 @@ For some use cases it might be unnecessary to control the access to every endpoi
 
 ### Interacting directly with MongoDB
 
-In `context` collections receive a `model` property. This property consists of `typeof import('mongodb').Collection` and can be used to access the database directly. Please note that this interface won't populate references automatically -- you'll need to build a custom aggregation pipeline for that. Use `functions` instead of interfacing with MongoDB directly if autopopulating references is a need.
+In `context` collections receive a `model` property. This property consists of `typeof import('mongodb').Collection` and can be used to access the database directly. Please note that this interface won't populate references automatically -- you'll need to build a custom aggregation pipeline for that. Use `functions` instead of the MongoDB interface if autopopulating references is a need.
 
 ```typescript
 router.GET('/glutenFreePizzas', (context) => {
