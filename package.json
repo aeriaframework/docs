@@ -15,20 +15,20 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "aeria-lang-vscode": "latest",
-    "@types/node": "^20.14.0",
+    "@types/node": "^20.14.1",
     "aeria-icons": "^0.0.5",
+    "aeria-lang-vscode": "^0.0.1",
     "autoprefixer": "^10.4.19",
     "bson": "^6.7.0",
     "less": "^4.2.0",
     "tailwindcss": "^3.4.3",
     "typescript": "^5.4.5",
     "vite": "^5.2.12",
-    "vitepress": "1.2.2"
+    "vitepress": "1.2.3"
   },
   "dependencies": {
-    "@aeria-ui/ui": "^0.0.43",
-    "aeria-ui": "^0.0.46",
+    "@aeria-ui/ui": "^0.0.44",
+    "aeria-ui": "^0.0.47",
     "vue": "^3.4.27"
   }
 }

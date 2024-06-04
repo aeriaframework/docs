@@ -9,23 +9,23 @@ importers:
   .:
     dependencies:
       '@aeria-ui/ui':
-        specifier: ^0.0.43
-        version: 0.0.43(@aeria-ui/core@0.0.31(@aeria-ui/i18n@0.0.7(@aeriajs/common@0.0.58(@aeriajs/types@0.0.54)(bson@6.7.0)))(@aeria-ui/state-management@0.0.12(vue@3.4.27(typescript@5.4.5)))(aeria-sdk@0.0.81(@aeriajs/common@0.0.58(@aeriajs/types@0.0.54)(bson@6.7.0))(@aeriajs/types@0.0.54))(bson@6.7.0)(typescript@5.4.5))(@aeria-ui/i18n@0.0.7(@aeriajs/common@0.0.58(@aeriajs/types@0.0.54)(bson@6.7.0)))(@aeria-ui/state-management@0.0.12(vue@3.4.27(typescript@5.4.5)))(@aeriajs/common@0.0.58(@aeriajs/types@0.0.54)(bson@6.7.0))(vue-router@4.3.2(vue@3.4.27(typescript@5.4.5)))
+        specifier: ^0.0.44
+        version: 0.0.44(@aeria-ui/core@0.0.32(@aeria-ui/i18n@0.0.7(@aeriajs/common@0.0.58(@aeriajs/types@0.0.54)(bson@6.7.0)))(@aeria-ui/state-management@0.0.12(vue@3.4.27(typescript@5.4.5)))(aeria-sdk@0.0.81(@aeriajs/common@0.0.58(@aeriajs/types@0.0.54)(bson@6.7.0))(@aeriajs/types@0.0.54))(bson@6.7.0)(typescript@5.4.5))(@aeria-ui/i18n@0.0.7(@aeriajs/common@0.0.58(@aeriajs/types@0.0.54)(bson@6.7.0)))(@aeria-ui/state-management@0.0.12(vue@3.4.27(typescript@5.4.5)))(@aeriajs/common@0.0.58(@aeriajs/types@0.0.54)(bson@6.7.0))(vue-router@4.3.2(vue@3.4.27(typescript@5.4.5)))
       aeria-ui:
-        specifier: ^0.0.46
-        version: 0.0.46(@aeria-ui/cli@0.0.6(@aeriajs/builtins-icons@0.0.7)(@aeriajs/common@0.0.58(@aeriajs/types@0.0.54)(bson@6.7.0))(@aeriajs/types@0.0.54)(@babel/parser@7.24.6)(@phosphor-icons/core@2.1.1)(@types/node@20.14.1)(@vueuse/core@10.10.0(vue@3.4.27(typescript@5.4.5)))(bson@6.7.0)(glob@10.4.1)(rollup@4.18.0)(vue@3.4.27(typescript@5.4.5)))(@aeria-ui/core@0.0.31(@aeria-ui/i18n@0.0.7(@aeriajs/common@0.0.58(@aeriajs/types@0.0.54)(bson@6.7.0)))(@aeria-ui/state-management@0.0.12(vue@3.4.27(typescript@5.4.5)))(aeria-sdk@0.0.81(@aeriajs/common@0.0.58(@aeriajs/types@0.0.54)(bson@6.7.0))(@aeriajs/types@0.0.54))(bson@6.7.0)(typescript@5.4.5))(@aeria-ui/i18n@0.0.7(@aeriajs/common@0.0.58(@aeriajs/types@0.0.54)(bson@6.7.0)))(@aeria-ui/state-management@0.0.12(vue@3.4.27(typescript@5.4.5)))(@aeria-ui/ui@0.0.43(@aeria-ui/core@0.0.31(@aeria-ui/i18n@0.0.7(@aeriajs/common@0.0.58(@aeriajs/types@0.0.54)(bson@6.7.0)))(@aeria-ui/state-management@0.0.12(vue@3.4.27(typescript@5.4.5)))(aeria-sdk@0.0.81(@aeriajs/common@0.0.58(@aeriajs/types@0.0.54)(bson@6.7.0))(@aeriajs/types@0.0.54))(bson@6.7.0)(typescript@5.4.5))(@aeria-ui/i18n@0.0.7(@aeriajs/common@0.0.58(@aeriajs/types@0.0.54)(bson@6.7.0)))(@aeria-ui/state-management@0.0.12(vue@3.4.27(typescript@5.4.5)))(@aeriajs/common@0.0.58(@aeriajs/types@0.0.54)(bson@6.7.0))(vue-router@4.3.2(vue@3.4.27(typescript@5.4.5))))
+        specifier: ^0.0.47
+        version: 0.0.47(@aeria-ui/cli@0.0.6(@aeriajs/builtins-icons@0.0.7)(@aeriajs/common@0.0.58(@aeriajs/types@0.0.54)(bson@6.7.0))(@aeriajs/types@0.0.54)(@babel/parser@7.24.6)(@phosphor-icons/core@2.1.1)(@types/node@20.14.1)(@vueuse/core@10.10.0(vue@3.4.27(typescript@5.4.5)))(bson@6.7.0)(glob@10.4.1)(rollup@4.18.0)(vue@3.4.27(typescript@5.4.5)))(@aeria-ui/core@0.0.32(@aeria-ui/i18n@0.0.7(@aeriajs/common@0.0.58(@aeriajs/types@0.0.54)(bson@6.7.0)))(@aeria-ui/state-management@0.0.12(vue@3.4.27(typescript@5.4.5)))(aeria-sdk@0.0.81(@aeriajs/common@0.0.58(@aeriajs/types@0.0.54)(bson@6.7.0))(@aeriajs/types@0.0.54))(bson@6.7.0)(typescript@5.4.5))(@aeria-ui/i18n@0.0.7(@aeriajs/common@0.0.58(@aeriajs/types@0.0.54)(bson@6.7.0)))(@aeria-ui/state-management@0.0.12(vue@3.4.27(typescript@5.4.5)))(@aeria-ui/ui@0.0.44(@aeria-ui/core@0.0.32(@aeria-ui/i18n@0.0.7(@aeriajs/common@0.0.58(@aeriajs/types@0.0.54)(bson@6.7.0)))(@aeria-ui/state-management@0.0.12(vue@3.4.27(typescript@5.4.5)))(aeria-sdk@0.0.81(@aeriajs/common@0.0.58(@aeriajs/types@0.0.54)(bson@6.7.0))(@aeriajs/types@0.0.54))(bson@6.7.0)(typescript@5.4.5))(@aeria-ui/i18n@0.0.7(@aeriajs/common@0.0.58(@aeriajs/types@0.0.54)(bson@6.7.0)))(@aeria-ui/state-management@0.0.12(vue@3.4.27(typescript@5.4.5)))(@aeriajs/common@0.0.58(@aeriajs/types@0.0.54)(bson@6.7.0))(vue-router@4.3.2(vue@3.4.27(typescript@5.4.5))))
       vue:
         specifier: ^3.4.27
         version: 3.4.27(typescript@5.4.5)
     devDependencies:
       '@types/node':
-        specifier: ^20.14.0
+        specifier: ^20.14.1
         version: 20.14.1
       aeria-icons:
         specifier: ^0.0.5
         version: 0.0.5(@phosphor-icons/core@2.1.1)(@vitejs/plugin-vue@5.0.5(vite@5.2.12(@types/node@20.14.1)(less@4.2.0))(vue@3.4.27(typescript@5.4.5)))(glob@10.4.1)(vite@5.2.12(@types/node@20.14.1)(less@4.2.0))
       aeria-lang-vscode:
-        specifier: latest
+        specifier: ^0.0.1
         version: 0.0.1
       autoprefixer:
         specifier: ^10.4.19
@@ -46,8 +46,8 @@ importers:
         specifier: ^5.2.12
         version: 5.2.12(@types/node@20.14.1)(less@4.2.0)
       vitepress:
-        specifier: 1.2.2
-        version: 1.2.2(@algolia/client-search@4.23.3)(@types/node@20.14.1)(less@4.2.0)(postcss@8.4.38)(search-insights@2.14.0)(typescript@5.4.5)
+        specifier: 1.2.3
+        version: 1.2.3(@algolia/client-search@4.23.3)(@types/node@20.14.1)(less@4.2.0)(postcss@8.4.38)(search-insights@2.14.0)(typescript@5.4.5)
 
 packages:
 
@@ -61,8 +61,8 @@ packages:
       bson: ^6.6.0
       vue: ^3.4.26
 
-  '@aeria-ui/core@0.0.31':
-    resolution: {integrity: sha512-HeH2fVX3SbifihorQzsuKTtbP2/y6afrvE66FbAgVdwiDoxxMlBQ9HUbY6vZWey44TwbnsRe6Lf+xIMe5qLuUQ==}
+  '@aeria-ui/core@0.0.32':
+    resolution: {integrity: sha512-UtkT71ZXmTaKYcz9gWOA2xuKbgyc/n0m/CMpXMorUCPcRR6cu1OIhuu+7TvPv7LgD5CG52cj0Zqfx8F0Ia0iEg==}
     peerDependencies:
       '@aeria-ui/i18n': ^0.0.7
       '@aeria-ui/state-management': ^0.0.12
@@ -78,10 +78,10 @@ packages:
     peerDependencies:
       vue: ^3.4.26
 
-  '@aeria-ui/ui@0.0.43':
-    resolution: {integrity: sha512-zSE30oBP1oK2n1O+8V0CO5fGRfPFd/ig/svvfo/g8xhPqR96n3pQ78H11sjtXO6YvC1v3ILxHR4xtW/gJzIpng==}
+  '@aeria-ui/ui@0.0.44':
+    resolution: {integrity: sha512-cCu/jEIck9psC1CF18oX9sF+B9vn1vN2jy/yIQgNvMiRvBJ0kH2nfKYeugiC9LCkNkZ4suTsuYZ8l7jP9QLjGg==}
     peerDependencies:
-      '@aeria-ui/core': ^0.0.31
+      '@aeria-ui/core': ^0.0.32
       '@aeria-ui/i18n': ^0.0.7
       '@aeria-ui/state-management': ^0.0.12
       '@aeriajs/common': '0.0'
@@ -646,14 +646,14 @@ packages:
       '@aeriajs/common': ^0.0.58
       '@aeriajs/types': ^0.0.54
 
-  aeria-ui@0.0.46:
-    resolution: {integrity: sha512-ag5rEeIQyidbfMbOCspFf4lZNoZ3rQ4qELngQc27YdsMFwCDN0++CaSFp7jebfEKyGD3dgXENRb+M2vr/mh4nw==}
+  aeria-ui@0.0.47:
+    resolution: {integrity: sha512-N2KiXaiC0yafzyxZsMKqpoHfV1vNwsPAAk8uF/zI0ZkJEw6FKDTHDyxTJHNtrwta8fr/6UaajJyxkU2WiY6pAA==}
     peerDependencies:
       '@aeria-ui/cli': ^0.0.6
-      '@aeria-ui/core': ^0.0.31
+      '@aeria-ui/core': ^0.0.32
       '@aeria-ui/i18n': ^0.0.7
       '@aeria-ui/state-management': ^0.0.12
-      '@aeria-ui/ui': ^0.0.43
+      '@aeria-ui/ui': ^0.0.44
 
   algoliasearch@4.23.3:
     resolution: {integrity: sha512-Le/3YgNvjW9zxIQMRhUHuhiUjAlKY/zsdZpfq4dlLqg6mEm0nL6yk+7f2hDOtLpxsgE4jSzDmvHL7nXdBp5feg==}
@@ -1383,8 +1383,8 @@ packages:
       terser:
         optional: true
 
-  vitepress@1.2.2:
-    resolution: {integrity: sha512-uZ3nXR5NY4nYj3RJWCo5jev9qlNZAQo5SUXu1U0QSUx84cUm/o7hCTDVjZ4njVSVui+PsV1oAbdQOg8ygbaf4w==}
+  vitepress@1.2.3:
+    resolution: {integrity: sha512-GvEsrEeNLiDE1+fuwDAYJCYLNZDAna+EtnXlPajhv/MYeTjbNK6Bvyg6NoTdO1sbwuQJ0vuJR99bOlH53bo6lg==}
     hasBin: true
     peerDependencies:
       markdown-it-mathjax3: ^4
@@ -1502,7 +1502,7 @@ snapshots:
       - supports-color
       - terser
 
-  '@aeria-ui/core@0.0.31(@aeria-ui/i18n@0.0.7(@aeriajs/common@0.0.58(@aeriajs/types@0.0.54)(bson@6.7.0)))(@aeria-ui/state-management@0.0.12(vue@3.4.27(typescript@5.4.5)))(aeria-sdk@0.0.81(@aeriajs/common@0.0.58(@aeriajs/types@0.0.54)(bson@6.7.0))(@aeriajs/types@0.0.54))(bson@6.7.0)(typescript@5.4.5)':
+  '@aeria-ui/core@0.0.32(@aeria-ui/i18n@0.0.7(@aeriajs/common@0.0.58(@aeriajs/types@0.0.54)(bson@6.7.0)))(@aeria-ui/state-management@0.0.12(vue@3.4.27(typescript@5.4.5)))(aeria-sdk@0.0.81(@aeriajs/common@0.0.58(@aeriajs/types@0.0.54)(bson@6.7.0))(@aeriajs/types@0.0.54))(bson@6.7.0)(typescript@5.4.5)':
     dependencies:
       '@aeria-ui/i18n': 0.0.7(@aeriajs/common@0.0.58(@aeriajs/types@0.0.54)(bson@6.7.0))
       '@aeria-ui/state-management': 0.0.12(vue@3.4.27(typescript@5.4.5))
@@ -1525,9 +1525,9 @@ snapshots:
     dependencies:
       vue: 3.4.27(typescript@5.4.5)
 
-  '@aeria-ui/ui@0.0.43(@aeria-ui/core@0.0.31(@aeria-ui/i18n@0.0.7(@aeriajs/common@0.0.58(@aeriajs/types@0.0.54)(bson@6.7.0)))(@aeria-ui/state-management@0.0.12(vue@3.4.27(typescript@5.4.5)))(aeria-sdk@0.0.81(@aeriajs/common@0.0.58(@aeriajs/types@0.0.54)(bson@6.7.0))(@aeriajs/types@0.0.54))(bson@6.7.0)(typescript@5.4.5))(@aeria-ui/i18n@0.0.7(@aeriajs/common@0.0.58(@aeriajs/types@0.0.54)(bson@6.7.0)))(@aeria-ui/state-management@0.0.12(vue@3.4.27(typescript@5.4.5)))(@aeriajs/common@0.0.58(@aeriajs/types@0.0.54)(bson@6.7.0))(vue-router@4.3.2(vue@3.4.27(typescript@5.4.5)))':
+  '@aeria-ui/ui@0.0.44(@aeria-ui/core@0.0.32(@aeria-ui/i18n@0.0.7(@aeriajs/common@0.0.58(@aeriajs/types@0.0.54)(bson@6.7.0)))(@aeria-ui/state-management@0.0.12(vue@3.4.27(typescript@5.4.5)))(aeria-sdk@0.0.81(@aeriajs/common@0.0.58(@aeriajs/types@0.0.54)(bson@6.7.0))(@aeriajs/types@0.0.54))(bson@6.7.0)(typescript@5.4.5))(@aeria-ui/i18n@0.0.7(@aeriajs/common@0.0.58(@aeriajs/types@0.0.54)(bson@6.7.0)))(@aeria-ui/state-management@0.0.12(vue@3.4.27(typescript@5.4.5)))(@aeriajs/common@0.0.58(@aeriajs/types@0.0.54)(bson@6.7.0))(vue-router@4.3.2(vue@3.4.27(typescript@5.4.5)))':
     dependencies:
-      '@aeria-ui/core': 0.0.31(@aeria-ui/i18n@0.0.7(@aeriajs/common@0.0.58(@aeriajs/types@0.0.54)(bson@6.7.0)))(@aeria-ui/state-management@0.0.12(vue@3.4.27(typescript@5.4.5)))(aeria-sdk@0.0.81(@aeriajs/common@0.0.58(@aeriajs/types@0.0.54)(bson@6.7.0))(@aeriajs/types@0.0.54))(bson@6.7.0)(typescript@5.4.5)
+      '@aeria-ui/core': 0.0.32(@aeria-ui/i18n@0.0.7(@aeriajs/common@0.0.58(@aeriajs/types@0.0.54)(bson@6.7.0)))(@aeria-ui/state-management@0.0.12(vue@3.4.27(typescript@5.4.5)))(aeria-sdk@0.0.81(@aeriajs/common@0.0.58(@aeriajs/types@0.0.54)(bson@6.7.0))(@aeriajs/types@0.0.54))(bson@6.7.0)(typescript@5.4.5)
       '@aeria-ui/i18n': 0.0.7(@aeriajs/common@0.0.58(@aeriajs/types@0.0.54)(bson@6.7.0))
       '@aeria-ui/state-management': 0.0.12(vue@3.4.27(typescript@5.4.5))
       '@aeriajs/common': 0.0.58(@aeriajs/types@0.0.54)(bson@6.7.0)
@@ -2031,13 +2031,13 @@ snapshots:
       '@aeriajs/common': 0.0.58(@aeriajs/types@0.0.54)(bson@6.7.0)
       '@aeriajs/types': 0.0.54
 
-  ? aeria-ui@0.0.46(@aeria-ui/cli@0.0.6(@aeriajs/builtins-icons@0.0.7)(@aeriajs/common@0.0.58(@aeriajs/types@0.0.54)(bson@6.7.0))(@aeriajs/types@0.0.54)(@babel/parser@7.24.6)(@phosphor-icons/core@2.1.1)(@types/node@20.14.1)(@vueuse/core@10.10.0(vue@3.4.27(typescript@5.4.5)))(bson@6.7.0)(glob@10.4.1)(rollup@4.18.0)(vue@3.4.27(typescript@5.4.5)))(@aeria-ui/core@0.0.31(@aeria-ui/i18n@0.0.7(@aeriajs/common@0.0.58(@aeriajs/types@0.0.54)(bson@6.7.0)))(@aeria-ui/state-management@0.0.12(vue@3.4.27(typescript@5.4.5)))(aeria-sdk@0.0.81(@aeriajs/common@0.0.58(@aeriajs/types@0.0.54)(bson@6.7.0))(@aeriajs/types@0.0.54))(bson@6.7.0)(typescript@5.4.5))(@aeria-ui/i18n@0.0.7(@aeriajs/common@0.0.58(@aeriajs/types@0.0.54)(bson@6.7.0)))(@aeria-ui/state-management@0.0.12(vue@3.4.27(typescript@5.4.5)))(@aeria-ui/ui@0.0.43(@aeria-ui/core@0.0.31(@aeria-ui/i18n@0.0.7(@aeriajs/common@0.0.58(@aeriajs/types@0.0.54)(bson@6.7.0)))(@aeria-ui/state-management@0.0.12(vue@3.4.27(typescript@5.4.5)))(aeria-sdk@0.0.81(@aeriajs/common@0.0.58(@aeriajs/types@0.0.54)(bson@6.7.0))(@aeriajs/types@0.0.54))(bson@6.7.0)(typescript@5.4.5))(@aeria-ui/i18n@0.0.7(@aeriajs/common@0.0.58(@aeriajs/types@0.0.54)(bson@6.7.0)))(@aeria-ui/state-management@0.0.12(vue@3.4.27(typescript@5.4.5)))(@aeriajs/common@0.0.58(@aeriajs/types@0.0.54)(bson@6.7.0))(vue-router@4.3.2(vue@3.4.27(typescript@5.4.5))))
+  ? aeria-ui@0.0.47(@aeria-ui/cli@0.0.6(@aeriajs/builtins-icons@0.0.7)(@aeriajs/common@0.0.58(@aeriajs/types@0.0.54)(bson@6.7.0))(@aeriajs/types@0.0.54)(@babel/parser@7.24.6)(@phosphor-icons/core@2.1.1)(@types/node@20.14.1)(@vueuse/core@10.10.0(vue@3.4.27(typescript@5.4.5)))(bson@6.7.0)(glob@10.4.1)(rollup@4.18.0)(vue@3.4.27(typescript@5.4.5)))(@aeria-ui/core@0.0.32(@aeria-ui/i18n@0.0.7(@aeriajs/common@0.0.58(@aeriajs/types@0.0.54)(bson@6.7.0)))(@aeria-ui/state-management@0.0.12(vue@3.4.27(typescript@5.4.5)))(aeria-sdk@0.0.81(@aeriajs/common@0.0.58(@aeriajs/types@0.0.54)(bson@6.7.0))(@aeriajs/types@0.0.54))(bson@6.7.0)(typescript@5.4.5))(@aeria-ui/i18n@0.0.7(@aeriajs/common@0.0.58(@aeriajs/types@0.0.54)(bson@6.7.0)))(@aeria-ui/state-management@0.0.12(vue@3.4.27(typescript@5.4.5)))(@aeria-ui/ui@0.0.44(@aeria-ui/core@0.0.32(@aeria-ui/i18n@0.0.7(@aeriajs/common@0.0.58(@aeriajs/types@0.0.54)(bson@6.7.0)))(@aeria-ui/state-management@0.0.12(vue@3.4.27(typescript@5.4.5)))(aeria-sdk@0.0.81(@aeriajs/common@0.0.58(@aeriajs/types@0.0.54)(bson@6.7.0))(@aeriajs/types@0.0.54))(bson@6.7.0)(typescript@5.4.5))(@aeria-ui/i18n@0.0.7(@aeriajs/common@0.0.58(@aeriajs/types@0.0.54)(bson@6.7.0)))(@aeria-ui/state-management@0.0.12(vue@3.4.27(typescript@5.4.5)))(@aeriajs/common@0.0.58(@aeriajs/types@0.0.54)(bson@6.7.0))(vue-router@4.3.2(vue@3.4.27(typescript@5.4.5))))
   : dependencies:
       '@aeria-ui/cli': 0.0.6(@aeriajs/builtins-icons@0.0.7)(@aeriajs/common@0.0.58(@aeriajs/types@0.0.54)(bson@6.7.0))(@aeriajs/types@0.0.54)(@babel/parser@7.24.6)(@phosphor-icons/core@2.1.1)(@types/node@20.14.1)(@vueuse/core@10.10.0(vue@3.4.27(typescript@5.4.5)))(bson@6.7.0)(glob@10.4.1)(rollup@4.18.0)(vue@3.4.27(typescript@5.4.5))
-      '@aeria-ui/core': 0.0.31(@aeria-ui/i18n@0.0.7(@aeriajs/common@0.0.58(@aeriajs/types@0.0.54)(bson@6.7.0)))(@aeria-ui/state-management@0.0.12(vue@3.4.27(typescript@5.4.5)))(aeria-sdk@0.0.81(@aeriajs/common@0.0.58(@aeriajs/types@0.0.54)(bson@6.7.0))(@aeriajs/types@0.0.54))(bson@6.7.0)(typescript@5.4.5)
+      '@aeria-ui/core': 0.0.32(@aeria-ui/i18n@0.0.7(@aeriajs/common@0.0.58(@aeriajs/types@0.0.54)(bson@6.7.0)))(@aeria-ui/state-management@0.0.12(vue@3.4.27(typescript@5.4.5)))(aeria-sdk@0.0.81(@aeriajs/common@0.0.58(@aeriajs/types@0.0.54)(bson@6.7.0))(@aeriajs/types@0.0.54))(bson@6.7.0)(typescript@5.4.5)
       '@aeria-ui/i18n': 0.0.7(@aeriajs/common@0.0.58(@aeriajs/types@0.0.54)(bson@6.7.0))
       '@aeria-ui/state-management': 0.0.12(vue@3.4.27(typescript@5.4.5))
-      '@aeria-ui/ui': 0.0.43(@aeria-ui/core@0.0.31(@aeria-ui/i18n@0.0.7(@aeriajs/common@0.0.58(@aeriajs/types@0.0.54)(bson@6.7.0)))(@aeria-ui/state-management@0.0.12(vue@3.4.27(typescript@5.4.5)))(aeria-sdk@0.0.81(@aeriajs/common@0.0.58(@aeriajs/types@0.0.54)(bson@6.7.0))(@aeriajs/types@0.0.54))(bson@6.7.0)(typescript@5.4.5))(@aeria-ui/i18n@0.0.7(@aeriajs/common@0.0.58(@aeriajs/types@0.0.54)(bson@6.7.0)))(@aeria-ui/state-management@0.0.12(vue@3.4.27(typescript@5.4.5)))(@aeriajs/common@0.0.58(@aeriajs/types@0.0.54)(bson@6.7.0))(vue-router@4.3.2(vue@3.4.27(typescript@5.4.5)))
+      '@aeria-ui/ui': 0.0.44(@aeria-ui/core@0.0.32(@aeria-ui/i18n@0.0.7(@aeriajs/common@0.0.58(@aeriajs/types@0.0.54)(bson@6.7.0)))(@aeria-ui/state-management@0.0.12(vue@3.4.27(typescript@5.4.5)))(aeria-sdk@0.0.81(@aeriajs/common@0.0.58(@aeriajs/types@0.0.54)(bson@6.7.0))(@aeriajs/types@0.0.54))(bson@6.7.0)(typescript@5.4.5))(@aeria-ui/i18n@0.0.7(@aeriajs/common@0.0.58(@aeriajs/types@0.0.54)(bson@6.7.0)))(@aeria-ui/state-management@0.0.12(vue@3.4.27(typescript@5.4.5)))(@aeriajs/common@0.0.58(@aeriajs/types@0.0.54)(bson@6.7.0))(vue-router@4.3.2(vue@3.4.27(typescript@5.4.5)))
 
   algoliasearch@4.23.3:
     dependencies:
@@ -2779,7 +2779,7 @@ snapshots:
       fsevents: 2.3.3
       less: 4.2.0
 
-  vitepress@1.2.2(@algolia/client-search@4.23.3)(@types/node@20.14.1)(less@4.2.0)(postcss@8.4.38)(search-insights@2.14.0)(typescript@5.4.5):
+  vitepress@1.2.3(@algolia/client-search@4.23.3)(@types/node@20.14.1)(less@4.2.0)(postcss@8.4.38)(search-insights@2.14.0)(typescript@5.4.5):
     dependencies:
       '@docsearch/css': 3.6.0
       '@docsearch/js': 3.6.0(@algolia/client-search@4.23.3)(search-insights@2.14.0)
