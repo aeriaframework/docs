@@ -15,7 +15,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@aeria-lang/vscode": "^0.0.4",
+    "aeria-lang-vscode": "latest",
     "@types/node": "^20.14.0",
     "aeria-icons": "^0.0.5",
     "autoprefixer": "^10.4.19",

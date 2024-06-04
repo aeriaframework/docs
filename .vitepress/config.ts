@@ -4,7 +4,7 @@ import * as path from 'path'
 import * as fs from 'fs'
 import aeriaIcons from 'aeria-icons'
 
-const aeriaGrammar = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'node_modules', '@aeria-lang', 'vscode', 'syntaxes', 'aeria.tmLanguage.json'), 'utf8'))
+const aeriaGrammar = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'node_modules', 'aeria-lang-vscode', 'syntaxes', 'aeria.tmLanguage.json'), 'utf8'))
 
 export default defineConfig({
   lang: 'en-US',

@@ -23,27 +23,6 @@ const personEither = validate(person, {
 })
 ```
 
-### `validateSilently()`
-
-This function is just like [`validate()`](#validate), except that it will return `null` in case the validation fails instead of a `Left<ValidationError>`.
-
-**Example:**
-
-```typescript
-const person = validateSilently(person, {
-  properties: {
-    name: {
-      type: 'string'
-    }
-  }
-})
-
-if( !person ) {
-  // validation failed
-  return
-}
-```
-
 ### `validator()`
 
 This function receives a schema and a optional second argument containing `ValidateOptions`. It will return a tuple composed by a empty object whose type is inferred from the specified schema, and a function that will receive a object and return the `Either<TWhat, ValidationError>` derived from it's validation.
@@ -60,27 +39,6 @@ const [Person, personValidator] = validator({
 })
 
 const personEither = personValidator(person)
-```
-
-### `silentValidator()`
-
-This function receives the same parameters and returns a tuple just as [`validator()`](#validator), except that it will call `validateSilently()` instead of `validate()`.
-
-**Example:**
-
-```typescript
-const [Person, personValidator] = silentValidator({
-  properties: {
-    name: {
-     type: 'string'
-    }
-  }
-})
-
-const person = personValidator(person)
-if( !person ) {
-  // person validation failed
-}
 ```
 
 ### `ValidateOptions`
