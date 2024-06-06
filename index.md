@@ -1,3 +1,7 @@
+---
+layout: false
+---
+
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
 import markdownit from 'markdown-it'
