@@ -4,6 +4,7 @@ export const components = [
   'aeria-button',
   'aeria-card',
   'aeria-checkbox',
+  'aeria-context-menu',
   'aeria-crud',
   'aeria-file',
   'aeria-form',
@@ -33,6 +34,7 @@ export const composables = {
   'useBreakpoints()': '/aeria-ui/composables#usebreakpoints',
   'useClipboard()': '/aeria-ui/composables#useclipboard',
   'useDebounce()': '/aeria-ui/composables#usedebounce',
+  'useMask()': '/aeria-ui/composables#usemask',
   'useNavbar()': '/aeria-ui/composables#usenavbar',
   'usePasswordPolicy()': '/aeria-ui/composables#usepasswordpolicy',
 }
