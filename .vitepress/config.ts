@@ -1,8 +1,9 @@
 import { defineConfig } from 'vitepress'
-import { fileURLToPath } from 'node:url'
+import { fileURLToPath } from 'url'
 import * as path from 'path'
 import * as fs from 'fs'
 import aeriaIcons from 'aeria-icons'
+import { aeriaGrammar as aeriaGrammarPlugin } from './plugins/index.js'
 
 const aeriaGrammar = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'node_modules', 'aeria-lang-vscode', 'syntaxes', 'aeria.tmLanguage.json'), 'utf8'))
 
@@ -24,6 +25,7 @@ export default defineConfig({
       include: ['bson'],
     },
     plugins: [
+      aeriaGrammarPlugin(),
       aeriaIcons({
         libraries: [
           '@aeria-ui/ui'
@@ -192,6 +194,7 @@ function sidebarAeriaUiReference() {
         { text: 'aeria-button', link: '/aeria-ui/components/aeria-button' },
         { text: 'aeria-card', link: '/aeria-ui/components/aeria-card' },
         { text: 'aeria-checkbox', link: '/aeria-ui/components/aeria-checkbox' },
+        { text: 'aeria-context-menu', link: '/aeria-ui/components/aeria-context-menu' },
         { text: 'aeria-crud', link: '/aeria-ui/components/aeria-crud' },
         { text: 'aeria-file', link: '/aeria-ui/components/aeria-file' },
         { text: 'aeria-form', link: '/aeria-ui/components/aeria-form' },
