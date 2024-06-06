@@ -17,6 +17,21 @@ const snippets: string[] = []
 const renderedSnippets = ref<string[]>([])
 
 snippets.push(`
+\`\`\`typescript
+import { createRouter } from 'aeria'
+
+export const router = createRouter()
+router.POST('/example', async (context) => {
+  const person = await context.collections.person.functions.get()
+
+  return {
+    message: \`hello, \${person.name}!\`
+  }
+})
+\`\`\`
+`)
+
+snippets.push(`
 \`\`\`aeria
 collection Person {
   properties {
@@ -32,21 +47,6 @@ collection Person {
     upload
   }
 }
-\`\`\`
-`)
-
-snippets.push(`
-\`\`\`typescript
-import { createRouter } from 'aeria'
-
-export const router = createRouter()
-router.POST('/example', async (context) => {
-  const person = await context.collections.person.functions.get()
-
-  return {
-    message: \`hello, \${person.name}!\`
-  }
-})
 \`\`\`
 `)
 
