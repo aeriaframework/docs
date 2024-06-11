@@ -115,6 +115,8 @@ router.GET('/example', (context) => {
 
 Functions can be directly exposed as endpoints for the sake of brevity and reusability. This is where the `exposedFunctions` property comes in. A [`AccessCondition`](/aeria/access-control) is passed at the time of exposing a function to tell which set of users will have access to it based on their roles.
 
+In `Aeria Lang`, `@expose` is de-sugared into `@expose(true)`, meaning exposed only to authenticated users.
+
 ::: code-group
 
 ```aeria [collection.aeria]
@@ -123,9 +125,9 @@ collection Example {
     // ...
   }
   functions {
-    get @expose('unauthenticated')
-    getAll @expose('unauthenticated')
-    insert @expose(true)
+    get @expose("unauthenticated")
+    getAll @expose("unauthenticated")
+    insert @expose
     remove @expose([
       'root'
     ])

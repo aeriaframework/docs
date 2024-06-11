@@ -37,7 +37,7 @@ collection Person {
   properties {
     name str
     age int
-    picture File @accept("image/jpeg")
+    picture File @accept(["image/jpeg"])
   }
   functions {
     get

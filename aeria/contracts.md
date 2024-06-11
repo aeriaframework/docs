@@ -43,6 +43,7 @@ Below is an example of a contract that ensures:
 - the response have the following type (the return of the callback will be typed accordingly, no runtime validation is made):
 
 ```typescript
+type CallbackReturn =
   | {
     customer: string
     token: string

@@ -1,6 +1,6 @@
 # Security
 
-Aeria provides native mechanisms to avoid common security flaws. For a list of flaws that are covered, see [this README](https://github.com/aeria-org/aeria/tree/master/packages/security).
+Aeria provides native mechanisms to prevent common security flaws. It also allows developers to set up detailed logging in critical endpoints to track business logic misuse.
 
 ## Discrimination strategies
 
@@ -106,16 +106,40 @@ Transfer-Encoding: chunked
 
 ### Limiting the rate for a collection function
 
-The rate limit of collection functions can be set declaratively in the `security` property when using `defineCollection()`. Case the users reachs the limit, the request also fails with `429 Too Many Request` HTTP status.
+The rate limit of collection functions can also be set at time of defining the collection. In `aeria-lang` this can be achieved using function attributes, whereas in TypeScript this can be achieved by setting the `security` property.
 
-```typescript
-const collection = defineCollection({
+When the limit is reached, subsequent requests will fail with `429 Too Many Request` HTTP status until it refreshes.
+
+:::code-group
+
+```aeria [main.aeria]
+collection Person {
+  properties {
+    // ...
+  }
+  functions {
+    get @expose @limitRate(strategy: "tenant", scale: 5)
+    getAll @expose
+    insert @expose
+    remove @expose
+  }
+}
+```
+
+```typescript [person.ts]
+const person = defineCollection({
   description,
   functions: {
     get,
     getAll,
     insert,
     remove,
+  },
+  exposedFunctions: {
+    get: true,
+    getAll: true,
+    insert: true,
+    remove: true,
   },
   security: {
     functions: {
@@ -129,6 +153,8 @@ const collection = defineCollection({
   }
 })
 ```
+
+:::
 
 
 ## Logging
