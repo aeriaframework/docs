@@ -28,7 +28,7 @@ const fn = () => {
 }
 ```
 
-Later, to access the return type of that function, we destructure `error` and `result` properties that can be narrowed down to the actual result.
+Later, to access the return type of that function, we destructure `error` and `result` properties that can be narrowed down to the actual result. To forward the error or result of a error-safe function, simply wrap the value inside another `Result.error()` or `Result.result()`.
 
 ```typescript
 router.GET('/route', (context) => {
