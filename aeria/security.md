@@ -45,7 +45,7 @@ type RateLimitingParams = {
 
 ### Limiting the rate for a route
 
-The `context` object has a `limitRate` function (also exported by `aeria`) that returns an Either with `RateLimitingErrors` on the left or the resource stats for the user on the right.
+The `context` object has a `limitRate` function (also exported by `aeria`) that returns an `Result.Either<E, R>` with `RateLimitingErrors` on the left or the resource stats for the user on the right.
 
 **Function signature:**
 
@@ -72,18 +72,18 @@ function limitRate(params: RateLimitingParams): Promise<
 
 ```typescript [router.ts]
 router.GET('/resource', async (context) => {
-  const rate = await context.limitRate({
+  const { error } = await context.limitRate({
     strategy: 'tenant',
     scale: 5,
   })
 
-  if( isError(rateEither) ) {
-    return rate
+  if( error ) {
+    return Result.error(error)
   }
 
-  return {
+  return Result.result({
     success: true
-  }
+  })
 })
 ```
 
