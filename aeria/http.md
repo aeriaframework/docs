@@ -127,6 +127,6 @@ router.POST('/getFileBackwards', (context) => {
   const proc = spawn('tac')
   context.request.nodeRequest.pipe(proc.stdin)
 
-  return ffmpegProc.stdout
+  return proc.stdout
 })
 ```
