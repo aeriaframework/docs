@@ -123,7 +123,7 @@ To stream something in the **request**, first make sure `X-Stream-Request` heade
 The following example first streams a file from the request to the stdin of the UNIX `tac` command to reverse it's lines order, then streams the stdout containing the result back to the response:
 
 ```typescript
-router.get('/getFileBackwards', (context) => {
+router.POST('/getFileBackwards', (context) => {
   const proc = spawn('tac')
   context.request.nodeRequest.pipe(proc.stdin)
 
