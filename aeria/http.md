@@ -110,7 +110,7 @@ router.GET('/mixed', (context) => {
 
 ### Streaming
 
-To stream something in the **response** of a route callback, simply return a readable stream from it.
+To stream something **through the response** of a route callback, simply return a readable stream from it.
 
 ```typescript
 router.GET('/download', (context) => {
@@ -118,7 +118,7 @@ router.GET('/download', (context) => {
 })
 ```
 
-To stream something in the **request**, first make sure `X-Stream-Request` header is present with the value `1`. Without this, the stream will never open since it will be previously consumed to generate `context.request.payload`. You should then be able to pipe the `context.request.nodeRequest` object, which itself is nothing more than a message `http.IncomingMessage`, a writable stream.
+To stream something **through the request**, first make sure `X-Stream-Request` header is present with the value `1`. Without this, the stream will never open since it will be previously consumed to generate `context.request.payload`. You should then be able to pipe the `context.request.nodeRequest` object, which itself is nothing more than a message `http.IncomingMessage`, a writable stream.
 
 The following example first streams a file from the request to the stdin of the UNIX `tac` command to reverse it's lines order, then streams the stdout containing the result back to the response:
 
