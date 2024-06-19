@@ -23,6 +23,7 @@ export default defineConfig({
     },
     optimizeDeps: {
       include: ['bson'],
+      exclude: ['aeria-sdk']
     },
     plugins: [
       aeriaGrammarPlugin(),

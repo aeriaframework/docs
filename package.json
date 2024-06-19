@@ -8,31 +8,33 @@
   "main": "index.js",
   "scripts": {
     "dev": "vitepress dev",
-    "build": "vitepress build",
+    "build:pre": "echo 'export {}' > node_modules/aeria-sdk/dist/runtime.mjs",
+    "build": "pnpm build:pre && vitepress build",
     "preview": "vitepress preview"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@shikijs/markdown-it": "^1.6.2",
-    "@types/node": "^20.14.2",
+    "@shikijs/markdown-it": "^1.7.0",
+    "@types/node": "^20.14.5",
     "aeria-icons": "^0.0.5",
     "aeria-lang-vscode": "^0.0.10",
+    "aeria-sdk": "^0.0.99",
     "autoprefixer": "^10.4.19",
     "bson": "^6.7.0",
     "less": "^4.2.0",
     "markdown-it": "^14.1.0",
-    "shiki": "^1.6.2",
+    "shiki": "^1.7.0",
     "tailwindcss": "^3.4.4",
     "typescript": "^5.4.5",
-    "vite": "^5.2.12",
+    "vite": "^5.3.1",
     "vitepress": "1.2.3"
   },
   "dependencies": {
-    "@aeria-ui/ui": "^0.0.46",
-    "aeria-ui": "^0.0.49",
-    "vue": "^3.4.27"
+    "@aeria-ui/ui": "^0.0.52",
+    "aeria-ui": "^0.0.56",
+    "vue": "^3.4.29"
   },
   "peerDependencies": {
     "markdown-it": "^14.1.0",
