@@ -23,7 +23,6 @@ export default defineConfig({
     },
     optimizeDeps: {
       include: ['bson'],
-      exclude: ['aeria-sdk']
     },
     plugins: [
       aeriaGrammarPlugin(),
@@ -43,7 +42,7 @@ export default defineConfig({
         scopeName: 'source.aeria-properties',
         patterns: [
           { include: '#comment' },
-          { include: 'properties.column' },
+          { include: '#properties.column' },
         ]
       },
     ]
