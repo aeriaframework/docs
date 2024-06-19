@@ -42,8 +42,7 @@ export default defineConfig({
         scopeName: 'source.aeria-properties',
         patterns: [
           { include: '#comment' },
-          { include: '#property_column' },
-          { include: '#property_object_column' },
+          { include: 'properties.column' },
         ]
       },
     ]
