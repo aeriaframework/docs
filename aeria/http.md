@@ -28,12 +28,12 @@ router.GET('/age/([0-9]+)', (context) => {
 })
 ```
 
-The router object must be installed in the `init` function callback.
-It's also important to return the result of the expression from the callback.
+In order to be installed, the router object must either be present in `init()`
+options or be exported with the name `router` from the entrypoint file.
 
 ```typescript
-init(null, (context) => {
-  return router.install(context)
+export default init({
+  router,
 })
 ```
 
@@ -118,14 +118,14 @@ router.GET('/download', (context) => {
 })
 ```
 
-To stream something **through the request**, first make sure `X-Stream-Request` header is present with the value `1`. Without this, the stream will never open since it will be previously consumed to generate `context.request.payload`. You should then be able to pipe the `context.request.nodeRequest` object, which itself is nothing more than a message `http.IncomingMessage`, a writable stream.
+To stream something **through the request**, first make sure `X-Stream-Request` header is present with the value `1`. Without this, the stream will never open since it will be previously consumed to generate `context.request.payload`. You should then be able to pipe the `context.request` object, which itself is nothing more than a message `http.IncomingMessage`, a writable stream.
 
 The following example first streams a file from the request to the stdin of the UNIX `tac` command to reverse it's lines order, then streams the stdout containing the result back to the response:
 
 ```typescript
 router.POST('/getFileBackwards', (context) => {
   const proc = spawn('tac')
-  context.request.nodeRequest.pipe(proc.stdin)
+  context.request.pipe(proc.stdin)
 
   return proc.stdout
 })
@@ -143,7 +143,6 @@ router.POST('/convertToMp3', (context) => {
     proc.stdout.pipe(context.response)
     proc.stderr.pipe(process.stderr)
   })
-
 }, {
   streamed: true,
 })
