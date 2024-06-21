@@ -130,3 +130,22 @@ router.POST('/getFileBackwards', (context) => {
   return proc.stdout
 })
 ```
+
+If streaming from inside a callback is still needed, then the `stream: true` must be passed to indicate the response stream shouldn't be ended immediately after the callback returns.
+
+```typescript
+router.POST('/convertToMp3', (context) => {
+  const tmpFile = fs.createWriteStream('/tmp/temp.mp4')
+  context.request.pipe(tmpFile)
+
+  tmpFile.on('finish', () => {
+    const proc = spawn('ffmpeg', ['-i', '/tmp/temp.mp4', '-f', 'mp3', '-'])
+    proc.stdout.pipe(context.response)
+    proc.stderr.pipe(process.stderr)
+  })
+
+}, {
+  streamed: true,
+})
+```
+

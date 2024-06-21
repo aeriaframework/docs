@@ -12,7 +12,7 @@ The **aeria.nvim** plugin ships the Aeria Language Server and Tree Sitter-powere
 
 ```lua
 require('lazy').setup({
-  "aeria-org/aeria.nvim",
+  'aeria-org/aeria.nvim',
   -- ...
 })
 ```
