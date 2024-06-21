@@ -131,7 +131,7 @@ router.POST('/getFileBackwards', (context) => {
 })
 ```
 
-If streaming from inside a callback is still needed, then the `stream: true` must be passed to indicate the response stream shouldn't be ended immediately after the callback returns.
+If streaming from inside a callback is still needed, then the `stream: true` option must be passed to indicate the response stream shouldn't be ended immediately after the callback returns.
 
 ```typescript
 router.POST('/convertToMp3', (context) => {
