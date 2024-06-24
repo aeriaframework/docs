@@ -129,7 +129,7 @@ collection Example {
     getAll @expose("unauthenticated")
     insert @expose
     remove @expose([
-      'root'
+      "root"
     ])
     businessLogic?
   }
