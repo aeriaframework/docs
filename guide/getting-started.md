@@ -10,7 +10,7 @@
 
 ## Initial setup
 
-The official way to start an Aeria project is through the `create-aeria-app` command line utility. It is done the following way (it may vary according to the package manager you use):
+The official and easiest way to start an Aeria project is through the `create-aeria-app` command line utility. It is done the following way (it may vary according to the package manager you use):
 
 ```
 npm create -y aeria-app project-name
@@ -42,13 +42,14 @@ http://localhost:8080/user/signin
 
 Finally, to grant you access to the application during development, sign in using the default credentials specified in the `.env` file, create another user with the `root` role, change its password, and sign in again with it instead. Do not skip this step as the default user (the one that signs in with the credentials specified in env vars) lacks some important attributes.
 
-## Adding a collection
+## Adding collections
 
-Create a `collections/person/index.ts` file and place the content below. It will bring up a `person` collection with `name` and `age` properties and a set of CRUD functions that can be interacted with using REST endpoints.
+Collections are declared in the `schemas/main.aeria` file.
+Below there is an example of a "person" collection being declared with Aeria Lang, and on the side there is the same declaration using a JSON schema.
 
 ::: code-group
 
-```aeria [schemas/schema.aeria]
+```aeria [api/schemas/schema.aeria]
 collection Person {
   properties {
     name str
@@ -66,7 +67,7 @@ collection Person {
 }
 ```
 
-```typescript [collections/person/index.ts]
+```typescript [api/src/collections/person/index.ts]
 import { defineCollection, get, getAll, insert, remove } from 'aeria'
 
 export const person = defineCollection({
@@ -95,69 +96,115 @@ export const person = defineCollection({
 
 :::
 
-Now, to make the runtime acknowledge the existence of the new collection, re-export it by adding the following line in `collections/index.ts`:
+The development server will reload upon changes on `schemas/*.aeria` with the changes being automatically applied. No migration is needed after the data structure of a collection is changed. Needed migrations are performed automatically under the hood by diffing the current data structure with the previous one (todo).
+
+## Adding routes
+
+Open the scaffolded `routes/index.ts` file and add a route by calling the chosen method (`GET`, `POST`, `route` for multiple methods, etc). Request and response data and methods, as long as collections and API utilities can be accessed through the `context` parameter made available in the route callback.
+
+To indicate error and successful responses, use `Result.error()` and `Result.result()` respectively. Learn more about how Aeria handlers errors in the [Error Handling](/aeria/error-handling) page.
 
 ::: code-group
 
-```typescript [collections/index.ts]
-export * from './person/index.js'
-// or if you're using Aeria Lang
-export * from 'aeria-runtime/collections/person'
-```
+```typescript [api/src/routes/index.ts]
+router.GET('/test', async (context) => {
+  const {
+    error,
+    result: people
+  } = await context.collections.person.functions.getAll()
 
-:::
-
-
-## Adding a route
-
-A lot of effort was put into making routing safe and ergonomic. Route callbacks have a `context` parameter from where collections, request and response data, and authentication token can be used.
-
-Do as the following to create a `GET /hello-world` route in `routes/index.ts`:
-
-::: code-group
-
-```typescript [routes/index.ts]
-import { createRouter } from 'aeria'
-
-export const router = createRouter()
-
-router.GET('/hello-world', (context) => {
-  return {
-    message: `Hello, ${context.request.query.name}`
+  if( error ) {
+    return Result.error(error)
   }
+
+  return Result.result({
+    message: 'Hello, world!',
+    people,
+  })
 })
 ```
 
 :::
 
-## Puting it all together with init()
+## Creating pages in the frontend
 
-The Aeria runtime relies on dynamic imports of the entrypoint file to read collections and configuration (that's why the `main` property of `package.json` is important). The entrypoint file must export the return of the `init()` function as default.
-
-By its turn, the `init()` function receives a configuration object, and optionally a custom HTTP server callback that can be used to install a router.
-
+Aeria UI uses [unplugin-vue-router](https://github.com/posva/unplugin-vue-router) under the hood to provide a Nuxt-like filesystem-based routing. This means that, in order to create a page in the frontend, you must simply place your `.vue` file inside the `pages/` folder. For example, to make `/dashboard/hello-world` view, create the `pages/dashboard/hello-world.vue` file and put something in the template:
 
 ::: code-group
 
-```typescript [index.ts]
-import { init } from 'aeria'
-import { router } from './routes'
-import * as collections from './collections'
+```vue [web/src/pages/dashboard/hello-world.vue]
+<template>
+  <h1>Hello, world!</h1>
+</template>
+```
+:::
 
-export default init({
-  config: {
-    database: {
-      mongodbUrl: process.env.MONGODB_URL
-    }
-  },
-  callback: (context) => {
-    return router.install(context)
-  }
+## Changing the default menu schema
+
+In order to change the navbar that appears in the dashboard to add or rearrange items you must add the `menuSchema` property inside `defineOptions()`. More information on how the menu can be customized can be seen at [/aeria-ui/menu-configuration](Menu configuration).
+
+::: code-group
+
+```typescript [web/src/index.ts]
+const options = defineOptions({
+  // ...
+  menuSchema: [
+    '/dashboard/hello-world',
+    {
+      meta: {
+        title: 'Collections',
+      },
+      children: [
+        '/dashboard/person',
+        '/dashboard/user',
+      ],
+    },
+  ],
 })
+
 ```
 
 :::
 
+
+## Calling endpoints from the frontend
+
+There should be a point in the development of the application that it will be needed to request an endpoint and get back the response. You shouldn't use `fetch()` or any other HTTP client for this (except when really needed). Instead, use [Aeria SDK](/aeria-sdk/) to interact with the backend with 1:1 typing and authentication handling.
+
+::: code-group
+
+```vue [web/src/pages/dashboard/hello-world.vue]
+<script setup lang="ts">
+const metaStore = useStore('meta')
+const people = ref([])
+
+onMounted(() => {
+  const { error, result } = await aeria().test.GET()
+
+  if( error ) {
+    return metaStore.$actions.spawnToast({
+      title: 'Error!',
+      message: 'There was a error fetching people from the API'
+    })
+  }
+
+  people.value = result.people
+})
+</script>
+
+<template>
+  <ul>
+    <li
+      v-for="person in people"
+      :key="person._id"
+    >
+      {{ person.name }} ({{ person.age }} years old)
+    </li>
+  </ul>
+</template>
+```
+
+:::
 
 ## Further reading
 
