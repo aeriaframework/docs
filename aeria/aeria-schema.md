@@ -173,5 +173,21 @@ type Layout<TDescription extends Description=any> = {
   name: LayoutName
   options?: LayoutOptions<TDescription>
 }
-
 ```
+
+### preset <Badge type="tip" text="readonly CollectionPresets[]?" />
+
+Merges a description preset into the current one.
+To see what each preset contains please head to the [source code](https://github.com/aeria-org/aeria/tree/master/packages/core/src/presets).
+
+```typescript
+export type CollectionPresets =
+  | 'crud'
+  | 'duplicate'
+  | 'remove'
+  | 'removeAll'
+  | 'owned'
+  | 'timestamped'
+  | 'view'
+```
+

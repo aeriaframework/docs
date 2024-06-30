@@ -55,14 +55,14 @@ collection Person {
     name str
     age num
   }
-  presets {
-    crud
-  }
   functions {
     get
     getAll
     insert
     remove
+  }
+  presets {
+    crud
   }
 }
 ```
