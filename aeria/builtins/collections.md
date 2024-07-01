@@ -86,7 +86,7 @@ You can choose to either extend or fully replace a builtin collection.
 ```typescript
 import { extendCollection user as originalUser } from 'aeria'
 
-const user = extendCollection(originalUser, {
+export const user = extendCollection(originalUser, {
   description: {
     form: [
       'referral'
