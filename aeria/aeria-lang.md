@@ -1,6 +1,6 @@
 # Aeria Lang
 
-Aeria Lang is a schema declaration language.
+Aeria Lang is a schema declaration language. It is not a Turing-complete language, as it does not contain conditional or repetition keywords. It can only be used to declare collections (models) and contracts (DTOs).
 
 ### Collection
 
@@ -33,6 +33,24 @@ Where `aeria` is a module name and `user` is a valid export. This equals to the 
 
 ```typescript
 import('aeria').user
+```
+
+Order matters when declaring collections. If the collection `A` references the collection `B`, the collection `B` must be placed before `A`. If there's the need for a circular reference (`A` references `B` that references `A` again), then an empty declaration of `B` can be placed to solve the circularity.
+
+```aeria
+collection B {}
+
+collection A {
+  properties {
+    prop B
+  }
+}
+
+collection B {
+  properties {
+    prop A
+  }
+}
 ```
 
 ### Contract
