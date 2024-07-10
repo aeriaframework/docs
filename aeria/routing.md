@@ -1,4 +1,4 @@
-# HTTP
+# Routing
 
 Aeria ships a minimalistic web server with pattern matching, grouping, middlewares, and runtime validation support.
 

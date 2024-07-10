@@ -45,7 +45,7 @@ Finally, to grant you access to the application during development, sign in usin
 ## Adding collections
 
 Collections are declared in the `schemas/main.aeria` file.
-Below there is an example of a "person" collection being declared with Aeria Lang, and on the side there is the same declaration using a JSON schema.
+Below there is an example of a "person" collection being declared with Aeria Lang, and on the side there is the same declaration using the TypeScript API.
 
 ::: code-group
 
@@ -167,7 +167,7 @@ const options = defineOptions({
 :::
 
 
-## Calling endpoints from the frontend
+## Retrieving data from the frontend
 
 There should be a point in the development of the application that it will be needed to request an endpoint and get back the response. You shouldn't use `fetch()` or any other HTTP client for this (except when really needed). Instead, use [Aeria SDK](/aeria-sdk/) to interact with the backend with 1:1 typing and authentication handling.
 
