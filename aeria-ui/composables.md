@@ -2,7 +2,6 @@
 
 ## `useAction()`
 ## `useBreakpoints()`
-## `useClipboard()`
 ## `useDebounce()`
 ## `useNavbar()`
 

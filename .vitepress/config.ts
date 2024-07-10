@@ -156,6 +156,7 @@ function sidebarAeriaReference() {
         { text: 'Condition', link: '/aeria/condition' },
         { text: 'traverseDocument()', link: '/aeria/traverse-document' },
         { text: 'getLookupPipeline()', link: '/aeria/get-lookup-pipeline' },
+        { text: 'successfulAuthentication()', link: '/aeria/successful-authentication' },
       ]
     },
   ]
@@ -183,6 +184,7 @@ function sidebarAeriaUiReference() {
         { text: 'Directives', link: '/aeria-ui/directives' },
         { text: 'Composables', link: '/aeria-ui/composables' },
         { text: 'Template functions and computed variables', link: '/aeria-ui/template-functions-and-computed-variables' },
+        { text: 'Meta store', link: '/aeria-ui/meta-store' },
       ]
     },
     {
