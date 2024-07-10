@@ -129,7 +129,7 @@ function sidebarAeriaReference() {
           ]
         },
         { text: 'Collection', link: '/aeria/collection', },
-        { text: 'HTTP', link: '/aeria/http', },
+        { text: 'Routing', link: '/aeria/routing', },
         { text: 'Access Control', link: '/aeria/access-control', },
         { text: 'Error Handling', link: '/aeria/error-handling', },
         { text: 'Contracts', link: '/aeria/contracts' },

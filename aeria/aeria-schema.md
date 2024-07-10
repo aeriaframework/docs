@@ -9,7 +9,7 @@ Schemas in Aeria are defined using a subset of [JSON Schema](https://json-schema
 As in JSON Schema, this property is used to name the structure we are defining. It must have the same name as the collection.
 Collection names must consist of a camel-cased noun in the singular, like `person`, `fruit` or `car`. In Aeria Lang this property is implicit.
 
-### required <Badge type="tip" text="RequiredProperties?" />
+### required
 
 ::: code-group
 
@@ -59,7 +59,7 @@ The properties contained in the collection. Properties are described in a [separ
 
 ## Description
 
-### filters <Badge type="tip" text="DescriptionFilters?" /> <Badge type="tip" text="frontend" />
+### filters <Badge type="tip" text="frontend" />
 
 This property is used to control a filter widget rendered inside the `aeria-crud` component. If set, a filter button will appear, otherwise no filter functionallity will be made available.
 
@@ -100,7 +100,7 @@ type DescriptionFilters = ReadonlyArray<PropertiesWithId<TDescription>|{
 
 ```aeria [main.aeria]
 collection Example {
-  filtersPreset {
+  filtersPresets {
     active {
       label "Active"
       filters {
@@ -114,7 +114,7 @@ collection Example {
 ```typescript [collection.ts]
 defineCollection({
   description: {
-    filtersPreset: {
+    filtersPresets: {
       active: {
         label: 'Active',
         filters: {
@@ -135,11 +135,13 @@ type FiltersPreset<TDescription extends Description> = {
   badgeFunction?: string
   default?: boolean
 }
+
+type FiltersPresets<TDescription extends Description> = Record<string, FiltersPreset<TDescription>
 ```
 
 :::
 
-### form <Badge type="tip" text="PropertiesWithId<TDescription>[] | Record<PropertiesWithId<TDescription>, string[]>?" /> <Badge type="tip" text="frontend" />
+### form <Badge type="tip" text="frontend" />
 
 If set, runtime generated forms will render only specified properties. Otherwise all properties are rendered.
 
@@ -170,23 +172,7 @@ defineCollection({
 ```
 
 ```typescript [types.ts]
-type FormLayout<TDescription extends Description> = {
-  fields?: Partial<Record<PropertiesWithId<TDescription>, FormLayoutField<TDescription>>>
-}
-
-type FormLayoutField<TDescription extends Description> = {
-  span?: number
-  verticalSpacing?: number
-  separator?:
-    | true
-    | 'top'
-    | 'bottom'
-  if?: Condition<TDescription>
-  component?: {
-    name: string
-    props?: Record<string, any>
-  }
-}
+type Form = readonly PropertiesWithId<TDescription>[] | Record<PropertiesWithId<TDescription>, string[]>
 ```
 
 :::
@@ -302,10 +288,10 @@ defineCollection({
 ```
 
 ```typescript [types.ts]
-type SearchOptions<TDescription extends Description> = {
-  placeholder?: string
-  indexes: readonly (keyof TDescription['properties'])[]
-}
+type DescriptionImmutable<TDescription extends Description> =
+  | boolean
+  | readonly (keyof TDescription['properties'])[]
+  | ((doc: WithId<any>)=> boolean | Promise<boolean>)
 ```
 
 :::
@@ -338,10 +324,7 @@ defineCollection({
 ```
 
 ```typescript [types.ts]
-type SearchOptions<TDescription extends Description> = {
-  placeholder?: string
-  indexes: readonly (keyof TDescription['properties'])[]
-}
+type DescriptionIndexes = readonly PropertiesWithId<TDescription>[]
 ```
 
 :::
@@ -367,24 +350,12 @@ defineCollection({
 ```
 
 ```typescript [types.ts]
-type LayoutName =
-  | 'tabular'
-  | 'grid'
-  | 'list'
+type OwnershipMode =
+  | boolean
+  | 'always'
+  | 'on-write'
 
-type LayoutOptions<TDescription extends Description = any> = {
-  picture?: PropertiesWithId<TDescription>
-  title?: PropertiesWithId<TDescription>
-  badge?: PropertiesWithId<TDescription>
-  information?: PropertiesWithId<TDescription>
-  active?: PropertiesWithId<TDescription>
-  translateBadge?: boolean
-}
-
-type Layout<TDescription extends Description = any> = {
-  name: LayoutName
-  options?: LayoutOptions<TDescription>
-}
+type DescriptionOwned = OwnershipMode
 ```
 
 :::
@@ -420,10 +391,7 @@ defineCollection({
 ```
 
 ```typescript [types.ts]
-type SearchOptions<TDescription extends Description> = {
-  placeholder?: string
-  indexes: readonly (keyof TDescription['properties'])[]
-}
+type DescriptionTable = readonly PropertiesWithId<TDescription>[]
 ```
 
 :::
@@ -453,10 +421,7 @@ defineCollection({
 ```
 
 ```typescript [types.ts]
-type SearchOptions<TDescription extends Description> = {
-  placeholder?: string
-  indexes: readonly (keyof TDescription['properties'])[]
-}
+type DescriptionTableMeta = readonly PropertiesWithId<TDescription>[]
 ```
 
 :::
@@ -482,24 +447,7 @@ defineCollection({
 ```
 
 ```typescript [types.ts]
-type LayoutName =
-  | 'tabular'
-  | 'grid'
-  | 'list'
-
-type LayoutOptions<TDescription extends Description = any> = {
-  picture?: PropertiesWithId<TDescription>
-  title?: PropertiesWithId<TDescription>
-  badge?: PropertiesWithId<TDescription>
-  information?: PropertiesWithId<TDescription>
-  active?: PropertiesWithId<TDescription>
-  translateBadge?: boolean
-}
-
-type Layout<TDescription extends Description = any> = {
-  name: LayoutName
-  options?: LayoutOptions<TDescription>
-}
+type DescriptionTimestamps = false
 ```
 
 :::
@@ -574,7 +522,7 @@ collection Example {
 ```
 
 ```typescript [types.ts]
-type CollectionPresets =
+type DescriptionPreset =
   | 'crud'
   | 'duplicate'
   | 'remove'
@@ -613,10 +561,7 @@ defineCollection({
 ```
 
 ```typescript [types.ts]
-type SearchOptions<TDescription extends Description> = {
-  placeholder?: string
-  indexes: readonly (keyof TDescription['properties'])[]
-}
+type DescriptionWritable = readonly PropertiesWithId<TDescription>[]
 ```
 
 :::
@@ -654,7 +599,7 @@ defineCollection({
 ```
 
 ```typescript [types.ts]
-type SearchOptions<TDescription extends Description> = {
+type DescriptionSearch<TDescription extends Description> = {
   placeholder?: string
   indexes: readonly (keyof TDescription['properties'])[]
 }
