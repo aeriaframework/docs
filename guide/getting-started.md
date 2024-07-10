@@ -21,7 +21,7 @@ The utility will scaffold a new project with some defaults:
 - TypeScript
 - ESlint installed with the official Aeria style guideline
 - Husky and commitlint with conventional commits set up
-- Tailwind preconfigured in the frontend with the `` prefix in classes
+- Tailwind preconfigured in the frontend with the `tw-` prefix in classes
 
 If you wish for a more vanilla approach instead, simply install the `aeria` package and start your project from a `.js` or a `.mjs` file. The only important thing is to make sure the `main` property inside the `package.json` exists and points to the right file.
 
@@ -50,10 +50,33 @@ Below there is an example of a "person" collection being declared with Aeria Lan
 ::: code-group
 
 ```aeria [api/schemas/schema.aeria]
+collection Pet {
+  properties {
+    name str
+    age num
+    specie enum @values([
+      "dog",
+      "cat",
+      "bird"
+    ])
+  }
+  functions {
+    get
+    getAll
+    insert
+    remove
+  }
+  presets {
+    crud
+  }
+}
+
 collection Person {
   properties {
     name str
     age num
+    pets []Pet
+    picture File @accept(["image/*"])
   }
   functions {
     get
@@ -67,6 +90,41 @@ collection Person {
 }
 ```
 
+```typescript [api/src/collections/pet/index.ts]
+import { defineCollection, get, getAll, insert, remove } from 'aeria'
+
+export const pet = defineCollection({
+  description: {
+    $id: 'person',
+    properties: {
+      name: {
+        type: 'string'
+      },
+      age: {
+        type: 'number'
+      },
+      specie: {
+        enum: [
+          'dog',
+          'cat',
+          'bird',
+        ],
+      },
+    },
+    presets: [
+      'crud'
+    ],
+  },
+  functions: {
+    get,
+    getAll,
+    insert,
+    remove
+  }
+})
+```
+
+
 ```typescript [api/src/collections/person/index.ts]
 import { defineCollection, get, getAll, insert, remove } from 'aeria'
 
@@ -79,7 +137,19 @@ export const person = defineCollection({
       },
       age: {
         type: 'number'
-      }
+      },
+      pets: {
+        type: 'array',
+        items: {
+          $ref: 'pet'
+        },
+      },
+      picture: {
+        $ref: 'file',
+        accept: [
+          'image/*'
+        ],
+      },
     },
     presets: [
       'crud'
@@ -156,6 +226,7 @@ const options = defineOptions({
       },
       children: [
         '/dashboard/person',
+        '/dashboard/pet',
         '/dashboard/user',
       ],
     },
