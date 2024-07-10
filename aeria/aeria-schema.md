@@ -147,11 +147,53 @@ If set, runtime generated forms will render only specified properties. Otherwise
 This property alone won't keep any of non-specified collection properties to be written. If you need to make properties read-only, use the `writable` property in an exclusive manner.
 :::
 
+::: code-group
+
+```aeria [main.aeria]
+collection Example {
+  form {
+    name
+    document
+  }
+}
+```
+
+```typescript [collection.ts]
+defineCollection({
+  description: {
+    form: [
+      'name',
+      'document',
+    ],
+  },
+})
+```
+
+```typescript [types.ts]
+type FormLayout<TDescription extends Description> = {
+  fields?: Partial<Record<PropertiesWithId<TDescription>, FormLayoutField<TDescription>>>
+}
+
+type FormLayoutField<TDescription extends Description> = {
+  span?: number
+  verticalSpacing?: number
+  separator?:
+    | true
+    | 'top'
+    | 'bottom'
+  if?: Condition<TDescription>
+  component?: {
+    name: string
+    props?: Record<string, any>
+  }
+}
+```
+
+:::
+
 ### formLayout <Badge type="tip" text="Partial<FormLayout<TDescription>>?" /> <Badge type="tip" text="frontend" />
 
 This property controls how inputs should be dynamically rendered inside frontend forms.
-
-**Type:**
 
 ::: code-group
 
@@ -204,8 +246,6 @@ type FormLayoutField<TDescription extends Description> = {
 ```
 
 :::
-
-**Example:**
 
 ### icon <Badge type="tip" text="string?" /> <Badge type="tip" text="frontend" />
 

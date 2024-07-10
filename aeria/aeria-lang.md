@@ -29,7 +29,7 @@ collection User extends aeria.user {
 }
 ```
 
-Where `aeria` is a module name and `user` is a valid export. This equal to:
+Where `aeria` is a module name and `user` is a valid export. This equals to the following JavaScript expression:
 
 ```typescript
 import('aeria').user
