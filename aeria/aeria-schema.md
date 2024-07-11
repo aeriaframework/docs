@@ -43,7 +43,7 @@ defineCollection({
 ```
 
 ```typescript [types.ts]
-type RequiredProperties<TDescription extends Description> = ReadonlyArray<PropertiesWithId<TDescription>> | Partial<Record<
+type RequiredProperties<TDescription extends Description> = readonly PropertiesWithId<TDescription>[] | Partial<Record<
   PropertiesWithId<TDescription>,
   Condition<TDescription> | boolean
 >>
@@ -86,10 +86,10 @@ defineCollection({
 ```
 
 ```typescript [type.ts]
-type DescriptionFilters = ReadonlyArray<PropertiesWithId<TDescription>|{
+type DescriptionFilters = readonly (PropertiesWithId<TDescription> | {
   property: PropertiesWithId<TDescription>
   default: string
-}>
+})[]
 ```
 
 :::
@@ -263,7 +263,7 @@ type SearchOptions<TDescription extends Description> = {
 
 :::
 
-### immutable <Badge type="tip" text="(boolean | ReadonlyArray<string>)?" />
+### immutable <Badge type="tip" text="(boolean | readonly string[])?" />
 
 This property may be used to specify properties that should be writable upon creation, but read-only upon update. If set to true, then will enable immutability to all properties, if set to an array of strings, only specified properties will receive that attribute.
 
@@ -296,7 +296,7 @@ type DescriptionImmutable<TDescription extends Description> =
 
 :::
 
-### indexes <Badge type="tip" text="ReadonlyArray<string>?" /> <Badge type="tip" text="frontend" />
+### indexes <Badge type="tip" text="readonly string?" /> <Badge type="tip" text="frontend" />
 
 This optional property may be used to specify an icon from an icon library to be associated with the collection in the frontend.
 It will be shown on navbars, breadcumbs, etc.
@@ -360,7 +360,7 @@ type DescriptionOwned = OwnershipMode
 
 :::
 
-### table <Badge type="tip" text="ReadonlyArray<PropertiesWithId<TDescription>>?" /> <Badge type="tip" text="frontend" />
+### table <Badge type="tip" text="readonly PropertiesWithId<TDescription>?" /> <Badge type="tip" text="frontend" />
 
 This property is used exclusively by the frontend. Case set to an array of strings, will specify properties to be used as columns in `aeria-crud` component. Otherwise all properties will be used.
 
@@ -396,7 +396,7 @@ type DescriptionTable = readonly PropertiesWithId<TDescription>[]
 
 :::
 
-### tableMeta <Badge type="tip" text="ReadonlyArray<PropertiesWithId<TDescription>>?" /> <Badge type="tip" text="frontend" />
+### tableMeta <Badge type="tip" text="readonly PropertiesWithId<TDescription>[]?" /> <Badge type="tip" text="frontend" />
 
 If set, grid and tabular runtime generated views will request the specified properties alongside the ones specified in `table`.
 
@@ -534,7 +534,7 @@ type DescriptionPreset =
 
 :::
 
-### writable <Badge type="tip" text="ReadonlyArray<PropertiesWithId<TDescription>>?" />
+### writable <Badge type="tip" text="readonly PropertiesWithId<TDescription>[]?" />
 
 If set, all properties except the one specified will be made read-only. Trying writing on them will trigger an Access Control error.
 

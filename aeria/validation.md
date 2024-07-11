@@ -70,7 +70,7 @@ type PropertyValidationError = {
   type: PropertyValidationErrorType
   index?: number
   details: {
-    expected: string | ReadonlyArray<any>
+    expected: string | any[]
     got: string
   }
 }

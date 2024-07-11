@@ -127,7 +127,7 @@ type PropertyInputType =
   | 'month'
 ```
 
-### mask <Badge type="tip" text="(string | ReadonlyArray<string>)?" />
+### mask <Badge type="tip" text="(string | readonly string[])?" />
 
 This property specifies one or more masks to be applied to the input.
 
@@ -252,11 +252,11 @@ company Company @indexes(["name", "headquarters"])
 
 A string containing the name of the target collection as in `$id`.
 
-### indexes <Badge type="tip" text="ReadonlyArray<string>?" />
+### indexes <Badge type="tip" text="readonly string[]?" />
 
 This property specifies indexes to be used when searching documents from the target collection in case default indexes are missing.
 
-### populate <Badge type="tip" text="ReadonlyArray<string>?" />
+### populate <Badge type="tip" text="readonly string[]?" />
 
 By default, Aeria populates only properties specified by `indexes`, but there are cases where you need to populate a property that isn't a index. You may pass those properties into `populate` array.
 
@@ -322,7 +322,7 @@ picture File @accept(["image/*"])
 
 File properties are ultimately reference properties that have `$ref` set to `'file'`. Aeria will be able to tell the property is a file in the runtime and the frontend should render a file component accordingly.
 
-### accept <Badge type="tip" text="ReadonlyArray<string>?" />
+### accept <Badge type="tip" text="readonly string[]?" />
 
 This read-only array of strings may contain accepted mime types. Wildcards such as `image/*` are accepted.
 
@@ -363,7 +363,7 @@ status enum @options([
 
 :::
 
-### enum <Badge type="tip" text="ReadonlyArray<any>?" />
+### enum <Badge type="tip" text="readonly any[]" />
 
 Enum properties specify an array of valid elements that will be validated upon insert. The elements of the enum must be of a scalar type. Passing objects will fail at runtime because references will be compared instead of actual value.
 
