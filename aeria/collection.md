@@ -4,7 +4,7 @@ Collections are storable entities. Each collection has it's [data structure](/ae
 
 ::: code-group
 
-```aeria [schema.aeria]
+```aeria [main.aeria]
 collection Pizza {
   properties {
     name str
@@ -75,11 +75,8 @@ When exposed as an endpoint, the JSON-unserialized `POST` request body will be p
 
 ::: code-group
 
-```aeria [schema.aeria]
+```aeria [main.aeria]
 collection Pizza {
-  properties {
-    // ...
-  }
   functions {
     getAll
     customFunction?
@@ -111,19 +108,16 @@ router.GET('/example', (context) => {
 
 :::
 
-### Exposing functions as endpoints
+#### Exposing functions as endpoints
 
 Functions can be directly exposed as endpoints for the sake of brevity and reusability. This is where the `exposedFunctions` property comes in. A [`AccessCondition`](/aeria/access-control) is passed at the time of exposing a function to tell which set of users will have access to it based on their roles.
 
-In `Aeria Lang`, `@expose` is de-sugared into `@expose(true)`, meaning exposed only to authenticated users.
+When the `true` value is passed (`@expose` or `@expose(true)` in Aeria Lang), only authenticated users will have access.
 
 ::: code-group
 
 ```aeria [collection.aeria]
 collection Example {
-  properties {
-    // ...
-  }
   functions {
     get @expose("unauthenticated")
     getAll @expose("unauthenticated")
@@ -167,6 +161,54 @@ const example = defineCollection({
 :::
 
 For some use cases it might be unnecessary to control the access to every endpoint. In such cases the `config.security.exposeFunctionsByDefault` can be set to `true` to exposed functions to authenticated users by default, or to `'unauthenticate'` to include unauthenticated users.
+
+### Security
+
+Security decisions can be expressed with the `security` property.
+
+::: code-group
+
+```aeria [main.aeria]
+collection Example {
+  security {
+    functions {
+      getAll {
+        logging {
+          strategy "tenant"
+        }
+        rateLimiting {
+          strategy "ip"
+          scale 10
+        }
+      }
+    }
+  }
+}
+```
+
+```typescript [collection.ts]
+import { defineCollection, get, getAll, insert, remove } from 'aeria'
+
+const example = defineCollection({
+  description,
+  functions,
+  security: {
+    functions: {
+      getAll: {
+        logging: {
+          strategy: 'tenant'
+        },
+        rateLimiting: {
+          strategy: 'ip',
+          scale: 10,
+        },
+      },
+    },
+  },
+})
+```
+
+:::
 
 ### Interacting directly with MongoDB
 

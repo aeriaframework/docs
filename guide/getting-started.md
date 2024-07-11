@@ -49,7 +49,7 @@ Below there is an example of a "person" collection being declared with Aeria Lan
 
 ::: code-group
 
-```aeria [api/schemas/schema.aeria]
+```aeria [api/schemas/main.aeria]
 collection Person {
   properties {
     name str
