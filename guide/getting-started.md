@@ -50,32 +50,10 @@ Below there is an example of a "person" collection being declared with Aeria Lan
 ::: code-group
 
 ```aeria [api/schemas/schema.aeria]
-collection Pet {
-  properties {
-    name str
-    age num
-    specie enum @values([
-      "dog",
-      "cat",
-      "bird"
-    ])
-  }
-  functions {
-    get
-    getAll
-    insert
-    remove
-  }
-  presets {
-    crud
-  }
-}
-
 collection Person {
   properties {
     name str
     age num
-    pets []Pet
     picture File @accept(["image/*"])
   }
   functions {
@@ -90,41 +68,6 @@ collection Person {
 }
 ```
 
-```typescript [api/src/collections/pet/index.ts]
-import { defineCollection, get, getAll, insert, remove } from 'aeria'
-
-export const pet = defineCollection({
-  description: {
-    $id: 'person',
-    properties: {
-      name: {
-        type: 'string'
-      },
-      age: {
-        type: 'number'
-      },
-      specie: {
-        enum: [
-          'dog',
-          'cat',
-          'bird',
-        ],
-      },
-    },
-    presets: [
-      'crud'
-    ],
-  },
-  functions: {
-    get,
-    getAll,
-    insert,
-    remove
-  }
-})
-```
-
-
 ```typescript [api/src/collections/person/index.ts]
 import { defineCollection, get, getAll, insert, remove } from 'aeria'
 
@@ -137,12 +80,6 @@ export const person = defineCollection({
       },
       age: {
         type: 'number'
-      },
-      pets: {
-        type: 'array',
-        items: {
-          $ref: 'pet'
-        },
       },
       picture: {
         $ref: 'file',
@@ -226,7 +163,6 @@ const options = defineOptions({
       },
       children: [
         '/dashboard/person',
-        '/dashboard/pet',
         '/dashboard/user',
       ],
     },
