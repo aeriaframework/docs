@@ -63,8 +63,10 @@ collection B {
 ```aeria
 contract InsertUserContract {
   payload {
-    username str
-    password str
+    properties {
+      username str
+      password str
+    }
   }
   response [
     properties {
