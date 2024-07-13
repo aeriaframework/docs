@@ -38,9 +38,9 @@ required {
 
 :::
 
-## FinalCondition
+## `FinalCondition`
 
-### operator <Badge type="tip" text="FinalOperator" />
+### `operator` <Badge type="tip" text="FinalOperator" />
 
 ```typescript
 type FinalOperator =
@@ -52,19 +52,19 @@ type FinalOperator =
   | 'lte'
 ```
 
-### term1 <Badge type="tip" text="PropertiesWithId<TSchema>" />
+### `term1` <Badge type="tip" text="PropertiesWithId<TSchema>" />
 
 The name of the property that will be the first term of the condition.
 
-### term2 <Badge type="tip" text="any" />
+### `term2` <Badge type="tip" text="any" />
 
 The second term of the condition.
 
-### else <Badge type="tip" text="any?" />
+### `else` <Badge type="tip" text="any?" />
 
 In case the condition is false, specify this value instead.
 
-### fromState <Badge type="tip" text="boolean?" />
+### `fromState` <Badge type="tip" text="boolean?" />
 
 Treats `term2` as a path in the state. Example:
 
@@ -83,41 +83,41 @@ Treats `term2` as a path in the state. Example:
 ```
 
 
-## RegexCondition
+## `RegexCondition`
 
-### operator <Badge type="tip" text="'regex'" />
+### `operator` <Badge type="tip" text="'regex'" />
 
 The string `'regex'`.
 
-### term1 <Badge type="tip" text="PropertiesWithId<TSchema>" />
+### `term1` <Badge type="tip" text="PropertiesWithId<TSchema>" />
 
 The name of the property that will be the first term of the condition.
 
-### term2 <Badge type="tip" text="any" />
+### `term2` <Badge type="tip" text="any" />
 
 A string representing a regex.
 
-### fromState <Badge type="tip" text="boolean?" />
+### `fromState` <Badge type="tip" text="boolean?" />
 
 Same as in `FinalCondition`.
 
-### regexOptions <Badge type="tip" text="string?" />
+### `regexOptions` <Badge type="tip" text="string?" />
 
 A string containing regexp options as in JavaScript `RegExp` constructor.
 
 
-## TruthyCondition
+## `TruthyCondition`
 
-### operator <Badge type="tip" text="'truthy'" />
+### `operator` <Badge type="tip" text="'truthy'" />
 
 The string `'truthy'`.
 
-### term1 <Badge type="tip" text="PropertiesWithId<TSchema>" />
+### `term1` <Badge type="tip" text="PropertiesWithId<TSchema>" />
 
 The name of the property that will have it's existence checked.
 
 
-## AndCondition and OrCondition
+## `AndCondition` and `OrCondition`
 
 Logic concatenation is possible by passing an array of conditions to either `and` or `or`.
 
@@ -131,7 +131,7 @@ type AndCondition<TSchema extends JsonSchema> = {
 }
 ```
 
-## NotCondition
+## `NotCondition`
 
 It's possible to check for falsiness passing a condition to `not`.
 
