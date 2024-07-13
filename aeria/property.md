@@ -248,7 +248,7 @@ company Company @indexes(["name", "headquarters"])
 
 :::
 
-### $ref <Badge type="tip" text="string" />
+### `$ref` <Badge type="tip" text="string" />
 
 A string containing the name of the target collection as in `$id`.
 
@@ -318,7 +318,7 @@ picture File @accept(["image/*"])
 
 :::
 
-### $ref <Badge type="tip" text="'file'" />
+### `$ref` <Badge type="tip" text="'file'" />
 
 File properties are ultimately reference properties that have `$ref` set to `'file'`. Aeria will be able to tell the property is a file in the runtime and the frontend should render a file component accordingly.
 
