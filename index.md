@@ -20,6 +20,7 @@ type Snippet = {
 
 const snippets = ref<Snippet[]>([])
 const currentSnippet = ref<number | undefined>()
+const isCommandCopied = ref(false)
 
 snippets.value.push({
   name: 'Schema',
@@ -32,11 +33,11 @@ collection Person {
     picture File @accept(["image/jpeg"])
   }
   functions {
-    get
-    getAll
-    insert
-    remove
-    upload
+    get @expose
+    getAll @expose
+    insert @expose(["root"])
+    remove @expose(["root"])
+    upload @expose(["root"])
   }
 }
 \`\`\`
@@ -95,6 +96,11 @@ onMounted(async () => {
 const selectSnippet = (index: number) => {
   currentSnippet.value = index
 }
+
+const copyCommand = async () => {
+  await navigator.clipboard.writeText('npm create -y aeria-app my-project')
+  isCommandCopied.value = true
+}
 </script>
 
 <nav>
@@ -106,7 +112,13 @@ const selectSnippet = (index: number) => {
       <a href="/guide/getting-started/">Getting Started</a>
       <aeria-icon v-clickable v-if="isDark" icon="sun" @click="isDark = false" />
       <aeria-icon v-clickable v-else icon="moon" @click="isDark = true" />
-      <aeria-icon v-clickable icon="github-logo" class="github-logo">
+      <aeria-icon
+        v-clickable
+        icon="github-logo"
+        href="https://github.com/aeria-org/aeria"
+        target="_blank"
+        class="github-logo"
+      >
         Star us on Github!
       </aeria-icon>
     </ul>
@@ -122,15 +134,26 @@ const selectSnippet = (index: number) => {
         web framework that ensures the quality of the code being produced
       </h2>
       <div class="hero__command">
-        <div class="hero__command-text">
-          npm create -y aeria-app my-project
+        <div class="hero__command-box">
+          <div class="hero__command-text">
+            npm create -y aeria-app my-project
+          </div>
+          <div
+            v-clickable
+            class="hero__command-copy"
+            @click="copyCommand"
+          >
+            <aeria-icon icon="copy" />
+          </div>
         </div>
-        <div class="hero__command-copy">
-          <aeria-icon v-clickable icon="copy" />
+        <div v-if="isCommandCopied" class="hero__command-copied">
+          Copied!
         </div>
       </div>
       <div class="hero_cta">
-        <aeria-button>Get Started</aeria-button>
+        <a href="/guide/getting-started">
+          <aeria-button>Get Started</aeria-button>
+        </a>
       </div>
     </div>
     <div class="showcase">
@@ -179,7 +202,7 @@ const selectSnippet = (index: number) => {
 @media screen and (min-width: 1200px) {
   * {
     --nav-padding: 1.4rem 8rem;
-    --section-padding: 4rem 8rem;
+    --section-padding: 3rem 8rem;
   }
 }
 </style>
@@ -191,31 +214,12 @@ const selectSnippet = (index: number) => {
   }
 
   .hero {
-    display: grid;
     grid-template-columns: repeat(2, 1fr);
 
     &__info {
-      display: flex;
-      flex-direction: column;
-      align-items: start;
-      gap: 1rem;
       font-size: 15pt;
     }
 
-    &__command {
-      display: inline-flex;
-      border: 1px solid var(--border-color);
-      align-items: center;
-    }
-
-    &__command-text, &__command-copy {
-      padding: 1rem;
-    }
-
-    &__command-text {
-      font-size: 12pt;
-      border-right: 1px solid var(--border-color);
-    }
   }
 
   .snippets {
@@ -249,6 +253,10 @@ menu ul {
 
 section {
   padding: var(--section-padding);
+
+   &:not(:last-child) {
+     border-bottom: 1px solid var(--border-color);
+   }
 }
 
 h1, h2 {
@@ -262,6 +270,43 @@ h1 {
 h2 {
   font-size: 1.2rem;
   font-weight: 300;
+}
+
+.hero {
+  display: grid;
+  gap: 1rem;
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 1rem;
+  }
+
+  &__command {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__command-box {
+    display: inline-flex;
+    border: 1px solid var(--border-color);
+    align-items: center;
+  }
+
+  &__command-text, &__command-copy {
+    padding: 1rem;
+  }
+
+  &__command-text {
+    font-size: 12pt;
+    border-right: 1px solid var(--border-color);
+  }
+
+  &__command-copied {
+    font-size: 11pt;
+    font-style: italic;
+  }
 }
 
 .showcase {
@@ -283,6 +328,7 @@ h2 {
 
   &__tabs {
     display: flex;
+    border-bottom: 1px solid var(--border-color);
   }
 
   &__tab {
