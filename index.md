@@ -9,29 +9,21 @@ import markdownit from 'markdown-it'
 import shiki from '@shikijs/markdown-it'
 import typescriptGrammar from 'shiki/langs/typescript.mjs'
 import aeriaGrammar from 'virtual:aeria-grammar'
-import { AeriaIcon } from 'aeria-ui'
+import { AeriaIcon, AeriaButton } from 'aeria-ui'
 
 const { isDark } = useData()
 
-const snippets: string[] = []
-const renderedSnippets = ref<string[]>([])
+type Snippet = {
+  name: string
+  code: string
+}
 
-snippets.push(`
-\`\`\`typescript
-import { createRouter } from 'aeria'
+const snippets = ref<Snippet[]>([])
+const currentSnippet = ref<number | undefined>()
 
-export const router = createRouter()
-router.POST('/example', async (context) => {
-  const person = await context.collections.person.functions.get()
-
-  return {
-    message: \`hello, \${person.name}!\`
-  }
-})
-\`\`\`
-`)
-
-snippets.push(`
+snippets.value.push({
+  name: 'Schema',
+  code: `
 \`\`\`aeria
 collection Person {
   properties {
@@ -48,9 +40,34 @@ collection Person {
   }
 }
 \`\`\`
-`)
+`
+})
 
-const codeSnippet1 = ref()
+snippets.value.push({
+    name: 'Routing',
+    code: `
+\`\`\`typescript
+import { createRouter, Result } from 'aeria'
+
+export const router = createRouter()
+router.POST('/example', async (context) => {
+    const { error, result: person } = await context.collections.person.functions.get({
+      filters: {
+        _id: id
+      }
+    })
+
+  if( error ) {
+    return Result.error(error)
+  }
+
+  return Result.result({
+    message: \`hello, \${person.name}!\`
+  })
+})
+\`\`\`
+`,
+})
 
 onMounted(async () => {
   const md = markdownit()
@@ -59,16 +76,24 @@ onMounted(async () => {
       light: 'vitesse-light',
       dark: 'vitesse-dark',
     },
-    langs: [aeriaGrammar].concat(
-      typescriptGrammar
+    langs: [].concat(
+      aeriaGrammar,
+      typescriptGrammar,
      )
   }))
 
-  renderedSnippets.value = snippets.map((code) => md.render(code))
+  snippets.value = snippets.value.map((snippet) => {
+    return {
+      ...snippet,
+      code: md.render(snippet.code),
+    }
+  })
+
+  currentSnippet.value = 0
 })
 
-const swapSnippets = () => {
-  renderedSnippets.value = renderedSnippets.value.reverse()
+const selectSnippet = (index: number) => {
+  currentSnippet.value = index
 }
 </script>
 
@@ -81,42 +106,51 @@ const swapSnippets = () => {
       <a href="/guide/getting-started/">Getting Started</a>
       <aeria-icon v-clickable v-if="isDark" icon="sun" @click="isDark = false" />
       <aeria-icon v-clickable v-else icon="moon" @click="isDark = true" />
+      <aeria-icon v-clickable icon="github-logo" class="github-logo">
+        Star us on Github!
+      </aeria-icon>
     </ul>
   </menu>
 </nav>
 
 <section>
   <div class="hero">
-    <div class="hero-info">
-      <h1>Write better code by writing <u>less code.</u></h1>
+    <div class="hero__info">
+      <h1>Let your code do the talking.</h1>
       <h2>
         Aeria is a schema definition language and a minimalistic, type-driven
         web framework that ensures the quality of the code being produced
       </h2>
+      <div class="hero__command">
+        <div class="hero__command-text">
+          npm create -y aeria-app my-project
+        </div>
+        <div class="hero__command-copy">
+          <aeria-icon v-clickable icon="copy" />
+        </div>
+      </div>
+      <div class="hero_cta">
+        <aeria-button>Get Started</aeria-button>
+      </div>
     </div>
     <div class="showcase">
       <div class="snippets">
-        <div
-          v-html="renderedSnippets[0]"
-          class="snippet"
-        />
-        <div class="highlighted-snippet">
-          <div
-            v-html="renderedSnippets[1]"
-            class="snippet snippet--highlight"
-          />
-          <div class="showcase-actions">
-            <a href="#">
-              View more examples
-            </a>
-            <a
-              href="#"
-              @click="swapSnippets"
-            >
-              Swap
-            </a>
-          </div>
+        <div class="snippets__tabs">
+          <a 
+            v-clickable
+            v-for="(snippet, index) in snippets"
+            :key="`snippet-name-${snippet.name}`"
+            class="snippets__tab"
+            @click="currentSnippet = index"
+          >
+            {{ snippet.name }}
+          </a>
         </div>
+        <div
+          v-if="typeof currentSnippet === 'number'"
+          v-html="snippets[currentSnippet].code"
+          class="snippet"
+        ></div>
       </div>
     </div>
 
@@ -128,29 +162,30 @@ const swapSnippets = () => {
   --nav-padding: 2rem;
   --section-padding: 2rem;
   --border-color: #efefef;
+  --contrast-border-color: black;
   --shadow-color: #eee;
   --snippet-background-color: #f9f9f9;
 }
 
 .dark {
   * {
-    --border-color: #333;
+    --border-color: #444;
+    --contrast-border-color: white;
     --shadow-color: #000;
     --snippet-background-color: #222;
   }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1200px) {
   * {
-    --nav-padding: 2rem 8rem;
+    --nav-padding: 1.4rem 8rem;
     --section-padding: 4rem 8rem;
   }
 }
-
 </style>
 
 <style scoped lang="less">
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1200px) {
   section h2 {
     font-size: 1.4rem;
   }
@@ -158,47 +193,53 @@ const swapSnippets = () => {
   .hero {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 4rem;
-  }
 
-  .hero-info {
-    font-size: 15pt;
-  }
+    &__info {
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      gap: 1rem;
+      font-size: 15pt;
+    }
 
-  .snippet {
-    min-height: 20rem;
-    width: 40rem;
-  }
+    &__command {
+      display: inline-flex;
+      border: 1px solid var(--border-color);
+      align-items: center;
+    }
 
-  .highlighted-snippet {
-    position: absolute;
-    top: 3rem;
-    right: -3rem;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 12px;
+    &__command-text, &__command-copy {
+      padding: 1rem;
+    }
 
-    a {
-      opacity: .6;
+    &__command-text {
+      font-size: 12pt;
+      border-right: 1px solid var(--border-color);
     }
   }
 
-  .snippet--highlight {
-    box-shadow: 0 4px 12px var(--shadow-color);
-  }
-
-  .snippet:not(.snippet--highlight) {
-    opacity: .6;
-    filter: grayscale(1);
+  .snippets {
+    width: 42rem;
+    min-height: 20rem;
   }
 }
 
 nav {
   display: flex;
+  align-items: center;
   justify-content: space-between;
   padding: var(--nav-padding);
   border-bottom: 1px solid var(--border-color);
+
+  menu > ul {
+    display: flex;
+    align-items: center;
+  }
+
+  .github-logo {
+    border: 1px solid var(--contrast-border-color);
+    padding: 1rem;
+  }
 }
 
 menu ul {
@@ -212,11 +253,10 @@ section {
 
 h1, h2 {
   line-height: 1.2em;
-  margin-bottom: 1rem;
 }
 
 h1 {
-  font-size: 1.6em;
+  font-size: 2em;
 }
 
 h2 {
@@ -239,13 +279,24 @@ h2 {
 .snippets {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  border: 1px solid var(--border-color);
+
+  &__tabs {
+    display: flex;
+  }
+
+  &__tab {
+    flex: 1;
+    text-align: center;
+    padding: 1rem;
+    &:not(:last-child) {
+      border-right: 1px solid var(--border-color);
+    }
+  }
 }
 
 .snippet {
   font-size: 10pt;
-  border: 1px solid var(--border-color);
-  border-radius: 6px;
   padding: 1rem;
   overflow: auto;
 }
