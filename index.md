@@ -45,6 +45,30 @@ collection Person {
 })
 
 snippets.value.push({
+    name: 'DTOs',
+    code: `
+\`\`\`aeria
+contract ExampleContract {
+  payload {
+    properties {
+      id str
+    }
+  }
+  response [
+    properties {
+      success const @value(false)
+    },
+    properties {
+      success const @value(true)
+      person Person
+    }
+  ]
+}
+\`\`\`
+`,
+})
+
+snippets.value.push({
     name: 'Routing',
     code: `
 \`\`\`typescript
@@ -54,8 +78,8 @@ export const router = createRouter()
 router.POST('/example', async (context) => {
     const { error, result: person } = await context.collections.person.functions.get({
       filters: {
-        _id: id
-      }
+        _id: context.request.payload.id,
+      },
     })
 
   if( error ) {
@@ -63,7 +87,7 @@ router.POST('/example', async (context) => {
   }
 
   return Result.result({
-    message: \`hello, \${person.name}!\`
+    message: \`hello, \${person.name}!\`,
   })
 })
 \`\`\`
@@ -230,7 +254,7 @@ const copyCommand = async () => {
 
   }
 
-  .snippets {
+  .snippet {
     min-height: 20rem;
   }
 }
