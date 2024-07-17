@@ -103,9 +103,8 @@ const copyCommand = async () => {
 }
 </script>
 
-<nav>
+<nav class="nav">
   Aeria
-
   <menu>
     <ul>
       <a href="/aeria/">Docs</a>
@@ -123,6 +122,10 @@ const copyCommand = async () => {
       </aeria-icon>
     </ul>
   </menu>
+</nav>
+
+<nav class="mobile-nav">
+  Aeria
 </nav>
 
 <section>
@@ -156,25 +159,26 @@ const copyCommand = async () => {
         </a>
       </div>
     </div>
-    <div class="showcase">
-      <div class="snippets">
-        <div class="snippets__tabs">
-          <a 
-            v-clickable
-            v-for="(snippet, index) in snippets"
-            :key="`snippet-name-${snippet.name}`"
-            class="snippets__tab"
-            @click="currentSnippet = index"
-          >
-            {{ snippet.name }}
-          </a>
-        </div>
-        <div
-          v-if="typeof currentSnippet === 'number'"
-          v-html="snippets[currentSnippet].code"
-          class="snippet"
-        ></div>
+    <div class="snippets">
+      <div class="snippets__tabs">
+        <a 
+          v-clickable
+          v-for="(snippet, index) in snippets"
+          :key="`snippet-name-${snippet.name}`"
+          :class="{
+            'snippets__tab': true,
+            'snippets__tab--current': currentSnippet === index,
+          }"
+          @click="currentSnippet = index"
+        >
+          {{ snippet.name }}
+        </a>
       </div>
+      <div
+        v-if="typeof currentSnippet === 'number'"
+        v-html="snippets[currentSnippet].code"
+        class="snippet"
+      ></div>
     </div>
 
   </div>
@@ -182,39 +186,43 @@ const copyCommand = async () => {
 
 <style lang="less">
 * {
-  --nav-padding: 2rem;
-  --section-padding: 2rem;
+  --nav-padding: 1.6rem 1rem;
+  --section-padding: 1rem;
   --border-color: #efefef;
-  --contrast-border-color: black;
-  --shadow-color: #eee;
-  --snippet-background-color: #f9f9f9;
+  --contrast-color-bg: #000;
+  --contrast-color-fg: #fff;
+  --background-color: #fbfbfb;
 }
 
 .dark {
   * {
     --border-color: #444;
-    --contrast-border-color: white;
-    --shadow-color: #000;
-    --snippet-background-color: #222;
+  --contrast-color-bg: #fff;
+  --contrast-color-fg: #000;
+    --background-color: #333;
   }
 }
 
 @media screen and (min-width: 1200px) {
   * {
-    --nav-padding: 1.4rem 8rem;
-    --section-padding: 3rem 8rem;
+    --nav-padding: 1.4rem 6rem;
+    --section-padding: 3rem 6rem;
   }
 }
 </style>
 
 <style scoped lang="less">
+* {
+  color: unset;
+}
+
 @media screen and (min-width: 1200px) {
   section h2 {
     font-size: 1.4rem;
   }
 
   .hero {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
 
     &__info {
       font-size: 15pt;
@@ -223,36 +231,51 @@ const copyCommand = async () => {
   }
 
   .snippets {
-    width: 42rem;
     min-height: 20rem;
   }
 }
 
-nav {
-  display: flex;
+.nav,
+.mobile-nav {
+  display: none;
   align-items: center;
   justify-content: space-between;
   padding: var(--nav-padding);
   border-bottom: 1px solid var(--border-color);
+}
 
-  menu > ul {
+.nav {
+  @media screen and (min-width: 1200px) {
     display: flex;
-    align-items: center;
-  }
 
-  .github-logo {
-    border: 1px solid var(--contrast-border-color);
-    padding: 1rem;
+    menu > ul {
+      display: flex;
+      align-items: center;
+      gap: 1.4rem;
+    }
+
+    .github-logo {
+      border: 1px solid var(--contrast-color-bg);
+      padding: 1rem;
+
+      &:hover {
+        --icon-color: var(--contrast-color-fg);
+        background: var(--contrast-color-bg);
+        color: var(--contrast-color-fg);
+      }
+    }
   }
 }
 
-menu ul {
+.mobile-nav {
   display: flex;
-  gap: 1rem;
+  @media screen and (min-width: 1200px) {
+    display: none;
+  }
 }
 
 section {
-  padding: var(--section-padding);
+  margin: var(--section-padding);
 
    &:not(:last-child) {
      border-bottom: 1px solid var(--border-color);
@@ -274,7 +297,7 @@ h2 {
 
 .hero {
   display: grid;
-  gap: 1rem;
+  gap: 2rem;
 
   &__info {
     display: flex;
@@ -295,11 +318,11 @@ h2 {
   }
 
   &__command-text, &__command-copy {
-    padding: 1rem;
+    padding: .8rem;
   }
 
   &__command-text {
-    font-size: 12pt;
+    font-size: 11pt;
     border-right: 1px solid var(--border-color);
   }
 
@@ -307,18 +330,6 @@ h2 {
     font-size: 11pt;
     font-style: italic;
   }
-}
-
-.showcase {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.showcase-actions {
-  display: flex;
-  gap: .8rem;
 }
 
 .snippets {
@@ -338,6 +349,10 @@ h2 {
     &:not(:last-child) {
       border-right: 1px solid var(--border-color);
     }
+
+    &--current {
+      background: var(--background-color);
+    }
   }
 }
 
@@ -349,6 +364,6 @@ h2 {
 
 .snippet,
 .snippet > * {
-  background: var(--snippet-background-color) !important;
+  background: var(--background-color) !important;
 }
 </style>
