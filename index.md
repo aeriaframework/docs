@@ -27,6 +27,7 @@ snippets.value.push({
   code: `
 \`\`\`aeria
 collection Person {
+  icon "person"
   properties {
     name str
     age int
