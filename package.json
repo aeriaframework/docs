@@ -19,7 +19,7 @@
     "@shikijs/markdown-it": "^1.10.0",
     "@types/node": "^20.14.9",
     "aeria-icons": "^0.0.5",
-    "aeria-lang-vscode": "^0.0.16",
+    "aeria-lang-vscode": "^0.0.17",
     "aeria-sdk": "^0.0.106",
     "autoprefixer": "^10.4.19",
     "bson": "^6.8.0",
