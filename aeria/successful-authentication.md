@@ -13,5 +13,5 @@ if( error ) {
   return Result.error(error)
 }
 
-return Result.result(successfulAuthentication(user._id, context))
+return Result.result(successfulAuthentication(user, context))
 ```
