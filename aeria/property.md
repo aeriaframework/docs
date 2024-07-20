@@ -103,6 +103,10 @@ This property sets a minimal string length.
 
 This property sets a maximal string length.
 
+### `element` <Badge type="tip" text="string?" />
+
+The element with which the input should be rendered. Whether `"input"` or `"textarea"`.
+
 ### `format` <Badge type="tip" text="PropertyFormat?" />
 
 The following text is quoted directly from [json-schema.org](https://json-schema.org/understanding-json-schema/reference/string): "The format keyword allows for basic semantic identification of certain kinds of string values that are commonly used. For example, because JSON doesn't have a "DateTime" type, dates need to be encoded as strings. format allows the schema author to indicate that the string value should be interpreted as a date".
@@ -130,6 +134,10 @@ type PropertyInputType =
 ### `mask` <Badge type="tip" text="(string | readonly string[])?" />
 
 This property specifies one or more masks to be applied to the input.
+
+### `placeholder` <Badge type="tip" text="string?" /> 
+
+The placeholder text rendered inside the input.
 
 
 ## `NumberProperty`
@@ -179,6 +187,10 @@ This property ensures number will be greater than specified value, exclusively.
 ### `exclusiveMaximum` <Badge type="tip" text="number?" />
 
 This property ensures number will be less than specified value, exclusively.
+
+### `placeholder` <Badge type="tip" text="string?" /> 
+
+The placeholder text rendered inside the input.
 
 
 ## `BooleanProperty`
@@ -544,10 +556,6 @@ Like the Description `form` property, this flag won't make the property read-onl
 ### `noLabel` <Badge type="tip" text="boolean?" /> 
 
 If set to true will prevent a label containing the property name or description from being displayed on forms.
-
-### `placeholder` <Badge type="tip" text="string?" /> 
-
-When applicable, this property specifies the `placeholder` attribute of the HTML `<input />` element.
 
 ### `translate` <Badge type="tip" text="boolean?" /> 
 
