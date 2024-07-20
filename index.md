@@ -23,7 +23,7 @@ const currentSnippet = ref<number | undefined>()
 const isCommandCopied = ref(false)
 
 snippets.value.push({
-  name: 'Schema',
+  name: 'Collection',
   code: `
 \`\`\`aeria
 collection Person {
@@ -46,10 +46,11 @@ collection Person {
 })
 
 snippets.value.push({
-    name: 'DTOs',
+    name: 'Contract',
     code: `
 \`\`\`aeria
 contract ExampleContract {
+  // payload (POST data) will get runtime-validated
   payload {
     properties {
       id str
@@ -71,16 +72,19 @@ snippets.value.push({
     code: `
 \`\`\`typescript
 import { createRouter, Result } from 'aeria'
+import { ExampleContract } from '../../.aeria/out/index.mjs'
 
 export const router = createRouter()
 
-// the contract in the third parameter is optional
+// the return value of the callback is the actual response
+router.GET('/hello-world', () => 'hello, world!')
+
 router.POST('/example', async (context) => {
-    const { error, result } = await context.collections.person.functions.get({
-      filters: {
-        _id: context.request.payload.id,
-      },
-    })
+  const { error, result: person } = await context.collections.person.functions.get({
+    filters: {
+      _id: context.request.payload.id,
+    },
+  })
 
   if( error ) {
     return Result.error(error)
