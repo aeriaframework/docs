@@ -55,15 +55,12 @@ contract ExampleContract {
       id str
     }
   }
-  response [
-    properties {
-      success const @value(false)
-    },
-    properties {
-      success const @value(true)
-      person Person
+  response {
+    Error {}
+    Result {
+      message str
     }
-  ]
+  }
 }
 \`\`\`
 `,
