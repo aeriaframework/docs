@@ -76,8 +76,10 @@ snippets.value.push({
 import { createRouter, Result } from 'aeria'
 
 export const router = createRouter()
+
+// the contract in the third parameter is optional
 router.POST('/example', async (context) => {
-    const { error, result: person } = await context.collections.person.functions.get({
+    const { error, result } = await context.collections.person.functions.get({
       filters: {
         _id: context.request.payload.id,
       },
@@ -88,9 +90,31 @@ router.POST('/example', async (context) => {
   }
 
   return Result.result({
-    message: \`hello, \${person.name}!\`,
+    message: \`hello, \${result.name}!\`,
   })
+}, ExampleContract)
+\`\`\`
+`,
 })
+
+snippets.value.push({
+    name: 'SDK',
+    code: `
+\`\`\`typescript
+import aeria from 'aeria-sdk'
+
+// SDK get's 1:1 typing from the backend!
+const { error, result } = aeria().person.example.POST({
+  id: 'bf619e0107ae79fbdccc1a68d0f110ac',
+})
+
+if( error ) {
+  // show error on screen
+  return
+}
+
+// just like specified in the "ExampleContract"
+// const result: { message: string }
 \`\`\`
 `,
 })
