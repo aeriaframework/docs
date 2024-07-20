@@ -11,18 +11,18 @@ import typescriptGrammar from 'shiki/langs/typescript.mjs'
 import aeriaGrammar from 'virtual:aeria-grammar'
 import { AeriaIcon, AeriaButton } from 'aeria-ui'
 
-const { isDark } = useData()
+const { isDark, hash } = useData()
 
 type Snippet = {
   name: string
   code: string
 }
 
-const snippets = ref<Snippet[]>([])
-const currentSnippet = ref<number | undefined>()
+const snippets = ref<Record<string, Snippet>>({})
+const codeRendered = ref(false)
 const isCommandCopied = ref(false)
 
-snippets.value.push({
+snippets.value.collection = {
   name: 'Collection',
   code: `
 \`\`\`aeria
@@ -43,9 +43,9 @@ collection Person {
 }
 \`\`\`
 `
-})
+}
 
-snippets.value.push({
+snippets.value.contract = {
     name: 'Contract',
     code: `
 \`\`\`aeria
@@ -63,9 +63,9 @@ contract ExampleContract {
 }
 \`\`\`
 `,
-})
+}
 
-snippets.value.push({
+snippets.value.routing = {
     name: 'Routing',
     code: `
 \`\`\`typescript
@@ -83,9 +83,9 @@ router.POST('/example', async (context) => {
 }, ExampleContract)
 \`\`\`
 `,
-})
+}
 
-snippets.value.push({
+snippets.value.sdk = {
     name: 'SDK',
     code: `
 \`\`\`typescript
@@ -105,7 +105,13 @@ if( error ) {
 console.log(\`Hello, \${person.name}!\`)
 \`\`\`
 `,
-})
+}
+
+const currentSnippet = ref(
+  hash.value
+    ? hash.value.slice(1)
+    : Object.keys(snippets.value)[0]
+)
 
 onMounted(async () => {
   const md = markdownit()
@@ -120,23 +126,24 @@ onMounted(async () => {
      )
   }))
 
-  snippets.value = snippets.value.map((snippet) => {
-    return {
+  snippets.value = Object.fromEntries(Object.entries(snippets.value).map(([slug, snippet]) => {
+    return [slug, {
       ...snippet,
       code: md.render(snippet.code),
-    }
-  })
+    }]
+  }))
 
-  currentSnippet.value = 0
+  codeRendered.value = true
 })
-
-const selectSnippet = (index: number) => {
-  currentSnippet.value = index
-}
 
 const copyCommand = async () => {
   await navigator.clipboard.writeText('npm create -y aeria-app my-project')
   isCommandCopied.value = true
+}
+
+const setCurrentSnippet = (slug: string) => {
+  location.hash = slug
+  currentSnippet.value = slug
 }
 </script>
 
@@ -200,19 +207,19 @@ const copyCommand = async () => {
       <div class="snippets__tabs">
         <a 
           v-clickable
-          v-for="(snippet, index) in snippets"
-          :key="`snippet-name-${snippet.name}`"
+          v-for="([slug, snippet]) in Object.entries(snippets)"
+          :key="`snippet-${slug}`"
           :class="{
             'snippets__tab': true,
-            'snippets__tab--current': currentSnippet === index,
+            'snippets__tab--current': currentSnippet === slug,
           }"
-          @click="currentSnippet = index"
+          @click="setCurrentSnippet(slug)"
         >
           {{ snippet.name }}
         </a>
       </div>
       <div
-        v-if="typeof currentSnippet === 'number'"
+        v-if="codeRendered"
         v-html="snippets[currentSnippet].code"
         class="snippet"
       ></div>
