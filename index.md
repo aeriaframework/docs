@@ -19,7 +19,7 @@ type Snippet = {
 }
 
 const snippets = ref<Record<string, Snippet>>({})
-const codeRendered = ref(false)
+const currentSnippet = ref<string | undefined>()
 const isCommandCopied = ref(false)
 
 snippets.value.collection = {
@@ -107,12 +107,6 @@ console.log(\`Hello, \${person.name}!\`)
 `,
 }
 
-const currentSnippet = ref(
-  hash.value
-    ? hash.value.slice(1)
-    : Object.keys(snippets.value)[0]
-)
-
 onMounted(async () => {
   const md = markdownit()
   md.use(await shiki({
@@ -133,7 +127,9 @@ onMounted(async () => {
     }]
   }))
 
-  codeRendered.value = true
+  currentSnippet.value = hash.value
+    ? hash.value.slice(1)
+    : Object.keys(snippets.value)[0]
 })
 
 const copyCommand = async () => {
@@ -219,7 +215,7 @@ const setCurrentSnippet = (slug: string) => {
         </a>
       </div>
       <div
-        v-if="codeRendered"
+        v-if="typeof currentSnippet === 'string'"
         v-html="snippets[currentSnippet].code"
         class="snippet"
       ></div>
