@@ -101,8 +101,8 @@ if( error ) {
   return
 }
 
-// just like specified in the "ExampleContract"
-// const result: { name: string, age: number, file: { ... } }
+// const person: { name: string, age: number, file: { ... } }
+console.log(\`Hello, \${person.name}!\`)
 \`\`\`
 `,
 })
