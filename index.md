@@ -58,9 +58,7 @@ contract ExampleContract {
   }
   response {
     Error {}
-    Result {
-      message str
-    }
+    Result Person
   }
 }
 \`\`\`
@@ -76,22 +74,11 @@ import { ExampleContract } from '../../.aeria/out/index.mjs'
 
 export const router = createRouter()
 
-// the return value of the callback is the actual response
-router.GET('/hello-world', () => 'hello, world!')
-
 router.POST('/example', async (context) => {
-  const { error, result: person } = await context.collections.person.functions.get({
+  return context.collections.person.functions.get({
     filters: {
       _id: context.request.payload.id,
     },
-  })
-
-  if( error ) {
-    return Result.error(error)
-  }
-
-  return Result.result({
-    message: \`hello, \${result.name}!\`,
   })
 }, ExampleContract)
 \`\`\`
@@ -105,7 +92,7 @@ snippets.value.push({
 import aeria from 'aeria-sdk'
 
 // SDK get's 1:1 typing from the backend!
-const { error, result } = aeria().person.example.POST({
+const { error, result: person } = aeria().person.example.POST({
   id: 'bf619e0107ae79fbdccc1a68d0f110ac',
 })
 
@@ -115,7 +102,7 @@ if( error ) {
 }
 
 // just like specified in the "ExampleContract"
-// const result: { message: string }
+// const result: { name: string, age: number, file: { ... } }
 \`\`\`
 `,
 })
