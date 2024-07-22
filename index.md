@@ -97,7 +97,7 @@ const { error, result: person } = aeria().person.example.POST({
 })
 
 if( error ) {
-  // show error on screen
+  console.error(error)
   return
 }
 
@@ -111,8 +111,8 @@ onMounted(async () => {
   const md = markdownit()
   md.use(await shiki({
     themes: {
-      light: 'vitesse-light',
-      dark: 'vitesse-dark',
+      light: 'github-light',
+      dark: 'github-dark',
     },
     langs: [].concat(
       aeriaGrammar,
