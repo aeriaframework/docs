@@ -237,9 +237,14 @@ const setCurrentSnippet = (slug: string) => {
 .dark {
   * {
     --border-color: #444;
-  --contrast-color-bg: #fff;
-  --contrast-color-fg: #000;
+    --contrast-color-bg: #fff;
+    --contrast-color-fg: #000;
     --background-color: #333;
+  }
+
+  .shiki, .shiki span {
+    color: var(--shiki-dark) !important;
+    background-color: var(--shiki-dark-bg) !important;
   }
 }
 
