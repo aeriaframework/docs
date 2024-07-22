@@ -244,7 +244,6 @@ const setCurrentSnippet = (slug: string) => {
 
   .shiki, .shiki span {
     color: var(--shiki-dark) !important;
-    background-color: var(--shiki-dark-bg) !important;
   }
 }
 
