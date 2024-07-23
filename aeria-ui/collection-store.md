@@ -2,7 +2,7 @@
 
 Whenever you define a collection in the backend, it will be automatically reflected in a store in Aeria UI. Those are a special kind of store that contains states for inserting and retrieving items, pagination, collection metadata, and more, along with actions and a interface to interact with the collection endpoints.
 
-## $actions <Badge type="tip" text="Record<string, (...args: any[]) => any" />
+## `$actions` <Badge type="tip" text="Record<string, (...args: any[]) => any" />
 
 ### `get()`
 
@@ -42,7 +42,7 @@ A helper function that will retrieved the specified properties from `store.prope
 ></aeria-form>
 ```
 
-### `Note` about `deepInsert` and `condensedItem`
+### Note about `deepInsert` and `condensedItem`
 
 In most cases using `insert` to create or update a document is fine. If you want to recursively update referenced collections, though, `deepInsert` should be used instead. Suppose we have the following Description:
 
