@@ -1,0 +1,183 @@
+* {
+  --nav-padding: 1.6rem 1rem;
+  --section-padding: 1rem;
+  --border-color: #efefef;
+  --contrast-color-bg: #000;
+  --contrast-color-fg: #fff;
+  --background-color: #fbfbfb;
+}
+
+.dark {
+  * {
+    --border-color: #444;
+    --contrast-color-bg: #fff;
+    --contrast-color-fg: #000;
+    --background-color: #333;
+  }
+
+  .shiki, .shiki span {
+    color: var(--shiki-dark) !important;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  * {
+    --nav-padding: 1.4rem 6rem;
+    --section-padding: 3rem 6rem;
+  }
+}
+
+h1, h2 {
+  color: unset !important;
+}
+
+@media screen and (min-width: 1200px) {
+  section h2 {
+    font-size: 1.4rem;
+  }
+
+  .hero {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    &__info {
+      font-size: 15pt;
+    }
+
+  }
+
+  .snippet {
+    min-height: 20rem;
+  }
+}
+
+.nav,
+.mobile-nav {
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--nav-padding);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.nav {
+  @media screen and (min-width: 1200px) {
+    display: flex;
+
+    menu > ul {
+      display: flex;
+      align-items: center;
+      gap: 1.4rem;
+    }
+
+    .github-logo {
+      border: 1px solid var(--contrast-color-bg);
+      padding: 1rem;
+
+      &:hover {
+        --icon-color: var(--contrast-color-fg);
+        background: var(--contrast-color-bg);
+        color: var(--contrast-color-fg);
+      }
+    }
+  }
+}
+
+.mobile-nav {
+  display: flex;
+  @media screen and (min-width: 1200px) {
+    display: none;
+  }
+}
+
+section {
+  margin: var(--section-padding);
+
+   &:not(:last-child) {
+     border-bottom: 1px solid var(--border-color);
+   }
+}
+
+h1, h2 {
+  line-height: 1.2em;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+h2 {
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+
+.hero {
+  display: grid;
+  gap: 2rem;
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 1rem;
+  }
+
+  &__command {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__command-box {
+    display: inline-flex;
+    border: 1px solid var(--border-color);
+    align-items: center;
+  }
+
+  &__command-text, &__command-copy {
+    padding: .8rem;
+  }
+
+  &__command-text {
+    font-size: 11pt;
+    border-right: 1px solid var(--border-color);
+  }
+
+  &__command-copied {
+    font-size: 11pt;
+    font-style: italic;
+  }
+}
+
+.snippets {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border-color);
+
+  &__tabs {
+    display: flex;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  &__tab {
+    flex: 1;
+    text-align: center;
+    padding: 1rem;
+    &:not(:last-child) {
+      border-right: 1px solid var(--border-color);
+    }
+
+    &--current {
+      background: var(--background-color);
+    }
+  }
+}
+
+.snippet {
+  font-size: 10pt;
+  padding: 1rem;
+  overflow: auto;
+}
+
+.snippet,
+.snippet > * {
+  background: var(--background-color) !important;
+}

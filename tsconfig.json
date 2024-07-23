@@ -6,8 +6,5 @@
     "module": "esnext",
     "moduleResolution": "bundler",
     "skipLibCheck": true
-    // "types": [
-    //   "@aeria-ui/ui/vue"
-    // ]
   }
 }

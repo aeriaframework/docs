@@ -1,6 +1,9 @@
 import type { Plugin } from 'vite'
 import * as path from 'path'
 import * as fs from 'fs'
+import { fileURLToPath } from 'url'
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 export const aeriaGrammar = (): Plugin => {
   const virtualModuleId = 'virtual:aeria-grammar'
@@ -14,7 +17,7 @@ export const aeriaGrammar = (): Plugin => {
     },
     load(id) {
       if( id === resolvedVirtualModuleId ) {
-        const json = fs.readFileSync(path.join(__dirname, '..',  '..', 'node_modules', 'aeria-lang-vscode', 'syntaxes', 'aeria.tmLanguage.json'), 'utf8')
+        const json = fs.readFileSync(path.join(__dirname, '..', 'node_modules', 'aeria-lang-vscode', 'syntaxes', 'aeria.tmLanguage.json'), 'utf8')
         return `export default ${json}`
       }
     }

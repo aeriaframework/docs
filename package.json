@@ -1,43 +1,4 @@
 {
-  "name": "aeria-docs",
-  "type": "module",
   "private": true,
-  "packageManager": "pnpm@9.1.0",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "postinstall": "echo 'export {}' > node_modules/aeria-sdk/dist/runtime.mjs",
-    "dev": "vitepress dev",
-    "build": "vitepress build",
-    "preview": "vitepress preview"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "@shikijs/markdown-it": "^1.10.0",
-    "@types/node": "^20.14.9",
-    "aeria-icons": "^0.0.5",
-    "aeria-lang-vscode": "^0.0.20",
-    "aeria-sdk": "^0.0.106",
-    "autoprefixer": "^10.4.19",
-    "bson": "^6.8.0",
-    "less": "^4.2.0",
-    "markdown-it": "^14.1.0",
-    "shiki": "^1.10.0",
-    "tailwindcss": "^3.4.4",
-    "typescript": "^5.5.2",
-    "vite": "^5.3.2",
-    "vitepress": "1.2.3"
-  },
-  "dependencies": {
-    "@aeria-ui/ui": "^0.0.67",
-    "aeria-ui": "^0.0.71",
-    "vue": "^3.4.31"
-  },
-  "peerDependencies": {
-    "markdown-it": "^14.1.0",
-    "shiki": "^1.6.2"
-  }
+  "packageManager": "pnpm@9.1.0"
 }

@@ -3,7 +3,6 @@ import { fileURLToPath } from 'url'
 import * as path from 'path'
 import * as fs from 'fs'
 import aeriaIcons from 'aeria-icons'
-import { aeriaGrammar as aeriaGrammarPlugin } from './plugins/index.js'
 
 const aeriaGrammar = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'node_modules', 'aeria-lang-vscode', 'syntaxes', 'aeria.tmLanguage.json'), 'utf8'))
 
@@ -25,7 +24,6 @@ export default defineConfig({
       include: ['bson'],
     },
     plugins: [
-      aeriaGrammarPlugin(),
       aeriaIcons({
         libraries: [
           '@aeria-ui/ui'
