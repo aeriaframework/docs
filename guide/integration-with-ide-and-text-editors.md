@@ -19,11 +19,11 @@ require('lazy').setup({
 
 ## Vim
 
-The **aeria.vim** plugin ships the Aeria Language Server and syntax highlighting. Example of how to install using a Lua configuration file and the [vim-plug](https://github.com/junegunn/vim-plug) plugin manager:
+The **aeria.vim** plugin provides syntax highlighting for Aeria. Example of how to install using a Lua configuration file and the [vim-plug](https://github.com/junegunn/vim-plug) plugin manager:
 
 ```vim
 call plug#begin()
-Plug 'aeria-org/aeria.vim'
+Plug 'aeria-org/vim-aeria'
 " ...
 call plug#end()
 ```

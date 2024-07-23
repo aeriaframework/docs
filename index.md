@@ -256,8 +256,8 @@ const setCurrentSnippet = (slug: string) => {
 </style>
 
 <style scoped lang="less">
-* {
-  color: unset;
+h1, h2 {
+  color: unset !important;
 }
 
 @media screen and (min-width: 1200px) {

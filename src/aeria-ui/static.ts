@@ -32,7 +32,6 @@ export const directives = {
 export const composables = {
   'useAction()': '/aeria-ui/composables#useaction',
   'useBreakpoints()': '/aeria-ui/composables#usebreakpoints',
-  'useClipboard()': '/aeria-ui/composables#useclipboard',
   'useDebounce()': '/aeria-ui/composables#usedebounce',
   'useMask()': '/aeria-ui/composables#usemask',
   'useNavbar()': '/aeria-ui/composables#usenavbar',

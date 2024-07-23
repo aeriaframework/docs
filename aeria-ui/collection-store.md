@@ -1,34 +1,34 @@
-# CollectionStore
+# `CollectionStore`
 
 Whenever you define a collection in the backend, it will be automatically reflected in a store in Aeria UI. Those are a special kind of store that contains states for inserting and retrieving items, pagination, collection metadata, and more, along with actions and a interface to interact with the collection endpoints.
 
 ## $actions <Badge type="tip" text="Record<string, (...args: any[]) => any" />
 
-### get()
+### `get()`
 
 Will call `store.$functions.get` and mutate `store.item` with the retrieved document.
 
-### getAll()
+### `getAll()`
 
 Will call `store.$functions.getAll` and mutate `store.items` with the retrieved documents.
 
-### insert()
+### `insert()`
 
 Will call `store.$functions.insert` and mutate `store.item` and `store.items` with the retrieved document.
 
-### deepInsert()
+### `deepInsert()`
 
 Will call `store.$functions.insert` recursively on each referenced collection present within the payload, and finally on the parent document, and then mutate `store.item` and `store.items` with the retrieved document.
 
-### remove()
+### `remove()`
 
 Will call `store.$functions.insert` and mutate `store.item` and `store.items` with the retrieved document.
 
-### removeAll()
+### `removeAll()`
 
 Will call `store.$functions.insert` and mutate `store.item` and `store.items` with the retrieved document.
 
-### useProperties() <Badge type="tip" text="(properties: Array<string>) => Record<string, CollectionProperty>" />
+### `useProperties()` <Badge type="tip" text="(properties: Array<string>) => Record<string, CollectionProperty>" />
 
 A helper function that will retrieved the specified properties from `store.properties`. Example usage:
 
@@ -42,7 +42,7 @@ A helper function that will retrieved the specified properties from `store.prope
 ></aeria-form>
 ```
 
-### Note about `deepInsert` and `condensedItem`
+### `Note` about `deepInsert` and `condensedItem`
 
 In most cases using `insert` to create or update a document is fine. If you want to recursively update referenced collections, though, `deepInsert` should be used instead. Suppose we have the following Description:
 
@@ -96,7 +96,7 @@ personStore.$actions.insert({
 ```
 
 
-## $functions <Badge type="tip" text="Record<string, (...args: any[]) => any" />
+## `$functions` <Badge type="tip" text="Record<string, (...args: any[]) => any" />
 
 This property is similar to `$actions`, but contains a proxy object that maps to any endpoint of the collection, including custom and router-created ones, and won't produce any mutations in the state. Functions will return a Promise that will resolve to the response of the endpoint.
 For example:
@@ -105,15 +105,15 @@ For example:
 const items = await personStore.$functions.getAll({})
 ```
 
-## item <Badge type="tip" text="TDocument" />
+## `item` <Badge type="tip" text="TDocument" />
 
 This property bears a document.
 
-## items <Badge type="tip" text="Array<TDocument>" />
+## `items` <Badge type="tip" text="Array<TDocument>" />
 
 This property bears a list of documents.
 
-## properties <Badge type="tip" text="TDescription['properties']" />
+## `properties` <Badge type="tip" text="TDescription['properties']" />
 
 This property is a getter that computes to `store.description.properties`.
 

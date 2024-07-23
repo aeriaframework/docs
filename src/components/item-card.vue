@@ -7,8 +7,6 @@
     transition-all
     bg-zinc-50
     dark:bg-zinc-800
-    hover:scale-[1.02]
-    hover:shadow
   ">
     <div class="font-[500]">
       <slot></slot>

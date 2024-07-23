@@ -104,12 +104,6 @@ function sidebarGuide() {
         { text: 'Deploy', link: '/guide/deploy' },
       ]
     },
-    {
-      text: 'Readings',
-      items: [
-        { text: 'Picking Aeria over another options', link: '/guide/picking-aeria-over-another-options' },
-      ]
-    }
   ]
 }
 
@@ -119,36 +113,28 @@ function sidebarAeriaReference() {
       text: 'General',
       items: [
         { text: 'Aeria Lang', link: '/aeria/aeria-lang', },
-        {
-          text: 'Aeria Schema',
-          link: '/aeria/aeria-schema',
-          collapsed: true,
-          items: [
-            { text: 'Property', link: '/aeria/property' },
-            { text: 'Validation', link: '/aeria/validation' },
-          ]
-        },
+        { text: 'Aeria Schema', link: '/aeria/aeria-schema', },
+        { text: 'Property', link: '/aeria/property' },
+        { text: 'Validation', link: '/aeria/validation' },
         { text: 'Collection', link: '/aeria/collection', },
         { text: 'Contracts', link: '/aeria/contracts' },
         { text: 'Routing', link: '/aeria/routing', },
-        { text: 'Access Control', link: '/aeria/access-control', },
         { text: 'Error Handling', link: '/aeria/error-handling', },
         { text: 'Security', link: '/aeria/security', },
-        {
-          text: 'Built-ins',
-          collapsed: true,
-          items: [
-            {
-              text: 'Collections',
-              link: '/aeria/builtins/collections'
-            },
-            {
-              text: 'Functions',
-              link: '/aeria/builtins/functions'
-            }
-          ]
-        },
         { text: 'init()', link: '/aeria/init', },
+      ]
+    },
+    {
+      text: 'Built-ins',
+      items: [
+        {
+          text: 'Collections',
+          link: '/aeria/builtins/collections'
+        },
+        {
+          text: 'Functions',
+          link: '/aeria/builtins/functions'
+        }
       ]
     },
     {
@@ -190,7 +176,6 @@ function sidebarAeriaUiReference() {
     },
     {
       text: 'Components',
-      collapsed: true,
       items: [
         { text: 'aeria-accordion', link: '/aeria-ui/components/aeria-accordion' },
         { text: 'aeria-bare-button', link: '/aeria-ui/components/aeria-bare-button' },

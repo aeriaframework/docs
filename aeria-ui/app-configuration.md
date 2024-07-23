@@ -52,18 +52,17 @@ type InstanceConfig = {
   }
   vite?: import('vite').InlineConfig
 }
-
 ```
 
-### site.title <Badge type="tip" text="string?" />
+### `site.title` <Badge type="tip" text="string?" />
 
 The title of your application.
 
-### site.signinText <Badge type="tip" text="string?" />
+### `site.signinText` <Badge type="tip" text="string?" />
 
 A text that will be put above the sign in form.
 
-### site.signupForm <Badge type="tip" text="boolean?" />
+### `site.signupForm` <Badge type="tip" text="boolean?" />
 
 This toggles the visibility of the button leading to the sign up form in the
 sign in page.
@@ -73,15 +72,15 @@ This is a client-side only flag. To make sign up available in your application,
 you must also set up the backend properly.
 :::
 
-### icons.safeList <Badge type="tip" text="string[]?" />
+### `icons.safeList` <Badge type="tip" text="string[]?" />
 
 This property should contain an array of icon names that for some reason can't be matched statically.
 
-### icons.safeList <Badge type="tip" text="string[]?" />
+### `icons.safeList` <Badge type="tip" text="string[]?" />
 
 This property specifies libraries to be included in during static search for icons.
 
-### vite <Badge type="tip" text="import('vite').InlineConfig?" />
+### `vite` <Badge type="tip" text="import('vite').InlineConfig?" />
 
 Vite configuration to be merged into the default one.
 

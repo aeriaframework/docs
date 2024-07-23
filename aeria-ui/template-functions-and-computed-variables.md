@@ -2,7 +2,7 @@
 
 ## Computed variables
 
-### currentUser
+### `currentUser`
 
 An object containg data from the current signed in user. The same as `useStore('user').$currentUser`.
 

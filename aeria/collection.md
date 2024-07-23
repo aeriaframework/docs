@@ -110,7 +110,7 @@ router.GET('/example', (context) => {
 
 #### Exposing functions as endpoints
 
-Functions can be directly exposed as endpoints for the sake of brevity and reusability. This is where the `exposedFunctions` property comes in. A [`AccessCondition`](/aeria/access-control) is passed at the time of exposing a function to tell which set of users will have access to it based on their roles.
+Functions can be directly exposed as endpoints for the sake of brevity and reusability. This is where the `exposedFunctions` property comes in. A `AccessCondition` is passed at the time of exposing a function to tell which set of users will have access to it based on their roles.
 
 When the `true` value is passed (`@expose` or `@expose(true)` in Aeria Lang), only authenticated users will have access.
 
