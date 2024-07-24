@@ -1,22 +1,17 @@
 {
-  "name": "aeria-docs",
+  "name": "docs",
   "type": "module",
   "private": true,
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
   "scripts": {
     "postinstall": "echo 'export {}' > node_modules/aeria-sdk/dist/runtime.mjs",
     "dev": "vitepress dev",
     "build": "vitepress build",
     "preview": "vitepress preview"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
     "@types/node": "^20.14.9",
     "aeria-icons": "^0.0.5",
+    "aeria-lang-vscode": "^0.0.20",
     "aeria-sdk": "^0.0.106",
     "autoprefixer": "^10.4.19",
     "bson": "^6.8.0",

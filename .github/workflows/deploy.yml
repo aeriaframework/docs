@@ -22,12 +22,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      # - name: Checkout semantic-api
-      #   uses: actions/checkout@v3
-      #   with:
-      #     repository: ringeringeraja/semantic-api
-      #     path: semantic-api
-
       - name: Setup pnpm
         uses: pnpm/action-setup@v2
       - name: Setup node
@@ -40,13 +34,10 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      # - name: Place semantic-api under node_modules/\@semantic-api
-      #   run: |
-      #     rm -rf node_modules/\@semantic-api
-      #     ln -s $(realpath semantic-api/packages) node_modules/\@semantic-api
-
       - name: Build with VitePress
-        run: pnpm build
+        run: |
+          pnpm --filter=landing build --emptyOutDir --outDir=../dist
+          pnpm --filter=docs build --emptyOutDir --outDir=../dist/docs
       - name: Copy assets to dist
         run: cp -r assets .vitepress/dist
       - name: Upload artifact

@@ -1,3 +1,8 @@
+body, html {
+  margin: 0;
+  padding: 0;
+}
+
 * {
   --nav-padding: 1.6rem 1rem;
   --section-padding: 1rem;
@@ -22,16 +27,10 @@
 
 @media screen and (min-width: 1200px) {
   * {
-    --nav-padding: 1.4rem 6rem;
-    --section-padding: 3rem 6rem;
+    --nav-padding: .8rem 4rem;
+    --section-padding: 2rem 4rem;
   }
-}
 
-h1, h2 {
-  color: unset !important;
-}
-
-@media screen and (min-width: 1200px) {
   section h2 {
     font-size: 1.4rem;
   }
@@ -48,6 +47,25 @@ h1, h2 {
   .snippet {
     min-height: 20rem;
   }
+}
+
+h1, h2 {
+  margin: unset;
+  color: unset;
+  line-height: 1.2em;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+h2 {
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+
+menu {
+  margin: unset;
 }
 
 .nav,
@@ -95,19 +113,6 @@ section {
    &:not(:last-child) {
      border-bottom: 1px solid var(--border-color);
    }
-}
-
-h1, h2 {
-  line-height: 1.2em;
-}
-
-h1 {
-  font-size: 2em;
-}
-
-h2 {
-  font-size: 1.2rem;
-  font-weight: 300;
 }
 
 .hero {
@@ -181,3 +186,4 @@ h2 {
 .snippet > * {
   background: var(--background-color) !important;
 }
+

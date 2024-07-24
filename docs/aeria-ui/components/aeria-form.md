@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { reactive } from 'vue'
+import { ref } from 'vue'
 import { AeriaForm } from 'aeria-ui'
 import ResultBox from '../../src/components/result-box.vue'
 
-const formData = reactive({
+const formData = ref({
   name: '',
   roles: [],
 })
