@@ -143,8 +143,8 @@ const setCurrentSnippet = (slug: string) => {
     Aeria
     <menu>
       <ul>
-        <a href="/aeria/">Docs</a>
-        <a href="/guide/getting-started/">Getting Started</a>
+        <a href="/docs/aeria/">Docs</a>
+        <a href="/docs/guide/getting-started/">Getting Started</a>
         <aeria-icon v-clickable v-if="isDark" icon="sun" @click="isDark = false" />
         <aeria-icon v-clickable v-else icon="moon" @click="isDark = true" />
         <aeria-icon
@@ -190,7 +190,7 @@ const setCurrentSnippet = (slug: string) => {
           </div>
         </div>
         <div class="hero_cta">
-          <a href="/guide/getting-started">
+          <a href="/docs/guide/getting-started">
             <aeria-button>Get Started</aeria-button>
           </a>
         </div>
