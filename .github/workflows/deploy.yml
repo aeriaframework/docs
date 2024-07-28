@@ -39,7 +39,7 @@ jobs:
           pnpm --filter=landing build --emptyOutDir --outDir=../dist
           pnpm --filter=docs build --emptyOutDir --outDir=../dist/docs
       - name: Copy assets to dist
-        run: cp -r assets dist
+        run: cp -r docs/assets dist/docs
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
