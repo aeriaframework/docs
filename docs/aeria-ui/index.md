@@ -23,7 +23,7 @@ const router = useRouter()
 <item-card
   v-for="componentName of statics.components"
   :key="componentName"
-  @click="router.go(`/aeria-ui/components/${componentName}`)"
+  @click="router.go(`/docs/aeria-ui/components/${componentName}`)"
 >
   &lt;{{ componentName }} /&gt;
 

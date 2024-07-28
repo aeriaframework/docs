@@ -46,7 +46,7 @@ export default defineConfig({
     ]
   },
   themeConfig: {
-    logo: '../assets/logo.png',
+    logo: '/assets/logo.png',
     outline: [1, 4],
     nav: [
       {
