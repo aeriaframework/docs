@@ -63,11 +63,13 @@ Instancing the Aeria SDK should now be pretty easy. No additional runtime config
 import { aeria } from 'aeria-sdk'
 
 const main = async () => {
-  const people = await aeria.person.getAll.POST({
+  const { error, result: people } = await aeria.person.getAll.POST({
     filters: {
       job: 'programmer'
     }
   })
+
+  // your code goes here
 }
 ```
 
