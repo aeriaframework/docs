@@ -1,6 +1,6 @@
 # `traverseDocument()`
 
-This function iterates all the properties of a document recursively performing the specified set of operations on each step. If any of the steps returns a `Left<T>`, then the function returns it immediately, otherwise returns a `Right<T>` containing the mutated copy of the object.
+This function iterates all the properties of a document recursively performing the specified set of operations on each step. If any of the steps returns a `Error<T>`, then the function returns it immediately, otherwise returns a `Result<T>` containing the mutated copy of the object.
 
 ```typescript
 type TraverseOptions = {
@@ -18,7 +18,7 @@ declare const traverseDocument: <const TWhat extends Record<string, unknown>>(
   description: Description,
   options: TraverseOptions
 
-) => Promise<Left<ACErrors | ValidationError> | Right<{}>>
+) => Promise<Result.Either<ACErrors | ValidationError, {}>>
 ```
 
 ### Example usage

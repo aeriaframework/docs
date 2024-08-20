@@ -12,6 +12,7 @@ export const components = [
   'aeria-icon',
   'aeria-info',
   'aeria-input',
+  'aeria-insert-panel',
   'aeria-main',
   'aeria-options',
   'aeria-panel',

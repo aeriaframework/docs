@@ -9,7 +9,7 @@ Input data sent to routes is validated differently through [Contracts](/aeria/co
 
 ### `validate()`
 
-This function validates a object against a schema. It receives an optional third argument containing [`ValidateOptions`](#validateoptions). It will return `Right<TWhat>` case the validation succeeds, and `Left<ValidationError>` case it fails.
+This function validates a object against a schema. It receives an optional third argument containing [`ValidateOptions`](#validateoptions). It will return `Result<TWhat>` case the validation succeeds, and `Error<ValidationError>` case it fails.
 
 **Example:**
 

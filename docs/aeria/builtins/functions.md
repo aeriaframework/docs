@@ -2,7 +2,7 @@
 
 ### `insert()`
 
-This function is used to create new documents and update existing ones in the database. Creation will be performed when the `_id` property is absent from the `payload.what`, otherwise insert will update the specified properties in the document with the given `_id`. Insert will either return a `Right` with the latest version of the created or updated document with it's `_id`, or a `Left` with [access control](/aeria/access-control) or [validation errors](/aeria/validation#validationerror).
+This function is used to create new documents and update existing ones in the database. Creation will be performed when the `_id` property is absent from the `payload.what`, otherwise insert will update the specified properties in the document with the given `_id`. Insert will either return a `Result` with the latest version of the created or updated document with it's `_id`, or a `Error` with [access control](/aeria/access-control) or [validation errors](/aeria/validation#validationerror).
 
 This function is automatically bound to the `POST` method on the `/collectionName` route.
 

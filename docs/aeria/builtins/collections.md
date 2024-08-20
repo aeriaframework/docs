@@ -68,7 +68,7 @@ function download(
       | 'download'
     )[]
   },
-): Promise<Left<Error> | fs.ReadableStream>
+): Promise<Result.Error<Error> | fs.ReadableStream>
 ```
 
 ## `log`
