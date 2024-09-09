@@ -56,7 +56,6 @@ collection Person {
   properties {
     name str
     age num
-    picture File @accept(["image/*"])
   }
   presets {
     crud
