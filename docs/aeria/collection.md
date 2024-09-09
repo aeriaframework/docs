@@ -222,3 +222,70 @@ router.GET('/glutenFreePizzas', (context) => {
 })
 ```
 
+### Collection middlewares
+
+Collection middlewares are used to add define custom behavior to builtin functions. They can be defined using the `defineCollectionMiddleware()` helper. Each one can have one or multiple middleware functions.
+
+- `beforeRead()`: executes before `get()`, `getAll()`, `count()`
+- `beforeWrite()`: executes before `insert()`
+
+::: code-group
+
+```typescript [api/src/middlewares/index.ts]
+import { defineCollectionMiddleware, deepMerge } from 'aeria'
+
+export const businessTenancyMiddleware = defineCollectionMiddleware({
+  beforeRead: (payload, context, next) => {
+    if( !context.token.authenticated ) {
+      throw new Error
+    }
+    return next(deepMerge(payload, {
+      filters: {
+        business: context.token.userinfo.business,
+      },
+    }), context)
+  },
+  beforeWrite: (payload, context, next) => {
+    if( !context.token.authenticated ) {
+      throw new Error
+    }
+    return next(deepMerge(payload, {
+      what: {
+        business: context.token.userinfo.business,
+      },
+    }), context)
+  },
+})
+```
+
+:::
+
+After defined collection middlewares can be set in the `middlewares` property, which accepts a single middleware or an array of middlewares.
+
+::: code-group
+
+```typescript [api/src/collections.ts]
+export const person = extendPersonCollection({
+  // will get executed one after another
+  middlewares: [
+    businessTenancyMiddleware,
+    anotherMiddleware,
+  ],
+})
+
+export const car = extendCarCollection({
+  middlewares: businessTenancyMiddleware,
+})
+
+export const building = extendBuildingCollection({
+  middlewares: {
+    beforeRead: (payload, context, next) => {
+      // do something
+      return next(payload, context)
+    }
+  }
+})
+```
+
+:::
+

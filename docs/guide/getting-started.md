@@ -42,7 +42,9 @@ http://localhost:8080/user/signin
 
 Finally, to grant you access to the application during development, sign in using the default credentials specified in the `.env` file, create another user with the `root` role, change its password, and sign in again with it instead. Do not skip this step as the default user (the one that signs in with the credentials specified in env vars) lacks some important attributes.
 
-## Adding collections
+## Collections
+
+### Adding collections
 
 Collections are declared in the `schemas/main.aeria` file.
 Below there is an example of a "person" collection being declared with Aeria Lang, and on the side there is the same declaration using the TypeScript API.
@@ -56,56 +58,76 @@ collection Person {
     age num
     picture File @accept(["image/*"])
   }
-  functions {
-    get
-    getAll
-    insert
-    remove
-  }
   presets {
     crud
   }
-}
-```
-
-```typescript [api/src/collections/person/index.ts]
-import { defineCollection, get, getAll, insert, remove } from 'aeria'
-
-export const person = defineCollection({
-  description: {
-    $id: 'person',
-    properties: {
-      name: {
-        type: 'string'
-      },
-      age: {
-        type: 'number'
-      },
-      picture: {
-        $ref: 'file',
-        accept: [
-          'image/*'
-        ],
-      },
-    },
-    presets: [
-      'crud'
-    ]
-  },
-  functions: {
-    get,
-    getAll,
-    insert,
-    remove
+  functions {
+    get @expose
+    getAll @expose
+    insert @expose
+    remove @expose
   }
-})
+}
 ```
 
 :::
 
 The development server will reload upon changes on `schemas/*.aeria` with the changes being automatically applied. No migration is needed after the data structure of a collection is changed. Needed migrations are performed automatically under the hood by diffing the current data structure with the previous one (todo).
 
-## Adding routes
+### Adding functions to collections
+
+In order to enable file uploading for our example `Person` collection, it is required to add the `upload` function to the functions set. The `@expose` attribute that comes right after the function name can be used without any arguments, meaning the function is exposed to every signed in user, or an array of roles can be passed to mean the function is only exposed to users whose role is contained within the set. To illustrate this, let's make files only uploadable by `root` users.
+
+Available functions can be seen in their [respective section of the documentation](/aeria/builtins/functions).
+
+::: code-group
+
+```aeria [api/schemas/main.aeria]
+collection Person {
+  properties {
+    name str
+    age num
+    picture File @accept(["image/*"]) // [!code ++]
+  }
+  presets {
+    crud
+  }
+  functions {
+    get @expose
+    getAll @expose
+    insert @expose
+    remove @expose
+    upload @expose(["root"]) // [!code ++]
+  }
+}
+```
+
+:::
+
+### Setting user roles
+
+Roles are set by extending the default `user` collection. The default boilerplate already comes with some roles set. You may replace them with the ones your application needs. No matter which roles you set, the `guest` and `root` roles are special roles used internally by the framework and will always be available.
+
+::: code-group
+
+```aeria [api/schemas/main.aeria]
+collection User extends aeria.user {
+  properties {
+    roles []enum @values([
+      "root",
+      "supervisor", // [!code ++]
+      "customer" // [!code ++]
+    ])
+  }
+}
+```
+
+:::
+
+
+## Business logic
+
+### Adding routes
 
 Open the scaffolded `routes/index.ts` file and add a route by calling the chosen method (`GET`, `POST`, `route` for multiple methods, etc). Request and response data and methods, as long as collections and API utilities can be accessed through the `context` parameter made available in the route callback.
 
@@ -133,7 +155,10 @@ router.GET('/test', async (context) => {
 
 :::
 
-## Creating pages in the frontend
+
+## Frontend
+
+### Creating pages in the frontend
 
 Aeria UI uses [unplugin-vue-router](https://github.com/posva/unplugin-vue-router) under the hood to provide a Nuxt-like filesystem-based routing. This means that, in order to create a page in the frontend, you must simply place your `.vue` file inside the `pages/` folder. For example, to make `/dashboard/hello-world` view, create the `pages/dashboard/hello-world.vue` file and put something in the template:
 
@@ -146,7 +171,7 @@ Aeria UI uses [unplugin-vue-router](https://github.com/posva/unplugin-vue-router
 ```
 :::
 
-## Changing the default menu schema
+### Changing the default menu schema
 
 In order to change the navbar that appears in the dashboard to add or rearrange items you must add the `menuSchema` property inside `defineOptions()`. More information on how the menu can be customized can be seen at [/aeria-ui/menu-configuration](Menu configuration).
 
@@ -174,7 +199,7 @@ const options = defineOptions({
 :::
 
 
-## Retrieving data from the frontend
+### Retrieving data from the frontend
 
 There should be a point in the development of the application that it will be needed to request an endpoint and get back the response. You shouldn't use `fetch()` or any other HTTP client for this (except when really needed). Instead, use [Aeria SDK](/aeria-sdk/) to interact with the backend with 1:1 typing and authentication handling.
 
@@ -212,6 +237,7 @@ onMounted(() => {
 ```
 
 :::
+
 
 ## Further reading
 
