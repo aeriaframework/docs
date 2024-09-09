@@ -60,10 +60,13 @@ export * as collections from './collections/index.js'
 type Collection<TCollection extends Collection = any> = {
   description: Description
   item?: any
-  security?: CollectionSecurityPolicy<TCollection>
   functions?: Record<string, (payload: any, context: Context<any>, ...args: any[])=> any>
   contracts?: Record<string, Contract>
   exposedFunctions?: Record<string, AccessCondition>
+  security?: CollectionSecurityPolicy<TCollection>
+  middlewares?:
+    | CollectionMiddleware<any>
+    | CollectionMiddleware<any>[]
 }
 ```
 
