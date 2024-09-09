@@ -1,17 +1,8 @@
-# Property
+# Properties
 
-## Summary
+A intersection of JSON Schema data types Aeria can validate and store.
 
-- [ObjectProperty](#objectproperty)
-- [StringProperty](#stringproperty)
-- [NumberProperty](#numberproperty)
-- [BooleanProperty](#booleanproperty)
-- [RefProperty](#refproperty)
-- [FileProperty](#fileproperty)
-- [EnumProperty](#enumproperty)
-- [ArrayProperty](#arrayproperty)
-- [ConstProperty](#constproperty)
-- [GetterProperty](#getterproperty)
+[[toc]]
 
 ## `ObjectProperty`
 

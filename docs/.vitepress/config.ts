@@ -111,10 +111,15 @@ function sidebarAeriaReference() {
       text: 'General',
       items: [
         { text: 'Aeria Lang', link: '/aeria/aeria-lang', },
-        { text: 'Aeria Schema', link: '/aeria/aeria-schema', },
-        { text: 'Property', link: '/aeria/property' },
-        { text: 'Validation', link: '/aeria/validation' },
-        { text: 'Collection', link: '/aeria/collection', },
+        { text: 'Collections', link: '/aeria/collections', },
+        {
+          text: 'Data structure',
+          items: [
+            { text: 'Aeria Schema', link: '/aeria/aeria-schema', },
+            { text: 'Properties', link: '/aeria/properties' },
+            { text: 'Validation', link: '/aeria/validation' },
+          ],
+        },
         { text: 'Contracts', link: '/aeria/contracts' },
         { text: 'Routing', link: '/aeria/routing', },
         { text: 'Error Handling', link: '/aeria/error-handling', },

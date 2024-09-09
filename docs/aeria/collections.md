@@ -1,4 +1,4 @@
-# Collection
+# Collections
 
 Collections are storable entities. Each collection has it's [data structure](/aeria/aeria-schema), functions, [contracts](/aeria/contracts), and [security policies](/aeria/security). Collection functions can also be exposed directly as endpoints if they're configured in `exposedFunctions` property, in such cases `functions.test` becomes accessible through `POST /collectionName/test`.
 

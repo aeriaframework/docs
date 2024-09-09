@@ -1,6 +1,8 @@
 # Aeria Schema
 
-Schemas in Aeria are defined using a subset of [JSON Schema](https://json-schema.org/). More general schemas, called "descriptions", are used to define collections, and they not only define data structure, but also behavior.
+Schemas in Aeria are defined using a superset of [JSON Schema](https://json-schema.org/) with framework-specific attributes. Schemas used to define the data structure of collections are referred to as **descriptions**.
+
+[[toc]]
 
 ## JSON Schema
 
