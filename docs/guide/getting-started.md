@@ -215,7 +215,7 @@ onMounted(() => {
   if( error ) {
     return metaStore.$actions.spawnToast({
       title: 'Error!',
-      message: 'There was a error fetching people from the API'
+      message: 'There was an error fetching people from the API'
     })
   }
 
