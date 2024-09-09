@@ -7,6 +7,7 @@ export default {
         content: [
           './**/*.vue',
           './**/*.md',
+          '!./node_modules/',
         ]
       },
     },
