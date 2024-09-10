@@ -172,7 +172,7 @@ Aeria UI uses [unplugin-vue-router](https://github.com/posva/unplugin-vue-router
 
 ### Changing the default menu schema
 
-In order to change the navbar that appears in the dashboard to add or rearrange items you must add the `menuSchema` property inside `defineOptions()`. More information on how the menu can be customized can be seen at [/aeria-ui/menu-configuration](Menu configuration).
+In order to change the navbar that appears in the dashboard to add or rearrange items you must add the `menuSchema` property inside `defineOptions()`. More information on how the menu can be customized can be seen at [Menu configuration](/aeria-ui/menu-configuration).
 
 ::: code-group
 
