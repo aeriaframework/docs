@@ -7,7 +7,7 @@ import { AeriaGrid, AeriaCard, AeriaPicture } from 'aeria-ui'
 
 This components returns a grid with standardized gaps and responsive breakpoints.
 
-## Example
+### Example
 
 <aeria-grid>
   <aeria-card
@@ -37,23 +37,12 @@ This components returns a grid with standardized gaps and responsive breakpoints
 </aeria-grid>
 ```
 
-## Props
+### Props
 
-```typescript
-type Props = {
-  list?: boolean
-}
-
-```
-
-### list <Badge type="tip" text="boolean?" />
-
-Turns the grid into a single column list.
+- `list` <Badge type="tip" text="boolean?" />: Turns the grid into a single column list.
 
 
-## Slots
+### Slots
 
-### default
-
-The grid elements.
+- `default`: The grid elements.
 

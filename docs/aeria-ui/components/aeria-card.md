@@ -8,7 +8,7 @@ import ResultBox from '../../src/components/result-box.vue'
 
 This component renders a frame with a picture and some text near it and it's commonly used along with [grids](/aeria-ui/cheatsheet/create-a-list-or-a-grid-of-cards). Cards can be either vertical or horizontal, and they can have a inactive state. Predefined slots are also available to place badges and buttons.
 
-## Example
+### Example
 
 <result-box>
 <aeria-card style="max-width: 20rem;">
@@ -57,40 +57,15 @@ This component renders a frame with a picture and some text near it and it's com
 </aeria-card>
 ```
 
-## Props
+### Props
 
-**Type:**
-
-```typescript
-type Props = {
-  inactive?: boolean
-  horizontal?: boolean
-}
-```
-
-### inactive <Badge type="tip" text="boolean?" />
-
-If set to true, the card will become slightly transparent. This can be used to
-indicate the content of this card is unavailable.
-
-### horizontal <Badge type="tip" text="boolean?" />
-
-If set to true, the card will switch to a horizontal layout.
+- `inactive` <Badge type="tip" text="boolean?" />: If set to true, the card will become slightly transparent. This can be used to indicate the content of this card is unavailable.
+- `horizontal` <Badge type="tip" text="boolean?" />: If set to true, the card will switch to a horizontal layout.
 
 ## Slots
 
-### default
+- `default`: The picture to be fit inside the card.
+- `footer`: The card information that goes below the picture.
+- `badge`: Badges to be put on the card.
+- `actions`: Button or clickable icons.
 
-The picture to be fit inside the card.
-
-### footer
-
-The card information that goes below the picture.
-
-### badge
-
-Badges to be put on the card.
-
-### actions
-
-Button or clickable icons.

@@ -8,7 +8,7 @@ const file = ref('')
 
 # aeria-file
 
-## Example
+### Example
 
 <result-box>
   <aeria-file v-model="file">

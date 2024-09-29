@@ -15,6 +15,7 @@ export const components = [
   'aeria-insert-panel',
   'aeria-main',
   'aeria-options',
+  'aeria-pagination',
   'aeria-panel',
   'aeria-search',
   'aeria-select',
@@ -37,5 +38,6 @@ export const composables = {
   'useMask()': '/aeria-ui/composables#usemask',
   'useNavbar()': '/aeria-ui/composables#usenavbar',
   'usePasswordPolicy()': '/aeria-ui/composables#usepasswordpolicy',
+  'useScrollObserver()': '/aeria-ui/composables#usescrollobserver',
 }
 

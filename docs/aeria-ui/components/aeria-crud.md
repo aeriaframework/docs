@@ -7,53 +7,22 @@ The following [`Description`](/backend/description) properties takes effect on h
 - `actions`: will place buttons on top of the content display (table or grid)
 - `individualActions`: will place actions inside a dropdown rendered in each table row or grid card
 
-## Example
+### Example
 
 ```vue-html
 <aeria-crud collection="user"></aeria-crud>
 ```
 
-## Props
+### Props
 
-**Type:**
-
-```typescript
-type Props = {
-  collection: string
-  noControls?: boolean
-  noActions?: boolean
-  noFetch?: boolean
-  noRefresh?: boolean
-  noLayoutToggle?: boolean
-  layout?: Layout
-  action?: Ref<ReturnType<typeof useAction>> | ReturnType<typeof useAction>
-  componentProps?: Record<string, any>
-}
-
-```
-
-### collection <Badge type="tip" text="string" />
-
-A string containg the name of the collection that will have its CRUD rendered.
-
-### noControls <Badge type="tip" text="boolean?" />
-
-This property disables the CRUD controls.
-
-### noActions <Badge type="tip" text="boolean?" />
-
-This property disables the CRUD actions.
-
-### noFetch <Badge type="tip" text="boolean?" />
-
-This property will prevent the component from calling `store.$funcions.getAll` initially.
-
-### noLayoutToggle <Badge type="tip" text="boolean?" />
-
-This property will prevent the user from switching back to tabular layout if a custom layout is specified.
+- `collection` <Badge type="tip" text="string" />: A string containg the name of the collection that will have its CRUD rendered
+- `noControls` <Badge type="tip" text="boolean?" />: This property disables the CRUD controls.
+- `noActions` <Badge type="tip" text="boolean?" />: This property disables the CRUD actions.
+- `noFetch` <Badge type="tip" text="boolean?" />: This property will prevent the component from calling `store.$funcions.getAll` initially.
+- `noLayoutToggle` <Badge type="tip" text="boolean?" />: This property will prevent the user from switching back to tabular layout if a custom layout is specified.
 
 
-## Emits
+### Emits
 
 **Type:**
 
@@ -98,20 +67,10 @@ Whenever the `Open panel` button is clicked from within a table row or card, `ae
 }
 ```
 
-## Slots
+### Slots
 
-### actions
+- `actions`: Buttons to be rendered aside the ones derived from `description.actions`.
+- `component`: This will replace the default table or grid component.
+- `row-*`: This slot may be used to modify a cell from the table.
+- `field-*`: This slot may be used to modify a single field from the insertion panel.
 
-Buttons to be rendered aside the ones derived from `description.actions`.
-
-### component
-
-This will replace the default table or grid component.
-
-### row-*
-
-This slot may be used to modify a cell from the table.
-
-### field-*
-
-This slot may be used to modify a single field from the insertion panel.

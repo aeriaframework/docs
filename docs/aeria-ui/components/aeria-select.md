@@ -10,7 +10,7 @@ const selected = ref('')
 
 This component renders a group of checkboxes (or radio inputs) depending on the property type.
 
-## Example
+### Example
 
 <result-box title="Selected">
   <aeria-select

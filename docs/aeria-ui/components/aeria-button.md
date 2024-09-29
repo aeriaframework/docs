@@ -10,7 +10,7 @@ const count = ref(0)
 
 This component renders a styled button that will add style controls on top of [`aeria-bare-button`](/frontend/components/aeria-bare-button) functionalities. Buttons can have different sizes and variants and can also have loading and disabled states.
 
-## Example
+### Example
 
 <result-box title="Result" class="mb-4">
   <aeria-button @click="count++">
@@ -48,20 +48,12 @@ const count = ref(0)
 </template>
 ```
 
-## Props
+### Props
 
-### disabled <Badge type="tip" text="boolean?" />
+- `disabled` <Badge type="tip" text="boolean?" />: Whether or not clicking on the button is disabled.
+- `loading` <Badge type="tip" text="boolean?" />: Whether or not the button has a loading state.
 
-Whether or not clicking on the button is disabled.
-
-### loading <Badge type="tip" text="boolean?" />
-
-Whether or not the button has a loading state.
-
-### variant <Badge type="tip" text="Size" /> <Badge type="tip" text="default: 'normal'" />
-
-The variant of button styling.
-Accepted variants are:
+- `variant` <Badge type="tip" text="Size" /> <Badge type="tip" text="default: 'normal'" />: The variant of button styling. Accepted variants are:
 
 ```typescript
 type Variant =
@@ -70,10 +62,7 @@ type Variant =
   | 'transparent'
 ```
 
-### size <Badge type="tip" text="Size" /> <Badge type="tip" text="default: 'medium'" />
-
-The size the button should have.
-Accepted sizes are:
+- `size` <Badge type="tip" text="Size" /> <Badge type="tip" text="default: 'medium'" />: The size the button should have. Accepted sizes are:
 
 ```typescript
 type Size = 
@@ -82,23 +71,13 @@ type Size =
   | 'large'
 ```
 
-### icon <Badge type="tip" text="string?" /> 
-
-The name of an icon from an icon library to be contained inside the button.
-
-### small <Badge type="tip" text="boolean?" />
-
-Shorthand property for `size: 'small'`.
-
-### large <Badge type="tip" text="boolean?" /> 
-
-Shorthand property for `size: 'large'`.
+- `icon` <Badge type="tip" text="string?" />: The name of an icon from an icon library to be contained inside the button.
+- `small` <Badge type="tip" text="boolean?" />: Shorthand property for `size: 'small'`.
+- `large` <Badge type="tip" text="boolean?" />: Shorthand property for `size: 'large'`.
 
 ## Slots
 
-#### default
-
-Content to be displayed inside the button.
+- `default`: Content to be displayed inside the button.
 
 ## CSS overrides
 

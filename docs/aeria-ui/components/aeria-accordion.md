@@ -8,7 +8,7 @@ import ResultBox from '../../src/components/result-box.vue'
 
 This will render a minimally styled accordion.
 
-## Example
+### Example
 
 <result-box>
 <aeria-accordion
@@ -46,32 +46,13 @@ This will render a minimally styled accordion.
 </aeria-accordion>
 ```
 
-## Props
+### Props
 
-**Type:**
-
-```typescript
-type Props = {
-  enumerate?: boolean
-  headers: Record<string, string | {
-    title: string
-    icon: string
-  }>
-}
-```
-
-### enumerate <Badge type="tip" text="boolean?" />
-
-Will render the accordion index position along it's title.
-Example: "1. Help topics".
-
-### headers <Badge type="tip" text="object?" />
-
-The title to be rendered in the accordion clickable sections, or an object containing both the title and an icon.
+- `enumerate` <Badge type="tip" text="boolean?" />: Will render the accordion index position along it's title.
+- `headers` <Badge type="tip" text="object?" />: The title to be rendered in the accordion clickable sections, or an object containing both the title and an icon.
 
 
-## Slots
+### Slots
 
-### \<any\>
+- `<any>`: This slot contains the text of the accordion section. It's name should match one of the keys of the `headers` prop.
 
-This slot contains the text of the accordion section. It's name should match one of the keys of the `headers` prop.

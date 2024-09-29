@@ -8,7 +8,7 @@ const name = ref('changeme')
 
 # aeria-icon
 
-## Example
+### Example
 
 <result-box>
   <aeria-icon
@@ -28,7 +28,7 @@ const name = ref('changeme')
 </aeria-icon>
 ```
 
-## CSS overrides
+### CSS overrides
 
 - `--icon-color: color;`: the foreground color of the icon (default: `var(--theme-foreground-color)`)
 

@@ -11,7 +11,7 @@ const multipleChoice = ref([])
 
 This component renders a group of checkboxes (or radio inputs) depending on the property type.
 
-## Example
+### Example
 
 <result-box title="Single choice" class="mb-4">
   <aeria-options

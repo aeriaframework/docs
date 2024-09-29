@@ -6,7 +6,7 @@ import ResultBox from '../../src/components/result-box.vue'
 
 # aeria-context-menu
 
-## Example
+### Example
 
 <result-box>
 <aeria-context-menu
@@ -52,3 +52,4 @@ import ResultBox from '../../src/components/result-box.vue'
   Click me
 </aeria-context-menu>
 ```
+

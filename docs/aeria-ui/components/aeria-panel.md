@@ -16,7 +16,7 @@ const panelVisible = ref(false)
 
 Used without any props, this component renders only a blank div. Passing the `float` or `fixed-right` properties, though, you can make modals or side panels.
 
-## Example
+### Example
 
 <aeria-panel
   fixed-right
@@ -62,31 +62,15 @@ const panelVisible = ref(false)
 </template>
 ```
 
-## Props
+### Props
 
-### modelValue <Badge type="tip" text="any?" />
+- `modelValue` <Badge type="tip" text="any?" />: The `modelValue` of this component is the state that determines whether or not the panel is showing. If falsy, the panel is hidden, otherwise it's showing.
+- `title` <Badge type="tip" text="string?" />: This property sets a text to be shown in the header section of the panel.
+- `float` <Badge type="tip" text="boolean?" />: Will make the panel a modal.
+- `close-hint` <Badge type="tip" text="boolean?" />: This property determines that the panel will have a clickable icon that will close it.
 
-The `modelValue` of this component is the state that determines whether or not
-the panel is showing. If falsy, the panel is hidden, otherwise it's showing.
+### Slots
 
-### title <Badge type="tip" text="string?" />
+- `header`: This slot is a replacement for the `title` prop.
+- `footer`: This slot renders a fixed section below the box content.
 
-This property sets a text to be shown in the header section of the panel.
-
-### float <Badge type="tip" text="boolean?" />
-
-Will make the panel a modal.
-
-### close-hint <Badge type="tip" text="boolean?" />
-
-This property determines that the panel will have a clickable icon that will close it.
-
-## Slots
-
-### header
-
-This slot is a replacement for the `title` prop.
-
-### footer
-
-This slot renders a fixed section below the box content.

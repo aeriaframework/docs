@@ -11,7 +11,7 @@ const count2 = ref(0)
 
 This component renders an unstyled button that will ultimately be an `<a />` HTML element. Sometimes you may use useful to have controls for disabling click and adaptative cursor change without having a styled button.
 
-## Example
+### Example
 
 <result-box class="mb-4">
   <aeria-bare-button @click="count1 += 1">
@@ -41,12 +41,11 @@ const count = ref(0)
 </template>
 ```
 
-## Props
+### Props
 
-### disabled <Badge type="tip" text="boolean?" /> 
+- `disabled` <Badge type="tip" text="boolean?" /> 
 
-## Slots
+### Slots
 
-### default
+- `default`: Content to be displayed inside the button.
 
-Content to be displayed inside the button.

@@ -8,7 +8,7 @@ const name = ref('changeme')
 
 # aeria-input
 
-## Example
+### Example
 
 <result-box>
   <aeria-input v-model="name">

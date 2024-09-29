@@ -8,7 +8,7 @@ const tosAccepted = ref(false)
 
 # aeria-checkbox
 
-## Example
+### Example
 
 <result-box title="Terms of Use accepted?">
   <aeria-checkbox

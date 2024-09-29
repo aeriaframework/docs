@@ -195,6 +195,7 @@ function sidebarAeriaUiReference() {
         { text: 'aeria-input', link: '/aeria-ui/components/aeria-input' },
         { text: 'aeria-main', link: '/aeria-ui/components/aeria-main' },
         { text: 'aeria-options', link: '/aeria-ui/components/aeria-options' },
+        { text: 'aeria-pagination', link: '/aeria-ui/components/aeria-pagination' },
         { text: 'aeria-panel', link: '/aeria-ui/components/aeria-panel' },
         { text: 'aeria-picture', link: '/aeria-ui/components/aeria-picture' },
         { text: 'aeria-search', link: '/aeria-ui/components/aeria-search' },

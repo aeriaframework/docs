@@ -8,7 +8,7 @@ const toggle = ref(false)
 
 # aeria-switch
 
-## Example
+### Example
 
 <result-box title="Active?">
   <aeria-switch v-model="toggle">
