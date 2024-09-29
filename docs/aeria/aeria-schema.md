@@ -61,6 +61,82 @@ The properties contained in the collection. Properties are described in a [separ
 
 ## Description
 
+### `actions` <Badge type="tip" text="CollectionActions<TDescription>?" /> <Badge type="tip" text="frontend" />
+
+Actions that aren't associated with a single database entry.
+
+::: code-group
+
+```aeria [main.aeria]
+collection Example {
+  actions {
+    add {
+      label "Add new entry"
+    }
+  }
+}
+```
+
+```typescript [collection.ts]
+defineCollection({
+  description: {
+    actions: {
+      add: {
+        label: 'Add new entry',
+      },
+    },
+  },
+})
+```
+
+```typescript [types.ts]
+type CollectionActionRoute = {
+  route: {
+    name: string
+    setItem?: boolean
+    fetchItem?: boolean
+    clearItem?: boolean
+    params?: Record<string, unknown>
+    query?: Record<string, unknown>
+  }
+}
+
+type CollectionActionFunction = {
+  function?: string
+  selection?: boolean
+  effect?: string
+}
+
+type CollectionActionEvent = {
+  event?: string
+}
+
+type CollectionActionBase<TDescription extends Description> = {
+  label?: string
+  icon?: Icon
+  ask?: boolean
+  translate?: boolean
+  roles?: readonly string[]
+  requires?: readonly PropertiesWithId<TDescription>[]
+}
+
+export type CollectionAction<TDescription extends Description> = CollectionActionBase<TDescription> & (
+  | CollectionActionRoute
+  | CollectionActionFunction
+  | CollectionActionEvent
+)
+
+export type CollectionActions<TDescription extends Description> = Record<
+  string,
+  | CollectionAction<TDescription> & {
+    button?: boolean
+  }
+  | null
+>
+```
+
+:::
+
 ### `filters` <Badge type="tip" text="frontend" />
 
 This property is used to control a filter widget rendered inside the `aeria-crud` component. If set, a filter button will appear, otherwise no filter functionallity will be made available.
@@ -327,6 +403,41 @@ defineCollection({
 
 ```typescript [types.ts]
 type DescriptionIndexes = readonly PropertiesWithId<TDescription>[]
+```
+
+:::
+
+### `individualActions` <Badge type="tip" text="CollectionIndividualActions<TDescription>?" /> <Badge type="tip" text="frontend" />
+
+Actions associated with a single database entry. In a tabular layout, these are displayed inside a dropdown in the last column.
+
+::: code-group
+
+```aeria [main.aeria]
+collection Example {
+  individualActions {
+    remove {
+      label "Remove"
+    }
+  }
+}
+```
+
+```typescript [collection.ts]
+defineCollection({
+  description: {
+    individualActions: {
+      remove: {
+        label: 'Remove',
+      },
+    },
+  },
+})
+```
+
+```typescript [types.ts]
+type CollectionIndividualActions<TDescription extends Description> =
+  Record<string, CollectionAction<TDescription> | null>
 ```
 
 :::

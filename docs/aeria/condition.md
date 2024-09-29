@@ -9,9 +9,11 @@ The following example tells the following: the "responsible" property will only 
 
 ::: code-group
 
-```aeria-properties [main.aeria]
-required {
-  responsible @cond(age < 18 || has_disability == true)
+```aeria [main.aeria]
+collection Person {
+  required {
+    responsible @cond(age < 18 || has_disability == true)
+  }
 }
 ```
 

@@ -197,7 +197,6 @@ const options = defineOptions({
 
 :::
 
-
 ### Retrieving data from the frontend
 
 There should be a point in the development of the application that it will be needed to request an endpoint and get back the response. You shouldn't use `fetch()` or any other HTTP client for this (except when really needed). Instead, use [Aeria SDK](/aeria-sdk/) to interact with the backend with 1:1 typing and authentication handling.
@@ -237,11 +236,69 @@ onMounted(() => {
 
 :::
 
+### Adding a custom action in the tabular view
+
+It is possible to change the tabular view presented by default by Aeria when a collection is added. Some details, like table buttons, can be defined directly in the collection schema. It is also possible to alter the DOM directly as will be shown next.
+
+In this example, a "Toggle active" button that toggles the value of the `active` property will be added.
+
+::: code-group
+
+```aeria [main.aeria]
+collection Person {
+  properties {
+    name str
+    age num
+    active bool // [!code ++]
+    picture File @accept(["image/*"])
+  }
+  presets {
+    crud
+  }
+  functions {
+    get @expose
+    getAll @expose
+    insert @expose
+    remove @expose
+    upload @expose(["root"])
+  }
+  individualActions { // [!code ++]
+    toggleActive { // [!code ++]
+      label "Toggle active" // [!code ++]
+    } // [!code ++]
+  } // [!code ++]
+}
+```
+
+:::
+
+### Customizing the DOM of the tabular view
+
+Aeria UI uses NextJS-style filesystem-routing. So the first step to override the runtime-generated `/dashboard/person` route is to create a page named accordingly. Next, simply use the `aeria-crud` component to render the table, actions, forms, etc and structure the page as needed. Last thing, **slots** can be used to customize pieces of DOM inside the `aeria-crud` component.
+
+To see all accepted slots, refer to the [Aeria UI documentation](/aeria-ui/components/aeria-crud#slots).
+
+::: code-group
+
+```vue [pages/dashboard/person.vue]
+<template>
+  <h1>This is a header!</h1>
+
+  <aeria-crud collection="person">
+    <template #row-active="{ row, column }">
+      {{ row[column] ? 'Active' : 'Inactive' }}
+    </template>
+  </aeria-crud>
+</template>
+```
+
+:::
+
 
 ## Further reading
 
-This guide covered the basics of Aeria. You should consult documentation for more detailed usage and examples of the public APIs.
+Details and advanced usage of steps covered in this guide can be found in the documentation of each project (Aeria and Aeria UI).
 
-- [Reference - Aeria](/aeria/)
-- [Reference - Aeria UI](/aeria-ui/)
+- [Aeria Documentation](/aeria/)
+- [Aeria UI Documentation](/aeria-ui/)
 
