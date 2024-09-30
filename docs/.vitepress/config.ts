@@ -10,7 +10,7 @@ export default defineConfig({
   lang: 'en-US',
   title: 'Aeria',
   description: 'Official documentation for the Aeria Framework',
-  base: '/docs',
+  base: '/docs/',
   lastUpdated: true,
   cleanUrls: true,
   ignoreDeadLinks: true,
@@ -26,7 +26,7 @@ export default defineConfig({
     plugins: [
       aeriaIcons({
         libraries: [
-          '@aeria-ui/ui'
+          '@aeria-ui/ui',
         ]
       }),
     ],

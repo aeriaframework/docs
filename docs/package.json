@@ -10,9 +10,9 @@
   },
   "devDependencies": {
     "@types/node": "^22.5.4",
-    "aeria-icons": "^0.0.5",
+    "aeria-icons": "^0.0.7",
     "aeria-lang-vscode": "^0.0.21",
-    "aeria-sdk": "^0.0.128",
+    "aeria-sdk": "^0.0.134",
     "autoprefixer": "^10.4.20",
     "bson": "^6.8.0",
     "less": "^4.2.0",
@@ -22,8 +22,8 @@
     "vitepress": "1.3.4"
   },
   "dependencies": {
-    "@aeria-ui/ui": "^0.0.101",
-    "aeria-ui": "^0.0.105",
+    "@aeria-ui/ui": "^0.0.109",
+    "aeria-ui": "^0.0.113",
     "vue": "^3.5.3"
   }
 }

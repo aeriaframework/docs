@@ -1,5 +1,5 @@
 import type { Theme } from 'vitepress'
-import { registerDirectives, createGlobalStateManager, createI18n, meta, user, type StoreContext } from 'aeria-ui'
+import { registerDirectives, createGlobalStateManager, createI18n, meta, user, type StoreContext, type InstanceConfig } from 'aeria-ui'
 import DefaultTheme from 'vitepress/theme'
 import Layout from './Layout.vue'
 import './custom.less'
@@ -23,5 +23,15 @@ export default {
 
     const metaStore = meta(context)
     const userStore = user(context)
+
+    app.mixin({
+      computed: {
+        instanceVars: (): InstanceConfig['site'] => {
+          return {
+            base: '/docs/',
+          }
+        }
+      }
+    })
   }
 } satisfies Theme
