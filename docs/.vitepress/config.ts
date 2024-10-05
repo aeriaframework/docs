@@ -97,7 +97,6 @@ function sidebarGuide() {
       text: 'Introduction',
       items: [
         { text: 'Getting started', link: '/guide/getting-started' },
-        { text: 'Using as a source of truth', link: '/guide/using-as-a-source-of-truth' },
         { text: 'Integration with IDE and text editors', link: '/guide/integration-with-ide-and-text-editors' },
         { text: 'Deploy', link: '/guide/deploy' },
       ]

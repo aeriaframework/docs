@@ -64,11 +64,12 @@ export default init({
 
 ```typescript
 type ApiConfig = {
+  name?: string
   secret?: string
   baseUrl?: RouteUri
   publicUrl?: string
   port?: number
-  paginationLimit?: number
+  defaultPaginationLimit?: number
   database?: {
     mongodbUrl?: string
     noDatabase?: boolean
@@ -83,21 +84,23 @@ type ApiConfig = {
     password: string
   }
   security: {
+    tokenExpiration?: number
     logSuccessfulAuthentications?: boolean
     authenticationRateLimiting?: RateLimitingParams | null
     allowSignup?: boolean
-    signupDefaults?: Partial<{
-      roles: string[]
-      active: boolean
-    }>
+    signupDefaults?: {
+      roles?: string[]
+      active?: boolean
+    }
+    paginationLimit?: number
     exposeFunctionsByDefault?:
       | boolean
       | 'unauthenticated'
   }
-  tokenUserProperties?: string[]
-  errorHandler?: <TError extends Error>(
+  tokenUserProperties?: (keyof CollectionItem<'user'>)[]
+  errorHandler?: <TError>(
     context: RouteContext,
     error: TError
-  )=> any | Promise<any>
+  )=> unknown | Promise<unknown>
 }
 ```
