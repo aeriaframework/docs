@@ -4,6 +4,7 @@ import markdownit from 'markdown-it'
 import shiki from '@shikijs/markdown-it'
 import typescriptGrammar from 'shiki/langs/typescript.mjs'
 import aeriaGrammar from 'virtual:aeria-grammar'
+import { AeriaIcon, AeriaButton } from 'aeria-ui'
 
 const isDark = ref(false)
 const hash = ref('')
@@ -111,7 +112,7 @@ onMounted(async () => {
     },
     langs: [].concat(
       aeriaGrammar,
-      typescriptGrammar,
+      typescriptGrammar as any,
      )
   }))
 
@@ -167,7 +168,7 @@ const setCurrentSnippet = (slug: string) => {
   <section>
     <div class="hero">
       <div class="hero__info">
-        <h1>Let your code do the talking.</h1>
+        <h1>Prototype your next application <u>faster.</u></h1>
         <h2>
           Aeria is a schema definition language and a minimalistic, type-driven
           web framework that ensures the quality of the code being produced
@@ -191,7 +192,7 @@ const setCurrentSnippet = (slug: string) => {
         </div>
         <div class="hero_cta">
           <a href="/docs/guide/getting-started">
-            <aeria-button>Get Started</aeria-button>
+            <aeria-button large>Get Started</aeria-button>
           </a>
         </div>
       </div>

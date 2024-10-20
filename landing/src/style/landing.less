@@ -3,32 +3,14 @@ body, html {
   padding: 0;
 }
 
-* {
-  --nav-padding: 1.6rem 1rem;
-  --section-padding: 1rem;
-  --border-color: #efefef;
-  --contrast-color-bg: #000;
-  --contrast-color-fg: #fff;
-  --background-color: #fbfbfb;
-}
-
-.dark {
-  * {
-    --border-color: #444;
-    --contrast-color-bg: #fff;
-    --contrast-color-fg: #000;
-    --background-color: #333;
-  }
-
-  .shiki, .shiki span {
-    color: var(--shiki-dark) !important;
-  }
+body {
+  background-color: var(--body-color);
 }
 
 @media screen and (min-width: 1200px) {
   * {
     --nav-padding: .8rem 4rem;
-    --section-padding: 2rem 4rem;
+    --section-padding: 4rem;
   }
 
   section h2 {
@@ -75,6 +57,11 @@ menu {
   justify-content: space-between;
   padding: var(--nav-padding);
   border-bottom: 1px solid var(--border-color);
+
+  background: var(--brand-color);
+  color: #fff;
+
+  font-weight: 600;
 }
 
 .nav {
@@ -88,12 +75,12 @@ menu {
     }
 
     .github-logo {
-      border: 1px solid var(--contrast-color-bg);
+      border: 1px solid darkblue;
       padding: 1rem;
 
       &:hover {
         --icon-color: var(--contrast-color-fg);
-        background: var(--contrast-color-bg);
+        background: #fff;
         color: var(--contrast-color-fg);
       }
     }
@@ -119,11 +106,24 @@ section {
   display: grid;
   gap: 2rem;
 
+  @media screen and (min-width: 768px) {
+    gap: 4rem;
+  }
+
   &__info {
     display: flex;
     flex-direction: column;
     align-items: start;
     gap: 1rem;
+
+    h1 {
+      font-size: 5rem;
+      line-height: 1em;
+
+      u {
+        color: var(--brand-color);
+      }
+    }
   }
 
   &__command {
@@ -166,12 +166,17 @@ section {
     flex: 1;
     text-align: center;
     padding: 1rem;
+
     &:not(:last-child) {
       border-right: 1px solid var(--border-color);
     }
 
     &--current {
       background: var(--background-color);
+    }
+
+    @media screen and (min-width: 768px) {
+      cursor: pointer;
     }
   }
 }
@@ -186,4 +191,5 @@ section {
 .snippet > * {
   background: var(--background-color) !important;
 }
+
 
