@@ -6,8 +6,8 @@
     "build": "vite build"
   },
   "dependencies": {
-    "@aeria-ui/ui": "^0.0.121",
-    "aeria-ui": "^0.0.126",
+    "@aeria-ui/ui": "^0.0.122",
+    "aeria-ui": "^0.0.127",
     "vue": "^3.5.3"
   },
   "devDependencies": {

@@ -4,7 +4,7 @@ import markdownit from 'markdown-it'
 import shiki from '@shikijs/markdown-it'
 import typescriptGrammar from 'shiki/langs/typescript.mjs'
 import aeriaGrammar from 'virtual:aeria-grammar'
-import { AeriaIcon, AeriaButton } from 'aeria-ui'
+import { AeriaIcon, AeriaButton } from '@aeria-ui/ui'
 
 const isDark = ref(false)
 const hash = ref('')
