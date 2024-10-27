@@ -156,3 +156,58 @@ Accept: application/json
 }
 ```
 
+### Function schemas
+
+Suppose you have a route or collection function that returns an error from one of the builtin functions (`get()`, `getAll()`, `count()`, `insert()`, etc). In order to make a contract for it to add a type to the response, you should know beforehand all possible errors this builtin function returns. Another option would be to use the `genericEndpointError()` helper (covered in the section below) to add a broad endpoint error type to the response.
+
+```typescript
+router.POST('/getPeople', (context) => {
+  const { error, result } = await context.collections.person.functions.getAll()
+
+  if( error ) {
+    return Result.error(result)
+  }
+
+  return someComputation(result)
+})
+```
+
+To avoid this and keep the response type loyal to it's runtime value, you could use one of the helpers contained within the `functionSchemas` object exported by Aeria.
+
+Available function schemas are:
+
+- `getError()`
+- `getAllError()`
+- `insertError()`
+- `countError()`
+
+::: code-group
+
+```typescript
+import {
+  defineContract,
+  functionSchemas // [!code ++]
+} from 'aeria'
+
+export const GetPeopleContract = defineContract({
+  response: [
+    functionSchemas.getAllError(), // this line does the difference // [!code ++]
+    {
+      type: 'array',
+      items: {
+        $ref: 'person',
+      },
+    },
+  ]
+})
+```
+
+:::
+
+### Helper schemas
+
+- `errorSchema(error: Property)`
+- `resultSchema(result: Property)`
+- `endpointErrorSchema(error: { httpStatus: HTTPStatus, code: string[] })`
+- `genericEndpointSchema()`
+
