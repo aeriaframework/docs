@@ -136,6 +136,10 @@ To indicate error and successful responses, use `Result.error()` and `Result.res
 ::: code-group
 
 ```typescript [api/src/routes/index.ts]
+import { createRouter, Result } from 'aeria'
+
+export const router = createRouter()
+
 router.GET('/test', async (context) => {
   const {
     error,
