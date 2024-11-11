@@ -192,6 +192,7 @@ function sidebarAeriaUiReference() {
         { text: 'aeria-icon', link: '/aeria-ui/components/aeria-icon' },
         { text: 'aeria-info', link: '/aeria-ui/components/aeria-info' },
         { text: 'aeria-input', link: '/aeria-ui/components/aeria-input' },
+        { text: 'aeria-insert-panel', link: '/aeria-ui/components/aeria-insert-panel' },
         { text: 'aeria-main', link: '/aeria-ui/components/aeria-main' },
         { text: 'aeria-options', link: '/aeria-ui/components/aeria-options' },
         { text: 'aeria-pagination', link: '/aeria-ui/components/aeria-pagination' },

@@ -27,6 +27,14 @@ const registerPizzaStore = registerStore((context) => createCollectionStore({
           name: {
               type: 'string',
           },
+          size: {
+            enum: [
+              'S',
+              'M',
+              'L',
+              'XL'
+            ],
+          },
         },
     },
   },
@@ -42,27 +50,30 @@ registerPizzaStore({
 
 ## Example
 
-<result-box>
-  <aeria-button @click="open = true">
-    Click Me
-  </aeria-button>
+Watch as the `Insert` button only becomes clickable when all the required fields are fulfilled.
 
-  <aeria-insert-panel
-    collection="pizza"
-  />
+<result-box>
+  <aeria-insert-panel collection="pizza" />
 </result-box>
 
 ```vue
-<script setup lang="ts">
-const name = ref('')
-</script>
-
 <template>
-  <aeria-input v-model="name">
-    Name
-  </aeria-input>
-
-  <i>Your name is: {{ name }}</i>
+  <aeria-insert-panel collection="pizza" />
 </template>
 ```
+
+### Props
+
+- `collection` <Badge type="tip" text="string" />: the name of the collection
+- individualActions? <Badge type="tip" text="IndividualActions?" />
+- `form`: <Badge type="tip" text="string[]?" /> display only specified fields
+- `visible`: <Badge type="tip" text="any?" /> panel is only visible if this property is undefined or truthy
+- `modelValue`: <Badge type="tip" text="unknown?" /> the state of the form
+- `readOnly`: <Badge type="tip" text="boolean?" /> renders the form in read-only mode
+- `includeId`: <Badge type="tip" text="boolean?" /> includes a `_id` field
+- `includeTimestamps`: <Badge type="tip" text="boolean?" /> includes timestamp fields
+
+### Slots
+
+- `header`: This slot is a replacement for the `title` prop.
 
