@@ -53,6 +53,7 @@ Below there is an example of a "person" collection being declared with Aeria Lan
 
 ```aeria [api/schemas/main.aeria]
 collection Person {
+  icon "person-simple"
   properties {
     name str
     age num
@@ -164,6 +165,15 @@ Aeria UI uses [unplugin-vue-router](https://github.com/posva/unplugin-vue-router
 ::: code-group
 
 ```vue [web/src/pages/dashboard/hello-world.vue]
+<script setup lang="ts">
+definePage({
+  meta: {
+    title: 'Hello World',
+    icon: 'globe-hemisphere-east',
+  },
+})
+</script>
+
 <template>
   <h1>Hello, world!</h1>
 </template>
@@ -208,7 +218,7 @@ There should be a point in the development of the application that it will be ne
 const metaStore = useStore('meta')
 const people = ref([])
 
-onMounted(() => {
+onMounted(async () => {
   const { error, result } = await aeria().test.GET()
 
   if( error ) {
@@ -281,6 +291,15 @@ To see all accepted slots, refer to the [Aeria UI documentation](/aeria-ui/compo
 ::: code-group
 
 ```vue [pages/dashboard/person.vue]
+<script setup lang="ts">
+definePage({
+  meta: {
+    title: 'People',
+    icon: 'person-simple',
+  },
+})
+</script>
+
 <template>
   <h1>This is a header!</h1>
 
