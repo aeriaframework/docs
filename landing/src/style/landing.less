@@ -1,3 +1,5 @@
+@import './variables.less';
+
 body, html {
   margin: 0;
   padding: 0;
@@ -5,6 +7,8 @@ body, html {
 
 body {
   background-color: var(--body-color);
+  font-family: Verdana;
+  min-height: 100vh;
 }
 
 @media screen and (min-width: 1200px) {
@@ -56,10 +60,9 @@ menu {
   align-items: center;
   justify-content: space-between;
   padding: var(--nav-padding);
-  border-bottom: 1px solid var(--border-color);
 
   background: var(--brand-color);
-  color: #fff;
+  color: var(--contrast-color-fg);
 
   font-weight: 600;
 }
@@ -75,12 +78,11 @@ menu {
     }
 
     .github-logo {
-      border: 1px solid darkblue;
       padding: 1rem;
 
       &:hover {
         --icon-color: var(--contrast-color-fg);
-        background: #fff;
+        background: darken(@brand-color, 6%);
         color: var(--contrast-color-fg);
       }
     }
@@ -96,10 +98,6 @@ menu {
 
 section {
   margin: var(--section-padding);
-
-   &:not(:last-child) {
-     border-bottom: 1px solid var(--border-color);
-   }
 }
 
 .hero {
@@ -107,7 +105,7 @@ section {
   gap: 2rem;
 
   @media screen and (min-width: 768px) {
-    gap: 4rem;
+    gap: 6rem;
   }
 
   &__info {
@@ -117,12 +115,24 @@ section {
     gap: 1rem;
 
     h1 {
-      font-size: 5rem;
-      line-height: 1em;
+      font-size: 4rem;
+      letter-spacing: -3px;
 
       u {
         color: var(--brand-color);
       }
+    }
+  }
+
+  &__cta-button {
+    display: block;
+    padding: 1rem 3.6rem;
+    border-radius: 6px;
+    background: @brand-color;
+    color: var(--contrast-color-fg) !important;
+
+    &:hover {
+      background: darken(@brand-color, 5%);
     }
   }
 
@@ -133,8 +143,9 @@ section {
 
   &__command-box {
     display: inline-flex;
-    border: 1px solid var(--border-color);
+    background: var(--background-color);
     align-items: center;
+    border-radius: 5px;
   }
 
   &__command-text, &__command-copy {
@@ -143,7 +154,6 @@ section {
 
   &__command-text {
     font-size: 11pt;
-    border-right: 1px solid var(--border-color);
   }
 
   &__command-copied {
@@ -155,24 +165,27 @@ section {
 .snippets {
   display: flex;
   flex-direction: column;
-  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  overflow: hidden;
 
   &__tabs {
     display: flex;
-    border-bottom: 1px solid var(--border-color);
   }
 
   &__tab {
     flex: 1;
     text-align: center;
     padding: 1rem;
-
-    &:not(:last-child) {
-      border-right: 1px solid var(--border-color);
-    }
+    font-family: monospace;
+    font-size: 9pt;
 
     &--current {
       background: var(--background-color);
+    }
+
+    &:not(&--current) {
+      background: @brand-color;
+      color: var(--contrast-color-fg);
     }
 
     @media screen and (min-width: 768px) {
@@ -183,8 +196,9 @@ section {
 
 .snippet {
   font-size: 10pt;
-  padding: 1rem;
+  padding: 0 1rem;
   overflow: auto;
+  height: 100%;
 }
 
 .snippet,

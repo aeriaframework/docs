@@ -4,9 +4,8 @@ import markdownit from 'markdown-it'
 import shiki from '@shikijs/markdown-it'
 import typescriptGrammar from 'shiki/langs/typescript.mjs'
 import aeriaGrammar from 'virtual:aeria-grammar'
-import { AeriaIcon, AeriaButton } from '@aeria-ui/ui'
+import { AeriaIcon } from '@aeria-ui/ui'
 
-const isDark = ref(false)
 const hash = ref('')
 
 type Snippet = {
@@ -146,8 +145,6 @@ const setCurrentSnippet = (slug: string) => {
       <ul>
         <a href="/docs/aeria/">Docs</a>
         <a href="/docs/guide/getting-started">Getting Started</a>
-        <aeria-icon v-clickable v-if="isDark" icon="sun" @click="isDark = false" />
-        <aeria-icon v-clickable v-else icon="moon" @click="isDark = true" />
         <aeria-icon
           v-clickable
           icon="github-logo"
@@ -171,7 +168,7 @@ const setCurrentSnippet = (slug: string) => {
         <h1>Prototype your next application <u>faster.</u></h1>
         <h2>
           Aeria is a schema definition language and a minimalistic, type-driven
-          web framework that ensures the quality of the code being produced
+          framework that ensures the quality of the code being produced
         </h2>
         <div class="hero__command">
           <div class="hero__command-box">
@@ -190,9 +187,9 @@ const setCurrentSnippet = (slug: string) => {
             Copied!
           </div>
         </div>
-        <div class="hero_cta">
-          <a href="/docs/guide/getting-started">
-            <aeria-button large>Get Started</aeria-button>
+        <div class="hero__cta">
+          <a href="/docs/guide/getting-started" class="hero__cta-button">
+            Get Started
           </a>
         </div>
       </div>

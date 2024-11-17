@@ -1,33 +1,16 @@
 @import '@aeria-ui/ui/themes/light.less';
 @import '@aeria-ui/ui/themes/dark.less';
 @import '@aeria-ui/ui/themes/animate.less';
-
-@brand-color: #007bee;
+@import './variables.less';
 
 * {
   --nav-padding: 1.6rem 1rem;
   --section-padding: 2.6rem;
-  --border-color: #ddd;
-  --contrast-color-bg: #000;
   --contrast-color-fg: #fff;
   --background-color: #f9f9f9;
-  --body-color: #fbfbfb;
+  --body-color: lighten(@brand-color, 48%);
   --brand-color: @brand-color;
 }
-
-.dark {
-  * {
-    --border-color: #444;
-    --contrast-color-bg: #fff;
-    --contrast-color-fg: #000;
-    --background-color: #333;
-  }
-
-  .shiki, .shiki span {
-    color: var(--shiki-dark) !important;
-  }
-}
-
 
 #app {
   .animate();
