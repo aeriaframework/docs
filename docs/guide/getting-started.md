@@ -47,7 +47,7 @@ Finally, to grant you access to the application during development, sign in usin
 ### Adding collections
 
 Collections are declared in the `schemas/main.aeria` file.
-Below there is an example of a "person" collection being declared with Aeria Lang, and on the side there is the same declaration using the TypeScript API.
+Below there is an example of a "person" collection being declared with Aeria Lang.
 
 ::: code-group
 
