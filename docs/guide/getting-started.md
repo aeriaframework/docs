@@ -2,7 +2,7 @@
 
 ## Requirements
 
-- Node v20+
+- Node v22+
 - A running MongoDB server <Badge type="info" text="optional" />
 - Git command line utility <Badge type="info" text="optional" />
 - A POSIX-like environment <Badge type="info" text="optional" />
