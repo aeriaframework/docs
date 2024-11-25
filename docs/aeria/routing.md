@@ -3,6 +3,7 @@
 Aeria ships a minimalistic web server with pattern matching, grouping, middlewares, and runtime validation support.
 
 ### `createRouter()`
+>`createRouter(options: Partial<RouterOptions> = {}) => Router`
 
 This function is used to create a router object with an optional `RouterOptions` parameter.
 

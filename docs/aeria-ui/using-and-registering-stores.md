@@ -1,29 +1,42 @@
 # Using and registering stores
 
-Stores are objects that contain global state. In Aeria, they are also what glue the backend and frontend together through item states, metadata, and functions.
+Stores are objects that hold state (`.item`, `.items`, `.itemsCount`, etc) and action functions that mutate state (`.setItem()`, `.setItems()`, `.clearItems()`, etc).
 
-When accessed with `useStore()` the stores have the following `Store` type:
+Each collection has it store automatically generated in the runtime. It can be accessed with `const personStore = useStore('person')`. Collection stores can also be extended to add state and functionality. To view all properties collection stores have, visit [`CollectionStore`](/aeria-ui/collection-store)
 
 ```typescript
-type StoreState = Record<string, any>
+const personStore = useStore('person')
 
-type Store = StoreState & {
-  $id: string
-  $actions: Record<string, (...args: any[]) => any>
-  $functions: Record<string, (...args: any[]) => any>
+// this action mutates the `.items` state
+await personStore.$actions.getAll()
+
+for( const people of personStore.items ) {
+  // const people: CollectionItemWithId<'person'>
+  console.log(people)
 }
 ```
 
-## `registerStore()`
+**Types:**
 
-This function adds a new store to a internal object to make it acessible later
-through `useStore()`. It's only argument is a callback that returns the `Store`
-object. 
+```typescript
+type StoreState = Record<string, unknown>
+
+type Store = StoreState & {
+  $id: string
+  $actions: Record<string, (...args: unknown[])=> unknown>
+  $functions: Record<string, (...args: unknown[])=> unknown>
+}
+```
+
+## `createStore()`
+>`createStore(fn: (context: StoreContext, config: unknown) => Store) => (context: StoreContext, config: unknown) => Store`
+
+This function creates a new store from a callback.
 
 ### Example
 
 ```typescript
-export myCustomStore = registerStore(() => ({
+export myCustomStore = createStore(() => ({
   state: {
     counter: 0
   },
@@ -36,6 +49,7 @@ export myCustomStore = registerStore(() => ({
 ```
 
 ## `createCollectionStore()`
+>`createCollectionStore(store: Store, context: StoreContext) => StorePrototype`
 
 It's not unusual to have to extend a store that was previously generated from a Description to add more state properties, actions, or getters. The `createCollectionStore()` function does exactly that: it receives a [`Store`](/aeria-ui/store) object and merges it into a new [`CollectionStore`](/aeria-ui/collection-store) object.
 
@@ -47,7 +61,7 @@ Collections must be named-exported by `./stores` and have the same name as their
 ### Example
 
 ```typescript
-export const employees = registerStore((manager) => createCollectionStore({
+export const employees = createStore((manager) => createCollectionStore({
   $id: 'employees',
   state: {
     week_day: 1,
@@ -77,12 +91,13 @@ export const employees = registerStore((manager) => createCollectionStore({
 ```
 
 ## `useStore()`
+>`useStore(storeId: string) => Store`
 
 ```typescript
 declare const useStore: (storeId: string, manager?: GlobalStateManager) => Store
 ```
 
-This function will look for a store named `storeId` in `./src/stores` exports and return it case it exists, otherwise, case `storeId` is a valid collection name, will return a runtime generated [`CollectionStore`](/aeria-ui/collection-store).
+Get's a store from it's name. Will throw an exception if the store is not found.
 
 ::: warning WARNING
 `useStore()` is meant to be called in Composition API, where dependency injection is available.

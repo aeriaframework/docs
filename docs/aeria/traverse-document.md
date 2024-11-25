@@ -1,4 +1,5 @@
 # `traverseDocument()`
+>`traverseDocument(what: Record<string, unknown>, description: Description, options: TraverseOptions) => Promise<Result.Either<ACErrors | ValidationError, {}>>`
 
 This function iterates all the properties of a document recursively performing the specified set of operations on each step. If any of the steps returns a `Error<T>`, then the function returns it immediately, otherwise returns a `Result<T>` containing the mutated copy of the object.
 
@@ -12,13 +13,6 @@ type TraverseOptions = {
   allowOperators?: boolean
   recurseReferences?: boolean
 }
-
-declare const traverseDocument: <const TWhat extends Record<string, unknown>>(
-  what: TWhat,
-  description: Description,
-  options: TraverseOptions
-
-) => Promise<Result.Either<ACErrors | ValidationError, {}>>
 ```
 
 ### Example usage

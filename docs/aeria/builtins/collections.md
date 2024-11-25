@@ -6,70 +6,30 @@ This collection is required to authentication and authorization. It contains by 
 
 
 ### `activate()`
+>`activate(payload: { password: string }) => Promise<Either<Error, Response>>`
 
 Creates an user account, that is, insert a new user with an optional hashed password, then send account activation link through email.
-
-**Type**:
-
-```typescript
-function activate(
-  payload: {
-    password: string
-  },
-): Promise<Either<Error, Response>>
-```
 
 ### `createAccount()`
+>`createAccount(payload: Omit<User, 'roles'>) => Promise<Either<Error, User>>`
 
 Creates an user account, that is, insert a new user with an optional hashed password, then send account activation link through email.
-
-**Type**:
-
-```typescript
-function createAccount(payload: Omit<User, 'roles'>): Promise<Either<Error, User>>
-```
 
 ### `getInfo()`
+>`getInfo( payload: { userId: string token: string }) => Promise<Either<Error, { name: string email: string }>>`
 
 Creates an user account, that is, insert a new user with an optional hashed password, then send account activation link through email.
 
-**Type**:
-
-```typescript
-function getInfo(
-  payload: {
-    userId: string
-    token: string
-  },
-): Promise<Either<Error, {
-  name: string
-  email: string
-}>>
-```
 
 ## `file`
 
 This collection implements basic file management.
 
 ### `download()`
+>`download(payload: { fileId: string noHeaders: boolean options: readonly ( | 'picture' | 'download')[] }) => Promise<Result.Error<Error> | fs.ReadableStream>`
 
 Fetchs a file from the database by its id, then returns a readable stream of its content.
 By default, this function also sets `content-type`, `content-length`, `content-range`, and `content-disposition` headers.
-
-**Type**:
-
-```typescript
-function download(
-  payload: {
-    fileId: string
-    noHeaders: boolean
-    options: readonly (
-      | 'picture'
-      | 'download'
-    )[]
-  },
-): Promise<Result.Error<Error> | fs.ReadableStream>
-```
 
 ## `log`
 

@@ -8,6 +8,7 @@ Input data sent to routes is validated differently through [Contracts](/aeria/co
 
 
 ### `validate()`
+>`validate(what: TWhat | undefined, schema: JsonSchema, options?: ValidateOptions) => Result.Either<ValidationError, TWhat>`
 
 This function validates a object against a schema. It receives an optional third argument containing [`ValidateOptions`](#validateoptions). It will return `Result<TWhat>` case the validation succeeds, and `Error<ValidationError>` case it fails.
 
@@ -24,6 +25,7 @@ const personEither = validate(person, {
 ```
 
 ### `validator()`
+>`validator(schema: JsonSchema, options?: ValidateOptions) => [Schema, (what: unknown) => Result.Either<ValidationError, TWhat>]`
 
 This function receives a schema and a optional second argument containing `ValidateOptions`. It will return a tuple composed by a empty object whose type is inferred from the specified schema, and a function that will receive a object and return the `Either<TWhat, ValidationError>` derived from it's validation.
 
