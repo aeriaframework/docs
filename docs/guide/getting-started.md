@@ -13,7 +13,7 @@
 The official and easiest way to start an Aeria project is through the `create-aeria-app` command line utility. It is done the following way (it may vary according to the package manager you use):
 
 ```
-npm create -y aeria-app project-name
+npm create -y aeria-app@latest project-name
 ```
 
 The utility will scaffold a new project with some defaults:
