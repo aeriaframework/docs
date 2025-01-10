@@ -66,7 +66,10 @@ enum PropertyValidationErrorCode {
   Extraneous = 'EXTRANEOUS_PROPERTY',
   Unmatching = 'UNMATCHING_PROPERTIES',
   ExtraneousElement = 'EXTRANEOUS_ELEMENT',
+  MoreItemsExpected = 'MORE_ITEMS_EXPECTED',
+  LessItemsExpected = 'LESS_ITEMS_EXPECTED',
   NumericConstraint = 'NUMERIC_CONSTRAINT',
+  StringConstraint = 'STRING_CONSTRAINT',
 }
 
 enum TraverseError {
@@ -77,25 +80,25 @@ enum TraverseError {
 type PropertyValidationError = {
   type: PropertyValidationErrorCode
   index?: number
-  details: {
-    expected: any
-    got: any
+  details?: {
+    expected: unknown
+    got: unknown
   }
 }
 
 type ValidationErrorInvalidProperties = {
   code: ValidationErrorCode.InvalidProperties
-  errors: Record<string, PropertyValidationError | ValidationError>
+  details: Record<string, PropertyValidationError | ValidationError>
 }
 
 type ValidationErrorMissingProperties = {
   code: ValidationErrorCode.MissingProperties
-  errors: Record<string, { type: 'missing' }>
+  details: Record<string, { type: 'missing' }>
 }
 
 type ValidationErrorEmptyTarget = {
   code: ValidationErrorCode.EmptyTarget
-  errors: {}
+  details: {}
 }
 
 type ValidationError =

@@ -68,8 +68,11 @@ type ApiConfig = {
   secret?: string
   baseUrl?: RouteUri
   publicUrl?: string
+  webPublicUrl?: string
+  host?: string
   port?: number
   defaultPaginationLimit?: number
+  noWarmup?: boolean
   database?: {
     mongodbUrl?: string
     noDatabase?: boolean
@@ -84,10 +87,12 @@ type ApiConfig = {
     password: string
   }
   security: {
-    tokenExpiration?: number
+    tokenExpiration?: number | undefined
+    linkTokenExpiration?: number | undefined
     logSuccessfulAuthentications?: boolean
     authenticationRateLimiting?: RateLimitingParams | null
     allowSignup?: boolean
+    mutableUserProperties: (keyof CollectionItem<'user'>)[]
     signupDefaults?: {
       roles?: string[]
       active?: boolean
@@ -96,6 +101,7 @@ type ApiConfig = {
     exposeFunctionsByDefault?:
       | boolean
       | 'unauthenticated'
+    rolesHierarchy?: RolesHierarchy
   }
   tokenUserProperties?: (keyof CollectionItem<'user'>)[]
   errorHandler?: <TError>(
@@ -104,3 +110,13 @@ type ApiConfig = {
   )=> unknown | Promise<unknown>
 }
 ```
+
+### `RolesHierarchy`
+
+```ts
+type RolesHierarchy = Record<
+  UserRole,
+  readonly UserRole[] | boolean
+>
+```
+
