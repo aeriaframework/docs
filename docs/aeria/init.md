@@ -1,117 +1,168 @@
 # `init()`
 
-This function bootstraps an Aeria instance. Inside it goes the API configuration object, user collections, and a callback for controlling HTTP requests.
-
-**Type:**
-
-```typescript
-type InitOptions = {
-  config?: ApiConfig
-  callback?: (context: Context)=> any
-  collections?: Record<string, {
-    description: NonCircularJsonSchema
-  }>
-}
-```
-
-### Example
-
-Inline collections (collections are declared *inside* the `init` function, more suitable to smaller and more portable projects):
-
-```typescript
+```ts
 import { init } from 'aeria'
+import { router } from './router.js'
+export * as collections from './collections.js'
 
 export default init({
-  collections: {
-    pizza: {
-      description: {
-        $id: 'pizza',
-        properties: {
-          name: {
-            type: 'string'
-          }
-        }
-      }
-    }
+  router,
+  config: {
+    // ...
   },
-  config: {
-    database: {
-      mongodbUrl: 'mongodb://localhost:27107/db'
-    }
-  }
 })
 ```
 
-Re-exported collections (collections are *re-exported* from another module, more suitable to bigger projects with a lot of collections):
+## `init()` options
 
-```typescript
-import { init } from 'aeria'
-export * as collections from './collections'
+### `config`
 
-export default init({
-  config: {
-    database: {
-      mongodbUrl: 'mongodb://localhost:27107/db'
-    }
-  }
-})
+**Type**: `ApiConfig`
+
+See below.
+
+### `router`
+
+**Type**: `ReturnType<typeof createRouter>`
+
+The main application router.
+
+### `setup`
+
+**Type**: `(context: RouteContext)=> unknown`
+
+A callback that is triggered when the application loads.
+
+## `ApiConfig`
+
+### `name`
+
+**Type**: `string`
+
+A string that identifies the application. Example: `"My app"`.
+
+### `baseUrl`
+
+**Type**: `RouteUri`
+
+A relative URL that delimits the API scope. Example: `"/api"`.
+
+### `publicUrl`
+
+**Type**: `string`
+
+An absolute URL from where the API will be acessible. Example: `"https://mydomain.com/api"`.
+
+### `publicUrl`
+
+**Type**: `string`
+
+An absolute URL from where the application frontend will be accessible. Used to generate some links sent to the user, such as account activation and password redefinition. Example: `"https://mydomain.com/"`.
+
+### `errorHandler`
+  
+**Type**:
+
+```ts
+errorHandler<TError>(
+  context: RouteContext,
+  error: TError
+)=> unknown | Promise<unknown>
 ```
 
+### `tokenUserProperties`
 
-### `ApiConfig`
+**Type**: `(keyof CollectionItem<'user'>)[]`
 
-**Type:**
+Top-level properties of the `user` collection that should be present in the token retrieved by the authentication. Those properties will be present in the `Context` object in the path `context.token.userinfo`. Example: `context.token.userinfo.phone`.
 
-```typescript
-type ApiConfig = {
-  name?: string
-  secret?: string
-  baseUrl?: RouteUri
-  publicUrl?: string
-  webPublicUrl?: string
-  host?: string
-  port?: number
-  defaultPaginationLimit?: number
-  noWarmup?: boolean
-  database?: {
-    mongodbUrl?: string
-    noDatabase?: boolean
-    logQueries?: boolean
-  }
-  storage?: {
-    fs?: string
-    tempFs?: string
-  }
-  defaultUser?: {
-    username: string
-    password: string
-  }
-  security: {
-    tokenExpiration?: number | undefined
-    linkTokenExpiration?: number | undefined
-    logSuccessfulAuthentications?: boolean
-    authenticationRateLimiting?: RateLimitingParams | null
-    allowSignup?: boolean
-    mutableUserProperties: (keyof CollectionItem<'user'>)[]
-    signupDefaults?: {
-      roles?: string[]
-      active?: boolean
-    }
-    paginationLimit?: number
-    exposeFunctionsByDefault?:
-      | boolean
-      | 'unauthenticated'
-    rolesHierarchy?: RolesHierarchy
-  }
-  tokenUserProperties?: (keyof CollectionItem<'user'>)[]
-  errorHandler?: <TError>(
-    context: RouteContext,
-    error: TError
-  )=> unknown | Promise<unknown>
-}
-```
+By default, **reference properties** aren't populated, and only the ID is retrieved.
 
-### `RolesHierarchy`
+### `database.mongodbUrl`
+
+**Type**: `string`
+
+A valid MongoDB URL starting with the `mongodb://` scheme.
+
+### `database.noDatabase`
+
+**Type**: `boolean`
+
+When set to `true`, a MongoDB client won't be intitialized during startup.
+
+### `database.logQueries`
+
+**Type**: `boolean`
+
+When set to `true`, MongoDB queries will be logged to the standard output.
+
+### `storage.fs`
+
+**Type**: `string`
+
+An writable absolute path where temporary files created during uploads are moved to after successful document insertions.
+
+### `storage.tempFs`
+
+**Type**: `string`
+
+An writable absolute path where temporary files should be stored. When this property is absent, Aeria will pick the `storage.fs` path to be used instead. Optimally, this option must be set to an OS-level temporary filesystem so temporary files won't be stacked indefinitely.
+
+### `defaultUser.username`
+
+**Type**: `string`
+
+An username that will grant first-time access to the application, before real users can be inserted in the DB.
+
+### `defaultUser.password`
+
+**Type**: `string`
+
+A plain-text password to the first-time access user.
+
+### `security.tokenExpiration`
+
+**Type**: `number`
+
+Time in milliseconds until authorization tokens expire. This is handled directly by [JWT](https://jwt.io/).
+
+### `security.linkTokenExpiration`
+
+Teste
+
+### `security.logSuccessfulAuthentication`
+
+Teste
+
+### `security.authenticationRateLimiting`
+
+Teste
+
+### `security.allowSignup`
+
+Teste
+
+### `security.mutableUserProperties`
+
+Teste
+
+### `security.signupDefaults.roles`
+
+Teste
+
+### `security.signupDefaults.active`
+
+Teste
+
+### `security.paginationLimit`
+
+Teste
+
+### `security.exposeFunctionsByDefault`
+
+Teste
+
+### `security.rolesHierarchy`
 
 ```ts
 type RolesHierarchy = Record<
@@ -119,4 +170,3 @@ type RolesHierarchy = Record<
   readonly UserRole[] | boolean
 >
 ```
-
