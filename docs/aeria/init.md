@@ -35,11 +35,29 @@ A callback that is triggered when the application loads.
 
 ## `ApiConfig`
 
+### `host`
+
+**Type**: `string`
+
+The host on which the HTTP server will start listening. Example: `"0.0.0.0"`.
+
+### `port`
+
+**Type**: `port`
+
+The port on which the HTTP server will start listening. Example: `3000`.
+
 ### `name`
 
 **Type**: `string`
 
 A string that identifies the application. Example: `"My app"`.
+
+### `noWarmup`
+
+**Type**: `boolean`
+
+If set to `true`, won't print the startup summary.
 
 ### `baseUrl`
 
@@ -53,11 +71,17 @@ A relative URL that delimits the API scope. Example: `"/api"`.
 
 An absolute URL from where the API will be acessible. Example: `"https://mydomain.com/api"`.
 
-### `publicUrl`
+### `webPublicUrl`
 
 **Type**: `string`
 
 An absolute URL from where the application frontend will be accessible. Used to generate some links sent to the user, such as account activation and password redefinition. Example: `"https://mydomain.com/"`.
+
+### `defaultPaginationLimit`
+
+**Type**: `number`
+
+The number of records `getAll` returns by default. Defaults to `10`.
 
 ### `errorHandler`
   
@@ -124,7 +148,7 @@ A plain-text password to the first-time access user.
 
 **Type**: `number`
 
-Time in milliseconds until authorization tokens expire. This is handled directly by [JWT](https://jwt.io/).
+Time in milliseconds until authorization tokens expire. This is handled directly by [JWT](https://jwt.io/). Defaults to `36000`.
 
 ### `security.linkTokenExpiration`
 
@@ -132,7 +156,9 @@ Teste
 
 ### `security.logSuccessfulAuthentication`
 
-Teste
+**Type**: `boolean`
+
+If set to `true`, a log record will be created with the timestamp and information of the signed in user.
 
 ### `security.authenticationRateLimiting`
 
@@ -140,27 +166,49 @@ Teste
 
 ### `security.allowSignup`
 
-Teste
+**Type**: `boolean`
+
+If set to `true`, the `/user/createAccount` endpoint will be enabled for unauthenticated users to create accounts.
 
 ### `security.mutableUserProperties`
 
-Teste
+**Type**: `(keyof CollectionItem<'user'>)[]`
+
+A list of properties users are able to edit through the `/user/editProfile` endpoint.
+
+**Default**:
+
+```ts
+[
+    'email',
+    'name',
+    'password',
+    'phone_number',
+    'picture_file',
+]
+```
 
 ### `security.signupDefaults.roles`
 
-Teste
+**Type**: `readonly UserRole[]`
+
+The roles to be assigned to new users created through the `/user/createAccount` endpoint.
 
 ### `security.signupDefaults.active`
 
-Teste
+**Type**: `boolean`
 
 ### `security.paginationLimit`
 
-Teste
+**Type**: `number`
+
+The maximum number of records a user is allowed to retrieve in a single `getAll` request. Defaults to `100`.
 
 ### `security.exposeFunctionsByDefault`
 
-Teste
+**Type**: `boolean | 'unauthenticated'`
+
+Exposes all collection functions by default. If set to `true`, exposes to authenticated users only. If set to `'unauthenticated'`, exposes to both authenticated and unauthenticated users.
 
 ### `security.rolesHierarchy`
 
@@ -170,3 +218,4 @@ type RolesHierarchy = Record<
   readonly UserRole[] | boolean
 >
 ```
+
