@@ -2,8 +2,6 @@
 
 Schemas in Aeria are defined using a superset of [JSON Schema](https://json-schema.org/) with framework-specific attributes. Schemas used to define the data structure of collections are referred to as **descriptions**.
 
-[[toc]]
-
 ## JSON Schema
 
 ### `$id`

@@ -25,7 +25,7 @@ See below.
 
 **Type**: `ReturnType<typeof createRouter>`
 
-The main application router.
+The main application router. See [Routing](/aeria/routing).
 
 ### `setup`
 
@@ -46,12 +46,6 @@ The host on which the HTTP server will start listening. Example: `"0.0.0.0"`.
 **Type**: `port`
 
 The port on which the HTTP server will start listening. Example: `3000`.
-
-### `name`
-
-**Type**: `string`
-
-A string that identifies the application. Example: `"My app"`.
 
 ### `noWarmup`
 

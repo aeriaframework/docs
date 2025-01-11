@@ -1,9 +1,5 @@
 # Properties
 
-A intersection of JSON Schema data types Aeria can validate and store.
-
-[[toc]]
-
 ## `ObjectProperty`
 
 This type of property is used to create denormalized subschemas that will be validated on runtime. Unlike `RefProperty`, which is another way of storing data structures, it inserts the actual object instead of it's identifier, and doesn't require a collection.

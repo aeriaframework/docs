@@ -20,7 +20,7 @@ The router object may be used to bind callback to routes. The route string is ac
 export const router = createRouter()
 
 router.GET('/age/([0-9]+)', (context) => {
-  const age = Number(context.request.fragments)
+  const age = Number(context.request.fragments[0])
   return {
     personType: age >= 18
       ? 'adult'
