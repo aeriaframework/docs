@@ -109,16 +109,10 @@ function sidebarAeriaReference() {
     {
       text: 'General',
       items: [
-        { text: 'Aeria Lang', link: '/aeria/aeria-lang', },
         { text: 'Collections', link: '/aeria/collections', },
-        {
-          text: 'Data structure',
-          items: [
-            { text: 'Aeria Schema', link: '/aeria/aeria-schema', },
-            { text: 'Properties', link: '/aeria/properties' },
-            { text: 'Validation', link: '/aeria/validation' },
-          ],
-        },
+        { text: 'Aeria Schema', link: '/aeria/aeria-schema', },
+        { text: 'Properties', link: '/aeria/properties' },
+        { text: 'Validation', link: '/aeria/validation' },
         { text: 'Contracts', link: '/aeria/contracts' },
         { text: 'Routing', link: '/aeria/routing', },
         { text: 'Error Handling', link: '/aeria/error-handling', },
@@ -130,11 +124,11 @@ function sidebarAeriaReference() {
       text: 'Built-ins',
       items: [
         {
-          text: 'Collections',
+          text: 'Builtin collections',
           link: '/aeria/builtins/collections'
         },
         {
-          text: 'Functions',
+          text: 'Builtin functions',
           link: '/aeria/builtins/functions'
         }
       ]
