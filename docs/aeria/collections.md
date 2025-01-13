@@ -43,7 +43,7 @@ export const pizza = defineCollection({
 
 :::
 
-Statically and during runtime collections are fetched from `import('.').collections`. So in order to expose collections, re-export them inside your `main` file:
+Aeria gets the collections from `import('.').collections`. So in order to make collections visible to Aeria, re-export them inside your `main` file as defined in `package.json`:
 
 ::: code-group
 
