@@ -4,7 +4,7 @@ import {
   AeriaButton,
   AeriaInsertPanel,
   useStore,
-  registerStore,
+  createStore,
   createI18n,
   createCollectionStore,
   createGlobalStateManager,
@@ -18,7 +18,7 @@ const open = ref(false)
 const manager = getGlobalStateManager()
 const i18n = inject(I18N_KEY)
 
-const registerPizzaStore = registerStore((context) => createCollectionStore({
+const registerPizzaStore = createStore((context) => createCollectionStore({
   $id: 'pizza',
   state: {
     rawDescription: {
