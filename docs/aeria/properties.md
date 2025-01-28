@@ -6,8 +6,6 @@ This type of property is used to create denormalized subschemas that will be val
 
 **Example:**
 
-::: code-group
-
 ```aeria-properties [main.aeria]
 error {
   properties {
@@ -16,33 +14,6 @@ error {
   }
 }
 ```
-
-```typescript [description.ts]
-{
-  error: {
-    type: 'object',
-    properties: {
-      code: {
-        type: 'string'
-      },
-      message: {
-        type: 'string'
-      }
-    }
-  }
-}
-```
-
-```ts [sample]
-{
-  error: {
-    code: '001',
-    message: 'file not found'
-  }
-}
-```
-
-:::
 
 ### `type` <Badge type="tip" text="'object'" />
 
@@ -55,28 +26,9 @@ Object properties are distinguished by the `type` property set to `'object'`. It
 
 **Example:**
 
-::: code-group
-
 ```aeria-properties [main.aeria]
 name str @maxLength(20)
 ```
-
-```typescript [description.ts]
-{
-  name: {
-    type: 'string',
-    maxLength: 20,
-  }
-}
-```
-
-```ts [sample]
-{
-  name: 'Terry Davis'
-}
-```
-
-:::
 
 ### `type` <Badge type="tip" text="'string'" />
 
@@ -131,29 +83,9 @@ The placeholder text rendered inside the input.
 
 **Example:**
 
-::: code-group
-
 ```aeria-properties [main.aeria]
 rating num @minimum(5) @maximum(5)
 ```
-
-```typescript [description.ts]
-{
-  rating: {
-    type: 'number',
-    minimum: 5,
-    maximum: 5,
-  }
-}
-```
-
-```ts [sample]
-{
-  rating: 5
-}
-```
-
-:::
 
 ### `type` <Badge type="tip" text="'number' | 'integer'" />
 
@@ -184,27 +116,9 @@ The placeholder text rendered inside the input.
 
 **Example:**
 
-::: code-group
-
 ```aeria-properties [main.aeria]
 active bool
 ```
-
-```typescript [description.ts]
-{
-  active: {
-    type: 'boolean'
-  }
-}
-```
-
-```ts [sample]
-{
-  active: true
-}
-```
-
-:::
 
 ### `type` <Badge type="tip" text="'boolean'" />
 
@@ -215,37 +129,9 @@ Boolean properties are distinguished by the `type` property set to `'boolean'`
 
 **Example:**
 
-::: code-group
-
 ```aeria-properties [main.aeria]
 company Company @indexes(["name", "headquarters"])
 ```
-
-```typescript [description.ts]
-{
-  company: {
-    $ref: 'company',
-    indexes: [
-      'name',
-      'headquarters'
-    ]
-  }
-}
-```
-
-```typescript [sample]
-{
-  company: {
-    _id: ObjectId('...'),
-    name: 'ACME Co.',
-    headquarters: [
-      'Baltimore'
-    ]
-  }
-}
-```
-
-:::
 
 ### `$ref` <Badge type="tip" text="string" />
 
@@ -287,35 +173,9 @@ Sometimes reference properties need to have constraints to make them useful. Con
 
 **Example:**
 
-::: code-group
-
 ```aeria-properties [main.aeria]
 picture File @accept(["image/*"])
 ```
-
-```typescript [description.ts]
-{
-  picture: {
-    $ref: 'file',
-    accept: [
-      'image/*'
-    ]
-  }
-}
-```
-
-```typescript [sample]
-{
-  picture: {
-    _id: ObjectId('...'),
-    name: 'picture.jpg',
-    link: 'https://example.com/api/file/...',
-    download_link: 'https://example.com/api/file/...',
-  }
-}
-```
-
-:::
 
 ### `$ref` <Badge type="tip" text="'file'" />
 
@@ -330,8 +190,6 @@ This read-only array of strings may contain accepted mime types. Wildcards such 
 
 **Example:**
 
-::: code-group
-
 ```aeria-properties [main.aeria]
 status enum @options([
   "pending",
@@ -341,27 +199,6 @@ status enum @options([
 ])
 ```
 
-```typescript [description.ts]
-{
-  status: {
-    enum: [
-      'pending',
-      'paid',
-      'refused',
-      'chargeback'
-    ]
-  }
-}
-```
-
-```typescript [sample]
-{
-  status: 'pending'
-}
-```
-
-:::
-
 ### `enum` <Badge type="tip" text="readonly any[]" />
 
 Enum properties specify an array of valid elements that will be validated upon insert. The elements of the enum must be of a scalar type. Passing objects will fail at runtime because references will be compared instead of actual value.
@@ -369,8 +206,6 @@ Enum properties specify an array of valid elements that will be validated upon i
 ## `ArrayProperty`
 
 **Example:**
-
-::: code-group
 
 ```aeria-properties [main.aeria]
 items []{
@@ -380,49 +215,6 @@ items []{
   }
 }
 ```
-
-```typescript [description.ts]
-{
-  items: {
-    type: 'array',
-    items: {
-      type: 'object',
-      properties: {
-        product: {
-          $ref: 'product'
-        },
-        quantity: {
-          type: 'integer',
-          minimum: 1
-        }
-      }
-    }
-  }
-}
-```
-
-```typescript [sample]
-{
-  items: [
-    {
-      product: {
-        _id: ObjectId('...'),
-        name: 'Product 1'
-      },
-      quantity: 1
-    },
-    {
-      product: {
-        _id: ObjectId('...'),
-        name: 'Product 2'
-      },
-      quantity: 3
-    }
-  ]
-}
-```
-
-:::
 
 ### `type` <Badge type="tip" text="'array'" />
 
@@ -437,32 +229,10 @@ This property defines the schema of array elements.
 
 **Example:**
 
-::: code-group
-
 ```aeria-properties [main.aeria]
 error const @value(true)
 message str
 ```
-
-```typescript [description.ts]
-{
-  error: {
-    const: true
-  },
-  message: {
-    type: 'string'
-  }
-}
-```
-
-```typescript [sample]
-{
-  error: true,
-  message: 'there was an error'
-}
-```
-
-:::
 
 ### `const` <Badge type="tip" text="any" />
 
@@ -473,8 +243,6 @@ The literal value the property expects.
 
 **Example:**
 
-::: code-group
-
 ```typescript [description.ts]
 {
   full_name: {
@@ -484,14 +252,6 @@ The literal value the property expects.
   }
 }
 ```
-
-```typescript [sample]
-{
-  full_name: 'Terry'
-}
-```
-
-:::
 
 ### `getter` <Badge type="tip" text="(doc: any) => any" />
 

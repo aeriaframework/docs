@@ -36,8 +36,7 @@ jobs:
 
       - name: Build with VitePress
         run: |
-          pnpm --filter=landing build --emptyOutDir --outDir=../dist
-          pnpm --filter=docs build --emptyOutDir --outDir=../dist/docs
+          pnpm --filter=docs build --emptyOutDir --outDir=../dist
       - name: Copy assets to dist
         run: cp -r docs/assets dist/docs
       - name: Upload artifact

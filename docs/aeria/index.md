@@ -1,18 +1,46 @@
----
-aside: false
----
+# Introduction
 
-# Aeria
-
-Glad you made it until here! This section of the documentation will cover the backend part of Aeria, including [Aeria Lang](/aeria/aeria-lang), a DSL that ships with the framework. Switch at anytime between documentation sections by using the dropdown located at the topbar.
-
-The [Getting Started](/guide/getting-started) guide contains useful instructions for using Aeria for the first time, including how to integrate with IDEs to provide syntax highlighting and other features.
+Blablah...
 
 ```aeria
-collection HelloWorld {
+collection File extends aeria.file {}
+collection TempFile extends aeria.tempFile {}
+
+functionsset Crud {
+  get @expose
+  getAll @expose
+  insert @expose
+  remove @expose
+}
+
+collection Person {
   properties {
-    newcomers_welcome const @value(true)
+    name str
+    picture File @accept(["image/*"])
+  }
+  functions {
+    include(Crud)
   }
 }
 ```
+
+DTOs share almost the same syntax:
+
+```aeria
+contract AddFriend {
+  payload {
+    person_id str
+  }
+  response
+    | Result Person
+    | Error str
+}
+```
+
+## Why Aeria?
+
+1. It is faster
+2. It has better TypeScript support (than Mongoose)
+3. It offers a more cohesive approach
+4. It is smaller and has more potential of linear growth
 

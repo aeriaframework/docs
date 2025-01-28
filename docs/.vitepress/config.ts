@@ -10,7 +10,6 @@ export default defineConfig({
   lang: 'en-US',
   title: 'Aeria',
   description: 'Official documentation for the Aeria Framework',
-  base: '/docs/',
   lastUpdated: true,
   cleanUrls: true,
   ignoreDeadLinks: true,
@@ -109,6 +108,7 @@ function sidebarAeriaReference() {
     {
       text: 'General',
       items: [
+        { text: 'Introduction', link: '/aeria/', },
         { text: 'Collections', link: '/aeria/collections', },
         { text: 'Contracts', link: '/aeria/contracts' },
         { text: 'Aeria Schema', link: '/aeria/aeria-schema', },
@@ -118,19 +118,8 @@ function sidebarAeriaReference() {
         { text: 'Error Handling', link: '/aeria/error-handling', },
         { text: 'Security', link: '/aeria/security', },
         { text: 'init()', link: '/aeria/init', },
-      ]
-    },
-    {
-      text: 'Built-ins',
-      items: [
-        {
-          text: 'Builtin collections',
-          link: '/aeria/builtins/collections'
-        },
-        {
-          text: 'Builtin functions',
-          link: '/aeria/builtins/functions'
-        }
+        { text: 'Builtin collections', link: '/aeria/builtins/collections' },
+        { text: 'Builtin functions', link: '/aeria/builtins/functions' }
       ]
     },
     {
