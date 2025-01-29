@@ -10,7 +10,7 @@ const relativePath = computed(() => {
 })
 
 const quickSwitch = () => {
-  return relativePath.value.startsWith('/aeria')
+  return relativePath.value.startsWith('aeria/')
     ? router.go('/aeria-ui/')
     : router.go('/aeria/')
 }
@@ -26,7 +26,7 @@ const quickSwitch = () => {
     @click="quickSwitch"
   >
     {{
-      relativePath.startsWith('/aeria')
+      relativePath.startsWith('aeria/')
         ? 'Aeria UI'
         : 'Aeria'
     }}
