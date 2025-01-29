@@ -2,6 +2,7 @@ import type { Theme } from 'vitepress'
 import { bootstrapApp } from 'aeria-ui'
 import DefaultTheme from 'vitepress/theme'
 import Layout from './Layout.vue'
+import NavbarQuickSwitch from './NavbarQuickSwitch.vue'
 import './custom.less'
 
 export default {
@@ -10,9 +11,9 @@ export default {
   enhanceApp: ({ app }) => {
     bootstrapApp({
       app,
-      instanceVars: {
-        base: '/docs/',
-      },
+      instanceVars: {},
     })
+
+    app.component('NavbarQuickSwitch', NavbarQuickSwitch)
   }
 } satisfies Theme

@@ -49,6 +49,9 @@ export default defineConfig({
     outline: [1, 4],
     nav: [
       {
+        component: 'NavbarQuickSwitch',
+      },
+      {
         text: 'Docs',
         activeMatch: '^/(aeria|aeria-ui)//',
         items: [
