@@ -5,21 +5,28 @@ import { computed } from 'vue'
 
 const { page } = useData()
 const router = useRouter()
-const isOnAeria = computed(() => {
-  return page.value.relativePath.startsWith('aeria/')
+const relativePath = computed(() => {
+  return page.value.relativePath
 })
 
 const quickSwitch = () => {
-  return isOnAeria.value
+  return relativePath.value.startsWith('/aeria')
     ? router.go('/aeria-ui/')
     : router.go('/aeria/')
 }
 </script>
 
 <template>
-  <aeria-icon icon="arrows-clockwise" icon-right href="#" class="button" @click="quickSwitch">
+  <aeria-icon
+    v-if="/^aeria(-ui)?\//.test(relativePath)"
+    icon-right
+    icon="arrows-clockwise"
+    href="#"
+    class="button"
+    @click="quickSwitch"
+  >
     {{
-      isOnAeria
+      relativePath.startsWith('/aeria')
         ? 'Aeria UI'
         : 'Aeria'
     }}
