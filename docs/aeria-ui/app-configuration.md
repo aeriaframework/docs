@@ -35,6 +35,78 @@ useApp(options).then((app) => {
 })
 ```
 
+
+## MenuSchema
+
+The navigation menu in Aeria UI is generated from a `MenuSchema` object that
+goes in app options. In it's most basic form, the menu schema is an array of
+strings matching route names. For example:
+
+```typescript
+const menuSchema: MenuSchema = [
+  '/dashboard/person',
+  '/dashboard/user',
+]
+```
+
+Menu entries however can become more complex as needed. They can be collapsed,
+have children entries, and have a callback to display a custom badge near it.
+Below is a menu schema making using of all these features:
+
+```typescript
+const menuSchema: MenuSchema = [
+  {
+    collapsed: false,
+    meta: {
+      title: 'Config',
+      icon: 'cog'
+    },
+    badge: async () => {
+      return businessLogic()
+    },
+    children: [
+      '/dashboard/user',
+      '/dashboard/log',
+    ]
+  }
+]
+```
+
+### `node.name` <Badge type="tip" text="(string | Symbol)?" />
+
+A string or symbol representing a route name.
+
+### `node.roles` <Badge type="tip" text="(Array<string> | ((role: Array<string>) => boolean | Promise<boolean>))?" />
+
+Will make this menu entry visible only to roles specified by an array of
+strings, or by a custom callback.
+
+### `node.badge` <Badge type="tip" text="(() => Promise<string | number>)?" />
+
+This property specifies a callback whose result will be rendered inside a badge near the menu entry.
+
+::: tip NOTE
+The execution of this callback will be memoized, meaning it won't run more than
+once on subsequent re-renderizations.
+:::
+
+### `node.collapsed` <Badge type="tip" text="(boolean | 'user')?" />
+
+If set to `node.true`, this property will determine that the collapsible entry
+should be initially collapsed on page load. Otherwise it will appear
+uncollapsed.
+
+### `node.children` <Badge type="tip" text="Array<string | MenuAdvancedChild>?" />
+
+This property determines the route entries that will go inside the collapsible
+entry. Collapsible routes can recurse infinitely inside each other this way.
+
+### `node.meta` <Badge type="tip" text="object?" />
+
+This property determines the `node.title` and `icon` that should be displayed by the
+entry on the menu.
+
+
 ## `InstanceConfig`
 
 The instance config is defined inside a `instance.json` file in the same level the `package.json` of your frontend project is. The purpose of it being separate from overall configuration is because the configuration contained in it must be made available during build time.

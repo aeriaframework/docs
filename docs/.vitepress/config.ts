@@ -143,19 +143,7 @@ function sidebarAeriaUiReference() {
       text: 'Configuration',
       items: [
         { text: 'App configuration', link: '/aeria-ui/app-configuration' },
-        { text: 'Menu configuration', link: '/aeria-ui/menu-configuration' }
-      ]
-    },
-    {
-      text: 'Stores',
-      items: [
-        { text: 'Using and registering stores', link: '/aeria-ui/using-and-registering-stores' },
-        { text: 'CollectionStore', link: '/aeria-ui/collection-store' },
-      ]
-    },
-    {
-      text: 'Built-ins',
-      items: [
+        { text: 'Stores', link: '/aeria-ui/stores' },
         { text: 'Directives', link: '/aeria-ui/directives' },
         { text: 'Composables', link: '/aeria-ui/composables' },
         { text: 'Template functions and computed variables', link: '/aeria-ui/template-functions-and-computed-variables' },

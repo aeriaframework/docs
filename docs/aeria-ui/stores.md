@@ -1,4 +1,4 @@
-# Using and registering stores
+# Stores
 
 Stores are objects that hold state (`.item`, `.items`, `.itemsCount`, etc) and action functions that mutate state (`.setItem()`, `.setItems()`, `.clearItems()`, etc).
 
@@ -33,7 +33,7 @@ type Store = StoreState & {
 
 This function creates a new store from a callback.
 
-### Example
+**Example:**
 
 ```typescript
 export myCustomStore = createStore(() => ({
@@ -58,7 +58,7 @@ The stores should follow a naming convention to make type inference work properl
 Collections must be named-exported by `./stores` and have the same name as their collections.
 :::
 
-### Example
+**Example:**
 
 ```typescript
 export const employees = createStore((manager) => createCollectionStore({
@@ -125,3 +125,67 @@ const fn2 = myExternalFunction(manager)
   <aeria-button @click="fn2">fn2</aeria-button>
 </template>
 ```
+
+## `CollectionStore`
+
+Whenever you define a collection in the backend, it will be automatically reflected in a store in Aeria UI. Those are a special kind of store that contains states for inserting and retrieving items, pagination, collection metadata, and more, along with actions and a interface to interact with the collection endpoints.
+
+### `item` <Badge type="tip" text="TDocument" />
+
+This property bears a document.
+
+### `items` <Badge type="tip" text="Array<TDocument>" />
+
+This property bears a list of documents.
+
+### `properties` <Badge type="tip" text="TDescription['properties']" />
+
+This property is a getter that computes to `store.description.properties`.
+
+### `$actions.get()`
+
+Will call `$actions.store.$functions.get` and mutate `store.item` with the retrieved document.
+
+### `$actions.getAll()`
+
+Will call `$actions.store.$functions.getAll` and mutate `store.items` with the retrieved documents.
+
+### `$actions.insert()`
+
+Will call `$actions.store.$functions.insert` and mutate `store.item` and `store.items` with the retrieved document.
+
+### `$actions.deepInsert()`
+
+Will call `$actions.store.$functions.insert` recursively on each referenced collection present within the payload, and finally on the parent document, and then mutate `store.item` and `store.items` with the retrieved document.
+
+### `$actions.remove()`
+
+Will call `$actions.store.$functions.insert` and mutate `store.item` and `store.items` with the retrieved document.
+
+### `$actions.removeAll()`
+
+Will call `$actions.store.$functions.insert` and mutate `store.item` and `store.items` with the retrieved document.
+
+### `$actions.useProperties()` <Badge type="tip" text="(properties: Array<string>) => Record<string, CollectionProperty>" />
+
+A helper function that will retrieved the specified properties from `$actions.store.properties`. Example usage:
+
+```vue
+<aeria-form
+  v-bind="personStore.item"
+  :form="personStore.$actions.useProperties([
+    'name',
+    'age'
+  ])"
+></aeria-form>
+```
+
+### `$functions` <Badge type="tip" text="Record<string, (...args: any[]) => any" />
+
+This property is similar to `$actions`, but contains a proxy object that maps to any endpoint of the collection, including custom and router-created ones, and won't produce any mutations in the state. Functions will return a Promise that will resolve to the response of the endpoint.
+For example:
+
+```typescript
+const items = await personStore.$functions.getAll({})
+```
+
