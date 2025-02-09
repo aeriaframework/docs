@@ -1,294 +1,403 @@
 # Collections
 
-Collections are storable entities. Each collection has it's [data structure](/aeria/aeria-schema), functions, [contracts](/aeria/contracts), and [security policies](/aeria/security). Collection functions can also be exposed directly as endpoints if they're configured in `exposedFunctions` property, in such cases `functions.test` becomes accessible through `POST /collectionName/test`.
+In their most basic form, collections may have only their data structure defined. Since MongoDB is a schemaless database, data will be verified on the application level before being inserted. A collection that stores people may be defined as following:
 
-::: code-group
-
-```aeria [main.aeria]
-collection Pizza {
+```aeria
+collection Person {
   properties {
     name str
-    gluten_free bool
-  }
-  functions {
-    get
-    getAll
-    remove
+    age int
   }
 }
 ```
 
-```typescript [pizza.ts]
-import { defineCollection, get, getAll, remove } from 'aeria'
+We can tell which properties are to be required using the `required` attribute:
 
-export const pizza = defineCollection({
-  description: {
-    $id: 'pizza',
-    properties: {
-      name: {
-        type: 'string'
-      }
-      gluten_free: {
-        type: 'boolean'
-      }
-    }
-  },
-  functions: {
-    get,
-    getAll,
-    remove
-  }
-})
-```
-
-:::
-
-Aeria gets the collections from `import('.').collections`. So in order to make collections visible to Aeria, re-export them inside your `main` file as defined in `package.json`:
-
-::: code-group
-
-```typescript [index.ts]
-export * as collections from './collections/index.js'
-```
-
-:::
-
-
-### Type
-
-```typescript
-type Collection<TCollection extends Collection = any> = {
-  description: Description
-  item?: any
-  functions?: Record<string, (payload: any, context: Context<any>, ...args: any[])=> any>
-  contracts?: Record<string, Contract>
-  exposedFunctions?: Record<string, AccessCondition>
-  security?: CollectionSecurityPolicy<TCollection>
-  middlewares?:
-    | CollectionMiddleware<any>
-    | CollectionMiddleware<any>[]
-}
-```
-
-### Functions
-
-Collections can have `(payload: any, context: Context, options?: any) => any` functions that will later be accessible through `context.collections.collectionName.functions` with their second parameter omitted. The third `options` parameter might be used to protect sensitive options from being controlled by the user when the function is exposed as an endpoint.
-
-When exposed as an endpoint, the JSON-unserialized `POST` request body will be passed as the first parameter `payload`.
-
-::: code-group
-
-```aeria [main.aeria]
-collection Pizza {
-  functions {
-    getAll
-    customFunction?
+```aeria
+collection Person {
+  required { // [!code focus]
+    name // [!code focus]
+  } // [!code focus]
+  properties {
+    name str
+    age int
   }
 }
 ```
 
-```typescript [pizza.ts]
-import { extendCollection } from 'aeria-lang/collections/pizza'
+Collections can have attributes other than their own data structure. You can define an icon from the [Phosphor Icon](https://phosphoricons.com) library to represent your collection on the frontend using the `icon` attribute. You can also define which properties are to be displayed in frontend tables using the `table` attribute.
 
-export const pizza = extendCollection({
-  functions: {
-    customFunction: (payload: { name: string }, context) => {
-      return {
-        message: `Hello, ${payload.name}!`
-      }
-    }
+```aeria
+collection Person {
+  icon "person" // [!code focus]
+  table { // [!code focus]
+    name // [!code focus]
+  } // [!code focus]
+  required {
+    name
   }
-})
-```
-
-```typescript [router.ts]
-router.GET('/example', (context) => {
-  return context.collections.pizza.functions.customFunction({
-    name: 'Terry'
-  })
-})
-```
-
-:::
-
-#### Exposing functions as endpoints
-
-Functions can be directly exposed as endpoints for the sake of brevity and reusability. This is where the `exposedFunctions` property comes in. A `AccessCondition` is passed at the time of exposing a function to tell which set of users will have access to it based on their roles.
-
-When the `true` value is passed (`@expose` or `@expose(true)` in Aeria Lang), only authenticated users will have access.
-
-::: code-group
-
-```aeria [collection.aeria]
-collection Example {
-  functions {
-    get @expose("unauthenticated")
-    getAll @expose("unauthenticated")
-    insert @expose
-    remove @expose([
-      "root"
-    ])
-    businessLogic?
+  properties {
+    name str
+    age int
   }
 }
 ```
 
-```typescript [collection.ts]
-import { defineCollection, get, getAll, insert, remove } from 'aeria'
+Finally, you can have CRUD-related functions directly bound to your collection by using the `functions` attribute. Each function will be accessible through it's respective REST endpoint.
 
-const example = defineCollection({
-  description,
-  functions: {
-    get,
-    getAll,
-    insert,
-    remove,
-    businessLogic: (payload, context) => {
-      // custom function
-      return {
-        success: true
-      }
-    },
-  },
-  exposedFunctions: {
-    get: 'unauthenticated',
-    getAll: 'unauthenticated',
-    insert: true,
-    remove: [
-      'root'
-    ]
+```aeria
+collection Person {
+  icon "person"
+  table {
+    name
   }
-})
+  required {
+    name
+  }
+  properties {
+    name str
+    age int
+  }
+  functions { // [!code focus]
+    get // [!code focus]
+    getAll // [!code focus]
+    insert // [!code focus]
+    remove // [!code focus]
+  } // [!code focus]
+}
 ```
 
-:::
+## Attributes
 
-For some use cases it might be unnecessary to control the access to every endpoint. In such cases the `config.security.exposeFunctionsByDefault` can be set to `true` to exposed functions to authenticated users by default, or to `'unauthenticate'` to include unauthenticated users.
-
-### Security
-
-Security decisions can be expressed with the `security` property.
-
-::: code-group
+### `required`
 
 ```aeria [main.aeria]
 collection Example {
-  security {
-    functions {
-      getAll {
-        logging {
-          strategy "tenant"
-        }
-        rateLimiting {
-          strategy "ip"
-          scale 10
-        }
+  required {
+    name
+    document
+    legal_responsible @cond(age < 18)
+  }
+}
+```
+
+This property is used to verify document wholeness upon creation and update. Case set to an array of strings, will consider only specified properties to validate document wholeness, otherwise will check if all properties are not null or undefined.
+
+### `properties` 
+
+The properties contained in the collection. Properties are described in a [separate section](/aeria/property).
+
+
+### `actions` 
+
+Actions that aren't associated with a single database entry.
+
+```aeria [main.aeria]
+collection Person {
+  actions {
+    add {
+      label "Add new entry"
+    }
+  }
+}
+```
+
+### `filters` 
+
+This property is used to control a filter widget rendered inside the `aeria-crud` component. If set, a filter button will appear, otherwise no filter functionallity will be made available.
+
+The array passed to this property can contain two types of elements, either a string representing a property name, or an object containing both the property name and a default filter.
+
+```aeria [main.aeria]
+collection Person {
+  filters {
+    name
+  }
+}
+```
+
+### `filtersPresets` 
+
+```aeria [main.aeria]
+collection Person {
+  filtersPresets {
+    active {
+      label "Active"
+      filters {
+        active true
       }
     }
   }
 }
 ```
 
-```typescript [collection.ts]
-import { defineCollection, get, getAll, insert, remove } from 'aeria'
+### `form` 
 
-const example = defineCollection({
-  description,
-  functions,
-  security: {
-    functions: {
-      getAll: {
-        logging: {
-          strategy: 'tenant'
-        },
-        rateLimiting: {
-          strategy: 'ip',
-          scale: 10,
-        },
-      },
-    },
-  },
-})
-```
+If set, runtime generated forms will render only specified properties. Otherwise all properties are rendered.
 
+::: warning WARNING
+This property alone won't keep any of non-specified collection properties to be written. If you need to make properties read-only, use the `writable` property in an exclusive manner.
 :::
 
-### Interacting directly with MongoDB
-
-In `context` collections receive a `model` property. This property consists of `typeof import('mongodb').Collection` and can be used to access the database directly. Please note that this interface won't populate references automatically -- you'll need to build a custom aggregation pipeline for that. Use `functions` instead of the MongoDB interface if autopopulating references is a need.
-
-```typescript
-router.GET('/glutenFreePizzas', (context) => {
-  return context.collections.pizza.model.find({
-    glutenFree: true
-  }).toArray()
-})
+```aeria [main.aeria]
+collection Person {
+  form {
+    name
+    document
+  }
+}
 ```
 
-### Collection middlewares
+### `formLayout` 
 
-Collection middlewares are used to add define custom behavior to builtin functions. They can be defined using the `defineCollectionMiddleware()` helper. Each one can have one or multiple middleware functions.
+This property controls how inputs should be dynamically rendered inside frontend forms.
 
-- `beforeRead()`: executes before `get()`, `getAll()`, `count()`
-- `beforeWrite()`: executes before `insert()`
-
-::: code-group
-
-```typescript [api/src/middlewares/index.ts]
-import { defineCollectionMiddleware, deepMerge } from 'aeria'
-
-export const businessTenancyMiddleware = defineCollectionMiddleware({
-  beforeRead: (payload, context, next) => {
-    if( !context.token.authenticated ) {
-      throw new Error
-    }
-    return next(deepMerge(payload, {
-      filters: {
-        business: context.token.userinfo.business,
-      },
-    }), context)
-  },
-  beforeWrite: (payload, context, next) => {
-    if( !context.token.authenticated ) {
-      throw new Error
-    }
-    return next(deepMerge(payload, {
-      what: {
-        business: context.token.userinfo.business,
-      },
-    }), context)
-  },
-})
-```
-
-:::
-
-After defined collection middlewares can be set in the `middlewares` property, which accepts a single middleware or an array of middlewares.
-
-::: code-group
-
-```typescript [api/src/collections.ts]
-export const person = extendPersonCollection({
-  // will get executed one after another
-  middlewares: [
-    businessTenancyMiddleware,
-    anotherMiddleware,
-  ],
-})
-
-export const car = extendCarCollection({
-  middlewares: businessTenancyMiddleware,
-})
-
-export const building = extendBuildingCollection({
-  middlewares: {
-    beforeRead: (payload, context, next) => {
-      // do something
-      return next(payload, context)
+```aeria [main.aeria]
+collection Person {
+  formLayout {
+    fields {
+      responsible @if(age == 18)
     }
   }
-})
+}
 ```
 
+### `icon` 
+
+This property may be used to specify an icon from an icon library to be associated with the collection in the frontend.
+It will be shown on navbars, breadcumbs, etc.
+
+```aeria [main.aeria]
+collection Person {
+  icon "file"
+}
+```
+
+### `immutable` 
+
+This property may be used to specify properties that should be writable upon creation, but read-only upon update. If set to true, then will enable immutability to all properties, if set to an array of strings, only specified properties will receive that attribute.
+
+```aeria [main.aeria]
+collection Person {
+  immutable {
+    status
+  }
+}
+```
+
+### `indexes` 
+
+This optional property may be used to specify an icon from an icon library to be associated with the collection in the frontend.
+It will be shown on navbars, breadcumbs, etc.
+
+```aeria [main.aeria]
+collection Person {
+  indexes {
+    name
+    document
+  }
+}
+```
+
+### `individualActions` 
+
+Actions associated with a single database entry. In a tabular layout, these are displayed inside a dropdown in the last column.
+
+```aeria [main.aeria]
+collection Person {
+  individualActions {
+    remove {
+      label "Remove"
+    }
+  }
+}
+```
+
+### `owned` 
+
+This property is used to control the access of user-owned resources. If set to true or `'always'` in a description, users will only be able to view and edit resources created by themselves.
+
+Accepted values:
+
+- `true`
+- `"always"`
+- `"on-write"`
+
+```aeria [main.aeria]
+collection Person {
+  owned true
+}
+```
+
+### `table` 
+
+This property is used exclusively by the frontend. Case set to an array of strings, will specify properties to be used as columns in `aeria-crud` component. Otherwise all properties will be used.
+
+::: tip NOTE
+In the frontend, Aeria will smartly request only required properties in order to make network payloads lighter. This is specialy important in runtime generated views. If you need to use a property that isn't set as a column inside your view, please add the `tableMeta` property.
 :::
 
+```aeria [main.aeria]
+collection Person {
+  table {
+    name
+    document
+  }
+}
+```
+
+### `tableMeta` 
+
+If set, grid and tabular runtime generated views will request the specified properties alongside the ones specified in `table`.
+
+```aeria [main.aeria]
+collection Person {
+  tableMeta {
+    extra_property
+  }
+}
+```
+
+### `tableLayout`
+
+```aeria
+collection Person {
+  tableLayout {}
+}
+```
+
+### `timestamps` 
+
+This property should only be used to disable automatic timestamps in a certain collection (`created_at` and `updated_at`). Timestamps are always enabled by default.
+
+```aeria [main.aeria]
+collection Person {
+  timestamps false
+}
+```
+
+### `layout`
+
+Specifies a layout to override the default tabular one.
+
+```aeria [main.aeria]
+collection Person {
+  layout {
+    name "tabular"
+    options {
+      title title
+    }
+  }
+}
+```
+
+### `preset` 
+
+Merges a description preset into the current one.
+To see what each preset contains please head to the [source code](https://github.com/aeria-org/aeria/tree/master/packages/core/src/presets).
+
+```aeria [main.aeria]
+collection Person {
+  presets {
+    crud
+    view
+  }
+}
+```
+
+### `writable` 
+
+If set, all properties except the one specified will be made read-only. Trying writing on them will trigger an Access Control error.
+
+```aeria [main.aeria]
+collection Person {
+  writable {
+    name
+    document
+  }
+}
+```
+
+### `search` 
+
+Activates a search bar in the frontend that will perform a MongoDB `$text` query.
+
+```aeria [main.aeria]
+collection Person {
+  search {
+    placeholder "Search by name or by document"
+    indexes {
+      name
+      document
+    }
+  }
+}
+```
+
+<!-- ### Collection middlewares -->
+<!---->
+<!-- Collection middlewares are used to add define custom behavior to builtin functions. They can be defined using the `defineCollectionMiddleware()` helper. Each one can have one or multiple middleware functions. -->
+<!---->
+<!-- - `beforeRead()`: executes before `get()`, `getAll()`, `count()` -->
+<!-- - `beforeWrite()`: executes before `insert()` -->
+<!---->
+<!-- ::: code-group -->
+<!---->
+<!-- ```typescript [api/src/middlewares/index.ts] -->
+<!-- import { defineCollectionMiddleware, deepMerge } from 'aeria' -->
+<!---->
+<!-- export const businessTenancyMiddleware = defineCollectionMiddleware({ -->
+<!--   beforeRead: (payload, context, next) => { -->
+<!--     if( !context.token.authenticated ) { -->
+<!--       throw new Error -->
+<!--     } -->
+<!--     return next(deepMerge(payload, { -->
+<!--       filters: { -->
+<!--         business: context.token.userinfo.business, -->
+<!--       }, -->
+<!--     }), context) -->
+<!--   }, -->
+<!--   beforeWrite: (payload, context, next) => { -->
+<!--     if( !context.token.authenticated ) { -->
+<!--       throw new Error -->
+<!--     } -->
+<!--     return next(deepMerge(payload, { -->
+<!--       what: { -->
+<!--         business: context.token.userinfo.business, -->
+<!--       }, -->
+<!--     }), context) -->
+<!--   }, -->
+<!-- }) -->
+<!-- ``` -->
+<!---->
+<!-- ::: -->
+<!---->
+<!-- After defined collection middlewares can be set in the `middlewares` property, which accepts a single middleware or an array of middlewares. -->
+<!---->
+<!-- ::: code-group -->
+<!---->
+<!-- ```typescript [api/src/collections.ts] -->
+<!-- export const person = extendPersonCollection({ -->
+<!--   // will get executed one after another -->
+<!--   middlewares: [ -->
+<!--     businessTenancyMiddleware, -->
+<!--     anotherMiddleware, -->
+<!--   ], -->
+<!-- }) -->
+<!---->
+<!-- export const car = extendCarCollection({ -->
+<!--   middlewares: businessTenancyMiddleware, -->
+<!-- }) -->
+<!---->
+<!-- export const building = extendBuildingCollection({ -->
+<!--   middlewares: { -->
+<!--     beforeRead: (payload, context, next) => { -->
+<!--       // do something -->
+<!--       return next(payload, context) -->
+<!--     } -->
+<!--   } -->
+<!-- }) -->
+<!-- ``` -->
+<!---->
+<!-- ::: -->
+<!---->

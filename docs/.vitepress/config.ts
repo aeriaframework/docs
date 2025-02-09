@@ -114,7 +114,6 @@ function sidebarAeriaReference() {
         { text: 'Introduction', link: '/aeria/', },
         { text: 'Collections', link: '/aeria/collections', },
         { text: 'Contracts', link: '/aeria/contracts' },
-        { text: 'Aeria Schema', link: '/aeria/aeria-schema', },
         { text: 'Properties', link: '/aeria/properties' },
         { text: 'Validation', link: '/aeria/validation' },
         { text: 'Routing', link: '/aeria/routing', },
