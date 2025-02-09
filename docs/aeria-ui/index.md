@@ -27,9 +27,6 @@ const router = useRouter()
 >
   &lt;{{ componentName }} /&gt;
 
-  <template #description>
-    a
-  </template>
 </item-card>
 </div>
 

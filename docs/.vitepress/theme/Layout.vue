@@ -4,7 +4,6 @@ import { useData } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
 import '@aeria-ui/ui/style.css'
 import '../../src/style/main.less'
-import '../../src/style/tailwind.css'
 
 const { isDark } = useData()
 
