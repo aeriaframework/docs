@@ -62,17 +62,11 @@ export default defineConfig({
         ]
       },
       {
-        text: 'Guide',
-        link: '/guide/getting-started',
-        activeMatch: '^/guide/'
-      },
-      {
         text: 'Demo',
         link: 'https://demo.aeria.land/',
       },
     ],
     sidebar: {
-      '/guide/': sidebarGuide(),
       '/aeria/': sidebarAeriaReference(),
       '/aeria-ui/': sidebarAeriaUiReference()
     },
@@ -92,19 +86,6 @@ export default defineConfig({
     }
   }
 })
-
-function sidebarGuide() {
-  return [
-    {
-      text: 'Introduction',
-      items: [
-        { text: 'Getting started', link: '/guide/getting-started' },
-        { text: 'Integration with IDE and text editors', link: '/guide/integration-with-ide-and-text-editors' },
-        { text: 'Deploy', link: '/guide/deploy' },
-      ]
-    },
-  ]
-}
 
 function sidebarAeriaReference() {
   return [
@@ -131,6 +112,13 @@ function sidebarAeriaReference() {
         { text: 'traverseDocument()', link: '/aeria/traverse-document' },
         { text: 'getLookupPipeline()', link: '/aeria/get-lookup-pipeline' },
         { text: 'successfulAuthentication()', link: '/aeria/successful-authentication' },
+      ]
+    },
+    {
+      text: 'Guides',
+      items: [
+        { text: 'Integration with IDE and text editors', link: '/aeria/integration-with-ide-and-text-editors' },
+        { text: 'Deploy', link: '/aeria/deploy' },
       ]
     },
   ]
