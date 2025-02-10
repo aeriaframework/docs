@@ -8,7 +8,7 @@ hero:
   actions:
     - theme: brand
       text: Get started
-      link: /guide/getting-started
+      link: /aeria/
     - theme: alt
       text: View on Github
       link: https://github.com/aeria-org/aeria
