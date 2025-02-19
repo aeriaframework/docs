@@ -106,9 +106,9 @@ function sidebarAeriaReference() {
       ]
     },
     {
-      text: 'Advanced API',
+      text: 'API',
       items: [
-        { text: 'Condition', link: '/aeria/condition' },
+        { text: 'signToken() and decodeToken()', link: '/aeria/sign-token-and-decode-token' },
         { text: 'traverseDocument()', link: '/aeria/traverse-document' },
         { text: 'getLookupPipeline()', link: '/aeria/get-lookup-pipeline' },
         { text: 'successfulAuthentication()', link: '/aeria/successful-authentication' },
