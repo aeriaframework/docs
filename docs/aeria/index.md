@@ -28,7 +28,7 @@ collection Person {
 }
 ```
 
-Contracts share the same syntax to validate POST/GET parameters and generate types for the response:
+Contracts share the same syntax to validate POST/GET parameters against a schema and generate types for the response:
 
 ```aeria
 contract AddFriend {
