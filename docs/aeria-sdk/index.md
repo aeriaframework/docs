@@ -32,30 +32,43 @@ Running the `describe` script should generate a `aeria-sdk.d.ts` file inside pro
 Make sure to call the `describe` script (`npm run describe` or the equivalent of another package managers) during the deployment pipeline fo your application, otherwise runtime will fail.
 :::
 
-### Configuration
+## Configuration
 
-**Type:**
+### publicUrl.production
 
-```typescript
+**Type**: `string`
+
+The public URL of the Aeria API the SDK will connect to.
+
+### publicUrl.development
+
+**Type**: `string`
+
+The public URL of the Aeria API the SDK will connect to.
+
+### storage.strategy
+
+**Type**:
+
+```ts
 type StorageStrategy =
   | 'none'
   | 'memo'
   | 'localStorage'
-
-type InstanceConfig = {
-  publicUrl: string | {
-    production: string
-    development: string
-  }
-  storage?: {
-    strategy?: StorageStrategy
-    namespace?: string
-  }
-  integrated?: boolean
-}
 ```
 
-### Creating an instance
+### storage.namespace
+
+**Type**: `string`
+
+The prefix to be used to store keys in `localStorage` or `sessionStorage`. Defaults to `aeria`.
+
+### integrated
+
+**Type**: `boolean`
+
+
+## Creating an instance
 
 Instancing the Aeria SDK should now be pretty easy. No additional runtime configuration is needed, just import `aeria` from `aeria-sdk`. The `aeria` export is a strongely typed top-level object that grants access to every API resource. Example:
 
