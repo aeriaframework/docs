@@ -48,9 +48,7 @@ contract AddFriend {
 }
 ```
 
-## Database
-
-Aeria acts as a frontend to MongoDB, similarly to Mongoose, but with some key differences:
+Aeria acts as a frontend to **MongoDB**, similarly to Mongoose, but with some key differences:
 
 1. **Aeria doesn't add up hooks and polyfills**: having no abstraction layer over MongoDB means less complexity and more speed.
 2. **References are resolved using the Aggregation Framework**: instead of looking up references on the application level, Aeria integrates with [Aggregation Framework](https://www.mongodb.com/docs/manual/aggregation/) to resolve references faster directly in the MongoDB backend. Benchmarks can be seen at this [GitHub repository](https://github.com/aeria-org/benchmark).
