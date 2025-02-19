@@ -1,6 +1,8 @@
-# Properties
+# Schema properties
 
 ## String
+
+Stores a JSON string.
 
 **Example**:
 
@@ -8,13 +10,11 @@
 name str
 ```
 
-### Attributes
-
-#### `format`
+### `format`
 
 Test.
 
-#### `mask`
+### `mask`
 
 A mask or array of masks. Example:
 
@@ -23,15 +23,49 @@ phone str @mask(["(##) #####-####"])
 ```
 
 
-## Numerals
+## Number
+
+Stores a JSON number.
 
 **Example**:
 
 ```aeria-properties
-name str
+name num
+```
+
+## Integer
+
+Stores a JSON number.
+
+**Example**:
+
+```aeria-properties
+name int
 ```
 
 ## Boolean
+
+Stores a JSON boolean.
+
+**Example**:
+
+```aeria-properties
+is_active bool
+```
+
+## Date
+
+Stores a JSON boolean.
+
+**Example**:
+
+```aeria-properties
+is_active bool
+```
+
+## Datetime
+
+Stores a JSON boolean.
 
 **Example**:
 
@@ -40,6 +74,8 @@ is_active bool
 ```
 
 ## Object
+
+Represents a nested object.
 
 **Example**:
 
@@ -51,7 +87,19 @@ details {
 }
 ```
 
-## Arrays
+## Reference
+
+Represents a link to a document of another or the same collection. In the database, a `ObjectId` BSON object is stored.
+
+**Example**:
+
+```aeria-properties
+created_by User
+```
+
+## Array
+
+Properties prefixed with an `[]` are turned into an array. For example, if you wish to have an array of strings, write `[]str`.
 
 **Example**:
 
@@ -63,6 +111,15 @@ comments []{
   }
 }
 ```
+
+A special syntax is used to add array constraints.
+
+You may specify a range of minimum and maximum allowed array elements like so:
+
+- `[1..3]`: minimum 1 element, maximum 3 elements
+- `[1..]`: minimum 1 element, no maximum limit
+- `[@uniqueItems]`: elements can not repeat within the array
+- `[1.. @uniqueItems]`: minimum 1 element, no maximum limit, elements can not repeat within the array
 
 <!-- ## `ObjectProperty` -->
 <!---->
