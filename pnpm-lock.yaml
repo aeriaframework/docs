@@ -34,8 +34,8 @@ importers:
         specifier: ^22.13.1
         version: 22.13.1
       aeria-lang-vscode:
-        specifier: ^0.0.26
-        version: 0.0.26
+        specifier: ^0.0.28
+        version: 0.0.28
       aeria-sdk:
         specifier: ^0.0.176
         version: 0.0.176(@aeriajs/common@0.0.136(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.118(@phosphor-icons/core@2.1.1))
@@ -1050,8 +1050,8 @@ packages:
       glob: '*'
       vite: '*'
 
-  aeria-lang-vscode@0.0.26:
-    resolution: {integrity: sha512-CClu9HSaLkwMeiku0VkSwKoL3IezDmH+fp0x+ZlfOSrd8E0oDur81/mc2XmX92tzN+BHm0SlAx6sYlDOAnXPzA==}
+  aeria-lang-vscode@0.0.28:
+    resolution: {integrity: sha512-e0cqvOwes5bwUkxXzEa5kux9y77z5K3gVhtDHUd6RbFuzD3aAzjbvP5Zn9D9zOmFVW5WAF2VXoVq3mNuYL7rFw==}
     engines: {vscode: '>=1.56.0'}
 
   aeria-sdk@0.0.176:
@@ -2860,7 +2860,7 @@ snapshots:
       glob: 11.0.1
       vite: 6.1.1(@types/node@22.13.5)(jiti@2.4.2)(less@4.2.2)(lightningcss@1.29.1)
 
-  aeria-lang-vscode@0.0.26:
+  aeria-lang-vscode@0.0.28:
     dependencies:
       vscode-languageclient: 9.0.1
 
