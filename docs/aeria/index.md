@@ -64,10 +64,26 @@ router.GET('/example', (context) => {
 })
 ```
 
-<!-- ## Why Aeria? -->
-<!---->
-<!-- 1. It is faster -->
-<!-- 2. It has better TypeScript support (than Mongoose) -->
-<!-- 3. It offers a more cohesive approach -->
-<!-- 4. It is smaller and has more potential of linear growth -->
-<!---->
+## Get Started
+
+In order to get the Aeria development server running locally, first make sure to attend the prerequisites:
+
+- Get MongoDB server running
+- Make sure NodeJS v22 or above is installed
+- Install the IDE/code editor extensions to get LSP hints and syntax highlighting ([view the guide](http://localhost:5173/aeria/integration-with-ide-and-text-editors))
+
+Next, bootstrap a new app with the following command:
+
+```sh
+npm create -y aeria-app my-app
+```
+
+Finally, cd into the directory created by the command and start the development server:
+
+```sh
+cd my-app
+npm run dev
+```
+
+By default, the frontend will listen on the `8080` port and the backend will listen on the `3000` port. Navigate to `http://localhost:8080/user/signin` to be able to access the dashboard. You may sign in with the default username and password contained within the `api/.env` file.
+
