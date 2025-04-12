@@ -10,10 +10,6 @@ Stores a JSON string.
 name str
 ```
 
-### `@format`
-
-Test.
-
 ### `@mask`
 
 A mask or array of masks. Example:
@@ -22,25 +18,72 @@ A mask or array of masks. Example:
 phone str @mask(["(##) #####-####"])
 ```
 
+### `@minLength`
 
-## Number
-
-Stores a JSON number.
-
-**Example**:
+The minimum accepted length.
 
 ```aeria-properties
-name num
+pin str @minLength(8)
 ```
 
-## Integer
+### `@maxLength`
+
+The maximum accepted length.
+
+```aeria-properties
+slug str @maxLength(16)
+```
+
+### `@placeholder`
+
+A placeholder to be shown when no value is present.
+
+```aeria-properties
+code str @placeholder("Example: 123456")
+```
+
+
+## Number and Integer
 
 Stores a JSON number.
 
 **Example**:
 
 ```aeria-properties
-name int
+age int // integer numbers only
+weight num // floating point numbers
+```
+
+### `@minimum`
+
+Minimum accepted value.
+
+```aeria-properties
+age num @minimum(10)
+```
+
+### `@maximum`
+
+Maximum accepted value.
+
+```aeria-properties
+percentage num @maximum(100)
+```
+
+### `@exclusiveMinimum`
+
+Minimum accepted value (exclusive).
+
+```aeria-properties
+age num @exclusiveMinimum(10)
+```
+
+### `@exclusiveMaximum`
+
+Maximum accepted value (exclusive).
+
+```aeria-properties
+percentage num @exlusiveMaximum(100)
 ```
 
 ## Boolean
@@ -55,22 +98,22 @@ is_active bool
 
 ## Date
 
-Stores a JSON boolean.
+Stores an ISO date string.
 
 **Example**:
 
 ```aeria-properties
-is_active bool
+member_since date
 ```
 
 ## Datetime
 
-Stores a JSON boolean.
+Stores an ISO date string, exactly like `date`. The difference is that time information will also be shown on frontends.
 
 **Example**:
 
 ```aeria-properties
-is_active bool
+opened_at datetime
 ```
 
 ## Object
@@ -95,6 +138,45 @@ Represents a link to a document of another or the same collection. In the databa
 
 ```aeria-properties
 created_by User
+```
+
+### `@inline`
+
+Marks the reference as being inline. This means:
+
+- the referenced document will be deleted when the parent document is deleted
+- all nested references will be automatically populated
+
+Example use case: imagine a `Post` collection which has an array of `Comment` references that can be placed by users. There is no reason why a `Comment` should exist without the post it is vinculated with, so it should be marked as inline so the proper cleanup would be done when the post is removed.
+
+`File` references are always inline.
+
+**Example**:
+
+```aeria-properties
+comments []Comment @inline
+```
+
+### `@purge`
+
+Indicates the referenced document should be removed when the parent document is removed.
+
+```aeria-properties
+comments []Comment @purge
+```
+
+### `@indexes`
+
+Used to set which foreign properties should be used as indexes. Setting this property and running `aeria -m` will result in collection indexes being created in the database.
+
+**Example**:
+
+```aeria-properties
+customers []Customer @indexes([
+  "name",
+  "phone",
+  "document",
+])
 ```
 
 ## Array
