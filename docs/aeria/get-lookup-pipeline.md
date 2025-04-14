@@ -13,8 +13,7 @@ const pipeline = await getLookupPipeline(context.description, {
 
 const it = context.collection.model.aggregate(pipeline)
 
-let document: typeof context.collection.item | undefined
-while( document = await it.next() ) {
+for await ( const document of it ) {
   // {
   //   name: 'John',
   //   pet: {
@@ -25,3 +24,4 @@ while( document = await it.next() ) {
   console.log(document)
 }
 ```
+
