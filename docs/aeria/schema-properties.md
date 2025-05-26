@@ -186,7 +186,7 @@ Constrain the reference to match requirements before being inserted.
 **Example**:
 
 ```aeria-properties
-customer User @constraint(role in "customer")
+customer User @constraint(roles in "customer")
 ```
 
 ## Array
