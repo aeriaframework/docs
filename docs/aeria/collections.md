@@ -71,12 +71,12 @@ collection Person {
 
 ### `required`
 
-```aeria [main.aeria]
+```aeria 
 collection Example {
   required {
     name
     document
-    legal_responsible @cond(age < 18)
+    legal_responsible @if(age < 18)
   }
 }
 ```
@@ -92,7 +92,7 @@ The properties contained in the collection. Properties are described in a [separ
 
 Actions that aren't associated with a single database entry.
 
-```aeria [main.aeria]
+```aeria 
 collection Person {
   actions {
     add {
@@ -108,7 +108,7 @@ This property is used to control a filter widget rendered inside the `aeria-crud
 
 The array passed to this property can contain two types of elements, either a string representing a property name, or an object containing both the property name and a default filter.
 
-```aeria [main.aeria]
+```aeria 
 collection Person {
   filters {
     name
@@ -118,7 +118,7 @@ collection Person {
 
 ### `filtersPresets` 
 
-```aeria [main.aeria]
+```aeria 
 collection Person {
   filtersPresets {
     active {
@@ -139,7 +139,7 @@ If set, runtime generated forms will render only specified properties. Otherwise
 This property alone won't keep any of non-specified collection properties to be written. If you need to make properties read-only, use the `writable` property in an exclusive manner.
 :::
 
-```aeria [main.aeria]
+```aeria 
 collection Person {
   form {
     name
@@ -152,7 +152,7 @@ collection Person {
 
 This property controls how inputs should be dynamically rendered inside frontend forms.
 
-```aeria [main.aeria]
+```aeria 
 collection Person {
   formLayout {
     fields {
@@ -167,7 +167,7 @@ collection Person {
 This property may be used to specify an icon from an icon library to be associated with the collection in the frontend.
 It will be shown on navbars, breadcumbs, etc.
 
-```aeria [main.aeria]
+```aeria 
 collection Person {
   icon "file"
 }
@@ -177,7 +177,7 @@ collection Person {
 
 This property may be used to specify properties that should be writable upon creation, but read-only upon update. If set to true, then will enable immutability to all properties, if set to an array of strings, only specified properties will receive that attribute.
 
-```aeria [main.aeria]
+```aeria 
 collection Person {
   immutable {
     status
@@ -190,7 +190,7 @@ collection Person {
 This optional property may be used to specify an icon from an icon library to be associated with the collection in the frontend.
 It will be shown on navbars, breadcumbs, etc.
 
-```aeria [main.aeria]
+```aeria 
 collection Person {
   indexes {
     name
@@ -203,7 +203,7 @@ collection Person {
 
 Actions associated with a single database entry. In a tabular layout, these are displayed inside a dropdown in the last column.
 
-```aeria [main.aeria]
+```aeria 
 collection Person {
   individualActions {
     remove {
@@ -212,6 +212,31 @@ collection Person {
   }
 }
 ```
+
+### `middlewares` 
+
+This property receives an array of strings representing middleware names. Each middleware must be a valid export symbol of the `src/middlewares/index.js` import path.
+
+::: code-group
+
+```aeria [main.aeria]
+collection Person {
+  middlewares {
+    myMiddleware
+  }
+}
+```
+
+```ts [src/middlewares/index.ts]
+export const myMiddleware = defineCollectionMiddleware({
+  beforeRead: (payload, context, next) => {
+    // ...
+    return next(payload, context)
+  },
+})
+```
+
+:::
 
 ### `owned` 
 
@@ -223,7 +248,7 @@ Accepted values:
 - `"always"`
 - `"on-write"`
 
-```aeria [main.aeria]
+```aeria 
 collection Person {
   owned true
 }
@@ -237,7 +262,7 @@ This property is used exclusively by the frontend. Case set to an array of strin
 In the frontend, Aeria will smartly request only required properties in order to make network payloads lighter. This is specialy important in runtime generated views. If you need to use a property that isn't set as a column inside your view, please add the `tableMeta` property.
 :::
 
-```aeria [main.aeria]
+```aeria 
 collection Person {
   table {
     name
@@ -250,7 +275,7 @@ collection Person {
 
 If set, grid and tabular runtime generated views will request the specified properties alongside the ones specified in `table`.
 
-```aeria [main.aeria]
+```aeria 
 collection Person {
   tableMeta {
     extra_property
@@ -270,7 +295,7 @@ collection Person {
 
 This property should only be used to disable automatic timestamps in a certain collection (`created_at` and `updated_at`). Timestamps are always enabled by default.
 
-```aeria [main.aeria]
+```aeria 
 collection Person {
   timestamps false
 }
@@ -280,7 +305,7 @@ collection Person {
 
 Specifies a layout to override the default tabular one.
 
-```aeria [main.aeria]
+```aeria 
 collection Person {
   layout {
     name "tabular"
@@ -291,16 +316,24 @@ collection Person {
 }
 ```
 
-### `preset` 
+### `presets` 
 
 Merges a description preset into the current one.
-To see what each preset contains please head to the [source code](https://github.com/aeria-org/aeria/tree/master/packages/core/src/presets).
+Available presets are:
 
-```aeria [main.aeria]
+- add: adds an "Add item" button to the view
+- crud: adds CRUD-related functionalities to the view
+- duplicate: adds a "Duplicate item" action to the table menu
+- remove: adds a "Remove item" action to the table menu
+- owned: adds ownership to the collection (see: [Ownership](/aeria/security#ownership))
+- timestamp: adds timestamp properties to the collection
+- view: adds a "View item" action to the table menu
+
+```aeria 
 collection Person {
   presets {
     crud
-    view
+    duplicate
   }
 }
 ```
@@ -309,7 +342,7 @@ collection Person {
 
 If set, all properties except the one specified will be made read-only. Trying writing on them will trigger an Access Control error.
 
-```aeria [main.aeria]
+```aeria 
 collection Person {
   writable {
     name
@@ -322,7 +355,7 @@ collection Person {
 
 Activates a search bar in the frontend that will perform a MongoDB `$text` query.
 
-```aeria [main.aeria]
+```aeria 
 collection Person {
   search {
     placeholder "Search by name or by document"

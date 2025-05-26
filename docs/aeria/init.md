@@ -35,24 +35,6 @@ A callback that is triggered when the application loads.
 
 ## `ApiConfig`
 
-### `host`
-
-**Type**: `string`
-
-The host on which the HTTP server will start listening. Example: `"0.0.0.0"`.
-
-### `port`
-
-**Type**: `port`
-
-The port on which the HTTP server will start listening. Example: `3000`.
-
-### `noWarmup`
-
-**Type**: `boolean`
-
-If set to `true`, won't print the startup summary.
-
 ### `baseUrl`
 
 **Type**: `RouteUri`
@@ -212,4 +194,28 @@ type RolesHierarchy = Record<
   readonly UserRole[] | boolean
 >
 ```
+
+### `server.host`
+
+**Type**: `string`
+
+The host on which the HTTP server will start listening. Example: `"0.0.0.0"`.
+
+### `server.port`
+
+**Type**: `string`
+
+The port on which the HTTP server will start listening. Example: `3000`.
+
+### `server.noWarmup`
+
+**Type**: `boolean`
+
+If set to `true`, won't print the startup summary.
+
+### `server.enableLogging`
+
+**Type**: `boolean`
+
+Enables basic HTTP logging on the screen.
 

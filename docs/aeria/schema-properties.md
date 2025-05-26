@@ -179,6 +179,16 @@ customers []Customer @indexes([
 ])
 ```
 
+### `@constraints`
+
+Constrain the reference to match requirements before being inserted.
+
+**Example**:
+
+```aeria-properties
+customer User @constraint(role in customer)
+```
+
 ## Array
 
 Properties prefixed with an `[]` are turned into an array. For example, if you wish to have an array of strings, write `[]str`.
