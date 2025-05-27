@@ -86,3 +86,30 @@ const main = async () => {
 }
 ```
 
+## Setting up interceptors
+
+In some scenarios you may find it useful to modify the request before sending it, or to produce some effect upon a specific HTTP status code, for example, redirecting the user to a signin page. The SDK allows setting up interceptors to handle such cases.
+
+You may change the `interceptors` object exported by `aeria-sdk` directly to add request and response interceptors. The interceptors will be used by all instances across the application.
+
+```typescript
+import { interceptors } from 'aeria-sdk'
+
+interceptors.request = async (url, payload, params, next) => {
+  params.headers = {
+    'x-my-header': 'secret',
+  }
+  return next(url, payload,params)
+}
+
+interceptors.response = async (response, next) => {
+  switch( response.status ) {
+    case 200: {
+      console.log('received successful status', response.statusText)
+      break
+    }
+  }
+  return next(response)
+}
+```
+
