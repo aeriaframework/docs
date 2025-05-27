@@ -95,21 +95,21 @@ You may change the `interceptors` object exported by `aeria-sdk` directly to add
 ```typescript
 import { interceptors } from 'aeria-sdk'
 
-interceptors.request = async (url, payload, params, next) => {
-  params.headers = {
+interceptors.request = async (context, next) => {
+  context.params.headers = {
     'x-my-header': 'secret',
   }
-  return next(url, payload,params)
+  return next(context)
 }
 
-interceptors.response = async (response, next) => {
-  switch( response.status ) {
+interceptors.response = async (context, next) => {
+  switch( context.response.status ) {
     case 200: {
-      console.log('received successful status', response.statusText)
+      console.log('received successful status', context.response.statusText)
       break
     }
   }
-  return next(response)
+  return next(context)
 }
 ```
 
