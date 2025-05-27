@@ -156,7 +156,13 @@ This property controls how inputs should be dynamically rendered inside frontend
 collection Person {
   formLayout {
     fields {
-      responsible @if(age == 18)
+      age {
+        span 3
+      }
+      responsible {
+        span 3
+        if (age < 18)
+      }
     }
   }
 }
@@ -308,9 +314,17 @@ Specifies a layout to override the default tabular one.
 ```aeria 
 collection Person {
   layout {
-    name "tabular"
+    name "grid"
     options {
       title title
+      badge roles
+      picture pic
+      information {
+        email
+        birthdate
+      }
+      active active
+      translateBadge true
     }
   }
 }
