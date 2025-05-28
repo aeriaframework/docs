@@ -113,7 +113,7 @@ interceptors.response = async (context, next) => {
 }
 ```
 
-## Creating a instance
+## Creating an instance
 
 It is also possible to create a custom Aeria SDK instance instead of using the global one. In this case, the type of the API must be passed manually in the `createInstance()` template parameter.
 
