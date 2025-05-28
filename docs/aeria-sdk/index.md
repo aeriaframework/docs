@@ -68,9 +68,9 @@ The prefix to be used to store keys in `localStorage` or `sessionStorage`. Defau
 **Type**: `boolean`
 
 
-## Creating an instance
+## Using the global instance
 
-Instancing the Aeria SDK should now be pretty easy. No additional runtime configuration is needed, just import `aeria` from `aeria-sdk`. The `aeria` export is a strongely typed top-level object that grants access to every API resource. Example:
+The `aeria-sdk` module exports a global Aeria SDK instance called `aeria`. This instance gets it's types from code generated with the `aeria-sdk` command. Attempting to import from `aeria-sdk` without running the code generation first will result in a runtime error.
 
 ```typescript
 import { aeria } from 'aeria-sdk'
