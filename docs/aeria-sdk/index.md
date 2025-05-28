@@ -120,7 +120,7 @@ It is also possible to create a custom Aeria SDK instance instead of using the g
 ```typescript
 import { createInstance } from 'aeria-sdk/topLevel'
 
-type MyApi = {
+type Api = {
   nested: {
     myEndpoint: {
       POST: (payload: { name: string }) => Promise<`hello, ${string}!`>
@@ -128,7 +128,7 @@ type MyApi = {
   }
 }
 
-const aeria = createInstance<MyApi>({
+const aeria = createInstance<Api>({
   publicUrl: 'https://myapi',
   }, {
   interceptors: {
@@ -140,6 +140,6 @@ const aeria = createInstance<MyApi>({
 })
 
 // const result: `hello, ${string}!`
-const result = await aeria.nested.myEndpoint({ name: 'john' })
+const result = await aeria.nested.myEndpoint.POST({ name: 'john' })
 ```
 
