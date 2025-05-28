@@ -86,7 +86,7 @@ const main = async () => {
 }
 ```
 
-## Setting up interceptors
+## Using interceptors
 
 In some scenarios you may find it useful to modify the request before sending it, or to produce some effect upon a specific HTTP status code, for example, redirecting the user to a signin page. The SDK allows setting up interceptors to handle such cases.
 
@@ -111,5 +111,35 @@ interceptors.response = async (context, next) => {
   }
   return next(context)
 }
+```
+
+## Creating a instance
+
+It is also possible to create a custom Aeria SDK instance instead of using the global one. In this case, the type of the API must be passed manually in the `createInstance()` template parameter.
+
+```typescript
+import { createInstance } from 'aeria-sdk/topLevel'
+
+type MyApi = {
+  nested: {
+    myEndpoint: {
+      POST: (payload: { name: string }) => Promise<`hello, ${string}!`>
+    }
+  }
+}
+
+const aeria = createInstance<MyApi>({
+  publicUrl: 'https://myapi',
+  }, {
+  interceptors: {
+    request: (context, next) => {
+      console.log('URL', context.url)
+      return next(context)
+    }
+  }
+})
+
+// const result: `hello, ${string}!`
+const result = await aeria.nested.myEndpoint({ name: 'john' })
 ```
 
