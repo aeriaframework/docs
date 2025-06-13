@@ -65,3 +65,19 @@ router.POST('/addFriend', addFriend, contracts.AddFriend)
 router.POST('/removeFriend', removeFriend, contracts.RemoveFriend)
 ```
 
+## `ContractToFunction<TContract, TContext>` utility type
+
+Sometimes you need to implement your function outside of the router function, where the contract get's inferred. To avoid having to type the signature of the function twice, Aeria provides the `ContractToFunction<TContract, TContext>` utility type that takes a contract as the first parameter, and returns a function type.
+
+- `TContract` - a contract
+- `TContext` - a type that extends `RouteContext`, by default, `Context` is used
+
+```ts
+import type { RouteContext } from 'aeria'
+import { contracts } from '../../.aeria/out/index.js'
+
+export const editAddress = ContractToFunction<typeof contracts.OrderEditAddress, RouteContext> = (payload, context) => {
+  // ...
+}
+```
+
