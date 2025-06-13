@@ -65,7 +65,7 @@ router.POST('/addFriend', addFriend, contracts.AddFriend)
 router.POST('/removeFriend', removeFriend, contracts.RemoveFriend)
 ```
 
-## `ContractToFunction<TContract, TContext>` utility type
+## `ContractToFunction` utility type
 
 Sometimes you need to implement your function outside of the router function, where the contract get's inferred. To avoid having to type the signature of the function twice, Aeria provides the `ContractToFunction<TContract, TContext>` utility type that takes a contract as the first parameter, and returns a function type.
 
