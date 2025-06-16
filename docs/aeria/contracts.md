@@ -1,17 +1,10 @@
 # Contracts
 
-Contracts are objects that define input and output validation rules for endpoints and restrict the access to the endpoint given an access condition.
+<!-- Contracts are objects that define input and output validation rules for endpoints and restrict the access to the endpoint given an access condition. -->
 
-## Attributes
+In Aeria, a contract is a type of declaration responsible for modeling the behavior of endpoints. So, before moving to the TypeScript implementation itself, the endpoint is already modeled and documented in a separate layer. This offers a big advantage in terms of project organization as less code is produced and all the business logic can be viewed separately from the implementation.
 
-Contracts can have the following attributes:
-
-- `roles`
-- `payload`
-- `query`
-- `response`
-
-Example contract:
+For example, the following contract would ensure only users with the "member" role would have access to the endpoint it was assigned to, and would also provide types and runtime validation for the payload.
 
 ```aeria
 contract AddFriend {
@@ -23,13 +16,40 @@ contract AddFriend {
       user_id User
     }
   }
-  response {
-    properties {
-      success const @value(true)
+  response
+    | Error {
+      properties {
+        httpStatus int
+        code str
+      }
     }
-  }
+    | Result User
 }
 ```
+
+Contracts also ensure **e2e typing**, so when properly configured, [Aeria SDK](/aeria-sdk/) would provide the right types for the endpoint:
+
+```ts
+const { error, result } = await aeria.user.addFriend({
+  user_id,
+})
+
+if( error ) {
+  return
+}
+
+// error! 'nxame' property does not exist on type 'User'
+result.nxame
+```
+
+## Attributes
+
+Contracts can have the following attributes:
+
+- `roles`
+- `payload`
+- `query`
+- `response`
 
 The `payload`, `query` and `response` attributes can take multiple options separated by a pipe (`|`). They can also take a **modifier**.
 
