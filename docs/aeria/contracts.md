@@ -76,6 +76,8 @@ Contracts can be used by routes and collection functions.
 
 **Route usage**:
 
+To assign a contract to a route, pass it as the parameter after the route callback.
+
 ```ts
 import { contracts } from '../../.aeria/out/index.js'
 
@@ -85,9 +87,14 @@ router.POST('/removeFriend', removeFriend, contracts.UserRemoveFriend)
 
 **Collection usage**:
 
+To assign a contract to a collection function, you pass it in the `contracts` property named the same way as the function.
+
 ::: code-group
 
 ```ts [addFriend.ts]
+import type { ContractToFunction } from 'aeria'
+import { contracts } from '../../.aeria/out/index.js'
+
 export const addFriend = ContractToFunction<typeof contracts.UserAddFriend> = (payload, context) => {
   // ...
 }
