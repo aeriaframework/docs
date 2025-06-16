@@ -14,7 +14,7 @@ This function validates a object against a schema. It receives an optional third
 
 **Example:**
 
-```typescript
+```ts
 const personEither = validate(person, {
   properties: {
     name: {
@@ -31,7 +31,7 @@ This function receives a schema and a optional second argument containing `Valid
 
 **Example:**
 
-```typescript
+```ts
 const [Person, personValidator] = validator({
   properties: {
     name: {
@@ -45,7 +45,7 @@ const personEither = personValidator(person)
 
 ### `ValidateOptions`
 
-```typescript
+```ts
 type ValidateOptions = {
   extraneous?: Array<string> | boolean
   throwOnError?: boolean
@@ -54,7 +54,7 @@ type ValidateOptions = {
 
 ### `ValidationError`
 
-```typescript
+```ts
 enum ValidationErrorCode {
   InvalidProperties = 'INVALID_PROPERTIES',
   MissingProperties = 'MISSING_PROPERTIES',

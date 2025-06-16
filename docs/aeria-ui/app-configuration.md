@@ -4,7 +4,7 @@ Aeria has an all-in-one configuration object that will among other things define
 
 ### `AppOptions`
 
-```typescript
+```ts
 type AppOptions = {
   component: Component
   dashboardComponent?: Component
@@ -21,7 +21,7 @@ This is a helper function that will provide strong typing and callback support f
 
 **Example:**
 
-```typescript
+```ts
 const options = defineOptions({
   routes,
   component,
@@ -42,7 +42,7 @@ The navigation menu in Aeria UI is generated from a `MenuSchema` object that
 goes in app options. In it's most basic form, the menu schema is an array of
 strings matching route names. For example:
 
-```typescript
+```ts
 const menuSchema: MenuSchema = [
   '/dashboard/person',
   '/dashboard/user',
@@ -53,7 +53,7 @@ Menu entries however can become more complex as needed. They can be collapsed,
 have children entries, and have a callback to display a custom badge near it.
 Below is a menu schema making using of all these features:
 
-```typescript
+```ts
 const menuSchema: MenuSchema = [
   {
     collapsed: false,
@@ -111,7 +111,7 @@ entry on the menu.
 
 The instance config is defined inside a `instance.json` file in the same level the `package.json` of your frontend project is. The purpose of it being separate from overall configuration is because the configuration contained in it must be made available during build time.
 
-```typescript
+```ts
 type InstanceConfig = {
   site: {
     title?: string

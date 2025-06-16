@@ -2,7 +2,7 @@
 
 The meta store is invoked as any other. It contains application-wide state such as collections metadata and can be used to spawn modals, prompts, toasts, among other actions.
 
-```typescript
+```ts
 const metaStore = useStore('meta')
 ```
 
@@ -10,7 +10,7 @@ const metaStore = useStore('meta')
 
 Spawns a toast. Toasts are smaller modals that appear on the corner of the screen and disappear when clicked upon.
 
-```typescript
+```ts
 if( error ) {
   return metaStore.$actions.spawnToast({
     text: t(error.message),
@@ -23,7 +23,7 @@ if( error ) {
 
 Spawns a floating panel on the center of the screen.
 
-```typescript
+```ts
 if( error ) {
   metaStore.$actions.spawnModal({
     title: t('error'),
@@ -36,7 +36,7 @@ if( error ) {
 
 Spawns a modal with clickable options. The return is a promise that resolves as soon as one of the actions is clicked.
 
-```typescript
+```ts
 const metaStore = useStore('meta')
 const answer = metaStore.$actions.spawnPrompt({
   options: {

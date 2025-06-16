@@ -40,7 +40,7 @@ Used to observe scroll events. Accepts a `Ref<HTMLElement | null> | null` as fir
 
 **Example**:
 
-```typescript
+```ts
 const { reachedEnd, detach: detachScrollListener } = useScrollObserver(null, {
   antecipate: 600,
 })

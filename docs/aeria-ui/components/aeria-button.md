@@ -55,7 +55,7 @@ const count = ref(0)
 
 - `variant` <Badge type="tip" text="Size" /> <Badge type="tip" text="default: 'normal'" />: The variant of button styling. Accepted variants are:
 
-```typescript
+```ts
 type Variant =
   | 'primary'
   | 'alt'
@@ -64,7 +64,7 @@ type Variant =
 
 - `size` <Badge type="tip" text="Size" /> <Badge type="tip" text="default: 'medium'" />: The size the button should have. Accepted sizes are:
 
-```typescript
+```ts
 type Size = 
   | 'small'
   | 'medium'

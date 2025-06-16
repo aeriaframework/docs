@@ -72,7 +72,7 @@ The prefix to be used to store keys in `localStorage` or `sessionStorage`. Defau
 
 The `aeria-sdk` module exports a global Aeria SDK instance called `aeria`. This instance gets it's types from code generated with the `aeria-sdk` command. Attempting to import from `aeria-sdk` without running the code generation first will result in a runtime error.
 
-```typescript
+```ts
 import { aeria } from 'aeria-sdk'
 
 const main = async () => {
@@ -92,7 +92,7 @@ In some scenarios you may find it useful to modify the request before sending it
 
 You may change the `interceptors` object exported by `aeria-sdk` directly to add request and response interceptors. The interceptors will be used by all instances across the application.
 
-```typescript
+```ts
 import { interceptors } from 'aeria-sdk'
 
 interceptors.request = async (context, next) => {
@@ -117,7 +117,7 @@ interceptors.response = async (context, next) => {
 
 It is also possible to create a custom Aeria SDK instance instead of using the global one. In this case, the type of the API must be passed manually in the `createInstance()` template parameter.
 
-```typescript
+```ts
 import { createInstance } from 'aeria-sdk/topLevel'
 
 type Api = {

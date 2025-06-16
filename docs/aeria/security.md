@@ -8,7 +8,7 @@ There are two strategies for limiting the rate with which the user can request a
 
 **Type:**
 
-```typescript
+```ts
 type DiscriminationStrategy =
   | 'tenant'
   | 'ip'
@@ -18,7 +18,7 @@ type DiscriminationStrategy =
 
 **Type:**
 
-```typescript
+```ts
 enum RateLimitingErrors {
   Unauthenticated = 'UNAUTHENTICATED',
   LimitReached = 'LIMIT_REACHED',
@@ -49,7 +49,7 @@ The `context` object has a `limitRate` function (also exported by `aeria`) that 
 
 **Function signature:**
 
-```typescript
+```ts
 function limitRate(params: RateLimitingParams): Promise<
   | EndpointError<
     EndpointErrorContent<
@@ -70,7 +70,7 @@ function limitRate(params: RateLimitingParams): Promise<
 
 ::: code-group
 
-```typescript [router.ts]
+```ts [router.ts]
 router.GET('/resource', async (context) => {
   const { error } = await context.limitRate({
     strategy: 'tenant',
@@ -126,7 +126,7 @@ collection Person {
 }
 ```
 
-```typescript [person.ts]
+```ts [person.ts]
 const person = defineCollection({
   description,
   functions: {
@@ -161,7 +161,7 @@ const person = defineCollection({
 
 **Type:**
 
-```typescript
+```ts
 type LoggingParams = {
   strategy: DiscriminationStrategy
 }

@@ -9,7 +9,7 @@ This function is automatically bound to the `POST` method on the `/collectionNam
 
 **Type:**
 
-```typescript
+```ts
 type InsertPayload<TDocument extends CollectionDocument<any>> = {
   what: What<TDocument & { _id?: any }>
   project?: Projection<TDocument>
@@ -30,7 +30,7 @@ This function is used to retrieve the number of existent documents matching pass
 
 **Type:**
 
-```typescript
+```ts
 type CountPayload<TDocument extends CollectionDocument<OptionalId<any>>> = {
   filters?: Filters<TDocument>
 }
@@ -46,7 +46,7 @@ This function is used to retrieve the first document from the database matching 
 
 **Type:**
 
-```typescript
+```ts
 type GetPayload<TDocument extends CollectionDocument<OptionalId<any>>> = {
   filters?: Filters<TDocument>
   project?: Projection<TDocument>
@@ -65,7 +65,7 @@ type GetPayload<TDocument extends CollectionDocument<OptionalId<any>>> = {
 
 <!-- **Type:** -->
 
-<!-- ```typescript -->
+<!-- ```ts -->
 <!-- type GetOptions = { -->
 <!--   bypassAccessControl?: boolean -->
 <!-- } -->
@@ -81,7 +81,7 @@ This function is used to retrieve a array of documents from the database matchin
 
 **Type:**
 
-```typescript
+```ts
 type GetAllPayload<TDocument extends CollectionDocument<OptionalId<any>>> = {
   filters?: Filters<TDocument>
   project?: Projection<TDocument>
@@ -113,7 +113,7 @@ type GetAllPayload<TDocument extends CollectionDocument<OptionalId<any>>> = {
 
 <!-- The example sort below will sort documents alphabetically by name in descending order, then sort again by age in ascending order: -->
 
-<!-- ```typescript -->
+<!-- ```ts -->
 <!-- { -->
 <!--   name: -1, -->
 <!--   age: 1 -->
@@ -122,7 +122,7 @@ type GetAllPayload<TDocument extends CollectionDocument<OptionalId<any>>> = {
 
 <!-- ## Options -->
 
-<!-- ```typescript -->
+<!-- ```ts -->
 <!-- type GetAllOptions = { -->
 <!--   bypassAccessControl?: boolean -->
 <!-- } -->
@@ -140,7 +140,7 @@ Remove is automatically bound to the `DELETE` method on the `/collectionName/:id
 
 **Type:**
 
-```typescript
+```ts
 type RemovePayload<TDocument extends CollectionDocument<OptionalId<any>>> = {
   filters: Filters<TDocument>
 }

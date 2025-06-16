@@ -1,13 +1,11 @@
 # Contracts
 
-<!-- Contracts are objects that define input and output validation rules for endpoints and restrict the access to the endpoint given an access condition. -->
-
 In Aeria, a contract is a type of declaration responsible for modeling the behavior of endpoints. So, before moving to the TypeScript implementation itself, the endpoint is already modeled and documented in a separate layer. This offers a big advantage in terms of project organization as less code is produced and all the business logic can be viewed separately from the implementation.
 
 For example, the following contract would ensure only users with the "member" role would have access to the endpoint it was assigned to, and would also provide types and runtime validation for the payload.
 
 ```aeria
-contract AddFriend {
+contract UserAddFriend {
   roles {
     member
   }
@@ -76,14 +74,39 @@ Accepted modifiers:
 
 Contracts can be used by routes and collection functions.
 
-Route usage:
+**Route usage**:
 
 ```ts
 import { contracts } from '../../.aeria/out/index.js'
 
-router.POST('/addFriend', addFriend, contracts.AddFriend)
-router.POST('/removeFriend', removeFriend, contracts.RemoveFriend)
+router.POST('/addFriend', addFriend, contracts.UserAddFriend)
+router.POST('/removeFriend', removeFriend, contracts.UserRemoveFriend)
 ```
+
+**Collection usage**:
+
+::: code-group
+
+```ts [addFriend.ts]
+export const addFriend = ContractToFunction<typeof contracts.UserAddFriend> = (payload, context) => {
+  // ...
+}
+```
+
+```ts [collections.ts]
+import { addFriend } from './addFriend.js'
+
+export const user = extendUserCollection({
+  functions: {
+    addFriend,
+  },
+  contracts: {
+    addFriend: contracts.UserAddFriend,
+  },
+})
+```
+
+:::
 
 ## `ContractToFunction` utility type
 

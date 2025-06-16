@@ -390,7 +390,7 @@ collection Person {
 <!---->
 <!-- ::: code-group -->
 <!---->
-<!-- ```typescript [api/src/middlewares/index.ts] -->
+<!-- ```ts [api/src/middlewares/index.ts] -->
 <!-- import { defineCollectionMiddleware, deepMerge } from 'aeria' -->
 <!---->
 <!-- export const businessTenancyMiddleware = defineCollectionMiddleware({ -->
@@ -423,7 +423,7 @@ collection Person {
 <!---->
 <!-- ::: code-group -->
 <!---->
-<!-- ```typescript [api/src/collections.ts] -->
+<!-- ```ts [api/src/collections.ts] -->
 <!-- export const person = extendPersonCollection({ -->
 <!--   // will get executed one after another -->
 <!--   middlewares: [ -->

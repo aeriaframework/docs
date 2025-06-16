@@ -6,7 +6,7 @@ Aeria provides a set of functions and types meant to help with safe handling of 
 
 The `Result` namespace consists of the `error()` and `result()` functions, used to write error-safe functions, and of the `Error<T>`, `Result<T>`, and `Either<E, R>` types. Below is an example of how a error-safe function is written:
 
-```typescript
+```ts
 import { Result } from 'aeria'
 
 enum CustomError {
@@ -30,7 +30,7 @@ const fn = () => {
 
 Later, to access the return type of that function, we destructure `error` and `result` properties that can be narrowed down to the actual result. To forward the error or result of a error-safe function, simply wrap the value inside another `Result.error()` or `Result.result()`.
 
-```typescript
+```ts
 router.GET('/route', (context) => {
   const { error, result } = fn()
   if( error ) {
@@ -49,7 +49,7 @@ router.GET('/route', (context) => {
 
 Sometimes you need to isolate the types of a `Result` ahead of time. This can be achieved with the `ExtractResult<T>` and `ExtractError<T>` utility types exported from Aeria.
 
-```typescript
+```ts
 declare const ResultOrError: Result.Either<'my error', 'my result'>
 
 // const result: 'my result'
@@ -63,7 +63,7 @@ declare const error: ExtractError<ReturnType<typeof fn>>
 
 The `EndpointError<Code, Details, HTTPStatus, Message>` is a special type of error meant to be returned from endpoints (routes or collection functions). Morphologically it's still a `Result.Error<T>`, but with a structure that will be understood as an endpoint error across the application.
 
-```typescript
+```ts
 import { createRouter, HTTPStatus, ACError } from 'aeria'
 
 export const router = createRouter()

@@ -5,7 +5,7 @@ This function builts a MongoDB aggregation pipeline using the internal reference
 
 ### Example
 
-```typescript
+```ts
 const pipeline = await getLookupPipeline(context.description, {
   memoize: context.description.$id,
   project: payload.populate || project,

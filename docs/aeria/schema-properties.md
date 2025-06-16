@@ -263,7 +263,7 @@ You may specify a range of minimum and maximum allowed array elements like so:
 <!---->
 <!-- The following text is quoted directly from [json-schema.org](https://json-schema.org/understanding-json-schema/reference/string): "The format keyword allows for basic semantic identification of certain kinds of string values that are commonly used. For example, because JSON doesn't have a "DateTime" type, dates need to be encoded as strings. format allows the schema author to indicate that the string value should be interpreted as a date". -->
 <!---->
-<!-- ```typescript -->
+<!-- ```ts -->
 <!-- type PropertyFormat =  -->
 <!--   | 'date' -->
 <!--   | 'date-time' -->
@@ -273,7 +273,7 @@ You may specify a range of minimum and maximum allowed array elements like so:
 <!---->
 <!-- When applicable, this property specifies a custom input type to be passed to the HTML `<input />` element. -->
 <!---->
-<!-- ```typescript -->
+<!-- ```ts -->
 <!-- type PropertyInputType = -->
 <!--   | 'text' -->
 <!--   | 'email' -->
@@ -368,7 +368,7 @@ You may specify a range of minimum and maximum allowed array elements like so:
 <!---->
 <!-- **Example:** -->
 <!---->
-<!-- ```typescript -->
+<!-- ```ts -->
 <!-- { -->
 <!--   herbivore_animals: { -->
 <!--     $ref: 'animals', -->
@@ -456,7 +456,7 @@ You may specify a range of minimum and maximum allowed array elements like so:
 <!---->
 <!-- **Example:** -->
 <!---->
-<!-- ```typescript [description.ts] -->
+<!-- ```ts [description.ts] -->
 <!-- { -->
 <!--   full_name: { -->
 <!--     getter: (doc: any) => { -->

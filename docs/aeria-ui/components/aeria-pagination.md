@@ -80,7 +80,7 @@ const pagination = ref({
 
 **Types:**
 
-```typescript
+```ts
 type Pagination = {
   recordsCount: number
   recordsTotal: number

@@ -4,7 +4,7 @@ Stores are objects that hold state (`.item`, `.items`, `.itemsCount`, etc) and a
 
 Each collection has it store automatically generated in the runtime. It can be accessed with `const personStore = useStore('person')`. Collection stores can also be extended to add state and functionality. To view all properties collection stores have, visit [`CollectionStore`](/aeria-ui/collection-store)
 
-```typescript
+```ts
 const personStore = useStore('person')
 
 // this action mutates the `.items` state
@@ -18,7 +18,7 @@ for( const people of personStore.items ) {
 
 **Types:**
 
-```typescript
+```ts
 type StoreState = Record<string, unknown>
 
 type Store = StoreState & {
@@ -35,7 +35,7 @@ This function creates a new store from a callback.
 
 **Example:**
 
-```typescript
+```ts
 export myCustomStore = createStore(() => ({
   state: {
     counter: 0
@@ -60,7 +60,7 @@ Collections must be named-exported by `./stores` and have the same name as their
 
 **Example:**
 
-```typescript
+```ts
 export const employees = createStore((manager) => createCollectionStore({
   $id: 'employees',
   state: {
@@ -93,7 +93,7 @@ export const employees = createStore((manager) => createCollectionStore({
 ## `useStore()`
 >`useStore(storeId: string) => Store`
 
-```typescript
+```ts
 declare const useStore: (storeId: string, manager?: GlobalStateManager) => Store
 ```
 
@@ -185,7 +185,7 @@ A helper function that will retrieved the specified properties from `$actions.st
 This property is similar to `$actions`, but contains a proxy object that maps to any endpoint of the collection, including custom and router-created ones, and won't produce any mutations in the state. Functions will return a Promise that will resolve to the response of the endpoint.
 For example:
 
-```typescript
+```ts
 const items = await personStore.$functions.getAll({})
 ```
 

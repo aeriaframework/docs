@@ -64,7 +64,7 @@
   This directive places a clickable overlay just behing the target element. The click callback, along with the z-index of the overlay can be passed as parameters to the directive.
 
 - **Type**
-  ```typescript
+  ```ts
     type OverlayOptions = {
     condition: boolean
     layer?: number

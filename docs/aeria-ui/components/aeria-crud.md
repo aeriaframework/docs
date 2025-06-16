@@ -26,7 +26,7 @@ The following [`Description`](/backend/description) properties takes effect on h
 
 **Type:**
 
-```typescript
+```ts
 type ActionEvent<T={ _id: string }> = {
   id: number
   name: string
@@ -44,7 +44,7 @@ This event will trigger whenever a button derived from `description.individualAc
 
 For example, suppose the following [`Description`](/aeria/description):
 
-```typescript
+```ts
 const description: Description = {
   individualActions: {
     'ui:openPanel': {
@@ -58,7 +58,7 @@ const description: Description = {
 
 Whenever the `Open panel` button is clicked from within a table row or card, `aeria-crud` will dispatch the following event:
 
-```typescript
+```ts
 {
   name: 'openPanel',
   params: {

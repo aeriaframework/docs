@@ -3,7 +3,7 @@
 
 This function iterates all the properties of a document recursively performing the specified set of operations on each step. If any of the steps returns a `Error<T>`, then the function returns it immediately, otherwise returns a `Result<T>` containing the mutated copy of the object.
 
-```typescript
+```ts
 type TraverseOptions = {
   autoCast?: boolean
   getters?: boolean
@@ -17,7 +17,7 @@ type TraverseOptions = {
 
 ### Example usage
 
-```typescript
+```ts
 const filtersCandidate = {
   _id: {
     $in: [
