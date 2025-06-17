@@ -96,7 +96,6 @@ function sidebarAeriaReference() {
         { text: 'Collections', link: '/aeria/collections', },
         { text: 'Contracts', link: '/aeria/contracts' },
         { text: 'Schema properties', link: '/aeria/schema-properties' },
-        { text: 'Validation', link: '/aeria/validation' },
         { text: 'Routing', link: '/aeria/routing', },
         { text: 'Error Handling', link: '/aeria/error-handling', },
         { text: 'Security', link: '/aeria/security', },
@@ -112,6 +111,7 @@ function sidebarAeriaReference() {
         { text: 'traverseDocument()', link: '/aeria/traverse-document' },
         { text: 'getLookupPipeline()', link: '/aeria/get-lookup-pipeline' },
         { text: 'successfulAuthentication()', link: '/aeria/successful-authentication' },
+        { text: 'Validation', link: '/aeria/validation' },
       ]
     },
     {
