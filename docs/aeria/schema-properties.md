@@ -1,5 +1,15 @@
 # Schema properties
 
+## Base attributes
+
+- `@description(string)` - assigns a description to the property for documentation and visualization purposes
+- `@hint(string)` - places a hint down below the property field in forms
+- `@focus(boolean)` - tells the frontend that the property field should be auto-focused on forms
+- `@hidden(boolean)` - informs the property should not be returned from the API
+- `@icon(string)` - specifies a icon to be associated with the property on the frontend
+- `@readonly(boolean)` - marks the property as being read-only
+- `@translate(boolean)` - informs the property value should be translated when i18n is available
+
 ## String
 
 Stores a JSON string.

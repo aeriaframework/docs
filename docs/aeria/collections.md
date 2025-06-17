@@ -1,6 +1,8 @@
 # Collections
 
-In their most basic form, collections may have only their data structure defined. Since MongoDB is a schemaless database, data will be verified on the application level before being inserted. A collection that stores people may be defined as following:
+Collections are the most essential type of declaration in Aeria. They are used to provide a schema for database entities, like ORM models. The schema will be used to runtime-validate data before it being inserted in the database, and to provide rich type information across the application.
+
+Below is a minimal valid collection declaration featuring only two properties. As property types are several and they are also used in places other than collections, they're covered separately in their [own documentation section](/aeria/schema-properties).
 
 ```aeria
 collection Person {
@@ -11,7 +13,7 @@ collection Person {
 }
 ```
 
-We can tell which properties are to be required using the `required` attribute:
+Attributes related to data structure follow the JSON Schema standard. So, for example, to tell which properties are required, we pass their names inside the `required` block:
 
 ```aeria
 collection Person {
@@ -25,7 +27,10 @@ collection Person {
 }
 ```
 
-Collections can have attributes other than their own data structure. You can define an icon from the [Phosphor Icon](https://phosphoricons.com) library to represent your collection on the frontend using the `icon` attribute. You can also define which properties are to be displayed in frontend tables using the `table` attribute.
+One of the goals of Aeria is to streamline backend and frontend interoperability. That being the case, Aeria Lang features frontend-specific attributes that can be used, for example, to tell how the collection must be displayed on a tabular view.
+
+These attributes aren't actually used by the backend, they are only used to provide optimizations to the frontend or to provide visual representation hints.
+
 
 ```aeria
 collection Person {
@@ -43,7 +48,7 @@ collection Person {
 }
 ```
 
-Finally, you can have CRUD-related functions directly bound to your collection by using the `functions` attribute. Each function will be accessible through it's respective REST endpoint.
+Finally, you can have CRUD-related functions directly bound to your collection by using the `functions` attribute. Those are builtin functions already provided by Aeria to avoid repetition when dealing with CRUD operations. If explicitly set to be exposed, the functions placed under the `functions` block will be made available as endpoints.
 
 ```aeria
 collection Person {
@@ -59,12 +64,21 @@ collection Person {
     age int
   }
   functions { // [!code focus]
-    get // [!code focus]
-    getAll // [!code focus]
+    get @expose // [!code focus]
+    getAll @expose // [!code focus]
     insert // [!code focus]
     remove // [!code focus]
   } // [!code focus]
 }
+```
+
+In the example above, the `POST /person/get` and `POST /person/getAll` endpoints would be made available in the runtime, while the rest of the functions could only be called internally from a [context](/aeria/context), as shown below:
+
+```ts
+router.GET('/myRoute', async (context) => {
+  const { error, result } = await context.collections.person.functions.insert(...)
+  // ...
+})
 ```
 
 ## Attributes
