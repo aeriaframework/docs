@@ -219,3 +219,18 @@ If set to `true`, won't print the startup summary.
 
 Enables basic HTTP logging on the screen.
 
+### `server.cors`
+
+**Type**: `CorsConfig | null`
+
+Allows specifying custom CORS headers, or, if `null` is passed, skips setting CORS headers entirely.
+
+```ts
+type CorsConfig = {
+  allowOrigin?: readonly string[]
+  allowMethods?: readonly string[]
+  allowHeaders?: readonly string[]
+  maxAge: string
+}
+```
+
