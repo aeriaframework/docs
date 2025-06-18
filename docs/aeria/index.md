@@ -75,7 +75,7 @@ In order to get the Aeria development server running locally, first make sure to
 Next, bootstrap a new app with the following command:
 
 ```sh
-npm create -y aeria-app my-app
+npm create -y aeria-app@latest my-app
 ```
 
 Finally, cd into the directory created by the command and start the development server:
