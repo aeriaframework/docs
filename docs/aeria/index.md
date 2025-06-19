@@ -39,13 +39,13 @@ contract AddFriend {
     }
   }
   response
-    | Result Person
     | Error {
       properties {
         message str
         code int
       }
     }
+    | Result Person
 }
 ```
 

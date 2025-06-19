@@ -54,13 +54,13 @@ The `payload`, `query` and `response` attributes can take multiple options separ
 ```aeria
 contract MyContract {
   response
-    | Result const @value("success")
     | Error {
       properties {
         message str
         code int
       }
     }
+    | Result const @value("success")
 }
 ```
 
