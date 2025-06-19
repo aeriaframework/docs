@@ -15,7 +15,6 @@ functionset Crud {
   getAll @expose
   insert @expose
   remove @expose
-  upload @expose
 }
 
 collection Person {
@@ -25,6 +24,7 @@ collection Person {
   }
   functions {
     include(Crud)
+    upload @expose
   }
 }
 ```
