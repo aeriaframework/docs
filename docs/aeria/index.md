@@ -15,6 +15,7 @@ functionset Crud {
   getAll @expose
   insert @expose
   remove @expose
+  upload @expose
 }
 
 collection Person {
