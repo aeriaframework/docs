@@ -221,16 +221,31 @@ Enables basic HTTP logging on the screen.
 
 ### `server.cors`
 
-**Type**: `CorsConfig | null`
+**Type**: `null | CorsConfig | CorsFunction`
 
-Allows specifying custom CORS headers, or, if `null` is passed, skips setting CORS headers entirely.
+Allows specifying custom CORS headers.
+If `null` is passed, then the CORS setup is skipped entirely.
+If a function is passed, then it will replace the default one. In this case, the `config` parameter will receive the default CORS settings used by Aeria.
 
 ```ts
+type CorsFunction = (req: GenericRequest, res: GenericResponse, config: CorsConfig) => Promise<null | undefined>
+
 type CorsConfig = {
   allowOrigin?: readonly string[]
   allowMethods?: readonly string[]
   allowHeaders?: readonly string[]
   maxAge: string
 }
+```
+
+### `server.getToken`
+
+**Type**: `GetTokenFunction`
+
+Allows specifying a custom function to extract token information from a request.
+If this option is omitted, the default `getToken()` function will be used. The implementation can be seen here: https://github.com/aeria-org/aeria/blob/master/packages/server/src/getToken.ts.
+
+```ts
+export type GetTokenFunction = (request: GenericRequest, context: RouteContext) => Promise<Result.Either<unknown, Token>>
 ```
 
