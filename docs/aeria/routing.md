@@ -65,49 +65,65 @@ router.group('/hello', helloRouter, (context) => {
 
 Data passed through `context.request.payload` and `context.request.query` can be validated during the runtime, resulting in a `422 Unprocessable Entity` error in case the validation fails (see: [Contracts](/aeria/contracts)). Simply pass a `Contract` object in the optional third (or fourth, if using `router.route`) parameter of the router registration function:
 
-```ts
-router.POST('/sayMyName', (context) => {
-  return context.request.payload.name
-}, {
-  payload: {
-    type: 'object',
-    properties: {
-      name: {
-        type: 'string'
-      }
+::: code-group
+
+```aeria [contracts.aeria]
+contract SayMyName {
+  payload {
+    properties {
+      name str
     }
   }
-})
+  response str
+}
 ```
+
+```ts [routes.ts]
+router.POST('/sayMyName', (context) => {
+  return context.request.payload.name
+}, contracts.SayMyName)
+```
+
+:::
 
 ### Guards
 
 You can make sure a route is only accessible if the user has certain roles. This is done using the `roles` property of [`ContractWithRoles`](/aeria/routing). Setting the `roles` for a specific route ensures type safety and requests with tokens that don't match the criteria will fail with `403 Forbidden` error.
 
 
-```ts
+::: code-group
+
+```aeria [contracts.aeria]
+contracts Authenticated {
+  roles {
+    root
+  }
+}
+
+contracts Mixed {
+  roles {
+    root
+    guest // [!code ++]
+  }
+}
+```
+
+```ts [routes.ts]
 router.GET('/authenticated', (context) => {
   // TS will produce no errors since the type of `context.token` was narrowed
   context.token.authenticated === true
   context.token.userinfo.email
-}, {
-  roles: [
-    'root',
-  ]
-})
+}, contracts.Authenticated)
 
 router.GET('/mixed', (context) => {
   // TS will produce errors because 'guest' is among the roles, so the user may or
   // may not be authenticated
   context.token.authenticated === true // [!code error]
   context.token.userinfo.email // [!code error]
-}, {
-  roles: [
-    'root',
-    'guest', // [!code ++]
-  ]
-})
+}, contracts.Mixed)
 ```
+
+:::
 
 ### Streaming
 
@@ -132,9 +148,17 @@ router.POST('/getFileBackwards', (context) => {
 })
 ```
 
-If streaming from inside a callback is still needed, then the `stream: true` option must be passed to indicate the response stream shouldn't be ended immediately after the callback returns.
+If streaming from inside a callback is still needed, then the `streamed: true` option must be passed to indicate the response stream shouldn't be ended immediately after the callback returns.
 
-```ts
+::: code-group
+
+```aeria [contracts.aeria]
+contract ConvertToMp3 {
+  streamed true
+}
+```
+
+```ts [routes.ts]
 router.POST('/convertToMp3', (context) => {
   const tmpFile = fs.createWriteStream('/tmp/temp.mp4')
   context.request.pipe(tmpFile)
@@ -144,8 +168,8 @@ router.POST('/convertToMp3', (context) => {
     proc.stdout.pipe(context.response)
     proc.stderr.pipe(process.stderr)
   })
-}, {
-  streamed: true,
-})
+}, contracts.ConvertToMp3)
 ```
+
+:::
 
