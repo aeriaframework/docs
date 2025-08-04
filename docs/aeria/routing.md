@@ -94,13 +94,13 @@ You can make sure a route is only accessible if the user has certain roles. This
 ::: code-group
 
 ```aeria [contracts.aeria]
-contracts Authenticated {
+contract Authenticated {
   roles {
     root
   }
 }
 
-contracts Mixed {
+contract Mixed {
   roles {
     root
     guest // [!code ++]
