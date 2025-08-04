@@ -58,7 +58,8 @@ export default defineConfig({
           { text: 'Aeria', link: '/aeria/', activeMatch: '^/aeria/' },
           { text: 'Aeria UI', link: '/aeria-ui/', activeMatch: '^/aeria-ui/' },
           { text: 'Aeria SDK', link: '/aeria-sdk/', activeMatch: '^/aeria-sdk/' },
-          { text: 'create-aeria-app', link: 'https://github.com/aeria-org/create-aeria-app' },
+          { text: 'create-aeria-app', link: 'https://github.com/aeria-org/aeria/tree/master/packages/create-aeria-app' },
+          { text: 'aeria-populate', link: 'https://github.com/aeria-org/aeria/tree/master/packages/aeria-populate' },
         ]
       },
       {
