@@ -12,7 +12,7 @@
     "@types/node": "^22.13.1",
     "aeria-lang-vscode": "^0.0.28",
     "aeria-sdk": "^0.0.176",
-    "less": "^4.2.2",
+    "less": "^4.4.0",
     "tailwindcss": "^4.0.5",
     "typescript": "^5.7.3",
     "vite": "^6.1.0",
