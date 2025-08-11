@@ -140,12 +140,6 @@ If set to `true`, a log record will be created with the timestamp and informatio
 
 Teste
 
-### `security.allowSignup`
-
-**Type**: `boolean`
-
-If set to `true`, the `/user/createAccount` endpoint will be enabled for unauthenticated users to create accounts.
-
 ### `security.mutableUserProperties`
 
 **Type**: `(keyof CollectionItem<'user'>)[]`
@@ -164,13 +158,19 @@ A list of properties users are able to edit through the `/user/editProfile` endp
 ]
 ```
 
-### `security.signupDefaults.roles`
+### `security.signup`
+
+**Type**: `boolean`
+
+If a value is assigned to this object, the `/user/createAccount` endpoint will be enabled for unauthenticated users to create accounts.
+
+### `security.signup.roles`
 
 **Type**: `readonly UserRole[]`
 
 The roles to be assigned to new users created through the `/user/createAccount` endpoint.
 
-### `security.signupDefaults.active`
+### `security.signup.active`
 
 **Type**: `boolean`
 
