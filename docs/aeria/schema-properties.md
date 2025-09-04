@@ -106,6 +106,16 @@ Stores a JSON boolean.
 is_active bool
 ```
 
+## Const
+
+Stores a constant value.
+
+**Example**:
+
+```aeria-properties
+status const @value("active")
+```
+
 ## Date
 
 Stores an ISO date string.
@@ -124,6 +134,20 @@ Stores an ISO date string, exactly like `date`. The difference is that time info
 
 ```aeria-properties
 opened_at datetime
+```
+
+## Enum
+
+Stores an enumeration of constant values.
+
+**Example**:
+
+```aeria-properties
+status enum @values([
+  "pending",
+  "paid",
+  "canceled",
+])
 ```
 
 ## Object
